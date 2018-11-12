@@ -6,6 +6,7 @@ use App\Entity\Traits\ArchivedTraits;
 use App\Entity\Traits\PositionTraits;
 use App\Entity\Traits\PublishedTraits;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
@@ -59,6 +60,7 @@ class Article
     public function __construct()
     {
         $this->tags = new ArrayCollection();
+        $this->player = new ArrayCollection();
     }
 
     /**
@@ -75,6 +77,10 @@ class Article
 
     private $date;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Player", inversedBy="articles")
+     */
+    private $player;
 
     /**
      * @return int
@@ -183,6 +189,32 @@ class Article
     public function setDate(\DateTime $date)
     {
         $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Player[]
+     */
+    public function getPlayer(): Collection
+    {
+        return $this->player;
+    }
+
+    public function addPlayer(Player $player): self
+    {
+        if (!$this->player->contains($player)) {
+            $this->player[] = $player;
+        }
+
+        return $this;
+    }
+
+    public function removePlayer(Player $player): self
+    {
+        if ($this->player->contains($player)) {
+            $this->player->removeElement($player);
+        }
 
         return $this;
     }
