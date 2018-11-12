@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <a href="{{ path('app_back_article_new') }}" class="btn">Ajouter</a>
+    <br>
+
+    <h4>Liste de mes articles</h4>
+
+    {% for article in articles %}
+        {{ article.title }}
+        <a href="{{ path('app_back_article_show', {'id': article.id}) }}" class="btn">Voir</a>
+        <a href="{{ path('app_back_article_edit', {'id': article.id}) }}" class="btn">Editer</a>
+        <a href="{{ path('app_back_article_delete', {'id': article.id, '_token': csrf_token('delete-item')}) }}" class="btn">Supprimer</a><br>
+    {% else %}
+        Aucun article
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <a href="{{ path('app_back_article_index') }}" class="btn">Retour à la liste</a>
+    <br>
+
+    <h4>Article {{ article.title }}</h4>
+
+    <p>Tags de l'article : <br>
+        {% for tag in article.tags %}
+            {{ tag.name }} <br>
+        {% endfor %}
+    </p>
+    <br>
+    <p>Content : {{ article.content|nl2br }}</p>
+{% endblock %}

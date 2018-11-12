@@ -1,0 +1,10 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h4>Editer mon article {{ article.title }}</h4>
+
+    {{ form_start(form) }}
+        {{ form_rest(form) }}
+        <button type="submit" class="btn">Editer</button>
+    {{ form_end(form) }}
+{% endblock %}

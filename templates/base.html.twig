@@ -2,11 +2,38 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Cours SF4!{% endblock %}</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         {% block stylesheets %}{% endblock %}
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <nav class="light-blue lighten-1" role="navigation">
+            <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="{{ path('app_back_default_home') }}">Admin</a></li>
+                </ul>
+
+                <ul id="nav-mobile" class="sidenav">
+                    <li><a href="#">Navbar Link</a></li>
+                </ul>
+                <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            </div>
+        </nav>
+
+        <div class="container">
+            <br><br>
+            {% block body %}{% endblock %}
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('select').formSelect();
+            });
+        </script>
         {% block javascripts %}{% endblock %}
     </body>
 </html>
