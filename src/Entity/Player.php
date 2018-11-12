@@ -29,7 +29,7 @@ class Player
     /**
      * @ORM\Column(type="string", length=30)
      */
-    private $name;
+    private $firstname;
 
     /**
      * @ORM\Column(type="string", length=30)
@@ -72,14 +72,14 @@ class Player
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getFirstname(): ?string
     {
-        return $this->name;
+        return $this->firstname;
     }
 
-    public function setName(string $name): self
+    public function setName(string $firstname): self
     {
-        $this->name = $name;
+        $this->firstname = $firstname;
 
         return $this;
     }

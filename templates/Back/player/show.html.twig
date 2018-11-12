@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Player{% endblock %}
+
+{% block body %}
+    <h1>Player</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ player.id }}</td>
+            </tr>
+            <tr>
+                <th>Firstname</th>
+                <td>{{ player.firstname }}</td>
+            </tr>
+            <tr>
+                <th>Lastname</th>
+                <td>{{ player.lastname }}</td>
+            </tr>
+            <tr>
+                <th>DateBirth</th>
+                <td>{{ player.dateBirth ? player.dateBirth|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>City_birth</th>
+                <td>{{ player.cityBirth }}</td>
+            </tr>
+            <tr>
+                <th>Foot</th>
+                <td>{{ player.foot }}</td>
+            </tr>
+            <tr>
+                <th>Nationality</th>
+                <td>{{ player.nationality }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ player.createdAt ? player.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ player.updatedAt ? player.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Published</th>
+                <td>{{ player.published ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Archived</th>
+                <td>{{ player.archived ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('Back/player_index') }}">back to list</a>
+
+    <a href="{{ path('Back/player_edit', {'id': player.id}) }}">edit</a>
+
+    {{ include('Back/player/_delete_form.html.twig') }}
+{% endblock %}

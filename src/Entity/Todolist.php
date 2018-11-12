@@ -2,13 +2,19 @@
 
 namespace App\Entity;
 
+use App\Entity\Traits\ArchivedTraits;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TodolistRepository")
  */
 class Todolist
 {
+    use TimestampableEntity;
+    use ArchivedTraits;
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -25,6 +31,22 @@ class Todolist
      * @ORM\Column(type="text")
      */
     private $content;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="todolists")
+     */
+    private $author;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $status;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="todolist_user")
+     */
+    private $assigned_user;
 
     public function getId(): ?int
     {
@@ -51,6 +73,42 @@ class Todolist
     public function setContent(string $content): self
     {
         $this->content = $content;
+
+        return $this;
+    }
+
+    public function getAuthor(): ?User
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?User $author): self
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    public function getStatus(): ?int
+    {
+        return $this->status;
+    }
+
+    public function setStatus(int $status): self
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    public function getAssignedUser(): ?User
+    {
+        return $this->assigned_user;
+    }
+
+    public function setAssignedUser(?User $assigned_user): self
+    {
+        $this->assigned_user = $assigned_user;
 
         return $this;
     }

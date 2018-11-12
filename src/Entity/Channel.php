@@ -2,13 +2,18 @@
 
 namespace App\Entity;
 
+use App\Entity\Traits\ArchivedTraits;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ChannelRepository")
  */
 class Channel
 {
+
+    use TimestampableEntity;
+    use ArchivedTraits;
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
