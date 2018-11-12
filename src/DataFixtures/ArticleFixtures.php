@@ -22,6 +22,7 @@ class ArticleFixtures extends Fixture implements DependentFixtureInterface
                 ->setTitle($faker->firstName)
                 ->setContent($faker->text())
                 ->addTag($tags[array_rand($tags)])
+                ->setDate($faker->dateTime())
                 ->setCreatedAt($date)
                 ->setUpdatedAt($date)
                 ->setPublished($faker->boolean)

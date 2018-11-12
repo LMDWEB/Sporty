@@ -80,7 +80,7 @@ class ArticleController extends AbstractController
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('app_back_article_edit', [
-                'article' => $article
+                'id' => $article->getId()
             ]);
         }
 

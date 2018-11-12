@@ -38,10 +38,11 @@ class Article
 	private $title;
 
     /**
-	 * @var string
-     * @ORM\Column(type="string", nullable=true)
+     * @var string
+     * @Gedmo\Slug(fields={"title", "id"})
+     * @ORM\Column(length=128, unique=true, nullable=true)
      */
-	private $slug = null;
+    private $slug = null;
 
     /**
 	 * @var string
@@ -59,6 +60,21 @@ class Article
     {
         $this->tags = new ArrayCollection();
     }
+
+    /**
+     * @var User
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="articles")
+     */
+    private $user;
+
+    /**
+     * @var \DateTime
+     * @ORM\Column(type="datetime")
+     * @Assert\Type(type="\DateTime")
+     */
+
+    private $date;
+
 
     /**
      * @return int
@@ -152,4 +168,23 @@ class Article
     {
         return $this->tags;
     }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDate(): \DateTime
+    {
+        return $this->date;
+    }
+
+    /**
+     * @param \DateTime $date
+     */
+    public function setDate(\DateTime $date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
 }
