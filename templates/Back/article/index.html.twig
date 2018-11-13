@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article index{% endblock %}
+
+{% block body %}
+    <h1>Article index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Slug</th>
+                <th>Content</th>
+                <th>Date</th>
+                <th>Image</th>
+                <th>Featured</th>
+                <th>Views</th>
+                <th>Type</th>
+                <th>Source_article</th>
+                <th>Source_image</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>Published</th>
+                <th>Archived</th>
+                <th>Position</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for article in articles %}
+            <tr>
+                <td>{{ article.id }}</td>
+                <td>{{ article.title }}</td>
+                <td>{{ article.slug }}</td>
+                <td>{{ article.content }}</td>
+                <td>{{ article.date ? article.date|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ article.image }}</td>
+                <td>{{ article.featured ? 'Yes' : 'No' }}</td>
+                <td>{{ article.views }}</td>
+                <td>{{ article.type }}</td>
+                <td>{{ article.sourceArticle }}</td>
+                <td>{{ article.sourceImage }}</td>
+                <td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ article.updatedAt ? article.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ article.published ? 'Yes' : 'No' }}</td>
+                <td>{{ article.archived ? 'Yes' : 'No' }}</td>
+                <td>{{ article.position }}</td>
+                <td>
+                    <a href="{{ path('article_show', {'id': article.id}) }}">show</a>
+                    <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="17">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('article_new') }}">Create new</a>
+{% endblock %}

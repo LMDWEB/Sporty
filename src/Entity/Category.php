@@ -3,15 +3,15 @@
 namespace App\Entity;
 
 use App\Entity\Traits\ArchivedTraits;
+use App\Entity\Traits\TimestampableTraits;
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CategoryRepository")
  */
 class Category
 {
-    use TimestampableEntity;
+    use TimestampableTraits;
     use ArchivedTraits;
     /**
      * @ORM\Id()

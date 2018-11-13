@@ -13,9 +13,9 @@ trait ArchivedTraits
 {
     /**
      * @var boolean
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", options={"default": false})
      */
-    protected $archived;
+    protected $archived = false;
 
     /**
      * @return bool

@@ -6,9 +6,9 @@ trait PublishedTraits {
 
     /**
      * @var boolean
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", options={"default": false})
      */
-    protected $published;
+    protected $published = false;
 
     /**
      * @return mixed
