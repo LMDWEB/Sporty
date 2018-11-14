@@ -5,7 +5,9 @@
 {% block body %}
     <h1>Club index</h1>
 
-    <table class="table">
+    <a href="{{ path('club_new') }}">Create new</a>
+<div class="table-responsive">
+    <table class="table table-bordered" id="dataTable">
         <thead>
             <tr>
                 <th>Id</th>
@@ -44,6 +46,5 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('club_new') }}">Create new</a>
+</div>
 {% endblock %}

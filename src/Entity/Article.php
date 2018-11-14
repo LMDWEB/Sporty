@@ -254,12 +254,12 @@ class Article
     /**
      * @return Collection|Club[]
      */
-    public function getIdClub(): Collection
+    public function getClub(): Collection
     {
         return $this->club;
     }
 
-    public function addIdClub(Club $idClub): self
+    public function addClub(Club $idClub): self
     {
         if (!$this->club->contains($idClub)) {
             $this->club[] = $idClub;
@@ -268,7 +268,7 @@ class Article
         return $this;
     }
 
-    public function removeIdClub(Club $idClub): self
+    public function removeClub(Club $idClub): self
     {
         if ($this->club->contains($idClub)) {
             $this->club->removeElement($idClub);
