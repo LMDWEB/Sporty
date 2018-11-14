@@ -92,6 +92,7 @@ Sidebar heading:	'Oswald', sans-serif;
 @charset "utf-8";
 
 /* Default Css Starts */
+@import url(css/shortcode.css);
 
 * {
   padding: 0px;
@@ -200,10 +201,6 @@ Sidebar heading:	'Oswald', sans-serif;
   .kode-search {
     margin: 21px -14px 0 0;
   }
-}
-
-.pull-left {
-  float: left !important;
 }
 
 /* Main Header Ends */
@@ -573,10 +570,6 @@ Sidebar heading:	'Oswald', sans-serif;
     -webkit-box-shadow: 0px 30px 20px 0px rgba(0, 0, 0, 0.5);
     margin-bottom: 40px;
   }
-  h2 {
-    text-transform: uppercase;
-    font-size: 60px;
-  }
   p {
     font-size: 20px;
     line-height: normal;
@@ -639,15 +632,18 @@ Sidebar heading:	'Oswald', sans-serif;
   }
 }
 
-/* Main Banner Ends */
-
-/* Main Content */
-
 .kode-content {
+  .container {
+    width: 100%;
+  }
   float: left;
   width: 100%;
   padding: 40px 0px 0px 0px;
 }
+
+/* Main Banner Ends */
+
+/* Main Content */
 
 .playersheet .kode-content, .newssheet .kode-content {
   background: #ededed;
@@ -994,6 +990,7 @@ Sidebar heading:	'Oswald', sans-serif;
   right: 0px;
   bottom: 0px;
   z-index: 10;
+  width: 100%;
   &:before {
     content: '';
     position: absolute;
@@ -1039,6 +1036,7 @@ Sidebar heading:	'Oswald', sans-serif;
         display: inline-block;
         box-shadow: 0px 0px 0px 1px #fff inset;
         background-color: #04275F;
+        width: 100%;
         span {
           color: #ffffff;
           background-color: #EA202E;
@@ -1366,6 +1364,17 @@ Sidebar heading:	'Oswald', sans-serif;
     font-size: 20px;
     font-weight: normal;
   }
+  &.calendar span {
+    width: auto;
+  }
+  td {
+    &.teamHome img {
+      text-align: left;
+    }
+    &.teamAway img {
+      text-align: right;
+    }
+  }
 }
 
 /* Match Table ends */
@@ -1407,15 +1416,20 @@ Sidebar heading:	'Oswald', sans-serif;
   background-color: #FFF;
   /*padding: 18px;*/
   position: relative;
-  &:before {
-    content: '';
-    position: absolute;
-    left: 0%;
-    top: -2px;
-    width: 100%;
-    height: 2px;
-    background-color: #f4f4f4;
-  }
+}
+
+.kode-grid-blog .row {
+  padding: 0;
+}
+
+.kode-time-zoon:before {
+  content: '';
+  position: absolute;
+  left: 0%;
+  top: -2px;
+  width: 100%;
+  height: 2px;
+  background-color: #f4f4f4;
 }
 
 .kode-large-blog ul li:hover .kode-time-zoon time {
@@ -1463,10 +1477,10 @@ Sidebar heading:	'Oswald', sans-serif;
 .kode-blog-info {
   float: left;
   width: 100%;
-  background-color: #f4f4f4;
   padding: 20px 20px 0px 20px;
   text-align: center;
   position: relative;
+  margin-bottom: 10px;
 }
 
 .kode-recent-blog ul {
@@ -1476,12 +1490,22 @@ Sidebar heading:	'Oswald', sans-serif;
   li:hover figcaption p {
     display: block;
   }
-  figcaption .time-news {
-    float: right;
-    font-style: italic;
-    color: #04275F;
-    font-size: 11px;
+}
+
+.kode-blog-list ul li {
+  p {
+    display: none;
   }
+  &:hover p {
+    display: block;
+  }
+}
+
+.kode-recent-blog ul figcaption .time-news {
+  float: right;
+  font-style: italic;
+  color: #04275F;
+  font-size: 11px;
 }
 
 /*.kode-blog-info:before {
@@ -1510,6 +1534,14 @@ Sidebar heading:	'Oswald', sans-serif;
   float: left;
   width: 100%;
   text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .kode-align-btn {
+    float: left;
+    width: 80%;
+    text-align: center;
+  }
 }
 
 /* Blog Large ends */
@@ -1562,7 +1594,6 @@ Sidebar heading:	'Oswald', sans-serif;
   }
   .kode-blog-info {
     text-align: left;
-    background-color: #ffffff;
     padding: 15px 10px 30px 10px;
     border-bottom: 1px solid #d1d1d1;
     &:before {
@@ -1587,7 +1618,7 @@ Sidebar heading:	'Oswald', sans-serif;
   .kode-time-zoon:before {
     /*	left: 50%;
     	margin: 0px 0px 0px -100px;*/
-    background-color: #a5a5a5;
+    background-color: #04275F;
   }
 }
 
@@ -1752,7 +1783,6 @@ blockquote {
     border-right: 230px solid transparent;
   }
   figure {
-    border: 5px solid #333333;
     float: left;
     width: 110px;
     margin: 0px;
@@ -1857,6 +1887,9 @@ blockquote {
     margin-top: 25px;
     padding-top: 25px;
   }
+  img {
+    width: 60px;
+  }
 }
 
 /* Comment css ends */
@@ -1864,14 +1897,11 @@ blockquote {
 /* Comment Form css starts */
 
 #koderespond {
-  float: left;
   width: 100%;
   form {
-    float: left;
     width: 100%;
     p {
       &.kd-textarea, textarea {
-        float: left;
         width: 100%;
       }
     }
@@ -1983,12 +2013,10 @@ blockquote {
 
 /* Partner css starts */
 
-.kode-partner {
-  div {
-    list-style: none;
-    text-align: center;
-    margin-bottom: 30px;
-  }
+.kode-partner ul li {
+  list-style: none;
+  text-align: center;
+  margin-bottom: 30px;
   a {
     float: left;
     width: 100%;
@@ -2377,10 +2405,6 @@ blockquote {
 }
 
 /* Shop Detail css ends */
-
-.row {
-  width: 100%;
-}
 
 /* Fixer List css starts */
 
@@ -3032,17 +3056,10 @@ blockquote {
     text-align: left;
   }
   .logo {
-    max-width: 100px;
+    width: 200px;
     margin: 0px auto;
     float: none;
-    text-align: center;
-    display: inline-block;
-    padding: 5px 0;
   }
-}
-
-#mainheader .header-8 .logo img {
-  float: none;
 }
 
 .kode-navigation ul > li.last ul {
@@ -3071,7 +3088,6 @@ blockquote {
 
 .kode-navigation {
   float: right;
-  padding: 5px 0;
   ul {
     float: left;
     margin: 0px;
@@ -3291,35 +3307,23 @@ blockquote {
 .kode-sport-section {
   float: left;
   width: 100%;
-  background-image: url(http://preprod.lemeilleurdupsg.com/assets/front/images/game.jpg);
+  background-image: url(http://s.psg.fr/psg/image/phototheque/g/317/63202.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
   text-align: center;
   padding: 50px 0px;
-}
-
-.kode-next-match-section {
-  float: left;
-  width: 100%;
-  background-image: url(http://preprod.lemeilleurdupsg.com/assets/front/images/game.jpg);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  text-align: center;
-  padding: 50px 0px;
-}
-
-.kode-sport-section:before {
-  content: "";
-  background-color: rgba(255, 255, 255, 0.7);
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  height: 100%;
-  width: 100%;
-  /*background-image:url(extra-images/video-bg-pettern.png);*/
+  &:before {
+    content: "";
+    background-color: rgba(255, 255, 255, 0.7);
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    /*background-image:url(extra-images/video-bg-pettern.png);*/
+  }
 }
 
 .kode-video-section {
@@ -4088,12 +4092,18 @@ a.news_une {
 /* USER PROFILE PAGE */
 
 .card {
-  time {
-    font-size: .8em;
-    text-align: center;
-    padding-top: 10px;
-    font-style: italic;
-  }
+  margin-top: 20px;
+  padding: 30px;
+  background-color: rgba(214, 224, 226, 0.2);
+  -webkit-border-top-left-radius: 5px;
+  -moz-border-top-left-radius: 5px;
+  border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -moz-border-top-right-radius: 5px;
+  border-top-right-radius: 5px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   &.hovercard {
     position: relative;
     padding-top: 0;
@@ -4165,71 +4175,3 @@ a.news_une {
 .btn-pref .btn {
   -webkit-border-radius: 0 !important;
 }
-
-body {
-  direction: rtl;
-}
-.flexslider,.owl-carousel,.kode-team-timeline {
-  direction: ltr;
-}
-.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12,
-.kode-barinfo,.logo,.navbar-default,.kode-team-thumb,.medium-info time,.kode-time-zoon time,.kode-testimnl-thumb,.kode-forminfo .kode-team-network,
-.kode-simple-form ul li input[type="submit"],.tweet-thumb,.kode-admin-post figure,#kodecomments ul li figure,
-#koderespond form p input[type="button"], #koderespond form p input[type="submit"] {
-  float: right;
-}
-
-.kode-userinfo,.kode-rightsection,.kode-search,.kode-call-action .kode-simplebtn,.kode-result-info ul li span,
-.kode-team-network,.kode-team-list .kode-modren-btn,#kode-topbtn,.twitter-info i,.kode-recent-thumb,.kode-breadcrumb,
-.fixer-pagination a {
-  float: left;
-}
-
-
-.kode-userinfo li i { margin-right: 0px; margin-left: 4px; }
-.logo { margin: 25px 25px 25px 0px; }
-.kode-search { margin: 36px 0px 0 -14px; }
-.kode-search:before,.kode-search:after { right: auto; left: 0px; }
-.navbar-nav > li > a::before { padding: 0 7px 0 0; }
-.navbar-nav .children .children { left: auto; right: 100%; }
-.kode-search:before,.kode-search:after,.navbar-nav .children li a:before,.kode-testimonial figure:before,
-.kode-admin-post:before {
-  -webkit-transform: scaleX(-1);
-  -moz-transform: scaleX(-1);
-  -ms-transform: scaleX(-1);
-  -o-transform: scaleX(-1);
-  transform: scaleX(-1);
-}
-.kode-call-action {
-  text-align: left;
-}
-.kode-shop-list figure figcaption {
-  text-align: right;
-}
-
-/* Content */
-.kode-simplebtn ~ .kode-action-info { padding: 0 0px 0 220px; }
-.owl-nav { right: auto; left: 0px; }
-.owl-nav div { margin-left: 0px; margin-right: 10px; }
-.kode-team-list figure figcaption { right: auto; left: 0px; }
-.medium-info time ~ .medium-title { padding: 0 100px 0 0px; }
-.kode-blog-options li i { margin-right: 0px; margin-left: 6px; }
-.countdown-section { margin-left: 0px; margin-right: 80px; }
-.countdown-section:first-child { margin-right: 0px; }
-.kode-table-v2.kode-table tbody tr td:first-child { padding: 4px 15px 3px 0px; }
-.kode-time-zoon time { margin-right: 0px; margin-left: 18px; }
-.kode-testimnl-thumb ~ figcaption { padding: 11px 162px 0 0px; }
-.kode-testimonial figure::before { left: auto; right: 0px; }
-.kode-newslatter form label { right: auto; left: 0px; }
-.kode-newslatter form label::before { left: 20px; right: auto; }
-.kode-newslatter form { padding-left: 0px; padding-right: 20px; }
-.kode-form-list li i { margin-right: 0px; margin-left: 20px; }
-.tweet-thumb ~ .tweet-list { padding: 0 52px 0 0px; }
-.kode-recent-thumb ~ figcaption { padding: 0 0px 0 108px; }
-.kode-admin-post figure ~ .admin-info { padding: 0 135px 0 0px; }
-.kode-admin-post:before { left: auto; right: 0px; }
-#kodecomments ul li figure ~ .text { padding: 0 110px 0 0px; }
-#kodecomments .children > li { padding: 0 150px 0 0px; }
-blockquote { border-left: none; border-right: 3px solid; }
-.list-thumb img { margin-right: 0px; margin-left: 8px; }
-.kode-content { overflow: hidden; }
