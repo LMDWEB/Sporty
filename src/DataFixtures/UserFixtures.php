@@ -19,7 +19,7 @@ class UserFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
-        //$faker = Factory::create('fr_FR');
+        $faker = Factory::create('fr_FR');
 
         $user = new User();
         $user->setFirstName('test')
@@ -29,6 +29,17 @@ class UserFixtures extends Fixture
              ->setPassword($this->encoder->encodePassword($user, 'password'));
 
         $manager->persist($user);
+
+        for($i = 0; $i <= 10; $i++){
+            $user = new User();
+            $user->setFirstName($faker->firstName)
+                ->setLastName($faker->lastName)
+                ->setUsername($faker->userName)
+                ->setEmail($faker->email)
+                ->setPassword($this->encoder->encodePassword($user, 'password'));
+            $manager->persist($user);
+        }
+
         $manager->flush();
     }
 }
