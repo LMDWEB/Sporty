@@ -16,6 +16,8 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
  */
 class TagController extends AbstractController
 {
+
+
     /**
      * @Route("/", name="tag_index", methods="GET")
      */

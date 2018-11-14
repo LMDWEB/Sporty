@@ -3,12 +3,16 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\Traits\ArchivedTraits;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TagRepository")
  */
 class Tag
 {
+    use TimestampableEntity;
+    use ArchivedTraits;
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
