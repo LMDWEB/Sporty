@@ -43,12 +43,6 @@ class ArticleType extends AbstractType
                     'No publié'   => 3,
                 ),
             ))
-            //->add('user')
-            //->add('player')
-            //->add('game')
-            //->add('season')
-            //->add('threads')
-            //->add('poll')
         ;
     }
 

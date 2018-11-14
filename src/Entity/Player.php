@@ -56,16 +56,6 @@ class Player
      */
     private $nationality;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Article", mappedBy="player")
-     */
-    private $articles;
-
-    public function __construct()
-    {
-        $this->articles = new ArrayCollection();
-    }
-    
 
     public function getId(): ?int
     {
@@ -140,34 +130,6 @@ class Player
     public function setNationality(string $nationality): self
     {
         $this->nationality = $nationality;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Article[]
-     */
-    public function getArticles(): Collection
-    {
-        return $this->articles;
-    }
-
-    public function addArticle(Article $article): self
-    {
-        if (!$this->articles->contains($article)) {
-            $this->articles[] = $article;
-            $article->addPlayer($this);
-        }
-
-        return $this;
-    }
-
-    public function removeArticle(Article $article): self
-    {
-        if ($this->articles->contains($article)) {
-            $this->articles->removeElement($article);
-            $article->removePlayer($this);
-        }
 
         return $this;
     }

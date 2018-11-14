@@ -29,16 +29,6 @@ class Thread
      */
     private $name;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Article", inversedBy="threads")
-     */
-    private $article;
-
-    public function __construct()
-    {
-        $this->article = new ArrayCollection();
-    }
-
     public function getId(): ?int
     {
         return $this->id;
@@ -56,29 +46,4 @@ class Thread
         return $this;
     }
 
-    /**
-     * @return Collection|Article[]
-     */
-    public function getArticle(): Collection
-    {
-        return $this->article;
-    }
-
-    public function addArticle(Article $article): self
-    {
-        if (!$this->article->contains($article)) {
-            $this->article[] = $article;
-        }
-
-        return $this;
-    }
-
-    public function removeArticle(Article $article): self
-    {
-        if ($this->article->contains($article)) {
-            $this->article->removeElement($article);
-        }
-
-        return $this;
-    }
 }

@@ -32,12 +32,6 @@ class Todolist
      */
     private $content;
 
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="todolists")
-     */
-    private $author;
-
     /**
      * @ORM\Column(type="integer")
      */
@@ -69,18 +63,6 @@ class Todolist
     public function setContent(string $content): self
     {
         $this->content = $content;
-
-        return $this;
-    }
-
-    public function getAuthor(): ?User
-    {
-        return $this->author;
-    }
-
-    public function setAuthor(?User $author): self
-    {
-        $this->author = $author;
 
         return $this;
     }

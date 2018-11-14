@@ -27,15 +27,6 @@ class Team
      */
     private $name;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Club", mappedBy="team")
-     */
-    private $clubs;
-
-    public function __construct()
-    {
-        $this->clubs = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -50,34 +41,6 @@ class Team
     public function setName(string $name): self
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Club[]
-     */
-    public function getClubs(): Collection
-    {
-        return $this->clubs;
-    }
-
-    public function addClub(Club $club): self
-    {
-        if (!$this->clubs->contains($club)) {
-            $this->clubs[] = $club;
-            $club->addTeam($this);
-        }
-
-        return $this;
-    }
-
-    public function removeClub(Club $club): self
-    {
-        if ($this->clubs->contains($club)) {
-            $this->clubs->removeElement($club);
-            $club->removeTeam($this);
-        }
 
         return $this;
     }

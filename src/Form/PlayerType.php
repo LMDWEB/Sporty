@@ -18,9 +18,6 @@ class PlayerType extends AbstractType
             ->add('city_birth')
             ->add('foot')
             ->add('nationality')
-            ->add('createdAt')
-            ->add('archived')
-            ->add('articles')
         ;
     }
 

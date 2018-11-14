@@ -30,11 +30,6 @@ class Club
     private $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Team", inversedBy="clubs")
-     */
-    private $team;
-
-    /**
      * @ORM\Column(type="string", length=5)
      */
     private $abbreviation;
@@ -49,11 +44,6 @@ class Club
      */
     private $country;
 
-    public function __construct()
-    {
-        $this->team = new ArrayCollection();
-    }
-
     public function getId(): ?int
     {
         return $this->id;
@@ -67,32 +57,6 @@ class Club
     public function setName(string $name): self
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Team[]
-     */
-    public function getTeam(): Collection
-    {
-        return $this->team;
-    }
-
-    public function addTeam(Team $team): self
-    {
-        if (!$this->team->contains($team)) {
-            $this->team[] = $team;
-        }
-
-        return $this;
-    }
-
-    public function removeTeam(Team $team): self
-    {
-        if ($this->team->contains($team)) {
-            $this->team->removeElement($team);
-        }
 
         return $this;
     }
