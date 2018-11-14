@@ -52,12 +52,6 @@ class Article
 	private $content = "";
 
     /**
-     * @var Tag
-     * @ORM\ManyToMany(targetEntity="App\Entity\Tag", inversedBy="articles", cascade={"persist"})
-     */
-    private $tags;
-
-    /**
      * @var User
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="articles")
      */
@@ -87,7 +81,7 @@ class Article
     private $featured;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $views;
 
@@ -109,12 +103,12 @@ class Article
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Match", inversedBy="articles")
      */
-    private $game;
+    private $game = 0;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Season", inversedBy="articles")
      */
-    private $season;
+    private $season = 0;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Thread", mappedBy="article")
@@ -129,7 +123,7 @@ class Article
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Poll", inversedBy="articles")
      */
-    private $poll;
+    private $poll = 0;
     
 
     public function __construct()
@@ -206,37 +200,9 @@ class Article
     }
 
     /**
-     * @param Tag $tag
-     *
-     * @return $this
-     */
-    public function addTag(Tag $tag)
-    {
-        $this->tags[] = $tag;
-
-        return $this;
-    }
-
-    /**
-     * @param Tag $tag
-     */
-    public function removeTag(Tag $tag)
-    {
-        $this->tags->removeElement($tag);
-    }
-
-    /**
-     * @return ArrayCollection
-     */
-    public function getTags()
-    {
-        return $this->tags;
-    }
-
-    /**
      * @return \DateTime
      */
-    public function getDate(): \DateTime
+    public function getDate()
     {
         return $this->date;
     }

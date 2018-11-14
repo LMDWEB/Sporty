@@ -83,7 +83,7 @@
             <!-- Sidebar -->
             <ul class="sidebar navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.html">
+                    <a class="nav-link" href="{{ path('app_back_default_home') }}">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Dashboard</span>
                     </a>
@@ -95,7 +95,6 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="pagesDropdown">
                         <a class="dropdown-item" href="{{ path('article_index') }}">Liste des articles</a>
-                        <a class="dropdown-item" href="{{ path('tag_index') }}">Liste des tags</a>
                         <a class="dropdown-item" href="{{ path('category_index') }}">Liste des catégories</a>
                     </div>
                 </li>
@@ -176,6 +175,14 @@
         <script src="{{ asset('js/demo/datatables-demo.js') }}"></script>
         <script src="{{ asset('js/demo/chart-area-demo.js') }}"></script>
 
+        <script>
+            $(document).ready(function() {
+                // you may need to change this code if you are not using Bootstrap Datepicker
+                $('.js-datepicker').datepicker({
+                    format: 'yyyy-mm-dd'
+                });
+            });
+        </script>
     {% block javascripts %}{% endblock %}
     </body>
 </html>

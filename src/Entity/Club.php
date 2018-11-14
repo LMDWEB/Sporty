@@ -34,6 +34,21 @@ class Club
      */
     private $team;
 
+    /**
+     * @ORM\Column(type="string", length=5)
+     */
+    private $abbreviation;
+
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $image;
+
+    /**
+     * @ORM\Column(type="string", length=3)
+     */
+    private $country;
+
     public function __construct()
     {
         $this->team = new ArrayCollection();
@@ -78,6 +93,42 @@ class Club
         if ($this->team->contains($team)) {
             $this->team->removeElement($team);
         }
+
+        return $this;
+    }
+
+    public function getAbbreviation(): ?string
+    {
+        return $this->abbreviation;
+    }
+
+    public function setAbbreviation(string $abbreviation): self
+    {
+        $this->abbreviation = $abbreviation;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    public function getCountry(): ?string
+    {
+        return $this->country;
+    }
+
+    public function setCountry(string $country): self
+    {
+        $this->country = $country;
 
         return $this;
     }

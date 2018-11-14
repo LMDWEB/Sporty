@@ -3,8 +3,11 @@
 namespace App\Form;
 
 use App\Entity\Article;
+
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -15,15 +18,24 @@ class ArticleType extends AbstractType
         $builder
             ->add('title')
             ->add('content')
-            //->add('date')
+            ->add('date', DateTimeType::class, [
+                'placeholder' => 'Select a value',
+                'attr' => ['class' => 'js-datepicker']
+            ])
+            ->add('featured', CheckboxType::class, array(
+                'label'    => 'Article en une ?',
+                'required' => false,
+            ))
             ->add('image')
-            ->add('featured')
-            ->add('views')
-            ->add('type')
+            ->add('type', ChoiceType::class, array(
+                'choices' => array(
+                    'Article' => 1,
+                    'Contenu' => 2,
+                    'Vidéos'   => 3,
+                ),
+            ))
             ->add('source_article')
             ->add('source_image')
-            ->add('createdAt')
-            ->add('updatedAt')
             ->add('published', ChoiceType::class, array(
                 'choices' => array(
                     'Publié' => 1,
@@ -31,9 +43,6 @@ class ArticleType extends AbstractType
                     'No publié'   => 3,
                 ),
             ))
-            ->add('archived')
-            ->add('position')
-            ->add('tags')
             //->add('user')
             //->add('player')
             //->add('game')
