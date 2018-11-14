@@ -734,11 +734,18 @@
                     <h4 class="modal-title">Login To Your Account</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="kode-loginform">
-                        <p><span>User Name</span> <input type="text" placeholder="User Name"></p>
-                        <p><span>Password</span> <input type="password" placeholder="Password"></p>
-                        <p><label><input type="checkbox"><span>Remember Me</span></label></p>
-                        <p class="kode-submit"><a href="#">Lost Your Password</a> <input class="thbg-colortwo" type="submit" value="Sign in"></p>
+                    <form action="{{ path('user_login') }}" method="post">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" name="_username" id="email" value="" class="form-control" placeholder="Adresse email..." required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Mot de passe</label>
+                            <input type="password" name="_password" id="password" placeholder="Mot de passe..." class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success">Connexion</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -753,13 +760,10 @@
                     <h4 class="modal-title">Register</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="kode-loginform">
-                        <p><span>Email</span> <input type="text" placeholder="Email"></p>
-                        <p><span>Password</span> <input type="password" placeholder="Password"></p>
-                        <p><span>Retype Password</span> <input type="password" placeholder="Retype Password"></p>
-                        <p><label><input type="checkbox"><span>Remember Me</span></label></p>
-                        <p class="kode-submit"><a href="#">Lost Your Password</a> <input class="thbg-colortwo" type="submit" value="Sign Up"></p>
-                    </form>
+                    {{ form_start(form) }}
+                    {{ form_widget(form) }}
+                    <button type="submit" class="btn btn-success">S'inscrire</button>
+                    {{ form_end(form) }}
                 </div>
             </div>
         </div>
