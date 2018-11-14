@@ -31,10 +31,6 @@ class Match
      */
     private $matchday;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Article", mappedBy="game")
-     */
-    private $articles;
 
     public function __construct()
     {
@@ -58,34 +54,4 @@ class Match
         return $this;
     }
 
-    /**
-     * @return Collection|Article[]
-     */
-    public function getArticles(): Collection
-    {
-        return $this->articles;
-    }
-
-    public function addArticle(Article $article): self
-    {
-        if (!$this->articles->contains($article)) {
-            $this->articles[] = $article;
-            $article->setGame($this);
-        }
-
-        return $this;
-    }
-
-    public function removeArticle(Article $article): self
-    {
-        if ($this->articles->contains($article)) {
-            $this->articles->removeElement($article);
-            // set the owning side to null (unless already changed)
-            if ($article->getGame() === $this) {
-                $article->setGame(null);
-            }
-        }
-
-        return $this;
-    }
 }

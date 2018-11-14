@@ -3,7 +3,6 @@
 namespace App\DataFixtures;
 
 use App\Entity\Article;
-use App\Entity\Tag;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -18,10 +17,13 @@ class ArticleFixtures extends Fixture
             $date = $faker->dateTime();
             $article = (new Article())
                 ->setTitle($faker->firstName)
+                ->setImage($faker->firstName)
                 ->setContent($faker->text())
                 ->setDate($faker->dateTime())
                 ->setCreatedAt($date)
                 ->setUpdatedAt($date)
+                ->setType($faker->boolean)
+                ->setFeatured($faker->boolean)
                 ->setPublished($faker->boolean)
                 ->setArchived($faker->boolean)
                 ->setPosition($faker->numberBetween(0, 20))
