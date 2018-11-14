@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -56,6 +58,16 @@ class User implements UserInterface
      * @Assert\EqualTo(propertyPath="password", message="Vous n'avez pas correctement confirmer votre mot de passe")
      */
     public $passwordConfirm;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Role", mappedBy="users")
+     */
+    private $roles;
+
+    public function __construct()
+    {
+        $this->roles = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -138,8 +150,11 @@ class User implements UserInterface
      */
     public function getRoles()
     {
-        // TODO: Implement getRoles() method.
-        return ['ROLE_USER'];
+        $roles =  $this->roles->map(function ($role){
+            return $role->getTitle();
+        })->toArray();
+        $roles[] = 'ROLE_USER';
+        return $roles;
     }
 
     /**
@@ -163,5 +178,25 @@ class User implements UserInterface
     public function eraseCredentials()
     {
         // TODO: Implement eraseCredentials() method.
+    }
+
+    public function addRole(Role $role): self
+    {
+        if (!$this->roles->contains($role)) {
+            $this->roles[] = $role;
+            $role->addUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRole(Role $role): self
+    {
+        if ($this->roles->contains($role)) {
+            $this->roles->removeElement($role);
+            $role->removeUser($this);
+        }
+
+        return $this;
     }
 }

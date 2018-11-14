@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1339b86a-50d9-4b16-a56c-51d0a3991851" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/Front/user/registration.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/Front/UserController.php" afterPath="$PROJECT_DIR$/src/Controller/Front/UserController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/packages/security.yaml" afterPath="$PROJECT_DIR$/config/packages/security.yaml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/back/package-lock.json" afterPath="$PROJECT_DIR$/public/back/package-lock.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" afterPath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/User.php" afterPath="$PROJECT_DIR$/src/Entity/User.php" />
     </list>
@@ -20,8 +20,8 @@
       <file leaf-file-name="UserController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/Front/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="53" column="72" lean-forward="false" selection-start-line="53" selection-start-column="72" selection-end-line="53" selection-end-column="72" />
+            <state relative-caret-position="409">
+              <caret line="35" column="29" lean-forward="false" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
               <folding>
                 <element signature="e#40#60#0#PHP" expanded="true" />
               </folding>
@@ -29,14 +29,34 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="ArticleFixtures.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/DataFixtures/ArticleFixtures.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="33" column="5" lean-forward="false" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="63" lean-forward="false" selection-start-line="8" selection-start-column="63" selection-end-line="8" selection-end-column="63" />
+            <state relative-caret-position="435">
+              <caret line="149" column="7" lean-forward="false" selection-start-line="149" selection-start-column="7" selection-end-line="149" selection-end-column="7" />
               <folding>
-                <element signature="e#30#62#0#PHP" expanded="true" />
+                <element signature="e#30#78#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="security.yaml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/packages/security.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="585">
+              <caret line="39" column="8" lean-forward="false" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -44,11 +64,21 @@
       <file leaf-file-name="UserFixtures.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/DataFixtures/UserFixtures.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="39" column="37" lean-forward="false" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
+            <state relative-caret-position="326">
+              <caret line="33" column="22" lean-forward="false" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="22" />
               <folding>
                 <element signature="e#36#56#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Role.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entity/Role.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-532">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -100,6 +130,8 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>semver</find>
+      <find>addU</find>
+      <find>role</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -113,7 +145,6 @@
         <option value="$PROJECT_DIR$/src/Entity/Comment.php" />
         <option value="$PROJECT_DIR$/templates/base_front.html.twig" />
         <option value="$PROJECT_DIR$/templates/Front/account/login.html.twig" />
-        <option value="$PROJECT_DIR$/config/packages/security.yaml" />
         <option value="$PROJECT_DIR$/src/DataFixtures/TagFixtures.php" />
         <option value="$PROJECT_DIR$/src/DataFixtures/ArticleFixtures.php" />
         <option value="$PROJECT_DIR$/templates/Front/user/login.html.twig" />
@@ -121,8 +152,9 @@
         <option value="$PROJECT_DIR$/templates/Front/user/registration.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/Front/UserController.php" />
         <option value="$PROJECT_DIR$/src/Form/RegistrationType.php" />
-        <option value="$PROJECT_DIR$/src/Entity/User.php" />
         <option value="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" />
+        <option value="$PROJECT_DIR$/src/Entity/User.php" />
+        <option value="$PROJECT_DIR$/config/packages/security.yaml" />
       </list>
     </option>
   </component>
@@ -132,14 +164,12 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="NodeModulesDirectoryManager">
-    <handled-path value="$PROJECT_DIR$/public/node_modules" />
-  </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="24" />
     <option name="y" value="23" />
-    <option name="width" value="1440" />
-    <option name="height" value="813" />
+    <option name="width" value="1416" />
+    <option name="height" value="817" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -287,15 +317,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1542187595700</updated>
-      <workItem from="1542187596860" duration="9039000" />
+      <workItem from="1542187596860" duration="10257000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9039000" />
+    <option name="totallyTimeSpent" value="10257000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="813" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="817" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -364,15 +394,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1542193275000" expanded="true" signature="0:250433" ph="{&quot;name&quot;: &quot;startbootstrap-sb-admin&quot;...}" />
-            <marker date="1542193275000" expanded="true" signature="133:250431" ph="{...}" />
-            <marker date="1542193275000" expanded="true" signature="767:1027" ph="{&quot;version&quot;: &quot;1.3.5&quot;...}" />
-            <marker date="1542193275000" expanded="true" signature="994:1027" ph="{&quot;mime-types&quot;: &quot;2.1.18&quot;...}" />
-            <marker date="1542193275000" expanded="true" signature="250169:250189" ph="{&quot;camelcase&quot;: &quot;3.0.0&quot;...}" />
-            <marker date="1542193275000" expanded="true" signature="250169:250199" ph="{&quot;version&quot;: &quot;4.2.1&quot;...}" />
-            <marker date="1542193275000" expanded="true" signature="250218:250425" ph="{&quot;version&quot;: &quot;0.1.2&quot;...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -432,30 +454,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/security.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="38" lean-forward="false" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Article.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1082">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1542202570000" expanded="true" signature="519:4416" ph="{...}" />
-            <marker date="1542202570000" expanded="true" signature="1184:1197" ph=" @var User ..." />
+            <marker date="1542207401000" expanded="true" signature="5037:5068" ph="{...}" />
+            <marker date="1542207401000" expanded="true" signature="1184:1197" ph=" @var User ..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataFixtures/ArticleFixtures.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="33" column="14" lean-forward="false" selection-start-line="33" selection-start-column="14" selection-end-line="33" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -499,16 +505,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Front/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="53" column="72" lean-forward="false" selection-start-line="53" selection-start-column="72" selection-end-line="53" selection-end-column="72" />
-          <folding>
-            <element signature="e#40#60#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Form/ApplicationType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -527,20 +523,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Role.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-532">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataFixtures/ArticleFixtures.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="33" column="5" lean-forward="false" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Front/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="35" column="29" lean-forward="false" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
+          <folding>
+            <element signature="e#40#60#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="63" lean-forward="false" selection-start-line="8" selection-start-column="63" selection-end-line="8" selection-end-column="63" />
+        <state relative-caret-position="435">
+          <caret line="149" column="7" lean-forward="false" selection-start-line="149" selection-start-column="7" selection-end-line="149" selection-end-column="7" />
           <folding>
-            <element signature="e#30#62#0#PHP" expanded="true" />
+            <element signature="e#30#78#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/security.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="39" column="8" lean-forward="false" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DataFixtures/UserFixtures.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="39" column="37" lean-forward="false" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
+        <state relative-caret-position="326">
+          <caret line="33" column="22" lean-forward="false" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="22" />
           <folding>
             <element signature="e#36#56#0#PHP" expanded="true" />
           </folding>
