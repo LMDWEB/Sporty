@@ -8093,10 +8093,6 @@ a.news_une {
   -webkit-border-radius: 0 !important;
 }
 
-body {
-  direction: rtl;
-}
-
 .flexslider, .owl-carousel, .kode-team-timeline {
   direction: ltr;
 }
