@@ -15,5 +15,5 @@
 ###> symfony/web-server-bundle ###
 /.web-server-pid
 ###< symfony/web-server-bundle ###
-/public/vendor/
-/public/node_modules/
+/public/back/vendor/
+/public/back/node_modules/
