@@ -13,13 +13,10 @@
                 <th>Featured</th>
                 <th>Views</th>
                 <th>Type</th>
-                <th>Source_article</th>
-                <th>Source_image</th>
                 <th>CreatedAt</th>
                 <th>UpdatedAt</th>
                 <th>Published</th>
                 <th>Archived</th>
-                <th>Position</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -31,13 +28,10 @@
                 <td>{{ article.featured ? 'Yes' : 'No' }}</td>
                 <td>{{ article.views }}</td>
                 <td>{{ article.type }}</td>
-                <td>{{ article.sourceArticle }}</td>
-                <td>{{ article.sourceImage }}</td>
                 <td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ article.updatedAt ? article.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ article.published ? 'Yes' : 'No' }}</td>
                 <td>{{ article.archived ? 'Yes' : 'No' }}</td>
-                <td>{{ article.position }}</td>
                 <td>
                     <a href="{{ path('article_show', {'id': article.id}) }}">show</a>
                     <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>

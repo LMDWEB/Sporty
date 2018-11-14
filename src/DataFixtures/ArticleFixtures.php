@@ -26,7 +26,6 @@ class ArticleFixtures extends Fixture
                 ->setFeatured($faker->boolean)
                 ->setPublished($faker->boolean)
                 ->setArchived($faker->boolean)
-                ->setPosition($faker->numberBetween(0, 20))
             ;
             $manager->persist($article);
         }

@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use App\Entity\Traits\ArchivedTraits;
-use App\Entity\Traits\PositionTraits;
 use App\Entity\Traits\PublishedTraits;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -21,7 +20,6 @@ class Article
     use TimestampableEntity;
     use PublishedTraits;
     use ArchivedTraits;
-    use PositionTraits;
 
     /**
 	 * @var integer
