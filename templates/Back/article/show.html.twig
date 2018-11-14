@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'Back/base.html.twig' %}
 
 {% block title %}Article{% endblock %}
 
@@ -70,7 +70,7 @@
         <tr>
             <th>Club</th>
             <td>
-                {% for club in article.club %}
+                {% for club in article %}
                     {{ club.name }} <br>
                 {% endfor %}
             </td>
