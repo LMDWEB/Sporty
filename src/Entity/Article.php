@@ -67,6 +67,7 @@ class Article
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Player", inversedBy="articles")
+     *
      */
     private $player;
 
@@ -101,16 +102,6 @@ class Article
     private $source_image;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Match", inversedBy="articles")
-     */
-    private $game = 0;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Season", inversedBy="articles")
-     */
-    private $season = 0;
-
-    /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Thread", mappedBy="article")
      */
     private $threads;
@@ -119,16 +110,10 @@ class Article
      * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="article")
      */
     private $comments;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Poll", inversedBy="articles")
-     */
-    private $poll = 0;
     
 
     public function __construct()
     {
-        $this->tags = new ArrayCollection();
         $this->player = new ArrayCollection();
         $this->threads = new ArrayCollection();
         $this->comments = new ArrayCollection();
@@ -315,30 +300,6 @@ class Article
         return $this;
     }
 
-    public function getGame(): ?Match
-    {
-        return $this->game;
-    }
-
-    public function setGame(?Match $game): self
-    {
-        $this->game = $game;
-
-        return $this;
-    }
-
-    public function getSeason(): ?Season
-    {
-        return $this->season;
-    }
-
-    public function setSeason(?Season $season): self
-    {
-        $this->season = $season;
-
-        return $this;
-    }
-
     /**
      * @return Collection|Thread[]
      */
@@ -397,17 +358,4 @@ class Article
 
         return $this;
     }
-
-    public function getPoll(): ?Poll
-    {
-        return $this->poll;
-    }
-
-    public function setPoll(?Poll $poll): self
-    {
-        $this->poll = $poll;
-
-        return $this;
-    }
-
 }
