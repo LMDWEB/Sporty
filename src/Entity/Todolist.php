@@ -43,10 +43,6 @@ class Todolist
      */
     private $status;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="todolist_user")
-     */
-    private $assigned_user;
 
     public function getId(): ?int
     {
@@ -101,15 +97,4 @@ class Todolist
         return $this;
     }
 
-    public function getAssignedUser(): ?User
-    {
-        return $this->assigned_user;
-    }
-
-    public function setAssignedUser(?User $assigned_user): self
-    {
-        $this->assigned_user = $assigned_user;
-
-        return $this;
-    }
 }
