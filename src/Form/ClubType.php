@@ -17,7 +17,9 @@ class ClubType extends AbstractType
             ->add('name')
             ->add('abbreviation')
             ->add('image')
-            ->add('country', CountryType::class)
+            ->add('country', CountryType::class, array(
+                'preferred_choices' => array('FR'),
+            ))
             ->add('published', ChoiceType::class, array(
                 'choices' => array(
                     'Publié' => 1,

@@ -45,7 +45,7 @@ class ArticleType extends AbstractType
                     'No publié'   => 0,
                 ),
             ))
-            ->add('id_club', EntityType::class, [
+            ->add('club', EntityType::class, [
                 'label'        => 'Club',
                 'class'        => Club::class,
                 'choice_label' => 'name',
