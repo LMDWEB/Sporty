@@ -67,10 +67,14 @@
                 <th>Archived</th>
                 <td>{{ article.archived ? 'Yes' : 'No' }}</td>
             </tr>
-            <tr>
-                <th>Position</th>
-                <td>{{ article.position }}</td>
-            </tr>
+        <tr>
+            <th>Club</th>
+            <td>
+                {% for club in article.club %}
+                    {{ club.name }} <br>
+                {% endfor %}
+            </td>
+        </tr>
         </tbody>
     </table>
 

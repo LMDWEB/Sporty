@@ -87,6 +87,16 @@ class Article
     private $source_image;
 
     /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Club", inversedBy="articles")
+     */
+    private $club;
+
+    public function __construct()
+    {
+        $this->club = new ArrayCollection();
+    }
+
+    /**
      * @return int
      */
     public function getId(): int
@@ -237,6 +247,32 @@ class Article
     public function setSourceImage(?string $source_image): self
     {
         $this->source_image = $source_image;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Club[]
+     */
+    public function getIdClub(): Collection
+    {
+        return $this->club;
+    }
+
+    public function addIdClub(Club $idClub): self
+    {
+        if (!$this->club->contains($idClub)) {
+            $this->club[] = $idClub;
+        }
+
+        return $this;
+    }
+
+    public function removeIdClub(Club $idClub): self
+    {
+        if ($this->club->contains($idClub)) {
+            $this->club->removeElement($idClub);
+        }
 
         return $this;
     }

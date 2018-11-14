@@ -40,9 +40,24 @@ class Club
     private $image;
 
     /**
-     * @ORM\Column(type="string", length=3)
+     * @ORM\Column(type="string", length=2)
      */
     private $country;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Game", inversedBy="team_home")
+     */
+    private $game;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Article", mappedBy="id_club")
+     */
+    private $articles;
+
+    public function __construct()
+    {
+        $this->articles = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -93,6 +108,46 @@ class Club
     public function setCountry(string $country): self
     {
         $this->country = $country;
+
+        return $this;
+    }
+
+    public function getGame(): ?Game
+    {
+        return $this->game;
+    }
+
+    public function setGame(?Game $game): self
+    {
+        $this->game = $game;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Article[]
+     */
+    public function getArticles(): Collection
+    {
+        return $this->articles;
+    }
+
+    public function addArticle(Article $article): self
+    {
+        if (!$this->articles->contains($article)) {
+            $this->articles[] = $article;
+            $article->addIdClub($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArticle(Article $article): self
+    {
+        if ($this->articles->contains($article)) {
+            $this->articles->removeElement($article);
+            $article->removeIdClub($this);
+        }
 
         return $this;
     }

@@ -4,6 +4,8 @@ namespace App\Form;
 
 use App\Entity\Article;
 
+use App\Entity\Club;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -29,9 +31,9 @@ class ArticleType extends AbstractType
             ->add('image')
             ->add('type', ChoiceType::class, array(
                 'choices' => array(
-                    'Article' => 1,
-                    'Contenu' => 2,
-                    'Vidéos'   => 3,
+                    'Article' => 0,
+                    'Contenu' => 1,
+                    'Vidéos'   => 2,
                 ),
             ))
             ->add('source_article')
@@ -40,9 +42,16 @@ class ArticleType extends AbstractType
                 'choices' => array(
                     'Publié' => 1,
                     'Brouillon' => 2,
-                    'No publié'   => 3,
+                    'No publié'   => 0,
                 ),
             ))
+            ->add('id_club', EntityType::class, [
+                'label'        => 'Club',
+                'class'        => Club::class,
+                'choice_label' => 'name',
+                'multiple'     => true,
+                'required'     => false,
+            ])
         ;
     }
 
