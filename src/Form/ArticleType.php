@@ -3,8 +3,9 @@
 namespace App\Form;
 
 use App\Entity\Article;
-
+use App\Entity\Category;
 use App\Entity\Club;
+use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -19,7 +20,15 @@ class ArticleType extends AbstractType
     {
         $builder
             ->add('title')
+            ->add('resume')
             ->add('content')
+            ->add('category', EntityType::class, [
+                'label'        => 'Category',
+                'class'        => Category::class,
+                'choice_label' => 'name',
+                'multiple'     => false,
+                'required'     => false,
+            ])
             ->add('date', DateTimeType::class, [
                 'placeholder' => 'Select a value',
                 'attr' => ['class' => 'js-datepicker']
@@ -50,6 +59,13 @@ class ArticleType extends AbstractType
                 'class'        => Club::class,
                 'choice_label' => 'name',
                 'multiple'     => true,
+                'required'     => false,
+            ])
+            ->add('created_by', EntityType::class, [
+                'label'        => 'Author',
+                'class'        => User::class,
+                'choice_label' => 'firstname',
+                'multiple'     => false,
                 'required'     => false,
             ])
         ;

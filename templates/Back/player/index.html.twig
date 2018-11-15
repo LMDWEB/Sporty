@@ -31,8 +31,11 @@
                     <td>{{ player.lastname }}</td>
                     <td>{{ player.dateBirth ? player.dateBirth|date('Y-m-d') : '' }}</td>
                     <td>{{ player.cityBirth }}</td>
-                    <td>{{ player.foot }}</td>
-                    <td>{{ player.nationality }}</td>
+                    <td>{% if player.foot == 0 %} Droitier
+                        {% elseif player.foot == 1 %} Gaucher
+                        {% elseif player.foot == 2 %} Ambidextre
+                        {% endif %}</td>
+                    <td><img src="https://www.countryflags.io/{{ player.nationality }}/flat/32.png"></td>
                     <td>{{ player.createdAt ? player.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                     <td>{{ player.updatedAt ? player.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
                     <td>{{ player.published ? 'Yes' : 'No' }}</td>

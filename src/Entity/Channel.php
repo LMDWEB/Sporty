@@ -26,6 +26,11 @@ class Channel
      */
     private $name;
 
+    /**
+     * @ORM\Column(type="string", length=30)
+     */
+    private $image;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -39,6 +44,18 @@ class Channel
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }

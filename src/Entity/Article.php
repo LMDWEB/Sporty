@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Entity\Traits\ArchivedTraits;
 use App\Entity\Traits\PublishedTraits;
+use App\Entity\Traits\TimestampableTraits;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -17,7 +18,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  */
 class Article
 {
-    use TimestampableEntity;
+    use TimestampableTraits;
     use PublishedTraits;
     use ArchivedTraits;
 
@@ -90,6 +91,17 @@ class Article
      * @ORM\ManyToMany(targetEntity="App\Entity\Club", inversedBy="articles")
      */
     private $club;
+
+    /**
+     * @ORM\Column(type="string", length=200)
+     */
+    private $resume;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="category")
+     */
+    private $category;
+
 
     public function __construct()
     {
@@ -273,6 +285,30 @@ class Article
         if ($this->club->contains($idClub)) {
             $this->club->removeElement($idClub);
         }
+
+        return $this;
+    }
+
+    public function getResume(): ?string
+    {
+        return $this->resume;
+    }
+
+    public function setResume(string $resume): self
+    {
+        $this->resume = $resume;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }
