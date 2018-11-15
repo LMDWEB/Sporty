@@ -33,11 +33,15 @@ class Channel
      */
     private $games;
 
+     /**
+     * @ORM\Column(type="string", length=30)
+     */
+    private $image;
+  
     public function __construct()
     {
         $this->games = new ArrayCollection();
     }
-
 
     public function getId(): ?int
     {
@@ -84,5 +88,15 @@ class Channel
         return $this;
     }
 
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
 
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
+    }
 }
