@@ -12,7 +12,6 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
 class Configuration
 {
     use TimestampableEntity;
-    use ArchivedTraits;
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -21,23 +20,40 @@ class Configuration
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=100)
      */
-    private $name;
+    private $nameConfig;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $valueConfig;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getNameConfig(): ?string
     {
-        return $this->name;
+        return $this->nameConfig;
     }
 
-    public function setName(string $name): self
+    public function setNameConfig(string $nameConfig): self
     {
-        $this->name = $name;
+        $this->nameConfig = $nameConfig;
+
+        return $this;
+    }
+
+    public function getValueConfig(): ?string
+    {
+        return $this->valueConfig;
+    }
+
+    public function setValueConfig(string $valueConfig): self
+    {
+        $this->valueConfig = $valueConfig;
 
         return $this;
     }
