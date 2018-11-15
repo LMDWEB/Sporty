@@ -4,50 +4,54 @@
 
 {% block body %}
     <h1>Player index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>DateBirth</th>
-                <th>City_birth</th>
-                <th>Foot</th>
-                <th>Nationality</th>
-                <th>CreatedAt</th>
-                <th>UpdatedAt</th>
-                <th>Published</th>
-                <th>Archived</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for player in players %}
-            <tr>
-                <td>{{ player.id }}</td>
-                <td>{{ player.firstname }}</td>
-                <td>{{ player.lastname }}</td>
-                <td>{{ player.dateBirth ? player.dateBirth|date('Y-m-d') : '' }}</td>
-                <td>{{ player.cityBirth }}</td>
-                <td>{{ player.foot }}</td>
-                <td>{{ player.nationality }}</td>
-                <td>{{ player.createdAt ? player.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ player.updatedAt ? player.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ player.published ? 'Yes' : 'No' }}</td>
-                <td>{{ player.archived ? 'Yes' : 'No' }}</td>
-                <td>
-                    <a href="{{ path('player_show', {'id': player.id}) }}">show</a>
-                    <a href="{{ path('player_edit', {'id': player.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="12">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
     <a href="{{ path('player_new') }}">Create new</a>
+    <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>DateBirth</th>
+                    <th>City_birth</th>
+                    <th>Foot</th>
+                    <th>Nationality</th>
+                    <th>CreatedAt</th>
+                    <th>UpdatedAt</th>
+                    <th>Published</th>
+                    <th>Archived</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for player in players %}
+                <tr>
+                    <td>{{ player.id }}</td>
+                    <td>{{ player.firstname }}</td>
+                    <td>{{ player.lastname }}</td>
+                    <td>{{ player.dateBirth ? player.dateBirth|date('Y-m-d') : '' }}</td>
+                    <td>{{ player.cityBirth }}</td>
+                    <td>{% if player.foot == 0 %} Droitier
+                        {% elseif player.foot == 1 %} Gaucher
+                        {% elseif player.foot == 2 %} Ambidextre
+                        {% endif %}</td>
+                    <td><img src="https://www.countryflags.io/{{ player.nationality }}/flat/32.png"></td>
+                    <td>{{ player.createdAt ? player.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                    <td>{{ player.updatedAt ? player.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                    <td>{{ player.published ? 'Yes' : 'No' }}</td>
+                    <td>{{ player.archived ? 'Yes' : 'No' }}</td>
+                    <td>
+                        <a href="{{ path('player_show', {'id': player.id}) }}">show</a>
+                        <a href="{{ path('player_edit', {'id': player.id}) }}">edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="12">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
 {% endblock %}

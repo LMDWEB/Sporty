@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Entity\Traits\ArchivedTraits;
 use App\Entity\Traits\PublishedTraits;
+use App\Entity\Traits\TimestampableTraits;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -17,7 +18,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  */
 class Article
 {
-    use TimestampableEntity;
+    use TimestampableTraits;
     use PublishedTraits;
     use ArchivedTraits;
 
@@ -91,9 +92,26 @@ class Article
      */
     private $club;
 
+    /**
+     * @ORM\Column(type="string", length=200)
+     */
+    private $resume;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="category")
+     */
+    private $category;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Player", inversedBy="articles")
+     */
+    private $player;
+
+
     public function __construct()
     {
         $this->club = new ArrayCollection();
+        $this->player = new ArrayCollection();
     }
 
     /**
@@ -254,12 +272,12 @@ class Article
     /**
      * @return Collection|Club[]
      */
-    public function getIdClub(): Collection
+    public function getClub(): Collection
     {
         return $this->club;
     }
 
-    public function addIdClub(Club $idClub): self
+    public function addClub(Club $idClub): self
     {
         if (!$this->club->contains($idClub)) {
             $this->club[] = $idClub;
@@ -268,10 +286,60 @@ class Article
         return $this;
     }
 
-    public function removeIdClub(Club $idClub): self
+    public function removeClub(Club $idClub): self
     {
         if ($this->club->contains($idClub)) {
             $this->club->removeElement($idClub);
+        }
+
+        return $this;
+    }
+
+    public function getResume(): ?string
+    {
+        return $this->resume;
+    }
+
+    public function setResume(string $resume): self
+    {
+        $this->resume = $resume;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Player[]
+     */
+    public function getPlayer(): Collection
+    {
+        return $this->player;
+    }
+
+    public function addPlayer(Player $player): self
+    {
+        if (!$this->player->contains($player)) {
+            $this->player[] = $player;
+        }
+
+        return $this;
+    }
+
+    public function removePlayer(Player $player): self
+    {
+        if ($this->player->contains($player)) {
+            $this->player->removeElement($player);
         }
 
         return $this;

@@ -104,10 +104,20 @@
                         <span>Liste des joueurs</span>
                     </a>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-fw fa-folder"></i>
+                        <span>Club</span>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+                        <a class="dropdown-item" href="{{ path('club_index') }}">Liste des clubs</a>
+                        <a class="dropdown-item" href="{{ path('team_index') }}">Liste des teams</a>
+                    </div>
+                </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('club_index') }}">
-                        <i class="fas fa-fw fa-users"></i>
-                        <span>Liste des clubs</span>
+                    <a class="nav-link" href="{{ path('game_index') }}">
+                        <i class="fas fa-fw fa-bolt"></i>
+                        <span>Liste des Matches</span>
                     </a>
                 </li>
                 <li class="nav-item">

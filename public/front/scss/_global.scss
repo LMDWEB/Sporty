@@ -92,7 +92,6 @@ Sidebar heading:	'Oswald', sans-serif;
 @charset "utf-8";
 
 /* Default Css Starts */
-@import url(css/shortcode.css);
 
 * {
   padding: 0px;
@@ -201,6 +200,10 @@ Sidebar heading:	'Oswald', sans-serif;
   .kode-search {
     margin: 21px -14px 0 0;
   }
+}
+
+.pull-left {
+  float: left !important;
 }
 
 /* Main Header Ends */
@@ -570,6 +573,10 @@ Sidebar heading:	'Oswald', sans-serif;
     -webkit-box-shadow: 0px 30px 20px 0px rgba(0, 0, 0, 0.5);
     margin-bottom: 40px;
   }
+  h2 {
+    text-transform: uppercase;
+    font-size: 60px;
+  }
   p {
     font-size: 20px;
     line-height: normal;
@@ -632,18 +639,15 @@ Sidebar heading:	'Oswald', sans-serif;
   }
 }
 
+/* Main Banner Ends */
+
+/* Main Content */
+
 .kode-content {
-  .container {
-    width: 100%;
-  }
   float: left;
   width: 100%;
   padding: 40px 0px 0px 0px;
 }
-
-/* Main Banner Ends */
-
-/* Main Content */
 
 .playersheet .kode-content, .newssheet .kode-content {
   background: #ededed;
@@ -990,7 +994,6 @@ Sidebar heading:	'Oswald', sans-serif;
   right: 0px;
   bottom: 0px;
   z-index: 10;
-  width: 100%;
   &:before {
     content: '';
     position: absolute;
@@ -1036,7 +1039,6 @@ Sidebar heading:	'Oswald', sans-serif;
         display: inline-block;
         box-shadow: 0px 0px 0px 1px #fff inset;
         background-color: #04275F;
-        width: 100%;
         span {
           color: #ffffff;
           background-color: #EA202E;
@@ -1364,17 +1366,6 @@ Sidebar heading:	'Oswald', sans-serif;
     font-size: 20px;
     font-weight: normal;
   }
-  &.calendar span {
-    width: auto;
-  }
-  td {
-    &.teamHome img {
-      text-align: left;
-    }
-    &.teamAway img {
-      text-align: right;
-    }
-  }
 }
 
 /* Match Table ends */
@@ -1416,20 +1407,15 @@ Sidebar heading:	'Oswald', sans-serif;
   background-color: #FFF;
   /*padding: 18px;*/
   position: relative;
-}
-
-.kode-grid-blog .row {
-  padding: 0;
-}
-
-.kode-time-zoon:before {
-  content: '';
-  position: absolute;
-  left: 0%;
-  top: -2px;
-  width: 100%;
-  height: 2px;
-  background-color: #f4f4f4;
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0%;
+    top: -2px;
+    width: 100%;
+    height: 2px;
+    background-color: #f4f4f4;
+  }
 }
 
 .kode-large-blog ul li:hover .kode-time-zoon time {
@@ -1477,10 +1463,10 @@ Sidebar heading:	'Oswald', sans-serif;
 .kode-blog-info {
   float: left;
   width: 100%;
+  background-color: #f4f4f4;
   padding: 20px 20px 0px 20px;
   text-align: center;
   position: relative;
-  margin-bottom: 10px;
 }
 
 .kode-recent-blog ul {
@@ -1490,22 +1476,12 @@ Sidebar heading:	'Oswald', sans-serif;
   li:hover figcaption p {
     display: block;
   }
-}
-
-.kode-blog-list ul li {
-  p {
-    display: none;
+  figcaption .time-news {
+    float: right;
+    font-style: italic;
+    color: #04275F;
+    font-size: 11px;
   }
-  &:hover p {
-    display: block;
-  }
-}
-
-.kode-recent-blog ul figcaption .time-news {
-  float: right;
-  font-style: italic;
-  color: #04275F;
-  font-size: 11px;
 }
 
 /*.kode-blog-info:before {
@@ -1534,14 +1510,6 @@ Sidebar heading:	'Oswald', sans-serif;
   float: left;
   width: 100%;
   text-align: center;
-}
-
-@media screen and (max-width: 768px) {
-  .kode-align-btn {
-    float: left;
-    width: 80%;
-    text-align: center;
-  }
 }
 
 /* Blog Large ends */
@@ -1594,6 +1562,7 @@ Sidebar heading:	'Oswald', sans-serif;
   }
   .kode-blog-info {
     text-align: left;
+    background-color: #ffffff;
     padding: 15px 10px 30px 10px;
     border-bottom: 1px solid #d1d1d1;
     &:before {
@@ -1618,7 +1587,7 @@ Sidebar heading:	'Oswald', sans-serif;
   .kode-time-zoon:before {
     /*	left: 50%;
     	margin: 0px 0px 0px -100px;*/
-    background-color: #04275F;
+    background-color: #a5a5a5;
   }
 }
 
@@ -1783,6 +1752,7 @@ blockquote {
     border-right: 230px solid transparent;
   }
   figure {
+    border: 5px solid #333333;
     float: left;
     width: 110px;
     margin: 0px;
@@ -1887,9 +1857,6 @@ blockquote {
     margin-top: 25px;
     padding-top: 25px;
   }
-  img {
-    width: 60px;
-  }
 }
 
 /* Comment css ends */
@@ -1897,11 +1864,14 @@ blockquote {
 /* Comment Form css starts */
 
 #koderespond {
+  float: left;
   width: 100%;
   form {
+    float: left;
     width: 100%;
     p {
       &.kd-textarea, textarea {
+        float: left;
         width: 100%;
       }
     }
@@ -2013,10 +1983,12 @@ blockquote {
 
 /* Partner css starts */
 
-.kode-partner ul li {
-  list-style: none;
-  text-align: center;
-  margin-bottom: 30px;
+.kode-partner {
+  div {
+    list-style: none;
+    text-align: center;
+    margin-bottom: 30px;
+  }
   a {
     float: left;
     width: 100%;
@@ -2405,6 +2377,10 @@ blockquote {
 }
 
 /* Shop Detail css ends */
+
+.row {
+  width: 100%;
+}
 
 /* Fixer List css starts */
 
@@ -3056,10 +3032,17 @@ blockquote {
     text-align: left;
   }
   .logo {
-    width: 200px;
+    max-width: 100px;
     margin: 0px auto;
     float: none;
+    text-align: center;
+    display: inline-block;
+    padding: 5px 0;
   }
+}
+
+#mainheader .header-8 .logo img {
+  float: none;
 }
 
 .kode-navigation ul > li.last ul {
@@ -3088,6 +3071,7 @@ blockquote {
 
 .kode-navigation {
   float: right;
+  padding: 5px 0;
   ul {
     float: left;
     margin: 0px;
@@ -3307,23 +3291,35 @@ blockquote {
 .kode-sport-section {
   float: left;
   width: 100%;
-  background-image: url(http://s.psg.fr/psg/image/phototheque/g/317/63202.jpg);
+  background-image: url(http://preprod.lemeilleurdupsg.com/assets/front/images/game.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
   text-align: center;
   padding: 50px 0px;
-  &:before {
-    content: "";
-    background-color: rgba(255, 255, 255, 0.7);
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    height: 100%;
-    width: 100%;
-    /*background-image:url(extra-images/video-bg-pettern.png);*/
-  }
+}
+
+.kode-next-match-section {
+  float: left;
+  width: 100%;
+  background-image: url(http://preprod.lemeilleurdupsg.com/assets/front/images/game.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+  padding: 50px 0px;
+}
+
+.kode-sport-section:before {
+  content: "";
+  background-color: rgba(255, 255, 255, 0.7);
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  /*background-image:url(extra-images/video-bg-pettern.png);*/
 }
 
 .kode-video-section {
@@ -4092,18 +4088,12 @@ a.news_une {
 /* USER PROFILE PAGE */
 
 .card {
-  margin-top: 20px;
-  padding: 30px;
-  background-color: rgba(214, 224, 226, 0.2);
-  -webkit-border-top-left-radius: 5px;
-  -moz-border-top-left-radius: 5px;
-  border-top-left-radius: 5px;
-  -webkit-border-top-right-radius: 5px;
-  -moz-border-top-right-radius: 5px;
-  border-top-right-radius: 5px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  time {
+    font-size: .8em;
+    text-align: center;
+    padding-top: 10px;
+    font-style: italic;
+  }
   &.hovercard {
     position: relative;
     padding-top: 0;

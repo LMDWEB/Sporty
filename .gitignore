@@ -20,3 +20,4 @@
 /public/back/node_modules/
 /public/front/node_modules/
 /public/front/vendor/
+/config/packages/doctrine.yaml

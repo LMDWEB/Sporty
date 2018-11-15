@@ -5,33 +5,27 @@
 {% block body %}
     <h1>Club index</h1>
 
-    <table class="table">
+    <a href="{{ path('club_new') }}">Create new</a>
+<div class="table-responsive">
+    <table class="table table-bordered" id="dataTable">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Name</th>
-                <th>Abbreviation</th>
-                <th>Image</th>
                 <th>Country</th>
                 <th>CreatedAt</th>
                 <th>UpdatedAt</th>
                 <th>Published</th>
-                <th>Archived</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for club in clubs %}
             <tr>
-                <td>{{ club.id }}</td>
                 <td>{{ club.name }}</td>
-                <td>{{ club.abbreviation }}</td>
-                <td>{{ club.image }}</td>
                 <td>{{ club.country }}</td>
                 <td>{{ club.createdAt ? club.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ club.updatedAt ? club.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ club.published ? 'Yes' : 'No' }}</td>
-                <td>{{ club.archived ? 'Yes' : 'No' }}</td>
                 <td>
                     <a href="{{ path('club_show', {'id': club.id}) }}">show</a>
                     <a href="{{ path('club_edit', {'id': club.id}) }}">edit</a>
@@ -44,6 +38,5 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('club_new') }}">Create new</a>
+</div>
 {% endblock %}

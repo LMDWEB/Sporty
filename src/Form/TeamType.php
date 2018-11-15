@@ -13,9 +13,6 @@ class TeamType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('createdAt')
-            ->add('updatedAt')
-            ->add('archived')
         ;
     }
 
