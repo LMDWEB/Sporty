@@ -152,13 +152,16 @@ Sidebar heading:	'Oswald', sans-serif;
   li {
     list-style: none;
     display: inline-block;
-    padding: 6px 11px 5px 15px;
     border-left: 1px solid rgba(255, 255, 255, 0.4);
     position: relative;
     i {
       margin-right: 4px;
     }
   }
+}
+
+.dropdown-menu {
+  background: ;
 }
 
 /* TopBaar Ends */

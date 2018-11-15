@@ -15,8 +15,6 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
 class Club
 {
     use TimestampableEntity;
-    use PublishedTraits;
-    use ArchivedTraits;
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -43,11 +41,6 @@ class Club
      * @ORM\Column(type="string", length=2)
      */
     private $country;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Game", inversedBy="team_home")
-     */
-    private $game;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Article", mappedBy="id_club")
@@ -108,18 +101,6 @@ class Club
     public function setCountry(string $country): self
     {
         $this->country = $country;
-
-        return $this;
-    }
-
-    public function getGame(): ?Game
-    {
-        return $this->game;
-    }
-
-    public function setGame(?Game $game): self
-    {
-        $this->game = $game;
 
         return $this;
     }

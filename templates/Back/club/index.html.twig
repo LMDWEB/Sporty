@@ -14,7 +14,6 @@
                 <th>Country</th>
                 <th>CreatedAt</th>
                 <th>UpdatedAt</th>
-                <th>Published</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -25,7 +24,6 @@
                 <td>{{ club.country }}</td>
                 <td>{{ club.createdAt ? club.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ club.updatedAt ? club.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ club.published ? 'Yes' : 'No' }}</td>
                 <td>
                     <a href="{{ path('club_show', {'id': club.id}) }}">show</a>
                     <a href="{{ path('club_edit', {'id': club.id}) }}">edit</a>
