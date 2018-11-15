@@ -63,6 +63,11 @@ class Player
     private $nationality;
 
     /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Game", inversedBy="referee")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $game;
+    /**
      * @ORM\Column(type="integer")
      */
     private $status;
@@ -88,7 +93,6 @@ class Player
     {
         $this->articles = new ArrayCollection();
     }
-
 
     public function getId(): ?int
     {
@@ -167,6 +171,18 @@ class Player
         return $this;
     }
 
+    public function getGame(): ?Game
+    {
+        return $this->game;
+    }
+
+    public function setGame(?Game $game): self
+    {
+        $this->game = $game;
+
+        return $this;
+    }
+  
     public function getStatus(): ?int
     {
         return $this->status;
@@ -247,5 +263,4 @@ class Player
         $this->displayName = $displayName;
         return $this;
     }
-
 }
