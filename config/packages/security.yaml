@@ -24,7 +24,7 @@ security:
 
             logout:
                 path: user_logout
-                target: user_login
+                target: homepage
 
             # activate different ways to authenticate
 
