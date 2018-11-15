@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Article;
 use App\Entity\Category;
 use App\Entity\Club;
+use App\Entity\Player;
 use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -58,6 +59,13 @@ class ArticleType extends AbstractType
                 'label'        => 'Club',
                 'class'        => Club::class,
                 'choice_label' => 'name',
+                'multiple'     => true,
+                'required'     => false,
+            ])
+            ->add('player', EntityType::class, [
+                'label'        => 'Player',
+                'class'        => Player::class,
+                'choice_label' => 'display_name',
                 'multiple'     => true,
                 'required'     => false,
             ])

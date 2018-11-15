@@ -102,10 +102,16 @@ class Article
      */
     private $category;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Player", inversedBy="articles")
+     */
+    private $player;
+
 
     public function __construct()
     {
         $this->club = new ArrayCollection();
+        $this->player = new ArrayCollection();
     }
 
     /**
@@ -309,6 +315,32 @@ class Article
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Player[]
+     */
+    public function getPlayer(): Collection
+    {
+        return $this->player;
+    }
+
+    public function addPlayer(Player $player): self
+    {
+        if (!$this->player->contains($player)) {
+            $this->player[] = $player;
+        }
+
+        return $this;
+    }
+
+    public function removePlayer(Player $player): self
+    {
+        if ($this->player->contains($player)) {
+            $this->player->removeElement($player);
+        }
 
         return $this;
     }
