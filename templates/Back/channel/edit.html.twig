@@ -1,11 +1,15 @@
 {% extends 'Back/base.html.twig' %}
 
 {% block body %}
-    <h1>Edit channel</h1>
+    <h1>Modifier la chaîne</h1>
 
-    {{ include('Back/channel/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('Back/channel/_form.html.twig', {'button_label': 'Mettre a jour'}) }}
 
-    <a href="{{ path('channel_index') }}">back to list</a>
+    <br>
+
+    <a class="btn btn-secondary" href="{{ path('channel_index') }}">Retourner a la liste</a>
+
+    <br><br>
 
     {{ include('Back/channel/_delete_form.html.twig') }}
 {% endblock %}
