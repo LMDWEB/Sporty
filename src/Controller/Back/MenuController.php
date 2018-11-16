@@ -3,6 +3,7 @@
 namespace App\Controller\Back;
 
 use App\Entity\Menu;
+use App\Entity\MenuItem;
 use App\Form\MenuType;
 use App\Repository\MenuRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -51,7 +52,14 @@ class MenuController extends AbstractController
      */
     public function show(Menu $menu): Response
     {
-        return $this->render('Back/menu/show.html.twig', ['menu' => $menu]);
+        $menuItem = $this->getDoctrine()
+            ->getRepository(MenuItem::class)
+            ->findBy(['parent' => $menu->getId()]);
+
+        return $this->render('Back/menu/show.html.twig', [
+            'menu' => $menu,
+            'menuItem' => $menuItem
+        ]);
     }
 
     /**

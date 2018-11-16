@@ -5,6 +5,8 @@
 {% block body %}
     <h1>Menu index</h1>
 
+    <a href="{{ path('menu_new') }}">Create new menu</a>
+
     <table class="table">
         <thead>
             <tr>
@@ -33,5 +35,6 @@
         </tbody>
     </table>
 
-    <a href="{{ path('menu_new') }}">Create new</a>
+    <a href="{{ path('menu_item_new') }}">Create menu item</a>
+
 {% endblock %}
