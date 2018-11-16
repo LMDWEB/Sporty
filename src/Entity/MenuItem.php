@@ -48,7 +48,6 @@ class MenuItem
      */
     private $parent;
 
-
     public function getId(): ?int
     {
         return $this->id;

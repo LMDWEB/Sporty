@@ -49,7 +49,7 @@ class GameType extends AbstractType
             ->add('referee' , EntityType::class , [
                 'label' => 'Arbitre',
                 'class' => Player::class,
-                'choice_label' => 'name',
+                'choice_label' => 'firstname',
                 'required'=> true,
                 'attr' => array('class' => 'form-control')
             ])
@@ -73,7 +73,7 @@ class GameType extends AbstractType
             ->add('season' , EntityType::class , [
                 'label' => 'Saison',
                 'class' => Season::class,
-                'choice_label' => 'name',
+                'choice_label' => 'season_year',
                 'required'=> true,
                 'attr' => array('class' => 'form-control')
             ]);
