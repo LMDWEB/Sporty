@@ -31,9 +31,21 @@ class Menu
      */
     private $menuItems;
 
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Menu", mappedBy="parent")
+     */
+    private $menus;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $parent;
+
     public function __construct()
     {
         $this->menuItems = new ArrayCollection();
+        $this->menus = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -65,7 +77,7 @@ class Menu
     {
         if (!$this->menuItems->contains($menuItem)) {
             $this->menuItems[] = $menuItem;
-            $menuItem->setParentId($this);
+            $menuItem->setParent($this);
         }
 
         return $this;
@@ -76,10 +88,30 @@ class Menu
         if ($this->menuItems->contains($menuItem)) {
             $this->menuItems->removeElement($menuItem);
             // set the owning side to null (unless already changed)
-            if ($menuItem->getParentId() === $this) {
-                $menuItem->setParentId(null);
+            if ($menuItem->getParent() === $this) {
+                $menuItem->setParent(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|self[]
+     */
+    public function getMenus(): Collection
+    {
+        return $this->menus;
+    }
+
+    public function getParent(): ?bool
+    {
+        return $this->parent;
+    }
+
+    public function setParent(bool $parent): self
+    {
+        $this->parent = $parent;
 
         return $this;
     }

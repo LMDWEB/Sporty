@@ -20,9 +20,12 @@
                 <td>{{ menu.published }}</td>
             </tr>
             <tr>
-                {% for menu_item in menu %}
-                    {{ menu_item.name }} <br>
-                {% endfor %}
+                <td>Menu Items</td>
+                <td>
+                    {% for menu in menuItem %}
+                        <a href="{{ path('menu_item_edit', {'id': menu.id}) }}">{{ menu.name }}</a> <br>
+                    {% endfor %}
+                </td>
             </tr>
         </tbody>
     </table>

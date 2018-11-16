@@ -46,7 +46,7 @@ class MenuItem
      * @ORM\ManyToOne(targetEntity="App\Entity\Menu", inversedBy="menuItems")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $parent_id;
+    private $parent;
 
 
     public function getId(): ?int
@@ -102,14 +102,14 @@ class MenuItem
         return $this;
     }
 
-    public function getParentId(): ?Menu
+    public function getParent(): ?Menu
     {
-        return $this->parent_id;
+        return $this->parent;
     }
 
-    public function setParentId(?Menu $parent_id): self
+    public function setParent(?Menu $parent): self
     {
-        $this->parent_id = $parent_id;
+        $this->parent = $parent;
 
         return $this;
     }
