@@ -27,10 +27,16 @@
                 <th>Date</th>
                 <td>{{ article.date ? article.date|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
+            {% if article.namePhoto  %}
             <tr>
                 <th>Image</th>
-                <td>{{ article.image }}</td>
+                <td><img height="200" src="{{ asset('photo/')~article.namePhoto }}" alt=""></td>
             </tr>
+            <tr>
+                <th>Source_image</th>
+                <td>{{ article.sourceImage }}</td>
+            </tr>
+            {% endif %}
             <tr>
                 <th>Featured</th>
                 <td>{{ article.featured ? 'Yes' : 'No' }}</td>
@@ -46,10 +52,6 @@
             <tr>
                 <th>Source_article</th>
                 <td>{{ article.sourceArticle }}</td>
-            </tr>
-            <tr>
-                <th>Source_image</th>
-                <td>{{ article.sourceImage }}</td>
             </tr>
             <tr>
                 <th>CreatedAt</th>
@@ -70,7 +72,7 @@
         <tr>
             <th>Club</th>
             <td>
-                {% for club in article %}
+                {% for club in article.club %}
                     {{ club.name }} <br>
                 {% endfor %}
             </td>

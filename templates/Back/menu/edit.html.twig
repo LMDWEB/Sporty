@@ -1,0 +1,13 @@
+{% extends 'Back/base.html.twig' %}
+
+{% block title %}Edit Menu{% endblock %}
+
+{% block body %}
+    <h1>Edit Menu</h1>
+
+    {{ include('back/menu/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('menu_index') }}">back to list</a>
+
+    {{ include('back/menu/_delete_form.html.twig') }}
+{% endblock %}

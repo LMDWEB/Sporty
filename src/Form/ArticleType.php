@@ -12,6 +12,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -38,7 +39,6 @@ class ArticleType extends AbstractType
                 'label'    => 'Article en une ?',
                 'required' => false,
             ))
-            ->add('image')
             ->add('type', ChoiceType::class, array(
                 'choices' => array(
                     'Article' => 0,
