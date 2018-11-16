@@ -58,9 +58,18 @@ class Article
     private $date;
 
     /**
-     * @ORM\Column(type="text")
+     * @Assert\Image(
+     *     allowLandscape = false,
+     *     allowPortrait = false
+     * )
      */
-    private $image;
+    protected $photo;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="namephoto", type="string", length=20, nullable=true)
+     */
+    protected $namePhoto;
 
     /**
      * @ORM\Column(type="boolean")
@@ -193,18 +202,6 @@ class Article
     public function setDate(\DateTime $date)
     {
         $this->date = $date;
-
-        return $this;
-    }
-
-    public function getImage(): ?string
-    {
-        return $this->image;
-    }
-
-    public function setImage(string $image): self
-    {
-        $this->image = $image;
 
         return $this;
     }
@@ -344,4 +341,42 @@ class Article
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+
+    /**
+     * @param mixed $photo
+     */
+    public function setPhoto($photo)
+    {
+        $this->photo = $photo;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNamePhoto()
+    {
+        return $this->namePhoto;
+    }
+
+    /**
+     * @param string $namePhoto
+     */
+    public function setNamePhoto(string $namePhoto)
+    {
+        $this->namePhoto = $namePhoto;
+
+        return $this;
+    }
+
+
 }

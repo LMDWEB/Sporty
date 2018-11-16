@@ -2,23 +2,24 @@
 
 namespace App\Form;
 
-use App\Entity\Club;
+use App\Entity\Menu;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ClubType extends AbstractType
+class MenuType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('name')
-            ->add('abbreviation')
-            ->add('image')
-            ->add('country', CountryType::class, array(
-                'preferred_choices' => array('FR', 'ES', 'IT'),
+            ->add('published', ChoiceType::class, array(
+                'choices' => array(
+                    'Non publié'   => 0,
+                    'Publié' => 1,
+                    'Brouillon' => 2
+                ),
             ))
         ;
     }
@@ -26,7 +27,7 @@ class ClubType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Club::class,
+            'data_class' => Menu::class,
         ]);
     }
 }

@@ -18,7 +18,7 @@ class ArticleFixtures extends Fixture
             $article = (new Article())
                 ->setTitle($faker->text(50))
                 ->setResume($faker->realText())
-                ->setImage($faker->image())
+                ->setNamePhoto($faker->image())
                 ->setContent($faker->text())
                 ->setDate($faker->dateTime())
                 ->setCreatedAt($date)

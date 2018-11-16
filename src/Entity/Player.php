@@ -63,11 +63,6 @@ class Player
     private $nationality;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Game", inversedBy="referee")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $game;
-    /**
      * @ORM\Column(type="integer")
      */
     private $status;
@@ -88,6 +83,11 @@ class Player
      * @ORM\ManyToMany(targetEntity="App\Entity\Article", mappedBy="player")
      */
     private $articles;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $image;
 
     public function __construct()
     {
@@ -170,18 +170,6 @@ class Player
 
         return $this;
     }
-
-    public function getGame(): ?Game
-    {
-        return $this->game;
-    }
-
-    public function setGame(?Game $game): self
-    {
-        $this->game = $game;
-
-        return $this;
-    }
   
     public function getStatus(): ?int
     {
@@ -261,6 +249,18 @@ class Player
     public function setDisplayName($displayName): self
     {
         $this->displayName = $displayName;
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
+
         return $this;
     }
 }
