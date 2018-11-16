@@ -1,24 +1,20 @@
 {% extends 'Back/base.html.twig' %}
 
 {% block body %}
-    <h1>channel</h1>
+    <h1>{{ channel.name }}</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ channel.id }}</td>
-            </tr>
-            <tr>
-                <th>Matchday</th>
-                <td>{{ channel.matchday }}</td>
-            </tr>
-        </tbody>
-    </table>
+   <p> {{ channel.image }} </p>
 
-    <a href="{{ path('channel_index') }}">back to list</a>
+    <a class="btn btn-secondary" href="{{ path('channel_index') }}">Retourner a la liste</a>
 
-    <a href="{{ path('channel_edit', {'id': channel.id}) }}">edit</a>
+    <br><br>
+
+    <a class="btn btn-info" href="{{ path('channel_edit', {'id': channel.id}) }}">
+        <i class="fas fa-fw fa-pen"></i>
+        Modifier
+    </a>
+
+    <br><br>
 
     {{ include('Back/channel/_delete_form.html.twig') }}
 {% endblock %}

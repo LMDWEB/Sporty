@@ -1,9 +1,13 @@
 {% extends 'Back/base.html.twig' %}
 
 {% block body %}
-    <h1>Create new Game</h1>
+    <h1>Ajouter un match</h1>
+
+    <hr>
 
     {{ include('Back/game/_form.html.twig') }}
 
-    <a href="{{ path('game_index') }}">back to list</a>
+    <br>
+
+    <a class="btn btn-secondary" href="{{ path('game_index') }}">Retourner a la liste</a>
 {% endblock %}

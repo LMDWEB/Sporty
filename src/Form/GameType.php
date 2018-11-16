@@ -3,7 +3,12 @@
 namespace App\Form;
 
 use App\Entity\Channel;
+use App\Entity\Competition;
 use App\Entity\Game;
+use App\Entity\Player;
+use App\Entity\Season;
+use App\Entity\Stadium;
+use App\Entity\Team;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -17,12 +22,63 @@ class GameType extends AbstractType
             ->add('matchday')
 
             ->add('channel' , EntityType::class , [
-                'label' => 'Chaine',
+                'label' => 'Chaîne(s)',
                 'class' => Channel::class,
                 'choice_label' => 'name',
                 'multiple' => true,
-                'required'=> false
+                'required'=> false,
+                'attr' => array('class' => 'form-control')
+            ])
+
+            ->add('team_home' , EntityType::class , [
+                'label' => 'Equipe domicile',
+                'class' => Team::class,
+                'choice_label' => 'name',
+                'required'=> true,
+                'attr' => array('class' => 'form-control')
+            ])
+
+            ->add('team_away' , EntityType::class , [
+                'label' => 'Equipe exterieur',
+                'class' => Team::class,
+                'choice_label' => 'name',
+                'required'=> true,
+                'attr' => array('class' => 'form-control')
+            ])
+
+            ->add('referee' , EntityType::class , [
+                'label' => 'Arbitre',
+                'class' => Player::class,
+                'choice_label' => 'name',
+                'required'=> true,
+                'attr' => array('class' => 'form-control')
+            ])
+
+            ->add('competition' , EntityType::class , [
+                'label' => 'Competition',
+                'class' => Competition::class,
+                'choice_label' => 'name',
+                'required'=> true,
+                'attr' => array('class' => 'form-control')
+            ])
+
+            ->add('stadium' , EntityType::class , [
+                'label' => 'Stade',
+                'class' => Stadium::class,
+                'choice_label' => 'name',
+                'required'=> true,
+                'attr' => array('class' => 'form-control')
+            ])
+
+            ->add('season' , EntityType::class , [
+                'label' => 'Saison',
+                'class' => Season::class,
+                'choice_label' => 'name',
+                'required'=> true,
+                'attr' => array('class' => 'form-control')
             ]);
+
+
     }
 
     public function configureOptions(OptionsResolver $resolver)
