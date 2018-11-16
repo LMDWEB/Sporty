@@ -3,7 +3,9 @@
 namespace App\Form;
 
 use App\Entity\Menu;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -20,6 +22,10 @@ class MenuType extends AbstractType
                     'Publié' => 1,
                     'Brouillon' => 2
                 ),
+            ))
+            ->add('parent', CheckboxType::class, array(
+                'label'    => 'Menu parent ?',
+                'required' => false,
             ))
         ;
     }

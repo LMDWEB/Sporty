@@ -67,7 +67,7 @@ class Article
     /**
      * @var string
      *
-     * @ORM\Column(name="namephoto", type="string", length=20, nullable=true)
+     * @ORM\Column(name="namephoto", type="string", length=100, nullable=true)
      */
     protected $namePhoto;
 

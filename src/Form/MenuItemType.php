@@ -19,7 +19,7 @@ class MenuItemType extends AbstractType
             ->add('url')
             ->add('icon')
             ->add('color', ColorType::class)
-            ->add('parent_id', EntityType::class, [
+            ->add('parent', EntityType::class, [
                 'label'        => 'Menu',
                 'class'        => Menu::class,
                 'choice_label' => 'name',
