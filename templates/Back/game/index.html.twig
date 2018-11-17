@@ -26,12 +26,12 @@
             <tr>
                 <td>{{ game.id }}</td>
                 <td>{{ game.matchday }}</td>
-                <td>{{ game.teamHome }}</td>
-                <td>{{ game.teamAway }}</td>
-                <td>{{ game.referee }}</td>
-                <td>{{ game.competition }}</td>
-                <td>{{ game.stadium }}</td>
-                <td>{{ game.season }}</td>
+                <td>{{ game.teamHome.name }}</td>
+                <td>{{ game.teamAway.name }}</td>
+                <td>{{ game.referee.firstname }}</td>
+                <td>{{ game.competition.name }}</td>
+                <td>{{ game.stadium.name }}</td>
+                <td>{{ game.season.seasonYear }}</td>
 
                 <td>
                     <a class="btn btn-success btn-sm" href="{{ path('game_show', {'id': game.id}) }}">

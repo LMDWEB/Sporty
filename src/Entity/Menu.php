@@ -30,8 +30,6 @@ class Menu
      * @ORM\OneToMany(targetEntity="App\Entity\MenuItem", mappedBy="parent_id")
      */
     private $menuItems;
-
-
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Menu", mappedBy="parent")
      */
@@ -95,7 +93,6 @@ class Menu
 
         return $this;
     }
-
     /**
      * @return Collection|self[]
      */
