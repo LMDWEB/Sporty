@@ -1,62 +1,67 @@
 {% extends 'Back/base.html.twig' %}
 
-{% block title %}Player{% endblock %}
+{% block title %}{{ player.firstname }} {{ player.lastname }}{% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item">
+        <a href="{{ path('player_index') }}">{{ 'player.name'|trans }}</a>
+    </li>
+{% endblock %}
 
 {% block body %}
-    <h1>Player</h1>
 
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ player.id }}</td>
-            </tr>
-            <tr>
-                <th>Firstname</th>
+                <th>{{ 'player.firstname'|trans }}</th>
                 <td>{{ player.firstname }}</td>
             </tr>
             <tr>
-                <th>Lastname</th>
+                <th>{{ 'player.lastname'|trans }}</th>
                 <td>{{ player.lastname }}</td>
             </tr>
             <tr>
-                <th>DateBirth</th>
+                <th>{{ 'player.date'|trans }}</th>
                 <td>{{ player.dateBirth ? player.dateBirth|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
-                <th>City_birth</th>
+                <th>{{ 'player.city'|trans }}</th>
                 <td>{{ player.cityBirth }}</td>
             </tr>
             <tr>
-                <th>Foot</th>
-                <td>{{ player.foot }}</td>
+                <th>{{ 'player.foot.name'|trans }}</th>
+
+                <td>{% if player.foot == 0 %}
+                        {{ 'player.foot.right'|trans }}
+                    {% elseif player.foot == 1 %}
+                        {{ 'player.foot.left'|trans }}
+                    {% elseif player.foot == 2 %}
+                        {{ 'player.foot.both'|trans }}
+                    {% endif %}
+                </td>
             </tr>
             <tr>
-                <th>Nationality</th>
-                <td>{{ player.nationality }}</td>
+                <th>{{ 'player.nationality'|trans }}</th>
+                <td><img src="https://www.countryflags.io/{{ player.nationality }}/flat/32.png"></td>
             </tr>
             <tr>
-                <th>CreatedAt</th>
+                <th>{{ 'created_at'|trans }}</th>
                 <td>{{ player.createdAt ? player.createdAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
-                <th>UpdatedAt</th>
+                <th>{{ 'updated_at'|trans }}</th>
                 <td>{{ player.updatedAt ? player.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
-                <th>Published</th>
+                <th>{{ 'published'|trans }}</th>
                 <td>{{ player.published ? 'Yes' : 'No' }}</td>
-            </tr>
-            <tr>
-                <th>Archived</th>
-                <td>{{ player.archived ? 'Yes' : 'No' }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('player_index') }}">back to list</a>
+    <a href="{{ path('player_index') }}">{{ 'back_list'|trans }}</a>
 
-    <a href="{{ path('player_edit', {'id': player.id}) }}">edit</a>
+    <a href="{{ path('player_edit', {'id': player.id}) }}">{{ 'player.edit'|trans }}</a>
 
     {{ include('Back/player/_delete_form.html.twig') }}
 {% endblock %}

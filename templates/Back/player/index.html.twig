@@ -1,44 +1,42 @@
 {% extends 'Back/base.html.twig' %}
 
-{% block title %}Liste des joueurs{% endblock %}
+{% block title %}{{ 'player.list'|trans }}{% endblock %}
 
 {% block body %}
     <a class="btn btn-success" href="{{ path('player_new') }}">
         <i class="fas fa-fw fa-plus"></i>
-        Ajouter un joueur
+        {{ 'player.add'|trans }}
     </a>
 
     <div class="table-responsive">
         <table class="table table-bordered" id="dataTable">
             <thead>
                 <tr>
-                    <th>Joueur</th>
-                    <th>DateBirth</th>
-                    <th>Foot</th>
-                    <th>Nationality</th>
-                    <th>Archived</th>
-                    <th>actions</th>
+                    <th>{{ 'player.name'|trans }}</th>
+                    <th>{{ 'player.date'|trans }}</th>
+                    <th>{{ 'player.foot.name'|trans }}</th>
+                    <th>{{ 'player.nationality'|trans }}</th>
+                    <th>{{ 'player.actions.name'|trans }}</th>
                 </tr>
             </thead>
             <tbody>
             {% for player in players %}
                 <tr>
                     <td>{{ player.firstname }} {{ player.lastname }}</td>
-                    <td>{{ player.dateBirth ? player.dateBirth|date('Y-m-d') : '' }}</td>
-                    <td>{% if player.foot == 0 %} Droitier
-                        {% elseif player.foot == 1 %} Gaucher
-                        {% elseif player.foot == 2 %} Ambidextre
+                    <td>{{ player.dateBirth ? player.dateBirth|date('Y-m-d') : '' }} à {{ player.cityBirth }}</td>
+                    <td>{% if player.foot == 0 %} {{ 'player.foot.right'|trans }}
+                        {% elseif player.foot == 1 %} {{ 'player.foot.left'|trans }}
+                        {% elseif player.foot == 2 %} {{ 'player.foot.both'|trans }}
                         {% endif %}</td>
                     <td><img src="https://www.countryflags.io/{{ player.nationality }}/flat/32.png"></td>
-                    <td>{{ player.archived ? 'Yes' : 'No' }}</td>
                     <td>
-                        <a href="{{ path('player_show', {'id': player.id}) }}">show</a>
-                        <a href="{{ path('player_edit', {'id': player.id}) }}">edit</a>
+                        <a href="{{ path('player_show', {'id': player.id}) }}">{{ 'player.actions.show'|trans }}</a>
+                        <a href="{{ path('player_edit', {'id': player.id}) }}">{{ 'player.actions.edit'|trans }}</a>
                     </td>
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="12">no records found</td>
+                    <td colspan="12">{{ 'player.actions.nothing'|trans }}</td>
                 </tr>
             {% endfor %}
             </tbody>

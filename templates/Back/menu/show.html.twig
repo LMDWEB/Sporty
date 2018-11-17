@@ -1,6 +1,12 @@
 {% extends 'Back/base.html.twig' %}
 
-{% block title %}Menu{% endblock %}
+{% block title %}Ajouter un menu{% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item">
+        <a href="{{ path('menu_index') }}">Menu</a>
+    </li>
+{% endblock %}
 
 {% block body %}
     <h1>Menu</h1>
