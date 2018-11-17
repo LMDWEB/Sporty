@@ -15,7 +15,7 @@ class SeasonFixtures extends Fixture
 
         $date = $faker->dateTime();
         $team = (new Season())
-            ->setName('2017- 2018')
+            ->setSeasonYear('2017- 2018')
             ->setCreatedAt($date)
             ->setUpdatedAt($date)
         ;

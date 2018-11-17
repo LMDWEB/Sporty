@@ -15,7 +15,7 @@ class StadiumFixtures extends Fixture
 
         $date = $faker->dateTime();
         $team = (new Stadium())
-            ->setName('Alianz Arena')
+            ->setName('Allianz Arena')
             ->setCreatedAt($date)
             ->setUpdatedAt($date)
         ;

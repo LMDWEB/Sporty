@@ -27,11 +27,6 @@ class Season
      */
     private $season_year;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Game", inversedBy="season")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $game;
 
     public function getId(): ?int
     {
@@ -46,18 +41,6 @@ class Season
     public function setSeasonYear(string $season_year): self
     {
         $this->season_year = $season_year;
-
-        return $this;
-    }
-
-    public function getGame(): ?Game
-    {
-        return $this->game;
-    }
-
-    public function setGame(?Game $game): self
-    {
-        $this->game = $game;
 
         return $this;
     }

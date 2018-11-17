@@ -26,12 +26,6 @@ class Competition
      */
     private $name;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Game", inversedBy="competition")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $game;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -49,15 +43,4 @@ class Competition
         return $this;
     }
 
-    public function getGame(): ?Game
-    {
-        return $this->game;
-    }
-
-    public function setGame(?Game $game): self
-    {
-        $this->game = $game;
-
-        return $this;
-    }
 }
