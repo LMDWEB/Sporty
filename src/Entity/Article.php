@@ -116,11 +116,16 @@ class Article
      */
     private $player;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Thread", inversedBy="articles")
+     */
+    private $thread;
 
     public function __construct()
     {
         $this->club = new ArrayCollection();
         $this->player = new ArrayCollection();
+        $this->thread = new ArrayCollection();
     }
 
     /**
@@ -378,5 +383,29 @@ class Article
         return $this;
     }
 
+    /**
+     * @return Collection|Thread[]
+     */
+    public function getThread(): Collection
+    {
+        return $this->thread;
+    }
 
+    public function addThread(Thread $thread): self
+    {
+        if (!$this->thread->contains($thread)) {
+            $this->thread[] = $thread;
+        }
+
+        return $this;
+    }
+
+    public function removeThread(Thread $thread): self
+    {
+        if ($this->thread->contains($thread)) {
+            $this->thread->removeElement($thread);
+        }
+
+        return $this;
+    }
 }

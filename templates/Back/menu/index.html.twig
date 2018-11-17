@@ -1,13 +1,19 @@
 {% extends 'Back/base.html.twig' %}
 
-{% block title %}Menu index{% endblock %}
+{% block title %}Liste des menus{% endblock %}
 
 {% block body %}
-    <h1>Menu index</h1>
+    <a class="btn btn-success" href="{{ path('menu_new') }}">
+        <i class="fas fa-fw fa-plus"></i>
+        Ajouter un menu
+    </a>
+    <a class="btn btn-success" href="{{ path('menu_item_new') }}">
+        <i class="fas fa-fw fa-plus"></i>
+        Ajouter un sous-menu
+    </a>
 
-    <a href="{{ path('menu_new') }}">Create new menu</a>
-
-    <table class="table">
+<div class="table-responsive">
+    <table class="table table-bordered" id="dataTable">
         <thead>
             <tr>
                 <th>Id</th>
@@ -34,7 +40,17 @@
         {% endfor %}
         </tbody>
     </table>
+</div>
 
-    <a href="{{ path('menu_item_new') }}">Create menu item</a>
+{% endblock %}
+
+{% block javascripts %}
+
+    <!-- Page level plugin JavaScript-->
+    <script src="{{ asset('back/vendor/datatables/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('back/vendor/datatables/dataTables.bootstrap4.js') }}"></script>
+
+    <!-- Demo scripts for this page-->
+    <script src="{{ asset('back/js/demo/datatables-demo.js') }}"></script>
 
 {% endblock %}

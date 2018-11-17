@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Entity\Traits\ArchivedTraits;
 use App\Entity\Traits\PublishedTraits;
+use App\Entity\Traits\TimestampableTraits;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -14,7 +15,7 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
  */
 class Club
 {
-    use TimestampableEntity;
+    use TimestampableTraits;
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()

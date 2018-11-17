@@ -1,8 +1,12 @@
 {% extends 'Back/base.html.twig' %}
 
-{% block title %}Menu{% endblock %}
+{% block title %}Ajouter un sous-menu{% endblock %}
+{% block breadcrumb %}
+    <li class="breadcrumb-item">
+        <a href="{{ path('menu_new') }}">Menu</a>
+    </li>
+{% endblock %}
 {% block body %}
-    <h1>Create new MenuItem</h1>
 
     {{ include('back/menu_item/_form.html.twig') }}
 

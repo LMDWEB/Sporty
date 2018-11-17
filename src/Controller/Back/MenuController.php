@@ -55,7 +55,7 @@ class MenuController extends AbstractController
         $menuItem = $this->getDoctrine()
             ->getRepository(MenuItem::class)
             ->findBy(['parent' => $menu->getId()]);
-
+        
         return $this->render('Back/menu/show.html.twig', [
             'menu' => $menu,
             'menuItem' => $menuItem

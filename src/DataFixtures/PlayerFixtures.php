@@ -10,21 +10,48 @@ class PlayerFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        $player = new Player();
-        $date = new \DateTime("1998-12-20");
-        $player
-            ->setFirstname('Kylian')
-            ->setLastname('Mbappé')
-            ->setSurname('Mbappé')
-            ->setDisplayName('Kylian Mbappé')
-            ->setImage('mbappe.png')
-            ->setCityBirth("Bondy")
-            ->setDateBirth($date)
-            ->setFoot(0)
-            ->setNationality("FR")
-            ->setStatus(0)
-        ;
-        $manager->persist($player);
+
+        $playerArray = array(
+            array(
+                "firstname" => "Clément",
+                "lastname" => "Turpin",
+                "surname" => "FDP",
+                "image" => "turpin.jpg",
+                "cityBirth" => "FDPville",
+                "dateBirth" => new \DateTime("1978-12-20"),
+                "foot" => 0,
+                "nationality" => "FR",
+                "status" => 1
+            ),
+            array(
+                "firstname" => "Kylian",
+                "lastname" => "Mbappé",
+                "surname" => "Kyky",
+                "image" => "mbappe.jpg",
+                "cityBirth" => "Bondy",
+                "dateBirth" => new \DateTime("1998-12-20"),
+                "foot" => 0,
+                "nationality" => "FR",
+                "status" => 0
+            )
+        );
+
+        foreach ($playerArray as  $player) {
+            $players = new Player();
+            $players
+                ->setFirstname($player["firstname"])
+                ->setLastname($player["lastname"])
+                ->setSurname($player["surname"])
+                ->setImage($player["image"])
+                ->setCityBirth($player["cityBirth"])
+                ->setDateBirth($player["dateBirth"])
+                ->setFoot($player["foot"])
+                ->setNationality($player["nationality"])
+                ->setStatus($player["status"])
+            ;
+
+            $manager->persist($players);
+        }
 
         $manager->flush();
     }

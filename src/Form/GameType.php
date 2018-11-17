@@ -9,6 +9,7 @@ use App\Entity\Player;
 use App\Entity\Season;
 use App\Entity\Stadium;
 use App\Entity\Team;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -49,7 +50,13 @@ class GameType extends AbstractType
             ->add('referee' , EntityType::class , [
                 'label' => 'Arbitre',
                 'class' => Player::class,
-                'choice_label' => 'name',
+                'choice_label' => function ($referee) {
+                    return $referee->getFirstname()." ".$referee->getLastname();
+                },
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('u')
+                        ->where('u.status = 1');
+                },
                 'required'=> true,
                 'attr' => array('class' => 'form-control')
             ])
@@ -73,7 +80,7 @@ class GameType extends AbstractType
             ->add('season' , EntityType::class , [
                 'label' => 'Saison',
                 'class' => Season::class,
-                'choice_label' => 'name',
+                'choice_label' => 'season_year',
                 'required'=> true,
                 'attr' => array('class' => 'form-control')
             ]);

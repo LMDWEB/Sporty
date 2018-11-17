@@ -20,6 +20,15 @@ class ClubFixtures extends Fixture
 
         $manager->persist($club);
 
+        $club
+            ->setName('AS Monaco')
+            ->setAbbreviation("ASM")
+            ->setImage('asm.png')
+            ->setCountry("FR")
+        ;
+
+        $manager->persist($club);
+
         $manager->flush();
     }
 }

@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Entity\Traits\ArchivedTraits;
 use App\Entity\Traits\PublishedTraits;
+use App\Entity\Traits\TimestampableTraits;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -16,7 +17,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 class Player
 {
 
-    use TimestampableEntity;
+    use TimestampableTraits;
     use PublishedTraits;
     use ArchivedTraits;
 
@@ -36,11 +37,6 @@ class Player
      * @ORM\Column(type="string", length=30)
      */
     private $lastname;
-
-    /**
-     * @ORM\Column(type="string", length=60)
-     */
-    private $displayName;
 
     /**
      * @ORM\Column(type="date")
@@ -85,7 +81,7 @@ class Player
     private $articles;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=100, nullable=true)
      */
     private $image;
 
@@ -232,23 +228,6 @@ class Player
             $article->removePlayer($this);
         }
 
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDisplayName()
-    {
-        return $this->displayName;
-    }
-
-    /**
-     * @param mixed $displayName
-     */
-    public function setDisplayName($displayName): self
-    {
-        $this->displayName = $displayName;
         return $this;
     }
 
