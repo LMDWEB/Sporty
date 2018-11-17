@@ -1,0 +1,26 @@
+player:
+  add: Ajouter un joueur
+  edit: Modifier un joueur
+  list: Liste des joueurs
+  firstname: Prénom
+  lastname: Nom
+  city: Ville de naissance
+  name: Joueur
+  nationality: Nationalité
+  date: Date de naissance
+  actions:
+    name: Actions
+    edit: Editer
+    show: Afficher
+    nothing: Pas de joueur disponible
+  foot:
+    name: Pied
+    right: Droitier
+    left: Gaucher
+    both: Ambidextre
+
+back_list: Revenir en arrière
+delete: Supprimer
+created_at: Crée à
+updated_at: Dernière mise à jour
+published: Publié ?
