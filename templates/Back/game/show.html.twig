@@ -17,27 +17,27 @@
             </tr>
             <tr>
                 <th>Equipe domicile</th>
-                <td>{{ game.teamHome }}</td>
+                <td>{{ game.teamHome.name }}</td>
             </tr>
             <tr>
                 <th>Equipe exterieur</th>
-                <td>{{ game.teamAway }}</td>
+                <td>{{ game.teamAway.name }}</td>
             </tr>
             <tr>
                 <th>Arbitre</th>
-                <td>{{ game.referee }}</td>
+                <td>{{ game.referee.firstname }} {{ game.referee.lastname }}</td>
             </tr>
             <tr>
                 <th>Competition</th>
-                <td>{{ game.competition }}</td>
+                <td>{{ game.competition.name }}</td>
             </tr>
             <tr>
                 <th>Stade</th>
-                <td>{{ game.stadium }}</td>
+                <td>{{ game.stadium.name }}</td>
             </tr>
             <tr>
                 <th>Saison</th>
-                <td>{{ game.season }}</td>
+                <td>{{ game.season.seasonYear }}</td>
             </tr>
         </tbody>
     </table>
