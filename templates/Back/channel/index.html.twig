@@ -1,12 +1,14 @@
 {% extends 'Back/base.html.twig' %}
 
+{% block title %}Liste des chaînes{% endblock %}
 {% block body %}
+    <a class="btn btn-success" href="{{ path('channel_new') }}">
+        <i class="fas fa-fw fa-plus"></i>
+        Ajouter une chaîne
+    </a>
 
-    <h1>Liste de chaînes</h1>
-
-    <hr>
-
-    <table class="table table-striped table-bordered">
+<div class="table-responsive">
+    <table class="table table-bordered" id="dataTable">
         <thead class="thead-dark">
             <tr>
                 <th>#</th>
@@ -40,9 +42,16 @@
         {% endfor %}
         </tbody>
     </table>
+</div>
+{% endblock %}
 
-    <a class="btn btn-success" href="{{ path('channel_new') }}">
-        <i class="fas fa-fw fa-plus"></i>
-        Ajouter une chaîne
-    </a>
+{% block javascripts %}
+
+    <!-- Page level plugin JavaScript-->
+    <script src="{{ asset('back/vendor/datatables/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('back/vendor/datatables/dataTables.bootstrap4.js') }}"></script>
+
+    <!-- Demo scripts for this page-->
+    <script src="{{ asset('back/js/demo/datatables-demo.js') }}"></script>
+
 {% endblock %}

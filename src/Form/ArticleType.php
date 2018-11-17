@@ -6,6 +6,7 @@ use App\Entity\Article;
 use App\Entity\Category;
 use App\Entity\Club;
 use App\Entity\Player;
+use App\Entity\Thread;
 use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -52,7 +53,7 @@ class ArticleType extends AbstractType
                 'choices' => array(
                     'Publié' => 1,
                     'Brouillon' => 2,
-                    'No publié'   => 0,
+                    'Non publié'   => 0,
                 ),
             ))
             ->add('club', EntityType::class, [
@@ -65,15 +66,25 @@ class ArticleType extends AbstractType
             ->add('player', EntityType::class, [
                 'label'        => 'Player',
                 'class'        => Player::class,
-                'choice_label' => 'display_name',
+                'choice_label' => function ($player) {
+                    return $player->getFirstname()." ".$player->getLastname();
+                },
                 'multiple'     => true,
                 'required'     => false,
+                'attr' => array('class' => 'form-control', 'id' => 'select-player')
             ])
             ->add('created_by', EntityType::class, [
                 'label'        => 'Author',
                 'class'        => User::class,
                 'choice_label' => 'firstname',
                 'multiple'     => false,
+                'required'     => false,
+            ])
+            ->add('thread', EntityType::class, [
+                'label'        => 'Thread',
+                'class'        => Thread::class,
+                'choice_label' => 'name',
+                'multiple'     => true,
                 'required'     => false,
             ])
         ;

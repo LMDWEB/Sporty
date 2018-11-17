@@ -1,54 +1,47 @@
 {% extends 'Back/base.html.twig' %}
 
-{% block title %}Sous menu{% endblock %}
-
-{% block breadcrumb %}
-    <li class="breadcrumb-item">
-        <a href="{{ path('menu_new') }}">Menu</a>
-    </li>
-{% endblock %}
+{% block title %}Liste des threads{% endblock %}
 
 {% block body %}
-
-    <a class="btn btn-success" href="{{ path('article_new') }}">
+    <a class="btn btn-success" href="{{ path('thread_new') }}">
         <i class="fas fa-fw fa-plus"></i>
-        Ajouter un nouvel article
+        Ajouter un nouvel thread
     </a>
-
 <div class="table-responsive">
     <table class="table table-bordered" id="dataTable">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Name</th>
-                <th>Url</th>
-                <th>Icon</th>
-                <th>Color</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>Published</th>
+                <th>Archived</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
-        {% for menu_item in menu_items %}
+        {% for thread in threads %}
             <tr>
-                <td>{{ menu_item.id }}</td>
-                <td>{{ menu_item.name }}</td>
-                <td>{{ menu_item.url }}</td>
-                <td>{{ menu_item.icon }}</td>
-                <td>{{ menu_item.color }}</td>
+                <td>{{ thread.id }}</td>
+                <td>{{ thread.name }}</td>
+                <td>{{ thread.createdAt ? thread.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ thread.updatedAt ? thread.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ thread.published ? 'Yes' : 'No' }}</td>
+                <td>{{ thread.archived ? 'Yes' : 'No' }}</td>
                 <td>
-                    <a href="{{ path('menu_item_show', {'id': menu_item.id}) }}">show</a>
-                    <a href="{{ path('menu_item_edit', {'id': menu_item.id}) }}">edit</a>
+                    <a href="{{ path('thread_show', {'id': thread.id}) }}">show</a>
+                    <a href="{{ path('thread_edit', {'id': thread.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td colspan="7">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 </div>
-    <a href="{{ path('menu_item_new') }}">Create new</a>
 {% endblock %}
 
 {% block javascripts %}

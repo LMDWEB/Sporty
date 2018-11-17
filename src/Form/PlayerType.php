@@ -25,7 +25,6 @@ class PlayerType extends AbstractType
             ))
             ->add('firstname')
             ->add('lastname')
-            ->add('display_name')
             ->add('surname')
             ->add('dateBirth', BirthdayType::class)
             ->add('city_birth')

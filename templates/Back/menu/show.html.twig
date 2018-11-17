@@ -23,7 +23,7 @@
                 <td>Menu Items</td>
                 <td>
                     {% for menu in menuItem %}
-                        <a href="{{ path('menu_item_edit', {'id': menu.id}) }}">{{ menu.name }}</a> <br>
+                        <a href="{{ path('menu_item_show', {'id': menu.id}) }}">{{ menu.name }}</a> <br>
                     {% endfor %}
                 </td>
             </tr>

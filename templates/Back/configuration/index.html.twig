@@ -1,10 +1,9 @@
 {% extends 'Back/base.html.twig' %}
-{% block title %}Configuration index{% endblock %}
+{% block title %}Liste des configurations{% endblock %}
 
 {% block body %}
-    <h1>Configuration index</h1>
-
-    <table class="table">
+<div class="table-responsive">
+    <table class="table table-bordered" id="dataTable">
         <thead>
             <tr>
                 <th>Id</th>
@@ -35,6 +34,18 @@
         {% endfor %}
         </tbody>
     </table>
-
+</div>
     <a href="{{ path('configuration_new') }}">Create new</a>
+{% endblock %}
+
+
+{% block javascripts %}
+
+    <!-- Page level plugin JavaScript-->
+    <script src="{{ asset('back/vendor/datatables/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('back/vendor/datatables/dataTables.bootstrap4.js') }}"></script>
+
+    <!-- Demo scripts for this page-->
+    <script src="{{ asset('back/js/demo/datatables-demo.js') }}"></script>
+
 {% endblock %}

@@ -1,24 +1,21 @@
 {% extends 'Back/base.html.twig' %}
 
-{% block title %}Player index{% endblock %}
+{% block title %}Liste des joueurs{% endblock %}
 
 {% block body %}
-    <h1>Player index</h1>
-    <a href="{{ path('player_new') }}">Create new</a>
+    <a class="btn btn-success" href="{{ path('player_new') }}">
+        <i class="fas fa-fw fa-plus"></i>
+        Ajouter un joueur
+    </a>
+
     <div class="table-responsive">
         <table class="table table-bordered" id="dataTable">
             <thead>
                 <tr>
-                    <th>Id</th>
-                    <th>Firstname</th>
-                    <th>Lastname</th>
+                    <th>Joueur</th>
                     <th>DateBirth</th>
-                    <th>City_birth</th>
                     <th>Foot</th>
                     <th>Nationality</th>
-                    <th>CreatedAt</th>
-                    <th>UpdatedAt</th>
-                    <th>Published</th>
                     <th>Archived</th>
                     <th>actions</th>
                 </tr>
@@ -26,19 +23,13 @@
             <tbody>
             {% for player in players %}
                 <tr>
-                    <td>{{ player.id }}</td>
-                    <td>{{ player.firstname }}</td>
-                    <td>{{ player.lastname }}</td>
+                    <td>{{ player.firstname }} {{ player.lastname }}</td>
                     <td>{{ player.dateBirth ? player.dateBirth|date('Y-m-d') : '' }}</td>
-                    <td>{{ player.cityBirth }}</td>
                     <td>{% if player.foot == 0 %} Droitier
                         {% elseif player.foot == 1 %} Gaucher
                         {% elseif player.foot == 2 %} Ambidextre
                         {% endif %}</td>
                     <td><img src="https://www.countryflags.io/{{ player.nationality }}/flat/32.png"></td>
-                    <td>{{ player.createdAt ? player.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                    <td>{{ player.updatedAt ? player.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                    <td>{{ player.published ? 'Yes' : 'No' }}</td>
                     <td>{{ player.archived ? 'Yes' : 'No' }}</td>
                     <td>
                         <a href="{{ path('player_show', {'id': player.id}) }}">show</a>
@@ -53,5 +44,16 @@
             </tbody>
         </table>
     </div>
+
+{% endblock %}
+
+{% block javascripts %}
+
+    <!-- Page level plugin JavaScript-->
+    <script src="{{ asset('back/vendor/datatables/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('back/vendor/datatables/dataTables.bootstrap4.js') }}"></script>
+
+    <!-- Demo scripts for this page-->
+    <script src="{{ asset('back/js/demo/datatables-demo.js') }}"></script>
 
 {% endblock %}
