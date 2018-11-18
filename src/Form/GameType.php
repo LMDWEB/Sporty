@@ -12,6 +12,7 @@ use App\Entity\Team;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -19,9 +20,15 @@ class GameType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('matchday')
+        $matchday = new Game();
 
+        $builder
+            ->add('matchday', ChoiceType::class, array(
+                'choices' => array(
+                    $matchday->listMatchDay()
+                ),
+            ))
+            
             ->add('channel' , EntityType::class , [
                 'label' => 'Chaîne(s)',
                 'class' => Channel::class,
@@ -84,8 +91,6 @@ class GameType extends AbstractType
                 'required'=> true,
                 'attr' => array('class' => 'form-control')
             ]);
-
-
     }
 
     public function configureOptions(OptionsResolver $resolver)

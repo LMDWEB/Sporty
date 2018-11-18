@@ -16,6 +16,8 @@ class Game
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
+
+
     private $id;
 
     /**
@@ -178,5 +180,28 @@ class Game
         }
 
         return $this;
+    }
+
+    public function listMatchDay()
+    {
+        $matchday = array();
+
+        for ($i = 1; $i <= 50; $i++) {
+            if ($i != 1) {
+                $matchday[$i . "ème journée"] = $i ;
+            } else {
+                $matchday[$i . "ère journée"] = $i ;
+            }
+        }
+
+        $matchday['64ème de finale'] = 51;
+        $matchday['32ème de finale'] = 52;
+        $matchday['16ème de finale'] = 53;
+        $matchday['8ème de finale'] = 54;
+        $matchday['Quart de finale'] = 55;
+        $matchday['Demi finale'] = 56;
+        $matchday['Finale'] = 57;
+
+        return $matchday;
     }
 }

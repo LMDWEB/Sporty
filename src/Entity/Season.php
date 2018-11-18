@@ -14,7 +14,6 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
 class Season
 {
     use TimestampableEntity;
-    use ArchivedTraits;
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -23,7 +22,7 @@ class Season
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=10)
+     * @ORM\Column(type="string", length=10, unique=true)
      */
     private $season_year;
 

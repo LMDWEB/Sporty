@@ -87,4 +87,31 @@ class GameController extends AbstractController
 
         return $this->redirectToRoute('game_index');
     }
+
+    public function list(){
+
+        $matchday = array();
+
+        for ($i = 1; $i < 50; $i++) {
+            if ($i != 1) {
+                $matchday[$i] = $i . "ème journée";
+            } else {
+                $matchday[$i] = $i . "ère journée";
+            }
+        }
+
+        array_push(
+            $matchday,
+            "64ème de finale",
+            "32ème de finale",
+            "16ème de finale",
+            "8ème de finale",
+            "Quart de finale",
+            "Demi finale",
+            "Petite finale",
+            "Finale"
+        );
+
+        return $matchday;
+    }
 }
