@@ -5,8 +5,21 @@
         <a href="{{ path('todolist_index') }}">{{ 'todolist.name'|trans }}</a>
     </li>
 {% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.css">
+{% endblock %}
 {% block body %}
     {{ include('back/todolist/_form.html.twig') }}
 
     <a href="{{ path('todolist_index') }}">{{ 'back_list'|trans }}</a>
+{% endblock %}
+{% block javascripts %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#todolist_assignedUser').selectize({
+                maxItems: 10
+            });
+        });
+    </script>
 {% endblock %}

@@ -29,8 +29,9 @@
             <span>Club</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-            <a class="dropdown-item" href="{{ path('club_index') }}">Liste des clubs</a>
-            <a class="dropdown-item" href="{{ path('team_index') }}">Liste des teams</a>
+            <a class="dropdown-item" href="{{ path('club_index') }}">{{ 'club.list'|trans }}</a>
+            <a class="dropdown-item" href="{{ path('club_team_index') }}">{{ 'clubteam.list'|trans }}</a>
+            <a class="dropdown-item" href="{{ path('team_index') }}">{{ 'team.type'|trans }}</a>
         </div>
     </li>
     <li class="nav-item dropdown">

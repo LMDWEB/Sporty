@@ -13,8 +13,6 @@ class SeasonType extends AbstractType
     {
         $builder
             ->add('season_year')
-            ->add('createdAt')
-            ->add('updatedAt')
         ;
     }
 

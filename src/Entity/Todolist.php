@@ -39,9 +39,14 @@ class Todolist
     private $status;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="todolists")
+     * @ORM\ManyToMany(targetEntity="App\Entity\User", inversedBy="todolists")
      */
     private $assignedUser;
+
+    public function __construct()
+    {
+        $this->assignedUser = new ArrayCollection();
+    }
 
 
     public function getId(): ?int
@@ -85,14 +90,28 @@ class Todolist
         return $this;
     }
 
-    public function getAssignedUser(): ?User
+    /**
+     * @return Collection|User[]
+     */
+    public function getAssignedUser(): Collection
     {
         return $this->assignedUser;
     }
 
-    public function setAssignedUser(?User $assignedUser): self
+    public function addAssignedUser(User $assignedUser): self
     {
-        $this->assignedUser = $assignedUser;
+        if (!$this->assignedUser->contains($assignedUser)) {
+            $this->assignedUser[] = $assignedUser;
+        }
+
+        return $this;
+    }
+
+    public function removeAssignedUser(User $assignedUser): self
+    {
+        if ($this->assignedUser->contains($assignedUser)) {
+            $this->assignedUser->removeElement($assignedUser);
+        }
 
         return $this;
     }

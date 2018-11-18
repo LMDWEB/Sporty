@@ -31,6 +31,7 @@ class TodolistType extends AbstractType
                     'wip' => 0,
                     'todo' => 1,
                     'important'   => 2,
+                    'resolved'   => 3,
                 ),
                 'attr' => array('class' => 'form-control')
             ))
@@ -38,9 +39,9 @@ class TodolistType extends AbstractType
                 'label'        => 'author',
                 'class'        => User::class,
                 'choice_label' => 'firstname',
-                'multiple'     => false,
+                'multiple'     => true,
                 'required'     => false,
-                'attr' => array('class' => 'form-control')
+                'attr' => array('id' => 'todolist_assignedUser')
             ])
         ;
     }

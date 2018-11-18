@@ -23,7 +23,7 @@
         {% for club in clubs %}
             <tr>
                 <td>{{ club.name }}</td>
-                <td>{{ club.country }}</td>
+                <td><img src="https://www.countryflags.io/{{ club.country }}/flat/32.png"></td>
                 <td>{{ club.createdAt ? club.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ club.updatedAt ? club.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>

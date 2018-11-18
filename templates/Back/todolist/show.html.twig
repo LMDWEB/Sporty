@@ -28,6 +28,8 @@
                         {{ 'todo'|trans }}
                     {% elseif todolist.status == 2 %}
                         {{ 'important'|trans }}
+                    {% elseif todolist.status == 3 %}
+                        {{ 'resolved'|trans }}
                     {% endif %}
                 </td>
             </tr>

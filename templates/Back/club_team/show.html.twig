@@ -1,0 +1,40 @@
+{% extends 'Back/base.html.twig' %}
+{% block title %}{{ club_team.name }}{% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item">
+        <a href="{{ path('club_team_index') }}">{{ 'club_team.name'|trans }}</a>
+    </li>
+{% endblock %}
+{% block body %}
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id_club</th>
+                <td>{{ club_team.club_id }}</td>
+            </tr>
+            <tr>
+                <th>Id_team</th>
+                <td>{{ club_team.team_id }}</td>
+            </tr>
+            <tr>
+                <th>Year_creation</th>
+                <td>{{ club_team.yearCreation }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ club_team.address }}</td>
+            </tr>
+            <tr>
+                <th>Stadium</th>
+                <td>{{ club_team.stadium }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('club_team_index') }}">{{ 'back_list'|trans }}</a>
+
+    <a href="{{ path('club_team_edit', {'id': club_team.id}) }}">edit</a>
+
+    {{ include('back/club_team/_delete_form.html.twig') }}
+{% endblock %}

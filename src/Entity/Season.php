@@ -26,6 +26,18 @@ class Season
      */
     private $season_year;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\SeasonCompetition", mappedBy="season")
+     */
+    private $seasonCompetitions;
+
+
+    public function __construct()
+    {
+        $this->competition = new ArrayCollection();
+        $this->seasonCompetitions = new ArrayCollection();
+    }
+
 
     public function getId(): ?int
     {
@@ -40,6 +52,37 @@ class Season
     public function setSeasonYear(string $season_year): self
     {
         $this->season_year = $season_year;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|SeasonCompetition[]
+     */
+    public function getSeasonCompetitions(): Collection
+    {
+        return $this->seasonCompetitions;
+    }
+
+    public function addSeasonCompetition(SeasonCompetition $seasonCompetition): self
+    {
+        if (!$this->seasonCompetitions->contains($seasonCompetition)) {
+            $this->seasonCompetitions[] = $seasonCompetition;
+            $seasonCompetition->setSeason($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSeasonCompetition(SeasonCompetition $seasonCompetition): self
+    {
+        if ($this->seasonCompetitions->contains($seasonCompetition)) {
+            $this->seasonCompetitions->removeElement($seasonCompetition);
+            // set the owning side to null (unless already changed)
+            if ($seasonCompetition->getSeason() === $this) {
+                $seasonCompetition->setSeason(null);
+            }
+        }
 
         return $this;
     }

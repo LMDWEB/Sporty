@@ -22,6 +22,14 @@ class StadiumFixtures extends Fixture
 
         $manager->persist($team);
 
+        $team = (new Stadium())
+            ->setName('Parc des Princes')
+            ->setCreatedAt($date)
+            ->setUpdatedAt($date)
+        ;
+
+        $manager->persist($team);
+
         $manager->flush();
     }
 }
