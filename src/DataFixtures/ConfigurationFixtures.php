@@ -13,7 +13,8 @@ class ConfigurationFixtures extends Fixture
 
         $config = new Configuration();
         $config->setNameConfig('name_site')
-            ->setValueConfig('Le Meilleur du PSG');
+            ->setValueConfig('Le Meilleur du PSG')
+            ->setType(0);
         $manager->persist($config);
 
         $manager->flush();

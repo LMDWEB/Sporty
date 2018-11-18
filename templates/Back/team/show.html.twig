@@ -3,7 +3,6 @@
 {% block title %}Team{% endblock %}
 
 {% block body %}
-    <h1>Team</h1>
 
     <table class="table">
         <tbody>
@@ -14,6 +13,16 @@
             <tr>
                 <th>Name</th>
                 <td>{{ team.name }}</td>
+            </tr>
+            <tr>
+                <th>Section</th>
+                <td>
+                    {% if team.section == 0 %}
+                        {{ 'men'|trans }}
+                    {% elseif team.section == 1 %}
+                        {{ 'women'|trans }}
+                    {% endif %}
+                </td>
             </tr>
             <tr>
                 <th>CreatedAt</th>
@@ -30,7 +39,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('team_index') }}">back to list</a>
+    <a href="{{ path('team_index') }}">{{ 'back_list'|trans }}</a>
 
     <a href="{{ path('team_edit', {'id': team.id}) }}">edit</a>
 

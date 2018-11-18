@@ -7,7 +7,7 @@
 
     {{ include('Back/team/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('team_index') }}">back to list</a>
+    <a href="{{ path('team_index') }}">{{ 'back_list'|trans }}</a>
 
     {{ include('Back/team/_delete_form.html.twig') }}
 {% endblock %}

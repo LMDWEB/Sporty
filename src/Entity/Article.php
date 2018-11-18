@@ -96,10 +96,6 @@ class Article
      */
     private $source_image;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Club", inversedBy="articles")
-     */
-    private $club;
 
     /**
      * @ORM\Column(type="string", length=200)
@@ -121,11 +117,16 @@ class Article
      */
     private $thread;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\ClubTeam", inversedBy="articles")
+     */
+    private $club;
+
     public function __construct()
     {
-        $this->club = new ArrayCollection();
         $this->player = new ArrayCollection();
         $this->thread = new ArrayCollection();
+        $this->club = new ArrayCollection();
     }
 
     /**
@@ -271,32 +272,6 @@ class Article
         return $this;
     }
 
-    /**
-     * @return Collection|Club[]
-     */
-    public function getClub(): Collection
-    {
-        return $this->club;
-    }
-
-    public function addClub(Club $idClub): self
-    {
-        if (!$this->club->contains($idClub)) {
-            $this->club[] = $idClub;
-        }
-
-        return $this;
-    }
-
-    public function removeClub(Club $idClub): self
-    {
-        if ($this->club->contains($idClub)) {
-            $this->club->removeElement($idClub);
-        }
-
-        return $this;
-    }
-
     public function getResume(): ?string
     {
         return $this->resume;
@@ -404,6 +379,32 @@ class Article
     {
         if ($this->thread->contains($thread)) {
             $this->thread->removeElement($thread);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ClubTeam[]
+     */
+    public function getClub(): Collection
+    {
+        return $this->club;
+    }
+
+    public function addClub(ClubTeam $club): self
+    {
+        if (!$this->club->contains($club)) {
+            $this->club[] = $club;
+        }
+
+        return $this;
+    }
+
+    public function removeClub(ClubTeam $club): self
+    {
+        if ($this->club->contains($club)) {
+            $this->club->removeElement($club);
         }
 
         return $this;

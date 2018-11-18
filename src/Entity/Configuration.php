@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Entity\Traits\ArchivedTraits;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
@@ -29,6 +31,16 @@ class Configuration
      */
     private $valueConfig;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $type;
+
+    public function __construct()
+    {
+        $this->clubs = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -54,6 +66,18 @@ class Configuration
     public function setValueConfig(string $valueConfig): self
     {
         $this->valueConfig = $valueConfig;
+
+        return $this;
+    }
+
+    public function getType(): ?int
+    {
+        return $this->type;
+    }
+
+    public function setType(int $type): self
+    {
+        $this->type = $type;
 
         return $this;
     }

@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Channel;
+use App\Entity\ClubTeam;
 use App\Entity\Competition;
 use App\Entity\Game;
 use App\Entity\Player;
@@ -42,7 +43,7 @@ class GameType extends AbstractType
 
             ->add('team_home' , EntityType::class , [
                 'label' => 'game.teamHome',
-                'class' => Team::class,
+                'class' => ClubTeam::class,
                 'choice_label' => 'name',
                 'required'=> true,
                 'attr' => array('class' => 'form-control')
@@ -50,7 +51,7 @@ class GameType extends AbstractType
 
             ->add('team_away' , EntityType::class , [
                 'label' => 'game.teamAway',
-                'class' => Team::class,
+                'class' => ClubTeam::class,
                 'choice_label' => 'name',
                 'required'=> true,
                 'attr' => array('class' => 'form-control')
@@ -78,7 +79,7 @@ class GameType extends AbstractType
                 'attr' => array('class' => 'form-control')
             ])
 
-            ->add('stadium' , EntityType::class , [
+            ->add('stadium', EntityType::class , [
                 'label' => 'game.stadium',
                 'class' => Stadium::class,
                 'choice_label' => 'name',

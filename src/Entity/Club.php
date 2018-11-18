@@ -24,7 +24,7 @@ class Club
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=20)
+     * @ORM\Column(type="string", length=20, unique=true)
      */
     private $name;
 
@@ -48,9 +48,16 @@ class Club
      */
     private $articles;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\ClubTeam", mappedBy="club")
+     */
+    private $clubTeams;
+
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
+        $this->clubTeams = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -118,7 +125,7 @@ class Club
     {
         if (!$this->articles->contains($article)) {
             $this->articles[] = $article;
-            $article->addIdClub($this);
+            $article->addClub($this);
         }
 
         return $this;
@@ -128,7 +135,38 @@ class Club
     {
         if ($this->articles->contains($article)) {
             $this->articles->removeElement($article);
-            $article->removeIdClub($this);
+            $article->removeClub($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ClubTeam[]
+     */
+    public function getClubTeams(): Collection
+    {
+        return $this->clubTeams;
+    }
+
+    public function addClubTeam(ClubTeam $clubTeam): self
+    {
+        if (!$this->clubTeams->contains($clubTeam)) {
+            $this->clubTeams[] = $clubTeam;
+            $clubTeam->setClub($this);
+        }
+
+        return $this;
+    }
+
+    public function removeClubTeam(ClubTeam $clubTeam): self
+    {
+        if ($this->clubTeams->contains($clubTeam)) {
+            $this->clubTeams->removeElement($clubTeam);
+            // set the owning side to null (unless already changed)
+            if ($clubTeam->getClub() === $this) {
+                $clubTeam->setClub(null);
+            }
         }
 
         return $this;

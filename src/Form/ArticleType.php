@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Article;
 use App\Entity\Category;
 use App\Entity\Club;
+use App\Entity\ClubTeam;
 use App\Entity\Player;
 use App\Entity\Thread;
 use App\Entity\User;
@@ -74,7 +75,7 @@ class ArticleType extends AbstractType
             ))
             ->add('club', EntityType::class, [
                 'label'        => 'Club',
-                'class'        => Club::class,
+                'class'        => ClubTeam::class,
                 'choice_label' => 'name',
                 'multiple'     => true,
                 'required'     => false,

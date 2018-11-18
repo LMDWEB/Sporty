@@ -2,6 +2,9 @@
 
 {% block title %}{{ 'todolist.edit'|trans }}{% endblock %}
 
+{% block style %}<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.css">
+{% endblock %}
+
 {% block breadcrumb %}
     <li class="breadcrumb-item">
         <a href="{{ path('todolist_index') }}">{{ 'todolist.name'|trans }}</a>
@@ -15,4 +18,21 @@
     <a href="{{ path('todolist_index') }}">{{ 'back_list'|trans }}</a>
 
     {{ include('back/todolist/_delete_form.html.twig') }}
+{% endblock %}
+{% block javascripts %}<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#todolist_assignedUser').selectize({
+                maxItems: 10
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            // you may need to change this code if you are not using Bootstrap Datepicker
+            $('.js-datepicker').datepicker({
+                format: 'yyyy-mm-dd'
+            });
+        });
+    </script>
 {% endblock %}

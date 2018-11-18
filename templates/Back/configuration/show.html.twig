@@ -1,36 +1,40 @@
 {% extends 'Back/base.html.twig' %}
 
-{% block title %}Configuration{% endblock %}
+{% block title %}{{ configuration.nameConfig }}{% endblock %}
 
 {% block body %}
-    <h1>Configuration</h1>
-
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ configuration.id }}</td>
-            </tr>
-            <tr>
-                <th>SetValue</th>
+                <th>{{ 'config.setValue'|trans }}</th>
                 <td>{{ configuration.nameConfig }}</td>
             </tr>
             <tr>
-                <th>Value</th>
+                <th>{{ 'config.value'|trans }}</th>
                 <td>{{ configuration.valueConfig }}</td>
             </tr>
             <tr>
-                <th>CreatedAt</th>
+                <th>{{ 'type'|trans }}</th>
+                <td>
+                    {% if configuration.type == 0 %}
+                        {{ 'website'|trans }}
+                    {% elseif configuration.type == 1 %}
+                        {{ 'social'|trans }}
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th>{{ 'created_at'|trans }}</th>
                 <td>{{ configuration.createdAt ? configuration.createdAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
-                <th>UpdatedAt</th>
+                <th>{{ 'updated_at'|trans }}</th>
                 <td>{{ configuration.updatedAt ? configuration.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('configuration_index') }}">back to list</a>
+    <a href="{{ path('configuration_index') }}">{{ 'back_list'|trans }}</a>
 
     <a href="{{ path('configuration_edit', {'id': configuration.id}) }}">edit</a>
 

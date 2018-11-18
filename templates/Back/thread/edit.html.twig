@@ -5,7 +5,7 @@
 {% block body %}
     {{ include('Back/thread/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('thread_index') }}">back to list</a>
+    <a href="{{ path('thread_index') }}">{{ 'back_list'|trans }}</a>
 
     {{ include('Back/thread/_delete_form.html.twig') }}
 {% endblock %}

@@ -25,7 +25,7 @@
             </tr>
             <tr>
                 <th>Country</th>
-                <td>{{ club.country }}</td>
+                <td><img src="https://www.countryflags.io/{{ club.country }}/flat/32.png"></td>
             </tr>
             <tr>
                 <th>CreatedAt</th>
@@ -35,18 +35,10 @@
                 <th>UpdatedAt</th>
                 <td>{{ club.updatedAt ? club.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
-            <tr>
-                <th>Published</th>
-                <td>{{ club.published ? 'Yes' : 'No' }}</td>
-            </tr>
-            <tr>
-                <th>Archived</th>
-                <td>{{ club.archived ? 'Yes' : 'No' }}</td>
-            </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('club_index') }}">back to list</a>
+    <a href="{{ path('club_index') }}">{{ 'back_list'|trans }}</a>
 
     <a href="{{ path('club_edit', {'id': club.id}) }}">edit</a>
 

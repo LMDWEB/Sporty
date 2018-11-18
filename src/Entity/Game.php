@@ -26,12 +26,12 @@ class Game
     private $matchday;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Team", inversedBy="team")
+     * @ORM\ManyToOne(targetEntity="App\Entity\ClubTeam", inversedBy="team")
      */
     private $team_home;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Team", inversedBy="team")
+     * @ORM\ManyToOne(targetEntity="App\Entity\ClubTeam", inversedBy="team")
      */
     private $team_away;
 
