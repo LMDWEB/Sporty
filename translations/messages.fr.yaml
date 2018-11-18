@@ -4,6 +4,7 @@ player:
   list: Liste des joueurs
   firstname: Prénom
   lastname: Nom
+  surname: Surnom
   city: Ville de naissance
   name: Joueur
   nationality: Nationalité
@@ -19,8 +20,62 @@ player:
     left: Gaucher
     both: Ambidextre
 
+season:
+  add: Ajouter une saison
+  edit: Modifier une saison
+  list: Liste des saisons
+  name: Saison
+  actions:
+    name: Actions
+    edit: Editer
+    show: Afficher
+    nothing: Pas de saison disponible
+
+game:
+  add: Ajouter un match
+  edit: Modifier un match
+  list: Liste des matchs
+  name: Match
+  matchday: Journée
+  teamHome: Equipe domicile
+  teamAway: Equipe extérieure
+  referee: Arbitre
+  competition: Compétition
+  stadium: Stade
+  season: Saison
+  channel: Chaine(s)
+
+
+todolist:
+  add: Ajouter une tâche
+  edit: Modifier une tâche
+  list: Liste des tâches
+  name: Tâches
+  title: Titre
+
 back_list: Revenir en arrière
 delete: Supprimer
 created_at: Crée à
 updated_at: Dernière mise à jour
 published: Publié ?
+actions:
+  name: Actions
+  edit: Editer
+  show: Afficher
+  nothing: Tableau vide
+
+status: Statut
+referee: Arbitre
+owner: Président
+category: Catégorie
+save: Enregistrer
+wip: En cours
+todo: A faire
+important: Urgent
+show: Afficher
+edit: Modifier
+
+author: Auteur
+content: Contenu
+title: Titre
+name: Nom

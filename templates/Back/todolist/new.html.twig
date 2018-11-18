@@ -1,0 +1,12 @@
+{% extends 'Back/base.html.twig' %}
+{% block title %}{{ 'todolist.add'|trans }}{% endblock %}
+{% block breadcrumb %}
+    <li class="breadcrumb-item">
+        <a href="{{ path('todolist_index') }}">{{ 'todolist.name'|trans }}</a>
+    </li>
+{% endblock %}
+{% block body %}
+    {{ include('back/todolist/_form.html.twig') }}
+
+    <a href="{{ path('todolist_index') }}">{{ 'back_list'|trans }}</a>
+{% endblock %}

@@ -1,10 +1,12 @@
 {% extends 'Back/base.html.twig' %}
+{% block title %}{{ game.teamHome.name }} - {{ game.teamAway.name }}{% endblock %}
 
+{% block breadcrumb %}
+    <li class="breadcrumb-item">
+        <a href="{{ path('game_index') }}">{{ 'game.name'|trans }}</a>
+    </li>
+{% endblock %}
 {% block body %}
-    <h1>Match {{ game.id }} </h1>
-
-    <hr>
-
     <table class="table">
         <tbody>
             <tr>
@@ -12,47 +14,45 @@
                 <td>{{ game.id }}</td>
             </tr>
             <tr>
-                <th>Jour de match</th>
+                <th>{{ 'game.matchday'|trans }}</th>
                 <td>{{ game.matchday }}</td>
             </tr>
             <tr>
-                <th>Equipe domicile</th>
+                <th>{{ 'game.teamHome'|trans }}</th>
                 <td>{{ game.teamHome.name }}</td>
             </tr>
             <tr>
-                <th>Equipe exterieur</th>
+                <th>{{ 'game.teamAway'|trans }}</th>
                 <td>{{ game.teamAway.name }}</td>
             </tr>
             <tr>
-                <th>Arbitre</th>
+                <th>{{ 'game.referee'|trans }}</th>
                 <td>{{ game.referee.firstname }} {{ game.referee.lastname }}</td>
             </tr>
             <tr>
-                <th>Competition</th>
+                <th>{{ 'game.competition'|trans }}</th>
                 <td>{{ game.competition.name }}</td>
             </tr>
             <tr>
-                <th>Stade</th>
+                <th>{{ 'game.stadium'|trans }}</th>
                 <td>{{ game.stadium.name }}</td>
             </tr>
             <tr>
-                <th>Saison</th>
+                <th>{{ 'game.season'|trans }}</th>
                 <td>{{ game.season.seasonYear }}</td>
             </tr>
         </tbody>
     </table>
 
     <a class="btn btn-secondary" href="{{ path('game_index') }}">
-        Retourner a la liste
+        {{ 'back_list'|trans }}
     </a>
 
     <br><br>
 
     <a class="btn btn-info" href="{{ path('game_edit', {'id': game.id}) }}">
-        Modifier
+        {{ 'game.edit'|trans }}
     </a>
-
-    <br><br>
 
     {{ include('Back/game/_delete_form.html.twig') }}
 {% endblock %}

@@ -3,11 +3,13 @@
 namespace App\Form;
 
 use App\Entity\Player;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -17,25 +19,39 @@ class PlayerType extends AbstractType
     {
         $builder
             ->add('status', ChoiceType::class, array(
+                'label' => 'status',
                 'choices' => array(
-                    'Joueur' => 0,
-                    'Arbitre' => 1,
-                    'Président'   => 2,
+                    'player.name' => 0,
+                    'referee' => 1,
+                    'owner'   => 2,
                 ),
             ))
-            ->add('firstname')
-            ->add('lastname')
-            ->add('surname')
-            ->add('dateBirth', BirthdayType::class)
-            ->add('city_birth')
+            ->add('firstname', TextType::class, array(
+                'label' => 'player.firstname',
+            ))
+            ->add('lastname', TextType::class, array(
+                'label' => 'player.lastname',
+            ))
+            ->add('surname', TextType::class, array(
+                'label' => 'player.surname',
+            ))
+            ->add('dateBirth', BirthdayType::class, array(
+                'label' => 'player.date',
+            ))
+            ->add('city_birth', TextType::class, array(
+                'label' => 'player.city',
+            ))
             ->add('foot', ChoiceType::class, array(
+                'label' => 'player.foot.name',
                 'choices' => array(
-                    'Droitier' => 0,
-                    'Gaucher' => 1,
-                    'Ambidextre'   => 2,
+                    'player.foot.right' => 0,
+                    'player.foot.left' => 1,
+                    'player.foot.both'   => 2,
                 ),
             ))
-            ->add('nationality', CountryType::class)
+            ->add('nationality', CountryType::class, array(
+                'label' => 'player.nationality',
+            ))
         ;
     }
 

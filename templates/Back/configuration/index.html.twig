@@ -2,6 +2,11 @@
 {% block title %}Liste des configurations{% endblock %}
 
 {% block body %}
+    <a class="btn btn-success" href="{{ path('configuration_new') }}">
+        <i class="fas fa-fw fa-plus"></i>
+        Ajouter une configuration
+    </a>
+    <hr>
 <div class="table-responsive">
     <table class="table table-bordered" id="dataTable">
         <thead>
@@ -35,9 +40,7 @@
         </tbody>
     </table>
 </div>
-    <a href="{{ path('configuration_new') }}">Create new</a>
 {% endblock %}
-
 
 {% block javascripts %}
 

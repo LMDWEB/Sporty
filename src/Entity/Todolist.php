@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Entity\Traits\ArchivedTraits;
+use App\Entity\Traits\TimestampableTraits;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -13,7 +14,7 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
  */
 class Todolist
 {
-    use TimestampableEntity;
+    use TimestampableTraits;
     use ArchivedTraits;
     /**
      * @ORM\Id()
@@ -36,6 +37,11 @@ class Todolist
      * @ORM\Column(type="integer")
      */
     private $status;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="todolists")
+     */
+    private $assignedUser;
 
 
     public function getId(): ?int
@@ -75,6 +81,18 @@ class Todolist
     public function setStatus(int $status): self
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    public function getAssignedUser(): ?User
+    {
+        return $this->assignedUser;
+    }
+
+    public function setAssignedUser(?User $assignedUser): self
+    {
+        $this->assignedUser = $assignedUser;
 
         return $this;
     }

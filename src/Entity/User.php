@@ -64,9 +64,15 @@ class User implements UserInterface
      */
     private $roles;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Todolist", mappedBy="assignedUser")
+     */
+    private $todolists;
+
     public function __construct()
     {
         $this->roles = new ArrayCollection();
+        $this->todolists = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -195,6 +201,37 @@ class User implements UserInterface
         if ($this->roles->contains($role)) {
             $this->roles->removeElement($role);
             $role->removeUser($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Todolist[]
+     */
+    public function getTodolists(): Collection
+    {
+        return $this->todolists;
+    }
+
+    public function addTodolist(Todolist $todolist): self
+    {
+        if (!$this->todolists->contains($todolist)) {
+            $this->todolists[] = $todolist;
+            $todolist->setAssignedUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTodolist(Todolist $todolist): self
+    {
+        if ($this->todolists->contains($todolist)) {
+            $this->todolists->removeElement($todolist);
+            // set the owning side to null (unless already changed)
+            if ($todolist->getAssignedUser() === $this) {
+                $todolist->setAssignedUser(null);
+            }
         }
 
         return $this;
