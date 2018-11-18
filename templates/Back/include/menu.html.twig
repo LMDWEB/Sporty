@@ -11,6 +11,7 @@
             <span>Article</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+            <a class="dropdown-item" href="{{ path('todolist_index') }}">Todolist</a>
             <a class="dropdown-item" href="{{ path('article_index') }}">Liste des articles</a>
             <a class="dropdown-item" href="{{ path('thread_index') }}">Liste des threads</a>
             <a class="dropdown-item" href="{{ path('category_index') }}">Liste des catégories</a>
@@ -35,9 +36,10 @@
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-fw fa-bolt"></i>
-            <span>Match</span>
+            <span>Saisons</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+            <a class="dropdown-item" href="{{ path('season_index') }}">Liste des saisons</a>
             <a class="dropdown-item" href="{{ path('game_index') }}">Liste des matchs</a>
             <a class="dropdown-item" href="{{ path('channel_index') }}"><i class="fas fa-fw fa-tv"></i> Liste des chaine</a>
         </div>

@@ -14,7 +14,6 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
 class Season
 {
     use TimestampableEntity;
-    use ArchivedTraits;
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -23,15 +22,10 @@ class Season
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=10)
+     * @ORM\Column(type="string", length=10, unique=true)
      */
     private $season_year;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Game", inversedBy="season")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $game;
 
     public function getId(): ?int
     {
@@ -46,18 +40,6 @@ class Season
     public function setSeasonYear(string $season_year): self
     {
         $this->season_year = $season_year;
-
-        return $this;
-    }
-
-    public function getGame(): ?Game
-    {
-        return $this->game;
-    }
-
-    public function setGame(?Game $game): self
-    {
-        $this->game = $game;
 
         return $this;
     }

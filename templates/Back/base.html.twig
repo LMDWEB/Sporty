@@ -16,6 +16,7 @@
 
         <!-- Custom styles for this template-->
         <link href="{{ asset('back/css/sb-admin.css') }}" rel="stylesheet">
+        {% block style %}{% endblock %}
     </head>
     <body>
         {{ include('Back/include/header.html.twig') }}

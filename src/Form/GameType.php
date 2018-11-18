@@ -12,6 +12,7 @@ use App\Entity\Team;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -19,20 +20,28 @@ class GameType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $matchday = new Game();
+
         $builder
-            ->add('matchday')
+            ->add('matchday', ChoiceType::class, array(
+                'label' => 'game.matchday',
+                'choices' => array(
+                    $matchday->listMatchDay()
+                ),
+                'attr' => array('class' => 'form-control')
+            ))
 
             ->add('channel' , EntityType::class , [
-                'label' => 'Chaîne(s)',
+                'label' => 'game.channel',
                 'class' => Channel::class,
                 'choice_label' => 'name',
                 'multiple' => true,
                 'required'=> false,
-                'attr' => array('class' => 'form-control')
+                'attr' => array('id' => 'game_channel')
             ])
 
             ->add('team_home' , EntityType::class , [
-                'label' => 'Equipe domicile',
+                'label' => 'game.teamHome',
                 'class' => Team::class,
                 'choice_label' => 'name',
                 'required'=> true,
@@ -40,7 +49,7 @@ class GameType extends AbstractType
             ])
 
             ->add('team_away' , EntityType::class , [
-                'label' => 'Equipe exterieur',
+                'label' => 'game.teamAway',
                 'class' => Team::class,
                 'choice_label' => 'name',
                 'required'=> true,
@@ -48,7 +57,7 @@ class GameType extends AbstractType
             ])
 
             ->add('referee' , EntityType::class , [
-                'label' => 'Arbitre',
+                'label' => 'game.referee',
                 'class' => Player::class,
                 'choice_label' => function ($referee) {
                     return $referee->getFirstname()." ".$referee->getLastname();
@@ -62,7 +71,7 @@ class GameType extends AbstractType
             ])
 
             ->add('competition' , EntityType::class , [
-                'label' => 'Competition',
+                'label' => 'game.competition',
                 'class' => Competition::class,
                 'choice_label' => 'name',
                 'required'=> true,
@@ -70,7 +79,7 @@ class GameType extends AbstractType
             ])
 
             ->add('stadium' , EntityType::class , [
-                'label' => 'Stade',
+                'label' => 'game.stadium',
                 'class' => Stadium::class,
                 'choice_label' => 'name',
                 'required'=> true,
@@ -78,14 +87,12 @@ class GameType extends AbstractType
             ])
 
             ->add('season' , EntityType::class , [
-                'label' => 'Saison',
+                'label' => 'game.season',
                 'class' => Season::class,
                 'choice_label' => 'season_year',
                 'required'=> true,
                 'attr' => array('class' => 'form-control')
             ]);
-
-
     }
 
     public function configureOptions(OptionsResolver $resolver)

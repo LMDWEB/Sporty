@@ -10,24 +10,32 @@ class ClubFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        $club = new Club();
-        $club
-            ->setName('Paris Saint-Germain')
-            ->setAbbreviation("PSG")
-            ->setImage('psg.png')
-            ->setCountry("FR")
-        ;
+        $clubArray = array(
+            array(
+                "name" => "Paris Saint-Germain",
+                "abbreviation" => "PSG",
+                "image" => "psg.jpg",
+                "nationality" => "FR"
+            ),
+            array(
+                "name" => "AS Monaco",
+                "abbreviation" => "ASM",
+                "image" => "monaco.jpg",
+                "nationality" => "FR"
+            )
+        );
 
-        $manager->persist($club);
+        foreach ($clubArray as  $club) {
+            $clubs = new Club();
+            $clubs
+                ->setName($club['name'])
+                ->setAbbreviation($club['abbreviation'])
+                ->setImage($club['image'])
+                ->setCountry($club['nationality'])
+            ;
 
-        $club
-            ->setName('AS Monaco')
-            ->setAbbreviation("ASM")
-            ->setImage('asm.png')
-            ->setCountry("FR")
-        ;
-
-        $manager->persist($club);
+            $manager->persist($clubs);
+        }
 
         $manager->flush();
     }

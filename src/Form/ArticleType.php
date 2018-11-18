@@ -13,7 +13,9 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -22,23 +24,30 @@ class ArticleType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title')
-            ->add('resume')
-            ->add('content')
+            ->add('title', TextType::class, array(
+                'attr' => array('class' => 'form-control')
+            ))
+            ->add('resume', TextType::class, array(
+                'attr' => array('class' => 'form-control')
+            ))
+            ->add('content', TextType::class, array(
+                'attr' => array('class' => 'form-control')
+            ))
             ->add('category', EntityType::class, [
                 'label'        => 'Category',
                 'class'        => Category::class,
                 'choice_label' => 'name',
                 'multiple'     => false,
                 'required'     => false,
+                'attr' => array('class' => 'form-control')
             ])
             ->add('date', DateTimeType::class, [
-                'placeholder' => 'Select a value',
-                'attr' => ['class' => 'js-datepicker']
+                'placeholder' => 'Select a value'
             ])
             ->add('featured', CheckboxType::class, array(
                 'label'    => 'Article en une ?',
                 'required' => false,
+                'attr' => array('class' => 'form-control')
             ))
             ->add('type', ChoiceType::class, array(
                 'choices' => array(
@@ -46,15 +55,22 @@ class ArticleType extends AbstractType
                     'Contenu' => 1,
                     'Vidéos'   => 2,
                 ),
+                'attr' => array('class' => 'form-control')
             ))
-            ->add('source_article')
-            ->add('source_image')
+            ->add('source_article', TextType::class, array(
+                'attr' => array('class' => 'form-control')
+            ))
+            ->add('source_image', TextType::class, array(
+                'attr' => array('class' => 'form-control')
+            ))
             ->add('published', ChoiceType::class, array(
                 'choices' => array(
                     'Publié' => 1,
                     'Brouillon' => 2,
                     'Non publié'   => 0,
                 ),
+                'attr' => array('class' => 'form-control')
+
             ))
             ->add('club', EntityType::class, [
                 'label'        => 'Club',
@@ -62,6 +78,7 @@ class ArticleType extends AbstractType
                 'choice_label' => 'name',
                 'multiple'     => true,
                 'required'     => false,
+                'attr' => array('id' => 'article_club')
             ])
             ->add('player', EntityType::class, [
                 'label'        => 'Player',
@@ -71,14 +88,7 @@ class ArticleType extends AbstractType
                 },
                 'multiple'     => true,
                 'required'     => false,
-                'attr' => array('class' => 'form-control', 'id' => 'select-player')
-            ])
-            ->add('created_by', EntityType::class, [
-                'label'        => 'Author',
-                'class'        => User::class,
-                'choice_label' => 'firstname',
-                'multiple'     => false,
-                'required'     => false,
+                'attr' => array('id' => 'article_player')
             ])
             ->add('thread', EntityType::class, [
                 'label'        => 'Thread',
@@ -86,6 +96,15 @@ class ArticleType extends AbstractType
                 'choice_label' => 'name',
                 'multiple'     => true,
                 'required'     => false,
+                'attr' => array('id' => 'article_thread')
+            ])
+            ->add('created_by', EntityType::class, [
+                'label'        => 'Author',
+                'class'        => User::class,
+                'choice_label' => 'firstname',
+                'multiple'     => false,
+                'required'     => false,
+                'attr' => array('class' => 'form-control')
             ])
         ;
     }

@@ -14,13 +14,16 @@ class SeasonFixtures extends Fixture
         $faker = \Faker\Factory::create();
 
         $date = $faker->dateTime();
-        $team = (new Season())
-            ->setName('2017- 2018')
-            ->setCreatedAt($date)
-            ->setUpdatedAt($date)
-        ;
+        for ($i = 1970; $i < 2020; $i++) {
+            $beginYear = $i;
+            $endYear = $i + 1;
+            $season = (new Season())
+                ->setSeasonYear($beginYear . '/' . $endYear)
+                ->setCreatedAt($date)
+                ->setUpdatedAt($date);
 
-        $manager->persist($team);
+            $manager->persist($season);
+        }
 
         $manager->flush();
     }
