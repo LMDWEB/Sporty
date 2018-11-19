@@ -26,6 +26,11 @@ class ClubTeam
     private $id;
 
     /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $name;
+
+    /**
      * @ORM\Column(type="integer")
      */
     private $year_creation;
@@ -57,9 +62,15 @@ class ClubTeam
      */
     private $stadium;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Game", mappedBy="team_home")
+     */
+    private $games;
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
+        $this->games = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -151,6 +162,49 @@ class ClubTeam
     public function setStadium(?Stadium $stadium): self
     {
         $this->stadium = $stadium;
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Game[]
+     */
+    public function getGames(): Collection
+    {
+        return $this->games;
+    }
+
+    public function addGame(Game $game): self
+    {
+        if (!$this->games->contains($game)) {
+            $this->games[] = $game;
+            $game->setTeamHome($this);
+        }
+
+        return $this;
+    }
+
+    public function removeGame(Game $game): self
+    {
+        if ($this->games->contains($game)) {
+            $this->games->removeElement($game);
+            // set the owning side to null (unless already changed)
+            if ($game->getTeamHome() === $this) {
+                $game->setTeamHome(null);
+            }
+        }
 
         return $this;
     }

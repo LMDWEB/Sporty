@@ -5,9 +5,14 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\GameRepository")
+ * @UniqueEntity(
+ *     fields={"team_home", "team_away"},
+ *     errorPath="team_away",
+ *     message="This team home is already in use on that team away."
+ * )
  */
 class Game
 {
@@ -17,21 +22,20 @@ class Game
      * @ORM\Column(type="integer")
      */
 
-
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=15)
+     * @ORM\Column(type="integer", length=11)
      */
     private $matchday;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\ClubTeam", inversedBy="team")
+     * @ORM\ManyToOne(targetEntity="App\Entity\ClubTeam", inversedBy="games")
      */
     private $team_home;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\ClubTeam", inversedBy="team")
+     * @ORM\ManyToOne(targetEntity="App\Entity\ClubTeam", inversedBy="games")
      */
     private $team_away;
 
@@ -60,10 +64,21 @@ class Game
      */
     private $channel;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Article", mappedBy="game")
+     */
+    private $articles;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $name;
+
 
     public function __construct()
     {
         $this->channel = new ArrayCollection();
+        $this->articles = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -83,24 +98,24 @@ class Game
         return $this;
     }
 
-    public function getTeamHome(): ?Team
+    public function getTeamHome(): ?ClubTeam
     {
         return $this->team_home;
     }
 
-    public function setTeamHome(?Team $team): self
+    public function setTeamHome(?ClubTeam $team): self
     {
         $this->team_home = $team;
 
         return $this;
     }
 
-    public function getTeamAway(): ?Team
+    public function getTeamAway(): ?ClubTeam
     {
         return $this->team_away;
     }
 
-    public function setTeamAway(?Team $team): self
+    public function setTeamAway(?ClubTeam $team): self
     {
         $this->team_away = $team;
 
@@ -118,7 +133,6 @@ class Game
 
         return $this;
     }
-
 
     public function getCompetition(): ?Competition
     {
@@ -203,5 +217,45 @@ class Game
         $matchday['Finale'] = 57;
 
         return $matchday;
+    }
+
+    /**
+     * @return Collection|Article[]
+     */
+    public function getArticles(): Collection
+    {
+        return $this->articles;
+    }
+
+    public function addArticle(Article $article): self
+    {
+        if (!$this->articles->contains($article)) {
+            $this->articles[] = $article;
+            $article->addGame($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArticle(Article $article): self
+    {
+        if ($this->articles->contains($article)) {
+            $this->articles->removeElement($article);
+            $article->removeGame($this);
+        }
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
     }
 }

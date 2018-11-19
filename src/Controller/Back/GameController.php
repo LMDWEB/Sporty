@@ -28,11 +28,17 @@ class GameController extends AbstractController
      */
     public function new(Request $request): Response
     {
+
         $game = new Game();
         $form = $this->createForm(GameType::class, $game);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $home = $game->getTeamHome()->getName();
+            $away = $game->getTeamAway()->getName();
+            $name = $home . ' - ' . $away;
+            $game = $game->setName($name);
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($game);
             $em->flush();
@@ -63,6 +69,11 @@ class GameController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $home = $game->getTeamHome()->getName();
+            $away = $game->getTeamAway()->getName();
+            $name = $home . ' - ' . $away;
+            $game = $game->setName($name);
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('game_index', ['id' => $game->getId()]);

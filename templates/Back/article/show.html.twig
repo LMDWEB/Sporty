@@ -85,6 +85,14 @@
                     {% endfor %}
                 </td>
             </tr>
+            <tr>
+                <th>Match</th>
+                <td>
+                    {% for game in article.game %}
+                        {{ game.name }} <br>
+                    {% endfor %}
+                </td>
+            </tr>
         </tbody>
     </table>
 

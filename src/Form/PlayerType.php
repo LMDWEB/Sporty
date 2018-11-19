@@ -28,18 +28,23 @@ class PlayerType extends AbstractType
             ))
             ->add('firstname', TextType::class, array(
                 'label' => 'player.firstname',
+                'attr' => array('class' => 'form-control')
             ))
             ->add('lastname', TextType::class, array(
                 'label' => 'player.lastname',
+                'attr' => array('class' => 'form-control')
             ))
             ->add('surname', TextType::class, array(
                 'label' => 'player.surname',
+                'attr' => array('class' => 'form-control')
             ))
             ->add('dateBirth', BirthdayType::class, array(
                 'label' => 'player.date',
+                'attr' => array('class' => 'form-control')
             ))
             ->add('city_birth', TextType::class, array(
                 'label' => 'player.city',
+                'attr' => array('class' => 'form-control')
             ))
             ->add('foot', ChoiceType::class, array(
                 'label' => 'player.foot.name',
@@ -48,9 +53,11 @@ class PlayerType extends AbstractType
                     'player.foot.left' => 1,
                     'player.foot.both'   => 2,
                 ),
+                'attr' => array('class' => 'form-control')
             ))
             ->add('nationality', CountryType::class, array(
                 'label' => 'player.nationality',
+                'attr' => array('class' => 'form-control')
             ))
         ;
     }

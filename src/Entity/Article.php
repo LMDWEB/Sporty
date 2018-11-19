@@ -122,11 +122,17 @@ class Article
      */
     private $club;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Game", inversedBy="articles")
+     */
+    private $game;
+
     public function __construct()
     {
         $this->player = new ArrayCollection();
         $this->thread = new ArrayCollection();
         $this->club = new ArrayCollection();
+        $this->game = new ArrayCollection();
     }
 
     /**
@@ -405,6 +411,32 @@ class Article
     {
         if ($this->club->contains($club)) {
             $this->club->removeElement($club);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Game[]
+     */
+    public function getGame(): Collection
+    {
+        return $this->game;
+    }
+
+    public function addGame(Game $game): self
+    {
+        if (!$this->game->contains($game)) {
+            $this->game[] = $game;
+        }
+
+        return $this;
+    }
+
+    public function removeGame(Game $game): self
+    {
+        if ($this->game->contains($game)) {
+            $this->game->removeElement($game);
         }
 
         return $this;

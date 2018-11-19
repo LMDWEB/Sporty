@@ -6,6 +6,7 @@ use App\Entity\Article;
 use App\Entity\Category;
 use App\Entity\Club;
 use App\Entity\ClubTeam;
+use App\Entity\Game;
 use App\Entity\Player;
 use App\Entity\Thread;
 use App\Entity\User;
@@ -80,6 +81,14 @@ class ArticleType extends AbstractType
                 'multiple'     => true,
                 'required'     => false,
                 'attr' => array('id' => 'article_club')
+            ])
+            ->add('game', EntityType::class, [
+                'label'        => 'Game',
+                'class'        => Game::class,
+                'choice_label' => 'name',
+                'multiple'     => true,
+                'required'     => false,
+                'attr' => array('id' => 'article_game')
             ])
             ->add('player', EntityType::class, [
                 'label'        => 'Player',

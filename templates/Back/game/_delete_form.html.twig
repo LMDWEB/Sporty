@@ -3,6 +3,6 @@
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ game.id) }}">
     <button class="btn btn-danger btn-sm">
         <i class="fas fa-fw fa-trash"></i>
-        Supprimmer
+        {{ 'delete'|trans }}
     </button>
 </form>
