@@ -33,6 +33,12 @@ class ClubTeamController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $club = $clubTeam->getClub()->getName();
+            $team = $clubTeam->getTeam()->getName();
+            $name = $club . ' ' . $team;
+            $clubTeam = $clubTeam->setName($name);
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($clubTeam);
             $em->flush();
@@ -63,6 +69,11 @@ class ClubTeamController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $club = $clubTeam->getClub()->getName();
+            $team = $clubTeam->getTeam()->getName();
+            $name = $club . ' ' . $team;
+            $clubTeam = $clubTeam->setName($name);
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('club_team_index', ['id' => $clubTeam->getId()]);

@@ -9,7 +9,6 @@ use App\Entity\Game;
 use App\Entity\Player;
 use App\Entity\Season;
 use App\Entity\Stadium;
-use App\Entity\Team;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -32,7 +31,7 @@ class GameType extends AbstractType
                 'attr' => array('class' => 'form-control')
             ))
 
-            ->add('channel' , EntityType::class , [
+            ->add('channel', EntityType::class , [
                 'label' => 'game.channel',
                 'class' => Channel::class,
                 'choice_label' => 'name',
@@ -41,7 +40,7 @@ class GameType extends AbstractType
                 'attr' => array('id' => 'game_channel')
             ])
 
-            ->add('team_home' , EntityType::class , [
+            ->add('team_home', EntityType::class , [
                 'label' => 'game.teamHome',
                 'class' => ClubTeam::class,
                 'choice_label' => 'name',
@@ -49,7 +48,7 @@ class GameType extends AbstractType
                 'attr' => array('class' => 'form-control')
             ])
 
-            ->add('team_away' , EntityType::class , [
+            ->add('team_away', EntityType::class , [
                 'label' => 'game.teamAway',
                 'class' => ClubTeam::class,
                 'choice_label' => 'name',

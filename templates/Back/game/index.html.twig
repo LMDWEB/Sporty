@@ -34,18 +34,18 @@
                 <td>
                     <a class="btn btn-success btn-sm" href="{{ path('game_show', {'id': game.id}) }}">
                         <i class="fas fa-fw fa-eye"></i>
-                        {{ 'game.show'|trans }}
+                        {{ 'show'|trans }}
                     </a>
                     <a class="btn btn-info btn-sm" href="{{ path('game_edit', {'id': game.id}) }}">
                         <i class="fas fa-fw fa-pen"></i>
-                        {{ 'game.edit'|trans }}
+                        {{ 'edit'|trans }}
                     </a>
                     {{ include('Back/game/_delete_form.html.twig') }}
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="8">{{ 'actions.nothing'|trans }}</td>
+                <td colspan="8">{{ 'nothing'|trans }}</td>
             </tr>
         {% endfor %}
         </tbody>
