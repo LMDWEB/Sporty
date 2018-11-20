@@ -20,7 +20,7 @@ class TeamType extends AbstractType
             ->add('section', ChoiceType::class, array(
                 'choices' => array(
                     'Homme' => 0,
-                    'Femme' => 1
+                    'Féminines' => 1
                 ),
                 'attr' => array('class' => 'form-control')
 

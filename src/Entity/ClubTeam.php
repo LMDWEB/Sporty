@@ -67,16 +67,22 @@ class ClubTeam
      */
     private $games;
 
+<<<<<<< HEAD
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Competition", mappedBy="teams")
      */
     private $competitions;
 
+=======
+>>>>>>> refs/remotes/origin/master
     public function __construct()
     {
         $this->articles = new ArrayCollection();
         $this->games = new ArrayCollection();
+<<<<<<< HEAD
         $this->competitions = new ArrayCollection();
+=======
+>>>>>>> refs/remotes/origin/master
     }
 
     public function getId(): ?int
@@ -214,6 +220,7 @@ class ClubTeam
 
         return $this;
     }
+<<<<<<< HEAD
 
     /**
      * @return Collection|Competition[]
@@ -242,4 +249,6 @@ class ClubTeam
 
         return $this;
     }
+=======
+>>>>>>> refs/remotes/origin/master
 }

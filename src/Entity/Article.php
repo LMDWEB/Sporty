@@ -96,6 +96,10 @@ class Article
      */
     private $source_image;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/master
     /**
      * @ORM\Column(type="string", length=200)
      */

@@ -29,6 +29,7 @@ class Competition
     private $name;
 
     /**
+<<<<<<< HEAD
      * @ORM\Column(type="integer")
      */
     private $format;
@@ -54,6 +55,17 @@ class Competition
     private $confederation;
 
 
+=======
+     * @ORM\OneToMany(targetEntity="App\Entity\SeasonCompetition", mappedBy="name")
+     */
+    private $image;
+
+    public function __construct()
+    {
+        $this->image = new ArrayCollection();
+    }
+    
+>>>>>>> refs/remotes/origin/master
     public function getId(): ?int
     {
         return $this->id;
@@ -71,6 +83,7 @@ class Competition
         return $this;
     }
 
+<<<<<<< HEAD
     public function getFormat(): ?int
     {
         return $this->format;
@@ -115,10 +128,27 @@ class Competition
     public function setDivision(int $division): self
     {
         $this->division = $division;
+=======
+    /**
+     * @return Collection|SeasonCompetition[]
+     */
+    public function getImage(): Collection
+    {
+        return $this->image;
+    }
+
+    public function addImage(SeasonCompetition $image): self
+    {
+        if (!$this->image->contains($image)) {
+            $this->image[] = $image;
+            $image->setName($this);
+        }
+>>>>>>> refs/remotes/origin/master
 
         return $this;
     }
 
+<<<<<<< HEAD
     public function getConfederation(): ?Confederation
     {
         return $this->confederation;
@@ -127,6 +157,17 @@ class Competition
     public function setConfederation(?Confederation $confederation): self
     {
         $this->confederation = $confederation;
+=======
+    public function removeImage(SeasonCompetition $image): self
+    {
+        if ($this->image->contains($image)) {
+            $this->image->removeElement($image);
+            // set the owning side to null (unless already changed)
+            if ($image->getName() === $this) {
+                $image->setName(null);
+            }
+        }
+>>>>>>> refs/remotes/origin/master
 
         return $this;
     }

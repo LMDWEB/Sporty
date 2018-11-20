@@ -31,17 +31,23 @@ class Season
      */
     private $seasonCompetitions;
 
+<<<<<<< HEAD
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Competition", mappedBy="season")
      */
     private $competitions;
 
+=======
+>>>>>>> refs/remotes/origin/master
 
     public function __construct()
     {
         $this->competition = new ArrayCollection();
         $this->seasonCompetitions = new ArrayCollection();
+<<<<<<< HEAD
         $this->competitions = new ArrayCollection();
+=======
+>>>>>>> refs/remotes/origin/master
     }
 
 
@@ -92,6 +98,7 @@ class Season
 
         return $this;
     }
+<<<<<<< HEAD
 
     /**
      * @return Collection|Competition[]
@@ -123,4 +130,6 @@ class Season
 
         return $this;
     }
+=======
+>>>>>>> refs/remotes/origin/master
 }
