@@ -43,7 +43,6 @@ class Team
      */
     private $section;
 
-<<<<<<< HEAD
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\SeasonCompetition", mappedBy="typeTeam")
      */
@@ -59,11 +58,6 @@ class Team
         $this->clubTeams = new ArrayCollection();
         $this->seasonCompetitions = new ArrayCollection();
         $this->competitions = new ArrayCollection();
-=======
-    public function __construct()
-    {
-        $this->clubTeams = new ArrayCollection();
->>>>>>> refs/remotes/origin/master
     }
 
     public function getId(): ?int
@@ -136,7 +130,6 @@ class Team
 
         return $section;
     }
-<<<<<<< HEAD
 
     /**
      * @return Collection|SeasonCompetition[]
@@ -199,6 +192,4 @@ class Team
 
         return $this;
     }
-=======
->>>>>>> refs/remotes/origin/master
 }

@@ -23,19 +23,19 @@ class Article
     use ArchivedTraits;
 
     /**
-	 * @var integer
+     * @var integer
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue()
      * @ORM\Id
      */
-	private $id;
+    private $id;
 
     /**
-	 * @var string
+     * @var string
      * @ORM\Column(type="string", length=100, unique=true)
      * @Assert\NotBlank(message="Veuillez choisir un titre !")
      */
-	private $title;
+    private $title;
 
     /**
      * @var string
@@ -45,10 +45,10 @@ class Article
     private $slug = null;
 
     /**
-	 * @var string
+     * @var string
      * @ORM\Column(type="text")
      */
-	private $content = "";
+    private $content = "";
 
     /**
      * @var \DateTime
@@ -96,10 +96,6 @@ class Article
      */
     private $source_image;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> refs/remotes/origin/master
     /**
      * @ORM\Column(type="string", length=200)
      */
