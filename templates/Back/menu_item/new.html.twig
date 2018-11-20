@@ -1,0 +1,15 @@
+{% extends 'Back/base.html.twig' %}
+
+{% block title %}Ajouter un sous menu{% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item">
+        <a href="{{ path('menu_item_index') }}">Sous menu</a>
+    </li>
+{% endblock %}
+{% block body %}
+
+    {{ include('back/menu_item/_form.html.twig') }}
+
+    <a href="{{ path('menu_item_index') }}">{{ 'back_list'|trans }}</a>
+{% endblock %}

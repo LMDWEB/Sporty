@@ -1,0 +1,54 @@
+{% extends 'Back/base.html.twig' %}
+
+{% block title %}Liste des équipes{% endblock %}
+
+{% block body %}
+    <a class="btn btn-success" href="{{ path('team_new') }}">
+        <i class="fas fa-fw fa-plus"></i>
+        Ajouter une équipe
+    </a>
+    <hr>
+    <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for team in teams %}
+                <tr>
+                    <td>{{ team.name }}</td>
+                    <td>{% if team.section == 0 %}
+                            {{ 'men'|trans }}
+                        {% elseif team.section == 1 %}
+                            {{ 'women'|trans }}
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a href="{{ path('team_show', {'id': team.id}) }}">show</a>
+                        <a href="{{ path('team_edit', {'id': team.id}) }}">edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+
+    <!-- Page level plugin JavaScript-->
+    <script src="{{ asset('back/vendor/datatables/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('back/vendor/datatables/dataTables.bootstrap4.js') }}"></script>
+
+    <!-- Demo scripts for this page-->
+    <script src="{{ asset('back/js/demo/datatables-demo.js') }}"></script>
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'Back/base.html.twig' %}
+
+{% block title %}Liste des menus{% endblock %}
+
+{% block body %}
+    <a class="btn btn-success" href="{{ path('menu_new') }}">
+        <i class="fas fa-fw fa-plus"></i>
+        Ajouter un menu
+    </a>
+    <a class="btn btn-success" href="{{ path('menu_item_new') }}">
+        <i class="fas fa-fw fa-plus"></i>
+        Ajouter un sous-menu
+    </a>
+    <hr>
+<div class="table-responsive">
+    <table class="table table-bordered" id="dataTable">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Status</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for menu in menus %}
+            <tr>
+                <td>{{ menu.id }}</td>
+                <td>{{ menu.name }}</td>
+                <td>{{ menu.published }}</td>
+                <td>
+                    <a href="{{ path('menu_show', {'id': menu.id}) }}">show</a>
+                    <a href="{{ path('menu_edit', {'id': menu.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+
+    <!-- Page level plugin JavaScript-->
+    <script src="{{ asset('back/vendor/datatables/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('back/vendor/datatables/dataTables.bootstrap4.js') }}"></script>
+
+    <!-- Demo scripts for this page-->
+    <script src="{{ asset('back/js/demo/datatables-demo.js') }}"></script>
+
+{% endblock %}

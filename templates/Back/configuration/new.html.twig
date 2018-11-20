@@ -1,0 +1,9 @@
+{% extends 'Back/base.html.twig' %}
+{% block title %}{{ 'config.add'|trans }}{% endblock %}
+
+{% block body %}
+
+    {{ include('Back/configuration/_form.html.twig') }}
+
+    <a href="{{ path('configuration_index') }}">{{ 'back_list'|trans }}</a>
+{% endblock %}

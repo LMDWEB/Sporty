@@ -1,0 +1,36 @@
+{% extends 'Back/base.html.twig' %}
+{% block title %}Liste des articles{% endblock %}
+
+{% block body %}
+    <h1>Confederation index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Continent</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for confederation in confederations %}
+            <tr>
+                <td>{{ confederation.id }}</td>
+                <td>{{ confederation.name }}</td>
+                <td>{{ confederation.continent }}</td>
+                <td>
+                    <a href="{{ path('confederation_show', {'id': confederation.id}) }}">show</a>
+                    <a href="{{ path('confederation_edit', {'id': confederation.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('confederation_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,74 @@
+<ul class="sidebar navbar-nav">
+    <li class="nav-item active">
+        <a class="nav-link" href="{{ path('app_back_default_home') }}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span>
+        </a>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Article</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+            <a class="dropdown-item" href="{{ path('todolist_index') }}">Todolist</a>
+            <a class="dropdown-item" href="{{ path('article_index') }}">Liste des articles</a>
+            <a class="dropdown-item" href="{{ path('thread_index') }}">Liste des threads</a>
+            <a class="dropdown-item" href="{{ path('category_index') }}">Liste des catégories</a>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ path('player_index') }}">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Liste des joueurs</span>
+        </a>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Club</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+            <a class="dropdown-item" href="{{ path('club_index') }}">{{ 'club.list'|trans }}</a>
+            <a class="dropdown-item" href="{{ path('club_team_index') }}">{{ 'clubteam.list'|trans }}</a>
+            <a class="dropdown-item" href="{{ path('team_index') }}">{{ 'team.type'|trans }}</a>
+        </div>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-fw fa-bolt"></i>
+            <span>Saisons</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+            <a class="dropdown-item" href="{{ path('season_index') }}">Liste des saisons</a>
+            <a class="dropdown-item" href="{{ path('game_index') }}">Liste des matchs</a>
+            <a class="dropdown-item" href="{{ path('channel_index') }}"><i class="fas fa-fw fa-tv"></i> Liste des chaînes</a>
+            <a class="dropdown-item" href="{{ path('competition_index') }}"><i class="fas fa-fw fa-tv"></i> Liste des compétitions</a>
+            <a class="dropdown-item" href="{{ path('confederation_index') }}"><i class="fas fa-fw fa-tv"></i> Liste des confedérations</a>
+        </div>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Configuration</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+            <a class="dropdown-item" href="{{ path('configuration_index') }}">Liste des configurations</a>
+            <a class="dropdown-item" href="{{ path('menu_index') }}">Liste des menus</a>
+        </div>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{ path('user_index') }}">
+            <i class="fas fa-fw fa-user"></i>
+            <span>Liste des utilisateurs</span>
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{ path('partnership_index') }}">
+            <i class="fas fa-fw fa-user"></i>
+            <span>Liste des partenaires</span>
+        </a>
+    </li>
+</ul>

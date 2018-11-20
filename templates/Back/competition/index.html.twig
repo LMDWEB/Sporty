@@ -1,0 +1,40 @@
+{% extends 'Back/base.html.twig' %}
+
+{% block title %}{{ 'competition.add'|trans }}{% endblock %}
+
+{% block body %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>Archived</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for competition in competitions %}
+            <tr>
+                <td>{{ competition.id }}</td>
+                <td>{{ competition.name }}</td>
+                <td>{{ competition.createdAt ? competition.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ competition.updatedAt ? competition.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ competition.archived ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('competition_show', {'id': competition.id}) }}">show</a>
+                    <a href="{{ path('competition_edit', {'id': competition.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('competition_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'Back/base.html.twig' %}
+
+{% block title %}{{ 'competition.show'|trans }}{% endblock %}
+
+{% block body %}
+    <h1>Competition</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ competition.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ competition.name }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ competition.createdAt ? competition.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ competition.updatedAt ? competition.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Archived</th>
+                <td>{{ competition.archived ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('competition_index') }}">back to list</a>
+
+    <a href="{{ path('competition_edit', {'id': competition.id}) }}">edit</a>
+
+    {{ include('back/competition/_delete_form.html.twig') }}
+{% endblock %}

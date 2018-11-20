@@ -1,0 +1,11 @@
+{% extends 'Back/base.html.twig' %}
+
+{% block title %}Liste des articles{% endblock %}
+
+{% block body %}
+    <h1>Create new Confederation</h1>
+
+    {{ include('back/confederation/_form.html.twig') }}
+
+    <a href="{{ path('confederation_index') }}">back to list</a>
+{% endblock %}

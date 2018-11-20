@@ -1,0 +1,34 @@
+{% extends 'Back/base.html.twig' %}
+
+{% block title %}New Article{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.css">
+{% endblock %}
+
+{% block body %}
+    {{ include('Back/article/_form.html.twig') }}
+
+    <a href="{{ path('article_index') }}">{{ 'back_list'|trans }}</a>
+{% endblock %}
+
+{% block javascripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#article_player, #article_club, #article_thread, #article_game').selectize({
+                maxItems: 10
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            // you may need to change this code if you are not using Bootstrap Datepicker
+            $('.js-datepicker').datepicker({
+                format: 'yyyy-mm-dd'
+            });
+        });
+    </script>
+{% endblock %}

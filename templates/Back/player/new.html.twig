@@ -1,0 +1,12 @@
+{% extends 'Back/base.html.twig' %}
+{% block title %}{{ 'player.add'|trans }}{% endblock %}
+{% block breadcrumb %}
+    <li class="breadcrumb-item">
+        <a href="{{ path('player_index') }}">{{ 'player.name'|trans }}</a>
+    </li>
+{% endblock %}
+{% block body %}
+    {{ include('Back/player/_form.html.twig') }}
+
+    <a href="{{ path('player_index') }}">{{ 'back_list'|trans }}</a>
+{% endblock %}

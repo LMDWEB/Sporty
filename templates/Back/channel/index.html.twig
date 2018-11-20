@@ -1,0 +1,57 @@
+{% extends 'Back/base.html.twig' %}
+
+{% block title %}Liste des chaînes{% endblock %}
+{% block body %}
+    <a class="btn btn-success" href="{{ path('channel_new') }}">
+        <i class="fas fa-fw fa-plus"></i>
+        Ajouter une chaîne
+    </a>
+    <hr>
+<div class="table-responsive">
+    <table class="table table-bordered" id="dataTable">
+        <thead class="thead-dark">
+            <tr>
+                <th>#</th>
+                <th>Nom</th>
+                <th>Logo</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for channel in channels %}
+            <tr>
+                <td>{{ channel.id }}</td>
+                <td>{{ channel.name }}</td>
+                <td>{{ channel.image }}</td>
+                <td>
+                    <a class="btn btn-success btn-sm" href="{{ path('channel_show', {'id': channel.id}) }}">
+                        <i class="fas fa-fw fa-eye"></i>
+                        Voir
+                    </a>
+                    <a class="btn btn-info btn-sm" href="{{ path('channel_edit', {'id': channel.id}) }}">
+                        <i class="fas fa-fw fa-pen"></i>
+                        Modifier
+                    </a>
+                    {{ include('Back/channel/_delete_form.html.twig') }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3"> Aucune chaîne crée pour l'instant </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+
+    <!-- Page level plugin JavaScript-->
+    <script src="{{ asset('back/vendor/datatables/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('back/vendor/datatables/dataTables.bootstrap4.js') }}"></script>
+
+    <!-- Demo scripts for this page-->
+    <script src="{{ asset('back/js/demo/datatables-demo.js') }}"></script>
+
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'Back/base.html.twig' %}
+{% block title %}{{ 'config.list'|trans }}{% endblock %}
+
+{% block body %}
+    <a class="btn btn-success" href="{{ path('configuration_new') }}">
+        <i class="fas fa-fw fa-plus"></i>
+        {{ 'config.add'|trans }}
+    </a>
+    <hr>
+<div class="table-responsive">
+    <table class="table table-bordered" id="dataTable">
+        <thead>
+            <tr>
+                <th>{{ 'name'|trans }}</th>
+                <th>{{ 'type'|trans }}</th>
+                <th>{{ 'value'|trans }}</th>
+                <th>{{ 'created_at'|trans }}</th>
+                <th>{{ 'updated_at'|trans }}</th>
+                <th>{{ 'actions.name'|trans }}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for configuration in configurations %}
+            <tr>
+                <td>{{ configuration.nameConfig }}</td>
+                <td>{% if configuration.type == 0 %}
+                        {{ 'website'|trans }}
+                    {% elseif configuration.type == 1 %}
+                        {{ 'social'|trans }}
+                    {% endif %}
+                </td>
+                <td>{{ configuration.valueConfig }}</td>
+                <td>{{ configuration.createdAt ? configuration.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ configuration.updatedAt ? configuration.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('configuration_show', {'id': configuration.id}) }}">show</a>
+                    <a href="{{ path('configuration_edit', {'id': configuration.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">{{ 'nothing'|trans }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+
+    <!-- Page level plugin JavaScript-->
+    <script src="{{ asset('back/vendor/datatables/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('back/vendor/datatables/dataTables.bootstrap4.js') }}"></script>
+
+    <!-- Demo scripts for this page-->
+    <script src="{{ asset('back/js/demo/datatables-demo.js') }}"></script>
+
+{% endblock %}

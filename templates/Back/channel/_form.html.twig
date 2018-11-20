@@ -1,0 +1,8 @@
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+<br>
+    <button class="btn btn-success">
+        <i class="fas fa-fw fa-plus"></i>
+        {{ button_label|default('Ajouter') }}
+    </button>
+{{ form_end(form) }}

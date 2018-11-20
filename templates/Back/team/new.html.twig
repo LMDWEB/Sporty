@@ -1,0 +1,10 @@
+{% extends 'Back/base.html.twig' %}
+
+{% block title %}New Team{% endblock %}
+
+{% block body %}
+
+    {{ include('Back/team/_form.html.twig') }}
+
+    <a href="{{ path('team_index') }}">{{ 'back_list'|trans }}</a>
+{% endblock %}
