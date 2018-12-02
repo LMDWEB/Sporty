@@ -1,11 +1,11 @@
-# symfonyFootballProject
+# Sporty Management
 
 Projet Symfony
 
 
 Création d’un CMS orienté pour le football.
 
-Fonctionnalité :
+Fonctionnalitées :
 
 Espace utilisateur
 Gestion des rôles des utilisations
@@ -100,3 +100,20 @@ Services :
 Thème personnalisé (hors projet symfony)
 Achat de nom de domaine + hébergement (hors projet symfony)
 
+## Comment utiliser l'application
+
+    git clone https://github.com/LMDWEB/LMDFOOT.git  
+    cd LMDFOOT
+    composer install
+    --> Modifier le .env par rapport à la base de données  
+    php bin/console make:migration    
+    php bin/console doctrine:migrations:migrate
+    php bin/console doctrine:fixtures:load
+    cd public/front
+    npm i
+    gulp
+    cd ../back
+    npm i
+    gulp
+    cd ../..
+    php bin/console server:run
