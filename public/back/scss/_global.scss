@@ -64,3 +64,17 @@ body.fixed-nav {
     font-weight: 800;
   }
 }
+
+#player_mercato {
+  display: flex;
+  flex-wrap: wrap;
+
+  div {
+    flex: 1;
+    margin: 0 10px;
+  }
+}
+
+.container-fluid form button {
+  margin-top: 20px;
+}

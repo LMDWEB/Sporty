@@ -17,7 +17,7 @@ class SeasonCompetition
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Competition", inversedBy="image")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Competition", inversedBy="seasonCompetitions")
      */
     private $competition;
 
@@ -29,40 +29,24 @@ class SeasonCompetition
     /**
      * @ORM\Column(type="integer")
      */
-    private $typeCompetition;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
     private $numberParticipate;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $locale;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Season", inversedBy="seasonCompetitions")
      */
     private $season;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Team", inversedBy="seasonCompetitions")
-     */
-    private $typeTeam;
-
-
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getName(): ?Competition
+    public function getCompetition(): ?Competition
     {
         return $this->competition;
     }
 
-    public function setName(?Competition $competition): self
+    public function setCompetition(?Competition $competition): self
     {
         $this->competition = $competition;
 
@@ -81,18 +65,6 @@ class SeasonCompetition
         return $this;
     }
 
-    public function getTypeCompetition(): ?int
-    {
-        return $this->typeCompetition;
-    }
-
-    public function setTypeCompetition(int $typeCompetition): self
-    {
-        $this->typeCompetition = $typeCompetition;
-
-        return $this;
-    }
-
     public function getNumberParticipate(): ?int
     {
         return $this->numberParticipate;
@@ -105,18 +77,6 @@ class SeasonCompetition
         return $this;
     }
 
-    public function getLocale(): ?int
-    {
-        return $this->locale;
-    }
-
-    public function setLocale(int $locale): self
-    {
-        $this->locale = $locale;
-
-        return $this;
-    }
-
     public function getSeason(): ?Season
     {
         return $this->season;
@@ -125,18 +85,6 @@ class SeasonCompetition
     public function setSeason(?Season $season): self
     {
         $this->season = $season;
-
-        return $this;
-    }
-
-    public function getTypeTeam(): ?Team
-    {
-        return $this->typeTeam;
-    }
-
-    public function setTypeTeam(?Team $typeTeam): self
-    {
-        $this->typeTeam = $typeTeam;
 
         return $this;
     }

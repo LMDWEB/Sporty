@@ -1,0 +1,10 @@
+{% extends 'Back/base.html.twig' %}
+
+{% block title %}{{ 'season.edit'|trans }}{% endblock %}
+
+{% block body %}
+
+    {{ include('back/season_competition/_form.html.twig') }}
+
+    <a href="{{ path('season_competition_index') }}">back to list</a>
+{% endblock %}

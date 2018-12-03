@@ -3,10 +3,12 @@
 namespace App\Form;
 
 use App\Entity\Player;
+use App\Entity\PlayerMercato;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -58,6 +60,11 @@ class PlayerType extends AbstractType
             ->add('nationality', CountryType::class, array(
                 'label' => 'player.nationality',
                 'attr' => array('class' => 'form-control')
+            ))
+            ->add("playerMercatos", CollectionType::class, array (
+                'entry_type' => PlayerMercatoType::class,
+                'allow_add' => true,
+                'allow_delete' => true,
             ))
         ;
     }

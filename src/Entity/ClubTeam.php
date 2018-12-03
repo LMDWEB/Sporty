@@ -72,11 +72,17 @@ class ClubTeam
      */
     private $competitions;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\PlayerMercato", mappedBy="team")
+     */
+    private $playerMercatos;
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
         $this->games = new ArrayCollection();
         $this->competitions = new ArrayCollection();
+        $this->playerMercatos = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -238,6 +244,37 @@ class ClubTeam
         if ($this->competitions->contains($competition)) {
             $this->competitions->removeElement($competition);
             $competition->removeTeam($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|PlayerMercato[]
+     */
+    public function getPlayerMercatos(): Collection
+    {
+        return $this->playerMercatos;
+    }
+
+    public function addPlayerMercato(PlayerMercato $playerMercato): self
+    {
+        if (!$this->playerMercatos->contains($playerMercato)) {
+            $this->playerMercatos[] = $playerMercato;
+            $playerMercato->setTeam($this);
+        }
+
+        return $this;
+    }
+
+    public function removePlayerMercato(PlayerMercato $playerMercato): self
+    {
+        if ($this->playerMercatos->contains($playerMercato)) {
+            $this->playerMercatos->removeElement($playerMercato);
+            // set the owning side to null (unless already changed)
+            if ($playerMercato->getTeam() === $this) {
+                $playerMercato->setTeam(null);
+            }
         }
 
         return $this;
