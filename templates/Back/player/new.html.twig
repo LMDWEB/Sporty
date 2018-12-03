@@ -1,48 +1,63 @@
 {% extends 'Back/base.html.twig' %}
 {% block title %}{{ 'player.add'|trans }}{% endblock %}
+
 {% block breadcrumb %}
     <li class="breadcrumb-item">
         <a href="{{ path('player_index') }}">{{ 'player.name'|trans }}</a>
     </li>
 {% endblock %}
 {% block body %}
-    {{ include('Back/player/_form.html.twig') }}
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+
+        <input type="hidden" id="widgets-counter" value="0">
+        <button type="button" id="add-playerMercatos" class="btn btn-primary">
+            <i class="fas fa-plus"></i>
+            Ajouter un mercato
+        </button>
+
+        <button class="btn btn-success">{{ 'save'|trans }}</button>
+
+    {{ form_end(form) }}
 
     <a href="{{ path('player_index') }}">{{ 'back_list'|trans }}</a>
+
+
 {% endblock %}
+
 {% block javascripts %}
-    <script>
-        $('#add-club').click(function(){
-            //Je récupère le numéro des futurs champs que je vais créer
-            const index = +$('#widgets-counter').val();
+<script>
+    $('#add-playerMercatos').click(function(){
+        //Je récupère le numéro des futurs champs que je vais créer
+        const index = +$('#widgets-counter').val();
 
-            //Je récupère le prototype des entrées
-            const tmpl = $('#player_playerMercatos').data('prototype').replace(/__name__/g, index);
+        //Je récupère le prototype des entrées
+        const tmpl = $('#player_playerMercatos').data('prototype').replace(/__name__/g, index);
 
-            //J'injecte ce code au sein de la div
-            $('#player_playerMercatos').append(tmpl);
+        //J'injecte ce code au sein de la div
+        $('#player_playerMercatos').append(tmpl);
 
-            $('#widgets-counter').val(index + 1)
+        $('#widgets-counter').val(index + 1)
 
-            //Je gère le bouton supprimer
-            handleDeleteButtons();
-
-        });
-
-        function handleDeleteButtons(){
-            $('button[data-action="delete"]').click(function(){
-                const target = this.dataset.target;
-                $(target).remove();
-            });
-        }
-
-        function updateCounter(){
-            const count = +$('#ad_images div.form-group').length;
-            $('#widgets-counter').val(count);
-        }
-
-        updateCounter();
+        //Je gère le bouton supprimer
         handleDeleteButtons();
-    </script>
 
+    });
+
+    function handleDeleteButtons(){
+        $('button[data-action="delete"]').click(function(){
+            const target = this.dataset.target;
+            $(target).remove();
+        });
+    }
+
+    function updateCounter(){
+        const count = +$('#player_playerMercatos div.form-group').length;
+        $('#widgets-counter').val(count);
+    }
+
+    updateCounter();
+    handleDeleteButtons();
+</script>
 {% endblock %}
