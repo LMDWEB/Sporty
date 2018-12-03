@@ -16,7 +16,7 @@
                     <th>{{ 'player.date'|trans }}</th>
                     <th>{{ 'player.foot.name'|trans }}</th>
                     <th>{{ 'player.nationality'|trans }}</th>
-                    <th>{{ 'player.actions.name'|trans }}</th>
+                    <th>{{ 'actions.name'|trans }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -34,8 +34,8 @@
                     </td>
                     <td><img src="https://www.countryflags.io/{{ player.nationality }}/flat/32.png"></td>
                     <td>
-                        <a href="{{ path('player_show', {'id': player.id}) }}">{{ 'player.actions.show'|trans }}</a>
-                        <a href="{{ path('player_edit', {'id': player.id}) }}">{{ 'player.actions.edit'|trans }}</a>
+                        <a href="{{ path('player_show', {'id': player.id}) }}">{{ 'actions.show'|trans }}</a>
+                        <a href="{{ path('player_edit', {'id': player.id}) }}">{{ 'actions.edit'|trans }}</a>
                     </td>
                 </tr>
             {% else %}

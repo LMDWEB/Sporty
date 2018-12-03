@@ -24,7 +24,7 @@ class Club
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=20, unique=true)
+     * @ORM\Column(type="text", unique=true)
      */
     private $name;
 

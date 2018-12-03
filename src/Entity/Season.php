@@ -36,12 +36,18 @@ class Season
      */
     private $competitions;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\PlayerMercato", mappedBy="season")
+     */
+    private $playerMercatos;
+
 
     public function __construct()
     {
         $this->competition = new ArrayCollection();
         $this->seasonCompetitions = new ArrayCollection();
         $this->competitions = new ArrayCollection();
+        $this->playerMercatos = new ArrayCollection();
     }
 
 
@@ -118,6 +124,37 @@ class Season
             // set the owning side to null (unless already changed)
             if ($competition->getSeason() === $this) {
                 $competition->setSeason(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|PlayerMercato[]
+     */
+    public function getPlayerMercatos(): Collection
+    {
+        return $this->playerMercatos;
+    }
+
+    public function addPlayerMercato(PlayerMercato $playerMercato): self
+    {
+        if (!$this->playerMercatos->contains($playerMercato)) {
+            $this->playerMercatos[] = $playerMercato;
+            $playerMercato->setSeason($this);
+        }
+
+        return $this;
+    }
+
+    public function removePlayerMercato(PlayerMercato $playerMercato): self
+    {
+        if ($this->playerMercatos->contains($playerMercato)) {
+            $this->playerMercatos->removeElement($playerMercato);
+            // set the owning side to null (unless already changed)
+            if ($playerMercato->getSeason() === $this) {
+                $playerMercato->setSeason(null);
             }
         }
 

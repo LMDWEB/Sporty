@@ -24,7 +24,8 @@ class ConfederationType extends AbstractType
                     'Asie' => 2,
                     'Amérique du Nord'   => 3,
                     'Amérique du Sud'   => 4,
-                    'Océanie'   => 5
+                    'Océanie'   => 5,
+                    'Monde' => 6
                 ),
                 'attr' => array('class' => 'form-control')
             ))

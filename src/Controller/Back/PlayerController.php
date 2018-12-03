@@ -3,8 +3,11 @@
 namespace App\Controller\Back;
 
 use App\Entity\Player;
+use App\Entity\PlayerMercato;
+use App\Form\PlayerMercatoType;
 use App\Form\PlayerType;
 use App\Repository\PlayerRepository;
+use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,13 +29,21 @@ class PlayerController extends AbstractController
     /**
      * @Route("/new", name="player_new", methods="GET|POST")
      */
-    public function new(Request $request): Response
+    public function new(Request $request, ObjectManager $manager): Response
     {
         $player = new Player();
         $form = $this->createForm(PlayerType::class, $player);
         $form->handleRequest($request);
 
+        dump($request); die;
+
         if ($form->isSubmitted() && $form->isValid()) {
+
+            foreach ($player->getPlayerMercatos() as $playerMercato){
+                $playerMercato->setPlayer($player);
+                $manager->persist($playerMercato);
+            }
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($player);
             $em->flush();
@@ -42,7 +53,7 @@ class PlayerController extends AbstractController
 
         return $this->render('Back/player/new.html.twig', [
             'player' => $player,
-            'form' => $form->createView(),
+            'form' => $form->createView()
         ]);
     }
 
@@ -57,12 +68,20 @@ class PlayerController extends AbstractController
     /**
      * @Route("/{id}/edit", name="player_edit", methods="GET|POST")
      */
-    public function edit(Request $request, Player $player): Response
+    public function edit(Request $request, Player $player, ObjectManager $manager): Response
     {
+
         $form = $this->createForm(PlayerType::class, $player);
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            foreach ($player->getPlayerMercatos() as $playerMercato){
+                $playerMercato->setPlayer($player);
+                $manager->persist($playerMercato);
+            }
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('player_index', ['id' => $player->getId()]);
@@ -70,7 +89,7 @@ class PlayerController extends AbstractController
 
         return $this->render('Back/player/edit.html.twig', [
             'player' => $player,
-            'form' => $form->createView(),
+            'form' => $form->createView()
         ]);
     }
 

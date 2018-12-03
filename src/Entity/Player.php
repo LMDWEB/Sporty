@@ -85,9 +85,15 @@ class Player
      */
     private $image;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\PlayerMercato", mappedBy="player")
+     */
+    private $playerMercatos;
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
+        $this->playerMercatos = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -239,6 +245,37 @@ class Player
     public function setImage(string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|PlayerMercato[]
+     */
+    public function getPlayerMercatos(): Collection
+    {
+        return $this->playerMercatos;
+    }
+
+    public function addPlayerMercato(PlayerMercato $playerMercato): self
+    {
+        if (!$this->playerMercatos->contains($playerMercato)) {
+            $this->playerMercatos[] = $playerMercato;
+            $playerMercato->setPlayer($this);
+        }
+
+        return $this;
+    }
+
+    public function removePlayerMercato(PlayerMercato $playerMercato): self
+    {
+        if ($this->playerMercatos->contains($playerMercato)) {
+            $this->playerMercatos->removeElement($playerMercato);
+            // set the owning side to null (unless already changed)
+            if ($playerMercato->getPlayer() === $this) {
+                $playerMercato->setPlayer(null);
+            }
+        }
 
         return $this;
     }

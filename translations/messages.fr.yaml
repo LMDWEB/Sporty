@@ -103,4 +103,9 @@ men: Homme
 women: Femme
 nopublished: Non publié
 draft: brouillon
+mercato:
+  cost: Montant du transfert
 
+date:
+  start: Arrivée
+  end: Fin de contrat

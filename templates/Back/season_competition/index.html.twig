@@ -1,0 +1,34 @@
+{% extends 'Back/base.html.twig' %}
+
+{% block title %}{{ 'season.edit'|trans }}{% endblock %}
+
+{% block body %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Compétition</th>
+                <th>NumberParticipate</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for season_competition in season_competitions %}
+            <tr>
+                <td>{{ season_competition.competition.name }}</td>
+                <td>{{ season_competition.numberParticipate }}</td>
+                <td>
+                    <a href="{{ path('season_competition_show', {'id': season_competition.id}) }}">show</a>
+                    <a href="{{ path('season_competition_edit', {'id': season_competition.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('season_competition_new') }}">Create new</a>
+{% endblock %}
