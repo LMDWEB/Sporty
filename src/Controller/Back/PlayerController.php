@@ -35,7 +35,12 @@ class PlayerController extends AbstractController
         $form = $this->createForm(PlayerType::class, $player);
         $form->handleRequest($request);
 
-        dump($request); die;
+        //$playerMercato = new PlayerMercato();
+        //$playerMercato->setCost('123');
+        //$player->addPlayerMercato($playerMercato);
+
+        //dump($player);
+        //die();
 
         if ($form->isSubmitted() && $form->isValid()) {
 
@@ -44,9 +49,8 @@ class PlayerController extends AbstractController
                 $manager->persist($playerMercato);
             }
 
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($player);
-            $em->flush();
+            $manager->persist($player);
+            $manager->flush();
 
             return $this->redirectToRoute('player_index');
         }

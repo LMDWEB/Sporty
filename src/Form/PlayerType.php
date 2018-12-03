@@ -61,11 +61,11 @@ class PlayerType extends AbstractType
                 'label' => 'player.nationality',
                 'attr' => array('class' => 'form-control')
             ))
-            ->add("playerMercatos", CollectionType::class, array (
-                'entry_type' => PlayerMercatoType::class,
-                'allow_add' => true,
-                'allow_delete' => true,
-            ))
+            ->add("playerMercatos", CollectionType::class, [
+                    'entry_type' => PlayerMercatoType::class,
+                    'allow_add' => true,
+                    'allow_delete' => true,
+            ])
         ;
     }
 
