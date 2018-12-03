@@ -70,6 +70,13 @@ team:
   name: Equipe
   type: Type d'équipe
 
+event:
+  add: Ajouter un evenement
+  edit: Modifier un evenement
+  list: Liste des evenements
+  name: Evenement
+  type: Type d'evenement
+
 back_list: Revenir en arrière
 delete: Supprimer
 created_at: Crée à

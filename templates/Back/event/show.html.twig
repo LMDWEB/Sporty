@@ -1,0 +1,50 @@
+{% extends 'Back/base.html.twig' %}
+
+{% block title %}Club{% endblock %}
+
+{% block body %}
+    <h1>Club</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ event.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ event.title }}</td>
+            </tr>
+            <tr>
+                <th>Statut</th>
+                <td>{{ event.status }}</td>
+            </tr>
+            <tr>
+                <th>Date de debut</th>
+                <td>{{ event.startDate ? event.startDate|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Date de fin</th>
+                <td>{{ event.endDate ? event.endDate|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Nombre de participant max</th>
+                <td>{{ event.maxParticipant }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ event.createdAt ? event.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ event.updatedAt ? event.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('event_index') }}">{{ 'back_list'|trans }}</a>
+
+    <a href="{{ path('event_edit', {'id': event.id}) }}">edit</a>
+
+    {{ include('Back/event/_delete_form.html.twig') }}
+{% endblock %}

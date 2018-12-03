@@ -77,11 +77,17 @@ class ClubTeam
      */
     private $playerMercatos;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Event", mappedBy="participants")
+     */
+    private $events;
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
         $this->games = new ArrayCollection();
         $this->competitions = new ArrayCollection();
+        $this->events = new ArrayCollection();
         $this->playerMercatos = new ArrayCollection();
     }
 
@@ -275,6 +281,34 @@ class ClubTeam
             if ($playerMercato->getTeam() === $this) {
                 $playerMercato->setTeam(null);
             }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Event[]
+     */
+    public function getEvents(): Collection
+    {
+        return $this->events;
+    }
+
+    public function addEvent(Event $event): self
+    {
+        if (!$this->events->contains($event)) {
+            $this->events[] = $event;
+            $event->addParticipant($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEvent(Event $event): self
+    {
+        if ($this->events->contains($event)) {
+            $this->events->removeElement($event);
+            $event->removeParticipant($this);
         }
 
         return $this;
