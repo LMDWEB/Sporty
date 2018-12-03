@@ -63,6 +63,7 @@ class PlayerType extends AbstractType
             ))
             ->add("playerMercatos", CollectionType::class, array (
                 'entry_type' => PlayerMercatoType::class,
+                'entry_options' => array('label' => false),
                 'allow_add' => true,
                 'allow_delete' => true,
             ))

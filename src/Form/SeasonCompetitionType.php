@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\ClubTeam;
 use App\Entity\Competition;
 use App\Entity\Season;
 use App\Entity\SeasonCompetition;
@@ -43,6 +44,14 @@ class SeasonCompetitionType extends AbstractType
                 'multiple'     => false,
                 'required'     => false,
                 'attr' => array('class' => 'form-control')
+            ])
+            ->add('teams', EntityType::class, [
+                'label'        => 'Club',
+                'class'        => ClubTeam::class,
+                'choice_label' => 'name',
+                'multiple'     => true,
+                'required'     => false,
+                'attr' => array('id' => 'season_competition_teams')
             ])
         ;
     }

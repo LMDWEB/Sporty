@@ -35,7 +35,6 @@ class PlayerController extends AbstractController
         $form = $this->createForm(PlayerType::class, $player);
         $form->handleRequest($request);
 
-        dump($request); die;
 
         if ($form->isSubmitted() && $form->isValid()) {
 

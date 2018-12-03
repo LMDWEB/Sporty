@@ -2,6 +2,10 @@
 
 {% block title %}{{ 'season.edit'|trans }}{% endblock %}
 
+{% block style %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.css">
+{% endblock %}
+
 {% block body %}
 
     <table class="table">
@@ -31,4 +35,22 @@
     </table>
 
     <a href="{{ path('season_competition_new') }}">Create new</a>
+{% endblock %}
+{% block javascripts %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#competition_club').selectize({
+                maxItems: 30
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            // you may need to change this code if you are not using Bootstrap Datepicker
+            $('.js-datepicker').datepicker({
+                format: 'yyyy-mm-dd'
+            });
+        });
+    </script>
 {% endblock %}
