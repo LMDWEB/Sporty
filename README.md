@@ -102,7 +102,7 @@ Achat de nom de domaine + hébergement (hors projet symfony)
 
 ## Comment utiliser l'application
 
-    git clone https://github.com/LMDWEB/LMDFOOT.git  
+    git clone https://github.com/LMDWEB/Sporty.git 
     cd LMDFOOT
     composer install
     --> Modifier le .env par rapport à la base de données  
