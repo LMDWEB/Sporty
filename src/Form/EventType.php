@@ -22,9 +22,12 @@ class EventType extends AbstractType
     {
         $builder
             ->add('title', TextType::class, array(
+                'label' => 'Titre',
                 'attr' => array('class' => 'form-control')
             ))
             ->add('status', ChoiceType::class, array(
+
+                'label' => 'Statut',
 
                 'choices' => array(
                     'Publié' => 1,
@@ -36,20 +39,24 @@ class EventType extends AbstractType
             ))
 
             ->add('description', TextareaType::class, array(
+                'label' => 'Déscription',
                 'attr' => array('class' => 'form-control')
             ))
 
             ->add('start_date', DateType::class, array(
+                'label' => 'Date de début de l\'événement',
                 'attr' => array('class' => 'form-control')
             ))
             ->add('end_date', DateType::class, array(
+                'label' => 'Date de fin de l\'événement',
                 'attr' => array('class' => 'form-control')
             ))
             ->add('max_participant', IntegerType::class, array(
+                'label' => 'Nombre de participants maximale',
                 'attr' => array('class' => 'form-control')
             ))
             ->add('organizers', EntityType::class , [
-                'label' => 'Organisateur',
+                'label' => 'Organisateur(s)',
                 'class' => User::class,
                 'choice_label' => 'username',
                 'multiple' => true,

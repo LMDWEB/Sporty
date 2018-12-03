@@ -71,11 +71,11 @@ team:
   type: Type d'équipe
 
 event:
-  add: Ajouter un evenement
-  edit: Modifier un evenement
-  list: Liste des evenements
-  name: Evenement
-  type: Type d'evenement
+  add: Ajouter un événement
+  edit: Modifier un événement
+  list: Liste des événements
+  name: Événement
+  type: Type d'événement
 
 back_list: Revenir en arrière
 delete: Supprimer
