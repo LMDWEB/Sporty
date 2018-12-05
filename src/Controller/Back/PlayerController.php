@@ -35,13 +35,6 @@ class PlayerController extends AbstractController
         $form = $this->createForm(PlayerType::class, $player);
         $form->handleRequest($request);
 
-        //$playerMercato = new PlayerMercato();
-        //$playerMercato->setCost('123');
-        //$player->addPlayerMercato($playerMercato);
-
-        //dump($player);
-        //die();
-
         if ($form->isSubmitted() && $form->isValid()) {
 
             foreach ($player->getPlayerMercatos() as $playerMercato){

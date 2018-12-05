@@ -15,6 +15,14 @@
                 <td>{{ season.seasonYear }}</td>
             </tr>
             <tr>
+                <th>Liste des compétitions</th>
+                <td>
+                    {% for competition in season %}
+                        <a href="{{ path('season_competition_show', {'id': season.id}) }}">{{ season.competition.name }}</a> <br>
+                    {% endfor %}
+                </td>
+            </tr>
+            <tr>
                 <th>CreatedAt</th>
                 <td>{{ season.createdAt ? season.createdAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
@@ -22,12 +30,13 @@
                 <th>UpdatedAt</th>
                 <td>{{ season.updatedAt ? season.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
+
         </tbody>
     </table>
 
     <a href="{{ path('season_index') }}">{{ 'back_list'|trans }}</a>
 
-    <a href="{{ path('season_edit', {'id': season.id}) }}">{{ 'season.actions.edit'|trans }}</a>
+    <a href="{{ path('season_edit', {'id': season.id}) }}">{{ 'actions.edit'|trans }}</a>
 
     {{ include('Back/season/_delete_form.html.twig') }}
 {% endblock %}

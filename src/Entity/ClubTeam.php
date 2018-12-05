@@ -78,6 +78,11 @@ class ClubTeam
     private $playerMercatos;
 
     /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\SeasonCompetition", mappedBy="teams")
+     */
+    private $seasonCompetitions;
+
+    /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Event", mappedBy="participants")
      */
     private $events;
@@ -89,6 +94,7 @@ class ClubTeam
         $this->competitions = new ArrayCollection();
         $this->events = new ArrayCollection();
         $this->playerMercatos = new ArrayCollection();
+        $this->seasonCompetitions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -287,8 +293,35 @@ class ClubTeam
     }
 
     /**
+     * @return Collection|SeasonCompetition[]
+     */
+
+    public function getSeasonCompetitions(): Collection
+    {
+        return $this->seasonCompetitions;
+    }
+
+    public function addSeasonCompetition(SeasonCompetition $seasonCompetition): self
+    {
+        if (!$this->seasonCompetitions->contains($seasonCompetition)) {
+            $this->seasonCompetitions[] = $seasonCompetition;
+            $seasonCompetition->addTeam($this);
+        }
+    }
+
+    public function removeSeasonCompetition(SeasonCompetition $seasonCompetition): self
+    {
+        if ($this->seasonCompetitions->contains($seasonCompetition)) {
+            $this->seasonCompetitions->removeElement($seasonCompetition);
+            $seasonCompetition->removeTeam($this);
+
+        }
+    }
+
+    /**
      * @return Collection|Event[]
      */
+
     public function getEvents(): Collection
     {
         return $this->events;

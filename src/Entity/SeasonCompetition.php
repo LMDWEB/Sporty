@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -35,6 +37,16 @@ class SeasonCompetition
      * @ORM\ManyToOne(targetEntity="App\Entity\Season", inversedBy="seasonCompetitions")
      */
     private $season;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\ClubTeam", inversedBy="seasonCompetitions")
+     */
+    private $teams;
+
+    public function __construct()
+    {
+        $this->teams = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -85,6 +97,32 @@ class SeasonCompetition
     public function setSeason(?Season $season): self
     {
         $this->season = $season;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ClubTeam[]
+     */
+    public function getTeams(): Collection
+    {
+        return $this->teams;
+    }
+
+    public function addTeam(ClubTeam $team): self
+    {
+        if (!$this->teams->contains($team)) {
+            $this->teams[] = $team;
+        }
+
+        return $this;
+    }
+
+    public function removeTeam(ClubTeam $team): self
+    {
+        if ($this->teams->contains($team)) {
+            $this->teams->removeElement($team);
+        }
 
         return $this;
     }

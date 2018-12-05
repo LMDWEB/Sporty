@@ -25,7 +25,7 @@ class Club
 
     /**
      * @ORM\Column(type="string", unique=true, length=100)
-     */
+    */
     private $name;
 
     /**
