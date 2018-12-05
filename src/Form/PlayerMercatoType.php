@@ -23,8 +23,6 @@ class PlayerMercatoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add(
-                $builder->create('player', FormType::class, array('by_reference' => false))
                 ->add('season', EntityType::class , [
                     'label' => 'season.name',
                     'class' => Season::class,
@@ -48,10 +46,7 @@ class PlayerMercatoType extends AbstractType
                     ),
                     'attr' => array('class' => 'form-control')
                 ))
-            )
-            ->add(
-                $builder->create('cost', FormType::class, array(
-                    'by_reference' => false))
+
                 ->add('date', BirthdayType::class, array(
                     'label' => 'date.start',
                     'attr' => array('class' => 'form-control')
@@ -66,7 +61,7 @@ class PlayerMercatoType extends AbstractType
                     'label' => 'mercato.cost',
                     'attr' => array('class' => 'form-control')
                 ))
-            )
+
         ;
     }
 

@@ -69,10 +69,16 @@ class User implements UserInterface
      */
     private $todolists;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Event", mappedBy="organizers")
+     */
+    private $events;
+
     public function __construct()
     {
         $this->roles = new ArrayCollection();
         $this->todolists = new ArrayCollection();
+        $this->events = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -229,6 +235,34 @@ class User implements UserInterface
         if ($this->todolists->contains($todolist)) {
             $this->todolists->removeElement($todolist);
             $todolist->removeAssignedUser($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Event[]
+     */
+    public function getEvents(): Collection
+    {
+        return $this->events;
+    }
+
+    public function addEvent(Event $event): self
+    {
+        if (!$this->events->contains($event)) {
+            $this->events[] = $event;
+            $event->addOrganizer($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEvent(Event $event): self
+    {
+        if ($this->events->contains($event)) {
+            $this->events->removeElement($event);
+            $event->removeOrganizer($this);
         }
 
         return $this;

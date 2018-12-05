@@ -35,7 +35,6 @@ class PlayerController extends AbstractController
         $form = $this->createForm(PlayerType::class, $player);
         $form->handleRequest($request);
 
-
         if ($form->isSubmitted() && $form->isValid()) {
 
             foreach ($player->getPlayerMercatos() as $playerMercato){
@@ -43,9 +42,8 @@ class PlayerController extends AbstractController
                 $manager->persist($playerMercato);
             }
 
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($player);
-            $em->flush();
+            $manager->persist($player);
+            $manager->flush();
 
             return $this->redirectToRoute('player_index');
         }
