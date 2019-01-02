@@ -46,6 +46,11 @@ class Comment
      */
     private $id_parent;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="comments")
+     */
+    private $user;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -107,6 +112,18 @@ class Comment
     public function setIdParent(?int $id_parent): self
     {
         $this->id_parent = $id_parent;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

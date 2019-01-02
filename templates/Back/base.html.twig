@@ -6,9 +6,7 @@
         {% block stylesheets %}{% endblock %}
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-        <!-- Custom styles for this template-->
-        <link href="{{ asset('build/back.css') }}" rel="stylesheet">
-
+        {{ encore_entry_link_tags('back') }}
 
         {% block style %}{% endblock %}
     </head>
@@ -69,6 +67,8 @@
                 </div>
             </div>
         </div>
+
+        {{ encore_entry_script_tags('back') }}
 
         <!-- Bootstrap core JavaScript-->
         <script src="{{ asset('back/vendor/jquery/jquery.min.js') }}"></script>

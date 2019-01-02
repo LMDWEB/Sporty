@@ -7,8 +7,11 @@
 
 // any CSS you require will output into a single css file (app.css in this case)
 require('../back/scss/style.scss');
+require('datatables.net-bs4/css/dataTables.bootstrap4.min.css');
+require('@fortawesome/fontawesome-free/css/all.min.css');
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
-// var $ = require('jquery');
-
-console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
+const $ = require('jquery');
+require('@fortawesome/fontawesome-free/js/all.js');
+require('datatables.net-bs4/js/dataTables.bootstrap4.min');
+require('jquery.easing/jquery.easing.min');

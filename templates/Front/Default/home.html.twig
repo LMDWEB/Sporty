@@ -227,41 +227,19 @@
         <div id="mainbanner">
             <div class="flexslider">
                 <ul class="slides">
+                    {% for feature in featured %}
                     <li>
                         <img src="http://lmdpsg.diegowaziri.fr/ckfinder/userfiles/files/newdefault.jpg" alt="" />
                         <div class="container">
                             <div class="kode-caption">
-                                <h2>Kickoff Sports Theme</h2>
+                                <h2>{{ feature.title }}</h2>
                                 <div class="clearfix"></div>
-                                <p>Sed ut perspiciatis unde omnis iste natus <br />error sit accusantium dolore<br />mque laudantium</p>
-                                <div class="clearfix"></div>
-
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="http://lmdpsg.diegowaziri.fr/ckfinder/userfiles/files/newdefault.jpg" alt="" />
-                        <div class="container">
-                            <div class="kode-caption">
-                                <h2>Fully Responsive Theme</h2>
-                                <div class="clearfix"></div>
-                                <p>Sed ut perspiciatis unde omnis iste natus <br />error sit accusantium dolore</p>
-                                <div class="clearfix"></div>
-
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="http://lmdpsg.diegowaziri.fr/ckfinder/userfiles/files/newdefault.jpg" alt="" />
-                        <div class="container">
-                            <div class="kode-caption">
-                                <h2>Retina Ready</h2>
-                                <div class="clearfix"></div>
-                                <p>Sed ut perspiciatis unde omnis iste natuserror sit accusantium dolore</p>
+                                <p>{{ feature.resume }}</p>
                                 <div class="clearfix"></div>
                             </div>
                         </div>
                     </li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>
@@ -315,79 +293,20 @@
 
                             <div class="kode-blog-list kode-large-blog">
                                 <ul class="row">
+                                    {% for last in lastestNews %}
                                     <li class="col-md-4">
                                         <div class="card">
-                                            <img class="card-img-top" src="http://lmdpsg.diegowaziri.fr/ckfinder/userfiles/files/newdefault.jpg" alt="Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » ">
-                                            <time datetime="16/03/2018 à 03:45">16/03/2018 à 03:45</time>
+                                            <img class="card-img-top" src="article/{{ last.slug }}" alt="{{ last.title }}">
+                                            <time datetime="{{ last.date|date('d/m/Y à H:i') }} 16/03/2018 à 03:45">{{ last.date|date('Y-m-d H:i') }}</time>
                                             <div class="card-body">
                                                 <h3 class="card-title">
-                                                    <a href="http://lmdpsg.diegowaziri.fr/news/view/Raiola-Van-der-Wiel-meilleur-lateral-droit-dEurope-93">Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » </a>
+                                                    <a href="article/{{ last.slug }}">{{ last.title }}</a>
                                                 </h3>
-                                                <p class="card-text">De nombreuses fois critiqué depuis son arrivée dans la capitale l'an dernier, Grégory Van der Wiel commence à&nbsp; se faire une place dans l'eff</p>
+                                                <p class="card-text">{{ last.resume }}</p>
                                             </div>
                                         </div>
                                     </li>
-                                    <li class="col-md-4">
-                                        <div class="card">
-                                            <img class="card-img-top" src="http://lmdpsg.diegowaziri.fr/ckfinder/userfiles/files/newdefault.jpg" alt="Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » ">
-                                            <time datetime="16/03/2018 à 03:45">16/03/2018 à 03:45</time>
-                                            <div class="card-body">
-                                                <h3 class="card-title">
-                                                    <a href="http://lmdpsg.diegowaziri.fr/news/view/Raiola-Van-der-Wiel-meilleur-lateral-droit-dEurope-93">Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » </a>
-                                                </h3>
-                                                <p class="card-text">De nombreuses fois critiqué depuis son arrivée dans la capitale l'an dernier, Grégory Van der Wiel commence à&nbsp; se faire une place dans l'eff</p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="col-md-4">
-                                        <div class="card">
-                                            <img class="card-img-top" src="http://lmdpsg.diegowaziri.fr/ckfinder/userfiles/files/newdefault.jpg" alt="Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » ">
-                                            <time datetime="16/03/2018 à 03:45">16/03/2018 à 03:45</time>
-                                            <div class="card-body">
-                                                <h3 class="card-title">
-                                                    <a href="http://lmdpsg.diegowaziri.fr/news/view/Raiola-Van-der-Wiel-meilleur-lateral-droit-dEurope-93">Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » </a>
-                                                </h3>
-                                                <p class="card-text">De nombreuses fois critiqué depuis son arrivée dans la capitale l'an dernier, Grégory Van der Wiel commence à&nbsp; se faire une place dans l'eff</p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="col-md-4">
-                                        <div class="card">
-                                            <img class="card-img-top" src="http://lmdpsg.diegowaziri.fr/ckfinder/userfiles/files/newdefault.jpg" alt="Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » ">
-                                            <time datetime="16/03/2018 à 03:45">16/03/2018 à 03:45</time>
-                                            <div class="card-body">
-                                                <h3 class="card-title">
-                                                    <a href="http://lmdpsg.diegowaziri.fr/news/view/Raiola-Van-der-Wiel-meilleur-lateral-droit-dEurope-93">Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » </a>
-                                                </h3>
-                                                <p class="card-text">De nombreuses fois critiqué depuis son arrivée dans la capitale l'an dernier, Grégory Van der Wiel commence à&nbsp; se faire une place dans l'eff</p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="col-md-4">
-                                        <div class="card">
-                                            <img class="card-img-top" src="http://lmdpsg.diegowaziri.fr/ckfinder/userfiles/files/newdefault.jpg" alt="Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » ">
-                                            <time datetime="16/03/2018 à 03:45">16/03/2018 à 03:45</time>
-                                            <div class="card-body">
-                                                <h3 class="card-title">
-                                                    <a href="http://lmdpsg.diegowaziri.fr/news/view/Raiola-Van-der-Wiel-meilleur-lateral-droit-dEurope-93">Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » </a>
-                                                </h3>
-                                                <p class="card-text">De nombreuses fois critiqué depuis son arrivée dans la capitale l'an dernier, Grégory Van der Wiel commence à&nbsp; se faire une place dans l'eff</p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="col-md-4">
-                                        <div class="card">
-                                            <img class="card-img-top" src="http://lmdpsg.diegowaziri.fr/ckfinder/userfiles/files/newdefault.jpg" alt="Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » ">
-                                            <time datetime="16/03/2018 à 03:45">16/03/2018 à 03:45</time>
-                                            <div class="card-body">
-                                                <h3 class="card-title">
-                                                    <a href="http://lmdpsg.diegowaziri.fr/news/view/Raiola-Van-der-Wiel-meilleur-lateral-droit-dEurope-93">
-                                                        <span>Transferts :</span> Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » </a>
-                                                </h3>
-                                                <p class="card-text">De nombreuses fois critiqué depuis son arrivée dans la capitale l'an dernier, Grégory Van der Wiel commence à&nbsp; se faire une place dans l'eff</p>
-                                            </div>
-                                        </div>
-                                    </li>
+                                    {% endfor %}
                                 </ul>
                                 <div class="kode-align-btn"><a href="#" class="kode-modren-btn thbg-colortwo">View More</a></div>
                             </div>
@@ -431,56 +350,18 @@
 
                             <div class="kode-blog-list kode-large-blog">
                                 <div class="owl-carousel-team owl-theme kode-team-list next-prev-style">
+                                    {% for mercato in mercatoNews %}
                                     <div class="card">
                                         <img class="card-img-top" src="http://lmdpsg.diegowaziri.fr/ckfinder/userfiles/files/newdefault.jpg" alt="Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » ">
-                                        <time datetime="16/03/2018 à 03:45">16/03/2018 à 03:45</time>
+                                        <time datetime="{{ mercato.date|date('d/m/Y à H:i') }} 16/03/2018 à 03:45">{{ mercato.date|date('Y-m-d H:i') }}</time>
                                         <div class="card-body">
                                             <h3 class="card-title">
-                                                <a href="http://lmdpsg.diegowaziri.fr/news/view/Raiola-Van-der-Wiel-meilleur-lateral-droit-dEurope-93">Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » </a>
+                                                <a href="http://lmdpsg.diegowaziri.fr/news/view/Raiola-Van-der-Wiel-meilleur-lateral-droit-dEurope-93">{{ mercato.title }}</a>
                                             </h3>
-                                            <p class="card-text">De nombreuses fois critiqué depuis son arrivée dans la capitale l'an dernier, Grégory Van der Wiel commence à&nbsp; se faire une place dans l'eff</p>
+                                            <p class="card-text">{{ mercato.resume }}</p>
                                         </div>
                                     </div>
-                                    <div class="card">
-                                        <img class="card-img-top" src="http://lmdpsg.diegowaziri.fr/ckfinder/userfiles/files/newdefault.jpg" alt="Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » ">
-                                        <time datetime="16/03/2018 à 03:45">16/03/2018 à 03:45</time>
-                                        <div class="card-body">
-                                            <h3 class="card-title">
-                                                <a href="http://lmdpsg.diegowaziri.fr/news/view/Raiola-Van-der-Wiel-meilleur-lateral-droit-dEurope-93">Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » </a>
-                                            </h3>
-                                            <p class="card-text">De nombreuses fois critiqué depuis son arrivée dans la capitale l'an dernier, Grégory Van der Wiel commence à&nbsp; se faire une place dans l'eff</p>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <img class="card-img-top" src="http://lmdpsg.diegowaziri.fr/ckfinder/userfiles/files/newdefault.jpg" alt="Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » ">
-                                        <time datetime="16/03/2018 à 03:45">16/03/2018 à 03:45</time>
-                                        <div class="card-body">
-                                            <h3 class="card-title">
-                                                <a href="http://lmdpsg.diegowaziri.fr/news/view/Raiola-Van-der-Wiel-meilleur-lateral-droit-dEurope-93">Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » </a>
-                                            </h3>
-                                            <p class="card-text">De nombreuses fois critiqué depuis son arrivée dans la capitale l'an dernier, Grégory Van der Wiel commence à&nbsp; se faire une place dans l'eff</p>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <img class="card-img-top" src="http://lmdpsg.diegowaziri.fr/ckfinder/userfiles/files/newdefault.jpg" alt="Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » ">
-                                        <time datetime="16/03/2018 à 03:45">16/03/2018 à 03:45</time>
-                                        <div class="card-body">
-                                            <h3 class="card-title">
-                                                <a href="http://lmdpsg.diegowaziri.fr/news/view/Raiola-Van-der-Wiel-meilleur-lateral-droit-dEurope-93">Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » </a>
-                                            </h3>
-                                            <p class="card-text">De nombreuses fois critiqué depuis son arrivée dans la capitale l'an dernier, Grégory Van der Wiel commence à&nbsp; se faire une place dans l'eff</p>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <img class="card-img-top" src="http://lmdpsg.diegowaziri.fr/ckfinder/userfiles/files/newdefault.jpg" alt="Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » ">
-                                        <time datetime="16/03/2018 à 03:45">16/03/2018 à 03:45</time>
-                                        <div class="card-body">
-                                            <h3 class="card-title">
-                                                <a href="http://lmdpsg.diegowaziri.fr/news/view/Raiola-Van-der-Wiel-meilleur-lateral-droit-dEurope-93">Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » </a>
-                                            </h3>
-                                            <p class="card-text">De nombreuses fois critiqué depuis son arrivée dans la capitale l'an dernier, Grégory Van der Wiel commence à&nbsp; se faire une place dans l'eff</p>
-                                        </div>
-                                    </div>
+                                    {% endfor %}
                                 </div>
                                 <div class="kode-align-btn"><a href="#" class="kode-modren-btn thbg-colortwo">View More</a></div>
                             </div>
@@ -537,59 +418,20 @@
                             <div class="heading heading-12 margin-top-bottom-30">
                                 <h2 class="color-white"><span class="left"></span>Les Dossiers<span class="right"></span></h2>
                             </div>
-
                             <div class="kode-blog-list kode-large-blog">
                                 <div class="owl-carousel-team owl-theme kode-team-list next-prev-style">
-                                    <div class="card">
-                                        <img class="card-img-top" src="http://lmdpsg.diegowaziri.fr/ckfinder/userfiles/files/newdefault.jpg" alt="Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » ">
-                                        <time datetime="16/03/2018 à 03:45">16/03/2018 à 03:45</time>
-                                        <div class="card-body">
-                                            <h3 class="card-title">
-                                                <a href="http://lmdpsg.diegowaziri.fr/news/view/Raiola-Van-der-Wiel-meilleur-lateral-droit-dEurope-93">Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » </a>
-                                            </h3>
-                                            <p class="card-text">De nombreuses fois critiqué depuis son arrivée dans la capitale l'an dernier, Grégory Van der Wiel commence à&nbsp; se faire une place dans l'eff</p>
+                                    {% for mercato in mercatoNews %}
+                                        <div class="card">
+                                            <img class="card-img-top" src="http://lmdpsg.diegowaziri.fr/ckfinder/userfiles/files/newdefault.jpg" alt="Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » ">
+                                            <time datetime="{{ mercato.date|date('d/m/Y à H:i') }} 16/03/2018 à 03:45">{{ mercato.date|date('Y-m-d H:i') }}</time>
+                                            <div class="card-body">
+                                                <h3 class="card-title">
+                                                    <a href="http://lmdpsg.diegowaziri.fr/news/view/Raiola-Van-der-Wiel-meilleur-lateral-droit-dEurope-93">{{ mercato.title }}</a>
+                                                </h3>
+                                                <p class="card-text">{{ mercato.resume }}</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="card">
-                                        <img class="card-img-top" src="http://lmdpsg.diegowaziri.fr/ckfinder/userfiles/files/newdefault.jpg" alt="Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » ">
-                                        <time datetime="16/03/2018 à 03:45">16/03/2018 à 03:45</time>
-                                        <div class="card-body">
-                                            <h3 class="card-title">
-                                                <a href="http://lmdpsg.diegowaziri.fr/news/view/Raiola-Van-der-Wiel-meilleur-lateral-droit-dEurope-93">Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » </a>
-                                            </h3>
-                                            <p class="card-text">De nombreuses fois critiqué depuis son arrivée dans la capitale l'an dernier, Grégory Van der Wiel commence à&nbsp; se faire une place dans l'eff</p>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <img class="card-img-top" src="http://lmdpsg.diegowaziri.fr/ckfinder/userfiles/files/newdefault.jpg" alt="Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » ">
-                                        <time datetime="16/03/2018 à 03:45">16/03/2018 à 03:45</time>
-                                        <div class="card-body">
-                                            <h3 class="card-title">
-                                                <a href="http://lmdpsg.diegowaziri.fr/news/view/Raiola-Van-der-Wiel-meilleur-lateral-droit-dEurope-93">Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » </a>
-                                            </h3>
-                                            <p class="card-text">De nombreuses fois critiqué depuis son arrivée dans la capitale l'an dernier, Grégory Van der Wiel commence à&nbsp; se faire une place dans l'eff</p>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <img class="card-img-top" src="http://lmdpsg.diegowaziri.fr/ckfinder/userfiles/files/newdefault.jpg" alt="Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » ">
-                                        <time datetime="16/03/2018 à 03:45">16/03/2018 à 03:45</time>
-                                        <div class="card-body">
-                                            <h3 class="card-title">
-                                                <a href="http://lmdpsg.diegowaziri.fr/news/view/Raiola-Van-der-Wiel-meilleur-lateral-droit-dEurope-93">Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » </a>
-                                            </h3>
-                                            <p class="card-text">De nombreuses fois critiqué depuis son arrivée dans la capitale l'an dernier, Grégory Van der Wiel commence à&nbsp; se faire une place dans l'eff</p>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <img class="card-img-top" src="http://lmdpsg.diegowaziri.fr/ckfinder/userfiles/files/newdefault.jpg" alt="Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » ">
-                                        <time datetime="16/03/2018 à 03:45">16/03/2018 à 03:45</time>
-                                        <div class="card-body">
-                                            <h3 class="card-title">
-                                                <a href="http://lmdpsg.diegowaziri.fr/news/view/Raiola-Van-der-Wiel-meilleur-lateral-droit-dEurope-93">Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » </a>
-                                            </h3>
-                                            <p class="card-text">De nombreuses fois critiqué depuis son arrivée dans la capitale l'an dernier, Grégory Van der Wiel commence à&nbsp; se faire une place dans l'eff</p>
-                                        </div>
-                                    </div>
+                                    {% endfor %}
                                 </div>
                                 <div class="kode-align-btn"><a href="#" class="kode-modren-btn thbg-colortwo">View More</a></div>
                             </div>
@@ -623,57 +465,19 @@
                             <div class="heading heading-12 margin-top-bottom-30">
                                 <h2 class="color-white"><span class="left"></span>Les vidéos<span class="right"></span></h2>
                             </div>
-
                             <div class="owl-carousel-team owl-theme kode-team-list next-prev-style">
-                                <div class="card">
-                                    <img class="card-img-top" src="http://lmdpsg.diegowaziri.fr/ckfinder/userfiles/files/newdefault.jpg" alt="Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » ">
-                                    <div class="card-body">
-                                        <h3 class="card-title">
-                                            <a href="http://lmdpsg.diegowaziri.fr/news/view/Raiola-Van-der-Wiel-meilleur-lateral-droit-dEurope-93">Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » </a>
-                                        </h3>
+                                {% for mercato in mercatoNews %}
+                                    <div class="card">
+                                        <img class="card-img-top" src="http://lmdpsg.diegowaziri.fr/ckfinder/userfiles/files/newdefault.jpg" alt="Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » ">
+                                        <time datetime="{{ mercato.date|date('d/m/Y à H:i') }} 16/03/2018 à 03:45">{{ mercato.date|date('Y-m-d H:i') }}</time>
+                                        <div class="card-body">
+                                            <h3 class="card-title">
+                                                <a href="http://lmdpsg.diegowaziri.fr/news/view/Raiola-Van-der-Wiel-meilleur-lateral-droit-dEurope-93">{{ mercato.title }}</a>
+                                            </h3>
+                                            <p class="card-text">{{ mercato.resume }}</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="card">
-                                    <img class="card-img-top" src="http://lmdpsg.diegowaziri.fr/ckfinder/userfiles/files/newdefault.jpg" alt="Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » ">
-                                    <div class="card-body">
-                                        <h3 class="card-title">
-                                            <a href="http://lmdpsg.diegowaziri.fr/news/view/Raiola-Van-der-Wiel-meilleur-lateral-droit-dEurope-93">Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » </a>
-                                        </h3>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <img class="card-img-top" src="http://lmdpsg.diegowaziri.fr/ckfinder/userfiles/files/newdefault.jpg" alt="Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » ">
-                                    <div class="card-body">
-                                        <h3 class="card-title">
-                                            <a href="http://lmdpsg.diegowaziri.fr/news/view/Raiola-Van-der-Wiel-meilleur-lateral-droit-dEurope-93">Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » </a>
-                                        </h3>
-                                    </div>
-                                </div><div class="card">
-                                    <img class="card-img-top" src="http://lmdpsg.diegowaziri.fr/ckfinder/userfiles/files/newdefault.jpg" alt="Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » ">
-                                    <time datetime="16/03/2018 à 03:45">16/03/2018 à 03:45</time>
-                                    <div class="card-body">
-                                        <h3 class="card-title">
-                                            <a href="http://lmdpsg.diegowaziri.fr/news/view/Raiola-Van-der-Wiel-meilleur-lateral-droit-dEurope-93">Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » </a>
-                                        </h3>
-                                    </div>
-                                </div><div class="card">
-                                    <img class="card-img-top" src="http://lmdpsg.diegowaziri.fr/ckfinder/userfiles/files/newdefault.jpg" alt="Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » ">
-                                    <time datetime="16/03/2018 à 03:45">16/03/2018 à 03:45</time>
-                                    <div class="card-body">
-                                        <h3 class="card-title">
-                                            <a href="http://lmdpsg.diegowaziri.fr/news/view/Raiola-Van-der-Wiel-meilleur-lateral-droit-dEurope-93">Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » </a>
-                                        </h3>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <img class="card-img-top" src="http://lmdpsg.diegowaziri.fr/ckfinder/userfiles/files/newdefault.jpg" alt="Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » ">
-                                    <time datetime="16/03/2018 à 03:45">16/03/2018 à 03:45</time>
-                                    <div class="card-body">
-                                        <h3 class="card-title">
-                                            <a href="http://lmdpsg.diegowaziri.fr/news/view/Raiola-Van-der-Wiel-meilleur-lateral-droit-dEurope-93">Raiola : « Van der Wiel,  meilleur latéral droit d'Europe » </a>
-                                        </h3>
-                                    </div>
-                                </div>
+                                {% endfor %}
                             </div>
                             <div class="kode-align-btn"><a href="#" class="kode-modren-btn thbg-colortwo">View More</a></div>
                         </div>
@@ -693,18 +497,11 @@
                                 </h2>
                             </div>
                             <div class="owl-carousel-team owl-theme kode-team-list next-prev-style kode-partner">
-                                <div class="col">
-                                    <a href="#"><img src="extra-images/partner-logo2.jpg" alt=""></a>
-                                </div>
-                                <div class="col">
-                                    <a href="#"><img src="extra-images/partner-logo3.jpg" alt=""></a>
-                                </div>
-                                <div class="col">
-                                    <a href="#"><img src="extra-images/partner-logo4.jpg" alt=""></a>
-                                </div>
-                                <div class="col">
-                                    <a href="#"><img src="extra-images/partner-logo5.jpg" alt=""></a>
-                                </div>
+                                {% for partner in partners %}
+                                    <div class="col">
+                                        <a href="http://{{ partner.link }}"><img src="extra-images/partner-logo2.jpg" alt="{{ partner.name }}"></a>
+                                    </div>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
@@ -715,85 +512,53 @@
         <!--// Main Content //-->
 
         <!--// NewsLatter //-->
-        <footer id="footer1" class="kode-parallax kode-dark-overlay kode-bg-pattern">
-            <!--// Contact Footer //-->
-            <div class="kode-bottom-footer">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <p>©2015 KickOff. All Right Reserved</p>
-                        </div>
-                        <div class="col-md-6">
-                            <a href="#" id="kode-topbtn" class="thbg-colortwo"><i class="fa fa-angle-up"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-
 
         <div class="clearfix clear"></div>
-    </div>
-    <!--// Wrapper //-->
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header thbg-color">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Login To Your Account</h4>
-                </div>
-                <div class="modal-body">
-                    <form action="{{ path('user_login') }}" method="post">
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" name="_username" id="email" value="" class="form-control" placeholder="Adresse email..." required>
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Mot de passe</label>
-                            <input type="password" name="_password" id="password" placeholder="Mot de passe..." class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-success">Connexion</button>
-                        </div>
-                    </form>
-                </div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header thbg-color">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Login To Your Account</h4>
+            </div>
+            <div class="modal-body">
+                <form action="{{ path('user_login') }}" method="post">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" name="_username" id="email" value="" class="form-control" placeholder="Adresse email..." required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Mot de passe</label>
+                        <input type="password" name="_password" id="password" placeholder="Mot de passe..." class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success">Connexion</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-    <!-- Modal -->
-    <div class="modal fade" id="myModalTwo" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header thbg-color">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Register</h4>
-                </div>
-                <div class="modal-body">
-                    {{ form_start(form) }}
-                    {{ form_widget(form) }}
-                    <button type="submit" class="btn btn-success">S'inscrire</button>
-                    {{ form_end(form) }}
-                </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModalTwo" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header thbg-color">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Register</h4>
+            </div>
+            <div class="modal-body">
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+                <button type="submit" class="btn btn-success">S'inscrire</button>
+                {{ form_end(form) }}
             </div>
         </div>
     </div>
-
+</div>
 {% endblock %}
 
 {% block javascripts %}
-    <!-- Bootstrap core JavaScript-->
-    <script src="{{ asset('front/vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('front/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('front/js/jquery.flexslider.js') }}"></script>
-    <script src="{{ asset('front/js/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('front/js/jquery.countdown.js') }}"></script>
-    <script src="{{ asset('front/js/waypoints-min.js') }}"></script>
-    <script src="{{ asset('front/js/jquery.bxslider.min.js') }}"></script>
-    <script src="{{ asset('front/js/bootstrap-progressbar.js') }}"></script>
-    <script src="{{ asset('front/js/jquery.accordion.js') }}"></script>
-    <script src="{{ asset('front/js/jquery.circlechart.js') }}"></script>
-    <script src="{{ asset('front/js/jquery.prettyphoto.js') }}"></script>
-    <script src="{{ asset('front/js/kode_pp.js') }}"></script>
-    <script src="{{ asset('front/js/functions.js') }}"></script>
+
 {% endblock %}
