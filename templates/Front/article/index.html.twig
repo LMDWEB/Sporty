@@ -9,7 +9,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <h1>Article</h1>
+                        <h1>{% if article.type == 0 %} Article {% elseif article.type == 1 %} Contenu {% endif %}</h1>
                     </div>
                     <div class="col-md-6">
                         <ul class="kode-breadcrumb">
@@ -186,7 +186,9 @@
                         </div>
 
                         <div class="widget widget_categories">
-                            <div class="kode-widget-title"> <h2>CATEGORIES</h2> </div>
+                            <div class="kode-widget-title">
+                                <h2>CATEGORIES</h2>
+                            </div>
                             <ul>
                                 {% for cat in categories %}
                                     <li><a href="{{ path('category', { 'slug': cat.slug }) }}">{{ cat.name }}</a></li>

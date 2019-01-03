@@ -18,25 +18,20 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/article")
- */
 class ArticleController extends AbstractController
 {
     /**
-     * @Route("/{slug}", name="article", methods="GET|POST")
+     * @Route("/news/{slug}", name="article", methods="GET|POST")
      */
-
     public function index(Article $article, ObjectManager $manager, Request $request): Response
     {
-        // visite
-        $views = $article->getViews();
-        $article->setViews($views + 1);
-        $manager->persist($article);
-        $manager->flush();
+        // type page
+        $type = $this->getDoctrine()->getRepository(Article::class)->typeArticle($article->getType());
+
+        //new views
+        $this->getDoctrine()->getRepository(Article::class)->views($article, $manager);
 
         $comment = new Comment();
-
         $form = $this->createForm(CommentType::class, $comment);
         $form->handleRequest($request);
 
@@ -46,7 +41,7 @@ class ArticleController extends AbstractController
             $ip = $request->getClientIp();
             $comment->setUser($user);
             $comment->setIdPost($article->getId());
-            $comment->setNamePost("article");
+            $comment->setNamePost($type);
             $comment->setIpAddress($ip);
             $em = $this->getDoctrine()->getManager();
             $em->persist($comment);
@@ -55,14 +50,16 @@ class ArticleController extends AbstractController
 
         // get Player
         $players = $this->getDoctrine()->getRepository(Player::class)->findAll();
-        $categories = $this->getDoctrine()->getRepository(Category::class)->findAll();
-        $allArticles = $this->getDoctrine()->getRepository(Article::class)->findBy(['published' => 1, 'type' => 0], ['date' => 'DESC'], 10, 0);
-        $nextArticle = $this->getDoctrine()->getRepository(Article::class)->nextArticle($article->getDate());
-        $prevArticle = $this->getDoctrine()->getRepository(Article::class)->prevArticle($article->getDate());
         $teams = $this->getDoctrine()->getRepository(ClubTeam::class)->findAll();
         $games = $this->getDoctrine()->getRepository(Game::class)->findAll();
-        $allComments = $this->getDoctrine()->getRepository(Comment::class)->findBy(['id_post' => $article->getId(), 'name_post' => "article", "id_parent" => 0], ['id' => 'DESC']);
-        $allReplyComments = $this->getDoctrine()->getRepository(Comment::class)->findBy(['id_post' => $article->getId(), 'name_post' => "article"], ['id' => 'DESC']);
+        $categories = $this->getDoctrine()->getRepository(Category::class)->findAll();
+
+        $allArticles = $this->getDoctrine()->getRepository(Article::class)->findBy(['published' => 1, 'type' => $article->getType()], ['date' => 'DESC'], 10, 0);
+        $nextArticle = $this->getDoctrine()->getRepository(Article::class)->nextArticle($article->getDate(), $article->getType());
+        $prevArticle = $this->getDoctrine()->getRepository(Article::class)->prevArticle($article->getDate(), $article->getType());
+
+        $allComments = $this->getDoctrine()->getRepository(Comment::class)->findBy(['id_post' => $article->getId(), 'name_post' => $type, "id_parent" => 0], ['id' => 'DESC']);
+        $allReplyComments = $this->getDoctrine()->getRepository(Comment::class)->findBy(['id_post' => $article->getId(), 'name_post' => $type], ['id' => 'DESC']);
 
         return $this->render('Front/article/index.html.twig', [
             'article' => $article,

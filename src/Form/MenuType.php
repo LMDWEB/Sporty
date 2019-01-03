@@ -26,10 +26,6 @@ class MenuType extends AbstractType
                     'Brouillon' => 2
                 ),
             ))
-            ->add('parent', CheckboxType::class, array(
-                'label'    => 'Menu parent ?',
-                'required' => false,
-            ))
         ;
     }
 

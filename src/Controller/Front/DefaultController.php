@@ -43,7 +43,6 @@ class DefaultController extends AbstractController
 
         $articleRepo = $this->getDoctrine()->getRepository(Article::class);
         $partnerRepo = $this->getDoctrine()->getRepository(Partnership::class);
-        $menuRepo = $this->getDoctrine()->getRepository(Menu::class);
 
         $featured = $articleRepo->findBy(['featured' => 1, 'published' => 1, 'type' => 0], ['date' => 'DESC'], 3, 0);
         $lastestNews = $articleRepo->findBy(['published' => 1, 'type' => 0], ['date' => 'DESC'], 6, 0);
@@ -55,7 +54,31 @@ class DefaultController extends AbstractController
             'featured' => $featured,
             'lastestNews' => $lastestNews,
             'mercatoNews' => $mercatoNews,
-            'partners' => $partners,
+            'partners' => $partners
+        ]);
+    }
+
+    public function menu()
+    {
+        $leftMenu = $this->getDoctrine()->getRepository(Menu::class)->findBy(["published" => 1, "name" => "menu left"]);
+        $parentMenuLeft = $this->getDoctrine()->getRepository(MenuItem::class)->findBy(["parent" => $leftMenu[0]->getId(), "subParent" => false]);
+
+        $rightMenu = $this->getDoctrine()->getRepository(Menu::class)->findBy(["published" => 1, "name" => "menu right"]);
+        $parentMenuRight = $this->getDoctrine()->getRepository(MenuItem::class)->findBy(["parent" => $rightMenu[0]->getId(), "subParent" => false]);
+
+        $menus = $this->getDoctrine()->getRepository(MenuItem::class)->findBy(["parent" => $leftMenu[0]->getId(), "subParent" => 1]);
+
+
+        return $this->render('Front/include/_menu.html.twig', [
+            'parentMenusLeft' => $parentMenuLeft,
+            'parentMenusRight' => $parentMenuRight,
+            'menus' => $menus,
+        ]);
+    }
+
+    public function footer()
+    {
+        return $this->render('Front/include/_footer.html.twig', [
         ]);
     }
 }

@@ -1,0 +1,486 @@
+{% extends 'Front/base.html.twig' %}
+
+{% block title %}{{ player.firstname }} {{ player.lastname }}{% endblock %}
+
+{% block body %}
+    <!--// Main Content //-->
+    <div class="kode-content">
+        <div class="kode-subheader subheader-height">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h1>Joueur</h1>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="kode-breadcrumb">
+                            <li><a href="#">Accueil</a></li>
+                            <li><a href="#">{{ player.firstname }} {{ player.lastname }}</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--// SubHeader //-->
+        <!--// Page Content //-->
+        <section class="kode-pagesection">
+            <div class="container">
+                <div class="row">
+                    <div class="kode-pagecontent col-md-3">
+                        <ul class="nav flex-column nav-pills" role="tablist">
+                            <div class="card hovercard">
+                                <div class="cardheader"></div>
+                                <div class="avatar">
+                                    <img src="http://lmdpsg.diegowaziri.fr/ckfinder/userfiles/files/3178.jpg" alt="{{ player.firstname }} {{ player.lastname }}">
+                                </div>
+                                <div class="info">
+                                    <div class="title">
+                                        {{ player.firstname }} {{ player.lastname }} <img src="https://www.countryflags.io/{{ player.nationality }}/flat/32.png" width="25" alt="">
+                                    </div>
+                                    <div class="desc">{{ player.dateBirth ? player.dateBirth|date('d M Y') : '' }} à {{ player.cityBirth }}</div>
+                                    <div class="desc">
+                                        Taille : 186 cm
+                                    </div>
+                                    <div class="desc">
+                                        Poids : 74 kg
+                                    </div>
+                                    <div class="desc">
+                                        Pied : {{ foot |trans }}
+                                    </div>
+                                    <div class="desc">
+                                        Attaquant  au <strong>Paris Saint-Germain</strong>
+                                    </div>
+                                    <div class="desc"><a class="nav-link" href="#like">J'aime</a></div>
+                                    <li class="nav-item flex-link">
+                                        <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+                                        <a href="https://twitter.com/ "><i class="fab fa-twitter"></i></a>
+                                        <a href="https://www.instagram.com/ "><i class="fab fa-instagram"></i></a>
+                                        <a href="https://www.snapchat.com/add/ "><i class="fab fa-snapchat-ghost"></i></a>
+                                        <a href="https:// "><i class="fas fa-at"></i></a>
+                                    </li>
+                                </div>
+                            </div>
+                        </ul>
+                    </div>
+                    <div class="kode-pagecontent col-md-7">
+                        <div class="kode-blog-list kode-fullwidth-blog">
+                            <ul class="row">
+                                <div class="tab-content" id="nav-tabContent">
+                                    <div id="home" class="container tab-pane active">
+                                        <div class="pick-event kode-pagecontent col-md-12">
+                                            <div class="container kode-blog-list kode-grid-blog">
+                                                <ul class="row">
+                                                    {% for post in player.articles %}
+                                                        <li class="col-md-12">
+                                                            <div class="kode-time-zoon">
+                                                                <time datetime="{{ post.date ? post.date|date('Y-m-d H:i:s') : '' }}">{{ post.date ? post.date|date('d') : '' }} <span>{{ post.date ? post.date|date('M') : '' }}</span></time>
+                                                                <h5><a href="#">{{ post.title }}</a></h5>
+                                                            </div>
+                                                            <figure>
+                                                                <a href="#">
+                                                                    <img src="https://psgimages.stadion.io/media/13202/tuchel.jpg?center=0.37113402061855671,0.31782945736434109&mode=crop&width=2000&height=1125&quality=80" alt="">
+                                                                </a>
+                                                            </figure>
+                                                            <div class="kode-blog-info">
+                                                                <ul class="kode-team-network">
+                                                                    <li><a class="fab fa-facebook" href="#"></a></li>
+                                                                    <li><a class="fab fa-twitter" href="#"></a></li>
+                                                                    <li><a class="fab fa-linkedin" href="#"></a></li>
+                                                                </ul>
+                                                                <p>{{ post.resume }}</p>
+                                                            </div>
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="topic" class="container tab-pane fade">
+                                        <div class="pick-event kode-pagecontent col-md-12">
+                                            <div class="container kode-blog-list kode-grid-blog">
+                                                <div class="row">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="actu" class="container tab-pane fade">
+                                        <div class="pick-event kode-pagecontent col-md-12">
+                                            <div class="container kode-blog-list kode-grid-blog">
+                                                <ul class="row">
+                                                    {% for post in player.articles %}
+                                                        <li class="col-md-12">
+                                                            <div class="kode-time-zoon">
+                                                                <time datetime="2008-02-14 20:00">07 <span>may</span></time>
+                                                                <h5><a href="#">{{ post.title }}</a></h5>
+                                                            </div>
+                                                            <figure>
+                                                                <a href="#">
+                                                                    <img src="https://psgimages.stadion.io/media/13202/tuchel.jpg?center=0.37113402061855671,0.31782945736434109&mode=crop&width=2000&height=1125&quality=80" alt="">
+                                                                </a>
+                                                            </figure>
+                                                            <div class="kode-blog-info">
+                                                                <ul class="kode-team-network">
+                                                                    <li><a class="fab fa-facebook" href="#"></a></li>
+                                                                    <li><a class="fab fa-twitter" href="#"></a></li>
+                                                                    <li><a class="fab fa-linkedin" href="#"></a></li>
+                                                                </ul>
+                                                                <p>{{ post.resume }}</p>
+                                                            </div>
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="mercato" class="container tab-pane fade">
+                                        <div class="pick-event kode-pagecontent col-md-12">
+                                            <div class="container kode-blog-list kode-grid-blog">
+                                                <div class="row">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="career" class="container tab-pane fade">
+                                        <h2>Carrière</h2>
+
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                <tr>
+                                                    <th>Saison</th>
+                                                    <th>club</th>
+                                                    <th>match</th>
+                                                    <th>but</th>
+                                                    <th>passe décisive</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td></td>
+                                                    <td>Paris Saint-Germain</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                            <table class="table">
+                                                <thead>
+                                                <tr>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                            <table class="table">
+                                                <thead>
+                                                <tr>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div id="palmares" class="container tab-pane fade">
+                                        <h2>Palmarès</h2>
+
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                <tr>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                            <table class="table">
+                                                <thead>
+                                                <tr>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                            <table class="table">
+                                                <thead>
+                                                <tr>
+                                                    <th scope="col">Année</th>
+                                                    <th scope="col">titre</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>1972</td>
+                                                    <td></td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div id="nationalteam" class="container tab-pane fade">
+                                        <h2>Equipes nationales</h2>
+
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                <tr>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                            <table class="table">
+                                                <thead>
+                                                <tr>
+                                                    <th scope="col">nation</th>
+                                                    <th scope="col">match</th>
+                                                    <th scope="col">but</th>
+                                                    <th scope="col">passe décisive</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>Paris Saint-Germain</td>
+                                                    <td>17</td>
+                                                    <td>3</td>
+                                                    <td>5</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                            <table class="table">
+                                                <thead>
+                                                <tr>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                        </div>								</div>
+                                    <div id="coequipier" class="container tab-pane fade">
+                                        <div class="col-md-12">
+                                            <div class="heading heading-12 margin-top10-bottom30-flat">
+                                                <h2><span class="left"></span>Gardiens<span class="right"></span></h2>
+                                            </div>
+                                            <div class="kode-team-list">
+                                                <div class="item
+                                col-md-4">
+                                                    <figure>
+                                                        <a href="http://lmdpsg.diegowaziri.fr/joueur/9" class="kode-team-thumb">
+                                                            <img src="/ckfinder/userfiles/files/3715.jpg">
+                                                        </a>
+                                                        <figcaption>
+                                                            <div class="clearfix"></div>
+                                                            <h2>
+                                                                <a href="http://lmdpsg.diegowaziri.fr/joueur/9">
+                                                                    <span>1</span>Kévin Trapp                                            </a>
+                                                            </h2>
+                                                        </figcaption>
+                                                    </figure>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="heading heading-12 margin-top10-bottom30-flat">
+                                                <h2><span class="left"></span>Défenseurs<span class="right"></span></h2>
+                                            </div>
+                                            <div class="kode-team-list">
+                                                <div class="item
+                                col-md-4">
+                                                    <figure>
+                                                        <a href="http://lmdpsg.diegowaziri.fr/joueur/4" class="kode-team-thumb">
+                                                            <img src="/ckfinder/userfiles/files/3180.jpg">
+                                                        </a>
+                                                        <figcaption>
+                                                            <div class="clearfix"></div>
+                                                            <h2>
+                                                                <a href="http://lmdpsg.diegowaziri.fr/joueur/4">
+                                                                    <span>1</span> Marquinhos                                            </a>
+                                                            </h2>
+                                                        </figcaption>
+                                                    </figure>
+                                                </div>
+                                                <div class="item
+                                col-md-4">
+                                                    <figure>
+                                                        <a href="http://lmdpsg.diegowaziri.fr/joueur/8" class="kode-team-thumb">
+                                                            <img src="/ckfinder/userfiles/files/3771.jpg">
+                                                        </a>
+                                                        <figcaption>
+                                                            <div class="clearfix"></div>
+                                                            <h2>
+                                                                <a href="http://lmdpsg.diegowaziri.fr/joueur/8">
+                                                                    <span>1</span>Layvin Kurzawa                                            </a>
+                                                            </h2>
+                                                        </figcaption>
+                                                    </figure>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="heading heading-12 margin-top10-bottom30-flat">
+                                                <h2><span class="left"></span>Milieux<span class="right"></span></h2>
+                                            </div>
+                                            <div class="kode-team-list">
+                                                <div class="item
+                                col-md-4">
+                                                    <figure>
+                                                        <a href="http://lmdpsg.diegowaziri.fr/joueur/1" class="kode-team-thumb">
+                                                            <img src="/ckfinder/userfiles/files/2374.jpg">
+                                                        </a>
+                                                        <figcaption>
+                                                            <div class="clearfix"></div>
+                                                            <h2>
+                                                                <a href="http://lmdpsg.diegowaziri.fr/joueur/1">
+                                                                    <span>1</span>Javier Pastore                                            </a>
+                                                            </h2>
+                                                        </figcaption>
+                                                    </figure>
+                                                </div>
+                                                <div class="item
+                                col-md-4">
+                                                    <figure>
+                                                        <a href="http://lmdpsg.diegowaziri.fr/joueur/6" class="kode-team-thumb">
+                                                            <img src="/ckfinder/userfiles/files/3781.jpg">
+                                                        </a>
+                                                        <figcaption>
+                                                            <div class="clearfix"></div>
+                                                            <h2>
+                                                                <a href="http://lmdpsg.diegowaziri.fr/joueur/6">
+                                                                    <span>6, 4</span>Diego Waziri                                            </a>
+                                                            </h2>
+                                                        </figcaption>
+                                                    </figure>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="heading heading-12 margin-top10-bottom30-flat">
+                                                <h2><span class="left"></span>Attaquants<span class="right"></span></h2>
+                                            </div>
+                                            <div class="kode-team-list">
+                                                <div class="item
+                                col-md-4">
+                                                    <figure>
+                                                        <a href="http://lmdpsg.diegowaziri.fr/joueur/2" class="kode-team-thumb">
+                                                            <img src="/ckfinder/userfiles/files/3178.jpg">
+                                                        </a>
+                                                        <figcaption>
+                                                            <div class="clearfix"></div>
+                                                            <h2>
+                                                                <a href="http://lmdpsg.diegowaziri.fr/joueur/2">
+                                                                    <span>1</span>Edinson Cavani                                            </a>
+                                                            </h2>
+                                                        </figcaption>
+                                                    </figure>
+                                                </div>
+                                                <div class="item
+                                col-md-4">
+                                                    <figure>
+                                                        <a href="http://lmdpsg.diegowaziri.fr/joueur/3" class="kode-team-thumb">
+                                                            <img src="/ckfinder/userfiles/files/3766.jpg">
+                                                        </a>
+                                                        <figcaption>
+                                                            <div class="clearfix"></div>
+                                                            <h2>
+                                                                <a href="http://lmdpsg.diegowaziri.fr/joueur/3">
+                                                                    <span>1</span>Angel Di Maria                                            </a>
+                                                            </h2>
+                                                        </figcaption>
+                                                    </figure>
+                                                </div>
+                                                <div class="item
+                                col-md-4">
+                                                    <figure>
+                                                        <a href="http://lmdpsg.diegowaziri.fr/joueur/7" class="kode-team-thumb">
+                                                            <img src="/ckfinder/userfiles/files/DSUSz7yWsAY_417.jpg">
+                                                        </a>
+                                                        <figcaption>
+                                                            <div class="clearfix"></div>
+                                                            <h2>
+                                                                <a href="http://lmdpsg.diegowaziri.fr/joueur/7">
+                                                                    <span>1</span>Kylian Mbappé                                            </a>
+                                                            </h2>
+                                                        </figcaption>
+                                                    </figure>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="heading heading-12 margin-top10-bottom30-flat">
+                                                <h2><span class="left"></span>Staff<span class="right"></span></h2>
+                                            </div>
+                                            <div class="kode-team-list">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="video" class="container tab-pane fade">
+                                        <div class="pick-event kode-pagecontent col-md-12">
+                                            <div class="container kode-blog-list kode-grid-blog">
+                                                <div class="row">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="kode-pagecontent col-md-2">
+                        <ul class="nav flex-column nav-pills" id="myTab" role="tablist">
+                            <li class="nav-item active">
+                                <a class="nav-link" data-toggle="pill" href="#home">Publication</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="pill" href="#topic">Commentaires</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="pill" href="#actu">Actualité</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="pill" href="#mercato">Mercato</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="pill" href="#career">Carrière</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="pill" href="#palmares">Palmarès</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="pill" href="#nationalteam">Equipe nationale</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="pill" href="#coequipier">Coéquipiers</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="pill" href="#video">Vidéos</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--// Page Content //-->
+    </div>
+    <!--// Main Content //-->
+{% endblock %}
+{% block javascripts %}
+    <script>
+        $( document ).ready(function() {
+            $('.nav-item a').on('click', function (e) {
+
+                $(".container").removeClass("show");
+                $('.active.in').addClass("show");
+
+                id = $(this).attr('href');
+
+                console.log(id);
+
+                $(".bar:first").is("#foo");
+
+                if(!$('.tab-content .active.in').hasClass('show')){
+                    $('.tab-content .active.in').addClass("show container tab-pane");
+                }
+            });
+        });
+    </script>
+{% endblock %}

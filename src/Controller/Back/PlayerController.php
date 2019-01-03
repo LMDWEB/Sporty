@@ -59,6 +59,7 @@ class PlayerController extends AbstractController
      */
     public function show(Player $player): Response
     {
+
         return $this->render('Back/player/show.html.twig', ['player' => $player]);
     }
 

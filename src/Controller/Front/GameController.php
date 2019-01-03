@@ -15,7 +15,7 @@ class GameController extends AbstractController
      */
     public function index()
     {
-        return $this->render('game/index.html.twig', [
+        return $this->render('Front/game/index.html.twig', [
             'controller_name' => 'GameController',
         ]);
     }
