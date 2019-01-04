@@ -95,6 +95,11 @@ class ClubTeam
      */
     private $slug = null;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\PlayerMercato", mappedBy="oldTeam")
+     */
+    private $oldPlayerMercato;
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
@@ -103,6 +108,7 @@ class ClubTeam
         $this->events = new ArrayCollection();
         $this->playerMercatos = new ArrayCollection();
         $this->seasonCompetitions = new ArrayCollection();
+        $this->oldPlayerMercato = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -363,6 +369,37 @@ class ClubTeam
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|PlayerMercato[]
+     */
+    public function getOldPlayerMercato(): Collection
+    {
+        return $this->oldPlayerMercato;
+    }
+
+    public function addOldPlayerMercato(PlayerMercato $oldPlayerMercato): self
+    {
+        if (!$this->oldPlayerMercato->contains($oldPlayerMercato)) {
+            $this->oldPlayerMercato[] = $oldPlayerMercato;
+            $oldPlayerMercato->setOldTeam($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOldPlayerMercato(PlayerMercato $oldPlayerMercato): self
+    {
+        if ($this->oldPlayerMercato->contains($oldPlayerMercato)) {
+            $this->oldPlayerMercato->removeElement($oldPlayerMercato);
+            // set the owning side to null (unless already changed)
+            if ($oldPlayerMercato->getOldTeam() === $this) {
+                $oldPlayerMercato->setOldTeam(null);
+            }
+        }
 
         return $this;
     }

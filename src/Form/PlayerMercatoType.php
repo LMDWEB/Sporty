@@ -23,16 +23,15 @@ class PlayerMercatoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-                ->add('season', EntityType::class , [
-                    'label' => 'season.name',
-                    'class' => Season::class,
-                    'choice_label' => 'season_year',
+                ->add('team', EntityType::class , [
+                    'label' => 'club.name',
+                    'class' => ClubTeam::class,
+                    'choice_label' => 'name',
                     'required'=> true,
                     'attr' => array('class' => 'form-control')
                 ])
-
-                ->add('team', EntityType::class , [
-                    'label' => 'club.name',
+                ->add('oldTeam', EntityType::class , [
+                    'label' => 'Ancien club.name',
                     'class' => ClubTeam::class,
                     'choice_label' => 'name',
                     'required'=> true,

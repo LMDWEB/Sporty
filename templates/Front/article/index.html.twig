@@ -1,6 +1,6 @@
 {% extends 'Front/base.html.twig' %}
 
-{% block title %}{{ article.title }}{% endblock %}
+{% block title %} {{ article.category.name }} : {{ article.title }}{% endblock %}
 
 {% block body %}
     <!--// Main Content //-->

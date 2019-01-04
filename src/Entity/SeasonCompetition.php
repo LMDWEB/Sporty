@@ -48,6 +48,9 @@ class SeasonCompetition
         $this->teams = new ArrayCollection();
     }
 
+    /**
+     * @return int
+     */
     public function getId(): ?int
     {
         return $this->id;
@@ -70,6 +73,9 @@ class SeasonCompetition
         return $this->image;
     }
 
+    /**
+     * @return string
+     */
     public function setImage(string $image): self
     {
         $this->image = $image;
