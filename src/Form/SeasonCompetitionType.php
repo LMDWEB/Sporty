@@ -37,14 +37,6 @@ class SeasonCompetitionType extends AbstractType
                 'attr' => array('class' => 'form-control')
             ))
 
-            ->add('season', EntityType::class, [
-                'label'        => 'Season',
-                'class'        => Season::class,
-                'choice_label' => 'season_year',
-                'multiple'     => false,
-                'required'     => false,
-                'attr' => array('class' => 'form-control')
-            ])
             ->add('teams', EntityType::class, [
                 'label'        => 'Club',
                 'class'        => ClubTeam::class,

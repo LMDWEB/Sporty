@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\PlayerMercato;
+use App\Entity\Season;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
@@ -19,32 +20,14 @@ class PlayerMercatoRepository extends ServiceEntityRepository
         parent::__construct($registry, PlayerMercato::class);
     }
 
-    // /**
-    //  * @return PlayerMercato[] Returns an array of PlayerMercato objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function getSeason($date)
     {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        $month = $date->format("m");
+        $year = $date->format("Y");
 
-    /*
-    public function findOneBySomeField($value): ?PlayerMercato
-    {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        $season = ($month < 7) ? ($year - 1) . "/" . $year : $year . "/" . ($year + 1);
+
+        return $season;
     }
-    */
+
 }

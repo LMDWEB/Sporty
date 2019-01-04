@@ -34,7 +34,7 @@
             <tr>
                 <th>Article</th>
                 <td>
-                    {% for thread in articles %}
+                    {% for thread in thread.articles %}
                         <a href="{{ path('article_show', {'id': thread.id}) }}">{{ thread.title }}</a> <br>
                     {% endfor %}
                 </td>

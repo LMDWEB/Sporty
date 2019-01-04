@@ -1,0 +1,85 @@
+<header id="mainheader" class="kode-header-absolute">
+    <!--// TopBaar //-->
+    <div class="kode-topbar">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 kode_bg_white">
+                    <ul class="top_slider_bxslider">
+                        <li><span class="kode-barinfo"><strong>Latest News : </strong> Lorem ipsum dolor sit amet, cons ecte tuer adipiscing elit,</span></li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul class="kode-userinfo">
+                        {% if app.user %}
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" id="accountDropdownLink" data-toggle="dropdown">
+                                    <i class="fa fa-user"></i> {{ app.user.username }}
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="accountDropdownLink">
+                                    <a href="#" class="dropdown-item">Mon compte</a>
+                                    <a href="#" class="dropdown-item">Modifier mon profil</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a href="{{ path('user_logout') }}" class="dropdown-item">Deconnexion</a>
+                                </div>
+                            </li>
+                        {% else %}
+                            <li><a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-sign-in"></i> Login</a></li>
+                            <li><a href="#" data-toggle="modal" data-target="#myModalTwo"><i class="fa fa-user-plus"></i> Register</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="header-8">
+        <div class="container">
+            <!--NAVIGATION START-->
+            <div class="kode-navigation pull-left">
+                <ul>
+                    {% for parentMenu in parentMenusLeft %}
+                        <li>
+                            <a href="{{ path('category', { 'slug': parentMenu.url }) }}">{{ parentMenu.name }}</a>
+                            <ul class="children">
+                                {% for menu in menus %}
+                                    {% if menu.parentItem is not null and menu.parentItem.id == parentMenu.id %}
+                                        <li>
+                                            <a href="{{ path('category', { 'slug': menu.url }) }}">{{ menu.name }}</a>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <!--NAVIGATION END-->
+            <!--LOGO START-->
+            <div class="logo">
+                <a href="{{ path('homepage') }}" class="logo">
+                    <img src="{{ asset('images/logo.png') }}" alt="">
+                </a>
+            </div>
+            <!--LOGO END-->
+            <!--NAVIGATION START-->
+            <div class="kode-navigation">
+                <ul>
+                    {% for parentMenu in parentMenusRight %}
+                        <li>
+                            <a href="{{ path('category', { 'slug': parentMenu.url }) }}">{{ parentMenu.name }}</a>
+                            <ul class="children">
+                                {% for menu in menus %}
+                                    {% if menu.parentItem is not null and menu.parentItem.id == parentMenu.id %}
+                                        <li>
+                                            <a href="{{ path('category', { 'slug': menu.url }) }}">{{ menu.name }}</a>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>

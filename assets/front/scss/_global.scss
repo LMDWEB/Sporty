@@ -109,23 +109,6 @@ Sidebar heading:	'Oswald', sans-serif;
   .bx-controls.bx-has-controls-direction {
     display: none;
   }
-  &:before {
-    content: '';
-    position: absolute;
-    right: 0px;
-    top: 0px;
-    background-color: #EA202E;
-    width: 50%;
-    height: 100%;
-  }
-  &:after {
-    content: '';
-    position: absolute;
-    right: 50%;
-    top: 0px;
-    border-bottom: 39px solid #EA202E;
-    border-left: 30px solid transparent;
-  }
   a, p, i, span {
     color: #ffffff;
   }
@@ -149,6 +132,8 @@ Sidebar heading:	'Oswald', sans-serif;
 
 .kode-userinfo {
   float: right;
+  margin: 0;
+
   li {
     list-style: none;
     display: inline-block;
@@ -1900,30 +1885,28 @@ blockquote {
         background-color: #f4f4f4;
       }
     }
-    p {
-      textarea {
-        &:focus {
-          background-color: #f4f4f4;
-        }
-        height: 170px;
-        border: 1px solid #dcdcdc;
-        color: #666666;
-        padding: 9px;
+    textarea {
+      &:focus {
+        background-color: #f4f4f4;
       }
-      input {
-        &[type="button"], &[type="submit"] {
-          float: left;
-          padding: 8px 25px;
-          color: #ffffff;
-          border: 6px solid;
-          text-transform: uppercase;
-          // box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.3) inset;
+      height: 170px;
+      border: 1px solid #dcdcdc;
+      color: #666666;
+      padding: 9px;
+    }
+    input {
+      button {
+        float: left;
+        padding: 8px 25px;
+        color: #ffffff;
+        border: 6px solid;
+        text-transform: uppercase;
+        // box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.3) inset;
 
-        }
       }
-      &.kd-button {
-        width: 100%;
-      }
+    }
+    &.kd-button {
+      width: 100%;
     }
   }
 }
@@ -2004,8 +1987,9 @@ blockquote {
   float: left;
   width: 100%;
   background-color: #eb1a1a;
-  height: 236px;
+  height: 150px;
   position: relative;
+  margin-bottom: 20px;
 }
 
 .subheader-height {
@@ -2030,7 +2014,7 @@ blockquote {
 
 .kode-subheader {
   &.subheader-height {
-    padding: 165px 0px 0px 0px;
+    padding: 80px 0px 0px 0px;
   }
   h1 {
     color: #ffffff;
@@ -3013,7 +2997,6 @@ blockquote {
 */
 
 .header-8 {
-  float: left;
   width: 100%;
   background-color: RGBA(4, 39, 95, 0.8);
   text-align: center;

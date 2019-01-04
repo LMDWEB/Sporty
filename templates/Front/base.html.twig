@@ -4,16 +4,33 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SymFootball | {% block title %}Welcome!{% endblock %}</title>
-    <!-- Css Files -->
-    <link href="{{ asset('front/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <title>SymFootball | {% block title %}Home!{% endblock %}</title>
     <!-- Custom fonts for this template-->
-    <link href="{{ asset('front/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('build/front.css') }}" rel="stylesheet">
-
+    {{ encore_entry_link_tags('front') }}
 </head>
 <body>
-{% block body %}{% endblock %}
-{% block javascripts %}{% endblock %}
+    <div class="kode-wrapper">
+        <!--// HEADER //-->
+        {{ render(controller('App\\Controller\\Front\\DefaultController::menu')) }}
+        {% block body %}{% endblock %}
+        <!--// FOOTER //-->
+        {{ render(controller('App\\Controller\\Front\\DefaultController::footer')) }}
+    </div>
+<!-- Bootstrap core JavaScript-->
+<script src="{{ asset('front/js/jquery.js') }}"></script>
+<script src="{{ asset('front/js/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('front/js/jquery.flexslider.js') }}"></script>
+<script src="{{ asset('front/js/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('front/js/jquery.countdown.js') }}"></script>
+<script src="{{ asset('front/js/waypoints-min.js') }}"></script>
+<script src="{{ asset('front/js/jquery.bxslider.min.js') }}"></script>
+<script src="{{ asset('front/js/bootstrap-progressbar.js') }}"></script>
+<script src="{{ asset('front/js/jquery.accordion.js') }}"></script>
+<script src="{{ asset('front/js/jquery.circlechart.js') }}"></script>
+<script src="{{ asset('front/js/jquery.prettyphoto.js') }}"></script>
+<script src="{{ asset('front/js/kode_pp.js') }}"></script>
+<script src="{{ asset('front/js/functions.js') }}"></script>
+{% block javascripts %}
+{% endblock %}
 </body>
 </html>

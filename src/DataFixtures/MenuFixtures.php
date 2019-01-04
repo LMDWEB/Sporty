@@ -10,15 +10,21 @@ class MenuFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        $menu = new Menu();
-        $menu
-            ->setName("null")
-            ->setPublished(0)
-            ->setParent(false)
-        ;
 
-        $manager->persist($menu);
+        $menuArray = array(
+            array("name" => "menu left"),
+            array("name" => "menu right")
+        );
 
+        foreach ($menuArray as $menuA) {
+            $menu = new Menu();
+            $menu
+                ->setName($menuA['name'])
+                ->setPublished(0)
+            ;
+
+            $manager->persist($menu);
+        }
         $manager->flush();
     }
 }

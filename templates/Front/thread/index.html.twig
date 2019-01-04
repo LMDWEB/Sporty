@@ -1,0 +1,64 @@
+{% extends 'Front/base.html.twig' %}
+
+{% block title %}Thread : {{ thread.name }}{% endblock %}
+
+{% block body %}
+    <!--// Main Content //-->
+    <div class="kode-content">
+        <div class="kode-subheader subheader-height">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h1>Thread</h1>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="kode-breadcrumb">
+                            <li><a href="#">Accueil</a></li>
+                            <li><a href="#">{{ thread.name }}</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--// SubHeader //-->
+        <!--// Page Content //-->
+        <section class="kode-pagesection">
+            <div class="container">
+                <div class="row">
+                    <div class="kode-pagecontent col-md-9">
+                        <div class="kode-blog-list kode-fullwidth-blog">
+                            <ul class="row">
+                                {% for post in thread.articles %}
+                                    <li class="col-md-12">
+                                        <div class="kode-time-zoon">
+                                            <time datetime="{{ post.date ? post.date|date('Y-m-d H:i:s') : '' }}">{{ post.date ? post.date|date('d') : '' }} <span>{{ post.date ? post.date|date('M') : '' }}</span></time>
+                                            <h5><a href="{{ path('article', { 'slug': post.slug }) }}">{{ post.title }}</a></h5>
+                                        </div>
+                                        <figure>
+                                            <a href="{{ path('article', { 'slug': post.slug }) }}">
+                                                <img src="https://psgimages.stadion.io/media/13202/tuchel.jpg?center=0.37113402061855671,0.31782945736434109&mode=crop&width=2000&height=1125&quality=80" alt="">
+                                            </a>
+                                        </figure>
+                                        <div class="kode-blog-info">
+                                            <ul class="kode-team-network">
+                                                <li><a class="fab fa-facebook" href="#"></a></li>
+                                                <li><a class="fab fa-twitter" href="#"></a></li>
+                                                <li><a class="fab fa-linkedin" href="#"></a></li>
+                                            </ul>
+                                            <p>{{ post.content }}</p>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    <aside class="kode-pagesidebar col-md-3">
+
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}
+{% block javascripts %}
+{% endblock %}

@@ -1,0 +1,207 @@
+{% extends 'Front/base.html.twig' %}
+
+{% block title %} {{ article.category.name }} : {{ article.title }}{% endblock %}
+
+{% block body %}
+    <!--// Main Content //-->
+    <div class="kode-content">
+        <div class="kode-subheader subheader-height">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h1>{% if article.type == 0 %} Article {% elseif article.type == 1 %} Contenu {% endif %}</h1>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="kode-breadcrumb">
+                            <li><a href="#">Accueil</a></li>
+                            <li><a href="#">{{ article.category.name }}</a></li>
+                            <li><a href="#">{{ article.title }}</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--// SubHeader //-->
+        <!--// Page Content //-->
+        <section class="kode-pagesection">
+            <div class="container">
+                <div class="row">
+                    <div class="kode-pagecontent col-md-9">
+                        <div class="kode-blog-list kode-fullwidth-blog">
+                            <ul class="row">
+                                <li class="col-md-12">
+                                    <div class="kode-time-zoon">
+                                        <time datetime="{{ article.date ? article.date|date('Y-m-d H:i:s') : '' }}">{{ article.date ? article.date|date('d') : '' }} <span>{{ article.date ? article.date|date('M') : '' }}</span></time>
+                                        <h1>{{ article.category.name }} : {{ article.title }}</h1>
+                                    </div>
+                                    <figure>
+                                        <img src="https://psgimages.stadion.io/media/18072/0730-psg-atletico-madrid.jpg?anchor=center&mode=crop&width=2000&height=1333&quality=80" alt="">
+                                    </figure>
+                                    <div class="kode-blog-info">
+                                        <ul class="kode-blog-options">
+                                            <li><a href="#"><i class="fa fa-heart"></i>5 j'aime</a></li>
+                                            <li><a href="#"><i class="fa fa-eye"></i>{{ article.views }} vues</a></li>
+                                            <li><a href="#"><i class="fa fa-warning"></i>Signaler une erreur</a></li>
+                                        </ul>
+                                        <ul class="kode-team-network">
+                                            <li><a class="fab fa-facebook" href="#"></a></li>
+                                            <li><a class="fab fa-twitter" href="#"></a></li>
+                                            <li><a class="fab fa-linkedin" href="#"></a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="kode-editor">
+                            <div class="resume">
+                                <strong>{{ article.resume }}</strong>
+                            </div>
+                            <div class="content">
+                                {{ article.content }}
+                            </div>
+                            <div class="author">
+                                <span>Auteur : {{ article.createdby.firstname }} {{ article.createdby.lastname }}</span>
+                            </div>
+                            <div class="footerNews">
+                                <span>Crédit photo : {{ article.sourceimage }}</span>
+                                <span>Source : {{ article.sourcearticle }}</span>
+                            </div>
+                        </div>
+
+                        <div class="kode-related-blog">
+                            <ul class="row">
+                                {% for player in article.player %}
+                                    <li class="col-md-4">
+                                        <a href="#" class="related-thumb th-bordercolor">
+                                            <img src="extra-images/recentblog-1.jpg" alt=""></a>
+                                        <div class="related-text">
+                                            <h3><a href="{{ path('player', { 'slug': player.slug }) }}">{{ player.firstname }} {{ player.lastname }}</a></h3>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                                {% for team in article.club %}
+                                    <li class="col-md-4">
+                                        <a href="#" class="related-thumb th-bordercolor">
+                                            <img src="extra-images/recentblog-1.jpg" alt=""></a>
+                                        <div class="related-text">
+                                            <h3><a href="{{ path('team', { 'slug': team.slug }) }}">{{ team.name }}</a></h3>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                                {% for games in article.game %}
+                                    <li class="col-md-4">
+                                        <a href="#" class="related-thumb th-bordercolor">
+                                            <img src="extra-images/recentblog-1.jpg" alt=""></a>
+                                        <div class="related-text">
+                                            <h3><a href="{{ path('game', { 'slug': games.slug }) }}">{{ games.name }}</a></h3>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+
+                        <div class="kode-postsection">
+                            {% for prev in prevArticle %}
+                            <h4 class="kode-prev">
+                                <a href="{{ path('article', { 'slug': prev.slug }) }}" class="thcolorhover">{{ prev.title }}</a>
+                            </h4>
+                            {% endfor %}
+                            {% for next in nextArticle %}
+                            <h4 class="kode-next">
+                                <a href="{{ path('article', { 'slug': next.slug }) }}" class="thcolorhover">{{ next.title }}</a>
+                            </h4>
+                            {% endfor %}
+                        </div>
+
+                        {% if comments|length != 0 %}
+                        <div id="kodecomments">
+                            <div class="kode-section-title">
+                                <h2>{{ comments|length }} {% if comments|length > 1 %}Commentaires {% else %} Commentaire {% endif %}</h2>
+                            </div>
+                            <ul>
+                                {% for comment in comments %}
+                                    <li>
+                                        <div class="thumblist">
+                                            <ul>
+                                                <li>
+                                                    <figure>
+                                                        <a href="#">
+                                                            <img src="extra-images/comment1.jpg" alt=""></a>
+                                                    </figure>
+                                                    <div class="text">
+                                                        <h4>
+                                                            <a href="#">{{ comment.user.username }}</a>
+                                                        </h4>
+                                                        <time datetime="{{ comment.createdat ? comment.createdat|date('Y-m-d H:i:s') : '' }}">| {{ comment.createdat ? comment.createdat|date('d M à h:i') : '' }}</time>
+                                                        <a href="#" class="replay-btn thcolor">Reply</a>
+                                                        <p>{{ comment.content }}</p>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <ul class="children">
+                                            {% for reply in replyComments %}
+                                                {% if comment.id == reply.idparent %}
+                                            <li>
+                                                <figure>
+                                                    <a href="#">
+                                                        <img src="extra-images/comment1.jpg" alt="">
+                                                    </a>
+                                                </figure>
+                                                <div class="text">
+                                                    <h4>
+                                                        <a href="#">{{ reply.user.username }}</a>
+                                                    </h4>
+                                                    <time datetime="2008-02-14 20:00">| 10 March</time>
+                                                    <p>{{ reply.content }}</p>
+                                                </div>
+                                            </li>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </ul>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+                        <div id="koderespond">
+                            <div class="kode-section-title">
+                                <h2>Poster un commentaire</h2>
+                            </div>
+                            {{ include('Front/article/_form.html.twig') }}
+                        </div>
+                    </div>
+
+                    <aside class="kode-pagesidebar col-md-3">
+                        <div class="widget kode-recent-blog">
+                            <div class="kode-widget-title">
+                                <h2>Actus</h2>
+                            </div>
+                            <ul>
+                                {% for post in allArticles %}
+                                    <li><a href="{{ path('article', { 'slug': post.slug }) }}">{{ post.title }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+
+                        <div class="widget widget_categories">
+                            <div class="kode-widget-title">
+                                <h2>CATEGORIES</h2>
+                            </div>
+                            <ul>
+                                {% for cat in categories %}
+                                    <li><a href="{{ path('category', { 'slug': cat.slug }) }}">{{ cat.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+        <!--// Page Content //-->
+    </div>
+    <!--// Main Content //-->
+{% endblock %}
+{% block javascripts %}
+{% endblock %}

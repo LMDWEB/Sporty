@@ -21,6 +21,12 @@ season:
   list: Liste des saisons
   name: Saison
 
+competition:
+  add: Ajouter une competition
+  edit: Modifier une competition
+  list: Liste des compétitions
+  name: Compétition
+
 game:
   add: Ajouter un match
   edit: Modifier un match

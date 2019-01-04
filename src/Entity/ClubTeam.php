@@ -6,7 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-
+use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ClubTeamRepository")
  * @UniqueEntity(
@@ -29,6 +29,7 @@ class ClubTeam
      * @ORM\Column(type="string", length=50)
      */
     private $name;
+
 
     /**
      * @ORM\Column(type="integer")
@@ -87,6 +88,18 @@ class ClubTeam
      */
     private $events;
 
+    /**
+     * @var string
+     * @Gedmo\Slug(fields={"name", "id"})
+     * @ORM\Column(length=128, unique=true, nullable=true)
+     */
+    private $slug = null;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\PlayerMercato", mappedBy="oldTeam")
+     */
+    private $oldPlayerMercato;
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
@@ -95,6 +108,7 @@ class ClubTeam
         $this->events = new ArrayCollection();
         $this->playerMercatos = new ArrayCollection();
         $this->seasonCompetitions = new ArrayCollection();
+        $this->oldPlayerMercato = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -342,6 +356,49 @@ class ClubTeam
         if ($this->events->contains($event)) {
             $this->events->removeElement($event);
             $event->removeParticipant($this);
+        }
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|PlayerMercato[]
+     */
+    public function getOldPlayerMercato(): Collection
+    {
+        return $this->oldPlayerMercato;
+    }
+
+    public function addOldPlayerMercato(PlayerMercato $oldPlayerMercato): self
+    {
+        if (!$this->oldPlayerMercato->contains($oldPlayerMercato)) {
+            $this->oldPlayerMercato[] = $oldPlayerMercato;
+            $oldPlayerMercato->setOldTeam($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOldPlayerMercato(PlayerMercato $oldPlayerMercato): self
+    {
+        if ($this->oldPlayerMercato->contains($oldPlayerMercato)) {
+            $this->oldPlayerMercato->removeElement($oldPlayerMercato);
+            // set the owning side to null (unless already changed)
+            if ($oldPlayerMercato->getOldTeam() === $this) {
+                $oldPlayerMercato->setOldTeam(null);
+            }
         }
 
         return $this;

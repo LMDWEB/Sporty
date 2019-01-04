@@ -6,7 +6,9 @@ use App\Entity\Player;
 use App\Entity\PlayerMercato;
 use App\Form\PlayerMercatoType;
 use App\Form\PlayerType;
+use App\Entity\Season;
 use App\Repository\PlayerRepository;
+use DateTime;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -74,8 +76,13 @@ class PlayerController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            foreach ($player->getPlayerMercatos() as $playerMercato){
+            foreach ($player->getPlayerMercatos() as $playerMercato) {
+
+                $season = $this->getDoctrine()->getRepository(PlayerMercato::class)->getSeason($playerMercato->getDate());
+                $season_year = $this->getDoctrine()->getRepository(Season::class)->findBy(['season_year' => $season]);
+
                 $playerMercato->setPlayer($player);
+                $playerMercato->setSeason($season_year[0]);
                 $manager->persist($playerMercato);
             }
 

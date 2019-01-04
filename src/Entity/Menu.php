@@ -35,10 +35,6 @@ class Menu
      */
     private $menus;
 
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private $parent;
 
     public function __construct()
     {
@@ -101,15 +97,4 @@ class Menu
         return $this->menus;
     }
 
-    public function getParent(): ?bool
-    {
-        return $this->parent;
-    }
-
-    public function setParent(bool $parent): self
-    {
-        $this->parent = $parent;
-
-        return $this;
-    }
 }

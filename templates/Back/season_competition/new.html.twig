@@ -11,7 +11,7 @@
 
     {{ include('back/season_competition/_form.html.twig') }}
 
-    <a href="{{ path('season_competition_index') }}">back to list</a>
+    <a href="{{ path('season_competition_index', {'season': season.id}) }}">back to list</a>
 {% endblock %}
 {% block javascripts %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.js"></script>

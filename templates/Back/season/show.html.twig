@@ -7,30 +7,13 @@
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ season.id }}</td>
-            </tr>
-            <tr>
-                <th>Season_year</th>
-                <td>{{ season.seasonYear }}</td>
-            </tr>
-            <tr>
                 <th>Liste des compétitions</th>
                 <td>
-                    {% for competition in season %}
-                        <a href="{{ path('season_competition_show', {'id': season.id}) }}">{{ season.competition.name }}</a> <br>
+                    {% for competition in season.seasoncompetitions %}
+                        <a href="{{ path('season_competition_index', {'season': season.id}) }}">{{ competition.competition.name }}</a> <br>
                     {% endfor %}
                 </td>
             </tr>
-            <tr>
-                <th>CreatedAt</th>
-                <td>{{ season.createdAt ? season.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>UpdatedAt</th>
-                <td>{{ season.updatedAt ? season.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-
         </tbody>
     </table>
 

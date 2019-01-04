@@ -23,7 +23,9 @@
         {% for season in seasons %}
             <tr>
                 <td>{{ season.id }}</td>
-                <td>{{ season.seasonYear }}</td>
+                <td>
+                    <a href="{{ path('season_competition_index', {'season': season.id}) }}">{{ season.seasonYear }}</a>
+                </td>
                 <td>{{ season.createdAt ? season.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ season.updatedAt ? season.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>

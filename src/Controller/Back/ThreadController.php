@@ -52,11 +52,8 @@ class ThreadController extends AbstractController
      */
     public function show(Thread $thread): Response
     {
-        $articles = $thread->getArticles();
-
         return $this->render('Back/thread/show.html.twig', [
-            'thread' => $thread,
-            'articles' => $articles
+            'thread' => $thread
         ]);
     }
 

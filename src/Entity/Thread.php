@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ThreadRepository")
@@ -33,6 +34,13 @@ class Thread
      * @ORM\ManyToMany(targetEntity="App\Entity\Article", mappedBy="thread")
      */
     private $articles;
+
+    /**
+     * @var string
+     * @Gedmo\Slug(fields={"name", "id"})
+     * @ORM\Column(length=128, unique=true, nullable=true)
+     */
+    private $slug;
 
     public function __construct()
     {
@@ -81,6 +89,18 @@ class Thread
             $this->articles->removeElement($article);
             $article->removeThread($this);
         }
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }

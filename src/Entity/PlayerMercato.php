@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PlayerMercatoRepository")
@@ -34,6 +35,7 @@ class PlayerMercato
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\GreaterThan(propertyPath="date")
      */
     private $endContract;
 
@@ -51,6 +53,12 @@ class PlayerMercato
      * @ORM\ManyToOne(targetEntity="App\Entity\Player", inversedBy="playerMercatos")
      */
     private $player;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\ClubTeam", inversedBy="oldPlayerMercato")
+     * @Assert\NotEqualTo(propertyPath="team")
+     */
+    private $oldTeam;
 
     public function getId(): ?int
     {
@@ -137,6 +145,18 @@ class PlayerMercato
     public function setPlayer(?Player $player): self
     {
         $this->player = $player;
+
+        return $this;
+    }
+
+    public function getOldTeam(): ?ClubTeam
+    {
+        return $this->oldTeam;
+    }
+
+    public function setOldTeam(?ClubTeam $oldTeam): self
+    {
+        $this->oldTeam = $oldTeam;
 
         return $this;
     }
