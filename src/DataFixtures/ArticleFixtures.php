@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Article;
 use App\Entity\Category;
+use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -15,7 +16,7 @@ class ArticleFixtures extends Fixture implements DependentFixtureInterface
         $faker = \Faker\Factory::create();
 
         $cat = $manager->getRepository(Category::class)->findAll();
-        $user =  $manager->getRepository(Category::class)->findAll();
+        $user =  $manager->getRepository(User::class)->findAll();
 
         for ($i = 0; $i < 20; $i++) {
             $date = $faker->dateTime();

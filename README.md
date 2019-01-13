@@ -109,11 +109,6 @@ Achat de nom de domaine + hébergement (hors projet symfony)
     php bin/console make:migration    
     php bin/console doctrine:migrations:migrate
     php bin/console doctrine:fixtures:load
-    cd public/front
     npm i
-    gulp
-    cd ../back
-    npm i
-    gulp
-    cd ../..
+    npm run dev-server
     php bin/console server:run
