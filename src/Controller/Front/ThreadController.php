@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ThreadController extends AbstractController
 {
     /**
-     * @Route("/{slug}", name="category", methods="GET")
+     * @Route("/{slug}", name="thread", methods="GET")
      */
 
     public function index(Thread $thread, Request $request): Response
