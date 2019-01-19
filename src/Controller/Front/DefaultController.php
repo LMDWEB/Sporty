@@ -60,6 +60,7 @@ class DefaultController extends AbstractController
 
     public function menu()
     {
+
         $leftMenu = $this->getDoctrine()->getRepository(Menu::class)->findBy(["published" => 1, "name" => "menu left"]);
         $parentMenuLeft = $this->getDoctrine()->getRepository(MenuItem::class)->findBy(["parent" => $leftMenu[0]->getId(), "subParent" => false]);
 

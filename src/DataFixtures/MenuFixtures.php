@@ -20,7 +20,7 @@ class MenuFixtures extends Fixture
             $menu = new Menu();
             $menu
                 ->setName($menuA['name'])
-                ->setPublished(0)
+                ->setPublished(1)
             ;
 
             $manager->persist($menu);

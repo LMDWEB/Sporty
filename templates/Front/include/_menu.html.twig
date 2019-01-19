@@ -39,12 +39,12 @@
                 <ul>
                     {% for parentMenu in parentMenusLeft %}
                         <li>
-                            <a href="{{ path('category', { 'slug': parentMenu.url }) }}">{{ parentMenu.name }}</a>
+                            <a href="#">{{ parentMenu.name }}</a>
                             <ul class="children">
                                 {% for menu in menus %}
                                     {% if menu.parentItem is not null and menu.parentItem.id == parentMenu.id %}
                                         <li>
-                                            <a href="{{ path('category', { 'slug': menu.url }) }}">{{ menu.name }}</a>
+                                            <a href="#">{{ menu.name }}</a>
                                         </li>
                                     {% endif %}
                                 {% endfor %}
@@ -66,12 +66,12 @@
                 <ul>
                     {% for parentMenu in parentMenusRight %}
                         <li>
-                            <a href="{{ path('category', { 'slug': parentMenu.url }) }}">{{ parentMenu.name }}</a>
+                            <a href="#">{{ parentMenu.name }}</a>
                             <ul class="children">
                                 {% for menu in menus %}
                                     {% if menu.parentItem is not null and menu.parentItem.id == parentMenu.id %}
                                         <li>
-                                            <a href="{{ path('category', { 'slug': menu.url }) }}">{{ menu.name }}</a>
+                                            <a href="#">{{ menu.name }}</a>
                                         </li>
                                     {% endif %}
                                 {% endfor %}
