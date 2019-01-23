@@ -73,8 +73,8 @@
                             <ul class="row">
                                 {% for player in article.player %}
                                     <li class="col-md-4">
-                                        <a href="#" class="related-thumb th-bordercolor">
-                                            <img src="{{ asset('images/players/'~player.imageName) }}" alt=""></a>
+                                        <a href="{{ path('player', { 'slug': player.slug }) }}" class="related-thumb th-bordercolor">
+                                            <img src="{{ vich_uploader_asset(player, 'imageFile') }}" alt=""></a>
                                         <div class="related-text">
                                             <h3><a href="{{ path('player', { 'slug': player.slug }) }}">{{ player.firstname }} {{ player.lastname }}</a></h3>
                                         </div>

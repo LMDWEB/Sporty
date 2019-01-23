@@ -56,10 +56,13 @@
                 <th>{{ 'published'|trans }}</th>
                 <td>{{ player.published ? 'Yes' : 'No' }}</td>
             </tr>
-            <tr>
-                <th>Image</th>
-                <td><img src="{{ asset('images/players/'~player.imageName) }}" alt="image"> </td>
-            </tr>
+
+            {% if player.imageName %}
+                <tr>
+                    <th>Image</th>
+                    <td><img src="{{ vich_uploader_asset(player, 'imageFile') }}" alt="image"> </td>
+                </tr>
+            {% endif %}
         </tbody>
     </table>
 

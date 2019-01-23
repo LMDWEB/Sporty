@@ -30,7 +30,7 @@
                             <div class="card hovercard">
                                 <div class="cardheader"></div>
                                 <div class="avatar">
-                                    <img src="{{ asset('images/players/'~player.imageName) }}" alt="{{ player.firstname }} {{ player.lastname }}">
+                                    <img src="{{ vich_uploader_asset(player, 'imageFile') }}" alt="{{ player.firstname }} {{ player.lastname }}">
                                 </div>
                                 <div class="info">
                                     <div class="title">
