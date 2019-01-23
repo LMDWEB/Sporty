@@ -117,6 +117,8 @@
         {{ 'back_list'|trans }}
     </a>
 
+    <a href="{{ path('player_index') }}">{{ 'back_list'|trans }}</a>
+
     <a class="btn btn-info" href="{{ path('player_edit', {'id': player.id}) }}">
         <i class="fas fa-fw fa-pen"></i>
         {{ 'player.edit'|trans }}

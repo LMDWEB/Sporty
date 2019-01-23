@@ -14,6 +14,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Service\PaginationService;
 
 /**
  * @Route("/player")
@@ -21,11 +22,17 @@ use Symfony\Component\Routing\Annotation\Route;
 class PlayerController extends AbstractController
 {
     /**
-     * @Route("/", name="player_index", methods="GET")
+     * @Route("/list/{page<\d+>?1}", name="player_index", methods="GET")
      */
-    public function index(PlayerRepository $playerRepository): Response
+    public function index(PlayerRepository $repo, $page, PaginationService $pagination)
     {
-        return $this->render('Back/player/index.html.twig', ['players' => $playerRepository->findAll()]);
+        $pagination->setEntityClass(Player::class);
+        $pagination->setCurrentPage($page);
+
+
+        return $this->render('Back/player/index.html.twig', [
+            'pagination' => $pagination,
+        ]);
     }
 
     /**
