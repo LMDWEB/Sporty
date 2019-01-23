@@ -10,9 +10,12 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PlayerRepository")
+ * @Vich\Uploadable
  */
 class Player
 {
@@ -27,6 +30,21 @@ class Player
      * @ORM\Column(type="integer")
      */
     private $id;
+
+
+    /**
+    * @Vich\UploadableField(mapping="player_image", fileNameProperty="imageName")
+    *
+    * @var File
+    */
+    private $imageFile;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     *
+     * @var string
+     */
+    private $imageName;
 
     /**
      * @ORM\Column(type="string", length=30)
@@ -277,6 +295,48 @@ class Player
             }
         }
 
+        return $this;
+    }
+
+    /**
+     * @return File
+     */
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param File $imageFile
+     * @return $this
+     */
+    public function setImageFile(File $imageFile)
+    {
+        $this->imageFile = $imageFile;
+        if (null !== $imageFile) {
+            // En gros, y a un bug sur vich, quand on modifie juste l'image, Symfony ne detecte aucun changement
+            // Et ca persist pas l'image en base, du coup petite technique, des qu'on modifie une image, on modifie l'updateAt
+            // Et comme ca l'image s'enregistre en base !
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImageName(): string
+    {
+        return $this->imageName;
+    }
+
+    /**
+     * @param string $imageName
+     * @return $this
+     */
+    public function setImageName(string $imageName)
+    {
+        $this->imageName = $imageName;
         return $this;
     }
 }

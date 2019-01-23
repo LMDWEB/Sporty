@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -67,6 +68,9 @@ class PlayerType extends AbstractType
                 'allow_add' => true,
                 'allow_delete' => true,
             ))
+            ->add('imageFile', FileType::class, [
+                'required' => false
+            ])
         ;
     }
 
