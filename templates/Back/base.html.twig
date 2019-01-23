@@ -28,6 +28,18 @@
                         <li class="breadcrumb-item active">{{ block('title') }} </li>
                     </ol>
 
+                    {% for label, messages in app.flashes %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{ label }} alert-dismissible fade show text-center" role="alert">
+                                <strong>{{ message }}</strong>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+
+
                     {% block body %}{% endblock %}
                 </div>
                 <!-- /.container-fluid -->
@@ -36,7 +48,7 @@
                 <footer class="sticky-footer">
                     <div class="container my-auto">
                         <div class="copyright text-center my-auto">
-                            <span>Copyright © Your Website 2018</span>
+                            <span>Copyright © Sporty 2018</span>
                         </div>
                     </div>
                 </footer>
@@ -68,6 +80,8 @@
             </div>
         </div>
 
+        {{ include('Back/include/delete_modal.html.twig') }}
+
         {{ encore_entry_script_tags('back') }}
 
         <!-- Bootstrap core JavaScript-->
@@ -80,6 +94,22 @@
 
         <!-- Custom scripts for all pages-->
         <script src="{{ asset('back/js/sb-admin.min.js') }}"></script>
+
+        <script>
+
+            $('#delete-modal').on('show.bs.modal', function (e) {
+
+                console.log("hello");
+                var action = $(e.relatedTarget).data('action');
+                var crsf = $(e.relatedTarget).data('crsf');
+                var name = $(e.relatedTarget).data('name');
+
+                $(this).find('.modal-title span').text(name);
+                $(this).find('form').attr('action' , action);
+                $(this).find('form input[name="_token"]').val(crsf);
+            });
+
+        </script>
 
     {% block javascripts %}{% endblock %}
     </body>

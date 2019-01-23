@@ -24,6 +24,12 @@ class Player
     use PublishedTraits;
     use ArchivedTraits;
 
+    const STATUS = [
+        0 => 'Joueur',
+        1 => 'Arbitre'
+    ];
+
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -40,7 +46,7 @@ class Player
     private $imageFile;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      *
      * @var string
      */
@@ -108,10 +114,16 @@ class Player
      */
     private $playerMercatos;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Game", mappedBy="players")
+     */
+    private $games;
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
         $this->playerMercatos = new ArrayCollection();
+        $this->games = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -202,6 +214,12 @@ class Player
 
         return $this;
     }
+
+    public function getStatusName(): ?string
+    {
+        return self::STATUS[$this->status];
+    }
+
 
     public function getSurname(): ?string
     {
@@ -325,7 +343,7 @@ class Player
     /**
      * @return string
      */
-    public function getImageName(): string
+    public function getImageName()
     {
         return $this->imageName;
     }
@@ -337,6 +355,34 @@ class Player
     public function setImageName(string $imageName)
     {
         $this->imageName = $imageName;
+        return $this;
+    }
+
+    /**
+     * @return Collection|Game[]
+     */
+    public function getGames(): Collection
+    {
+        return $this->games;
+    }
+
+    public function addGame(Game $game): self
+    {
+        if (!$this->games->contains($game)) {
+            $this->games[] = $game;
+            $game->addPlayer($this);
+        }
+
+        return $this;
+    }
+
+    public function removeGame(Game $game): self
+    {
+        if ($this->games->contains($game)) {
+            $this->games->removeElement($game);
+            $game->removePlayer($this);
+        }
+
         return $this;
     }
 }

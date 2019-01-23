@@ -1,15 +1,15 @@
 {% extends 'Back/base.html.twig' %}
 
+{% block title %}{{ 'channel.edit'|trans }}{% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item">
+        <a href="{{ path('channel_index') }}">{{ 'channel.name'|trans }}</a>
+    </li>
+{% endblock %}
+
 {% block body %}
-    <h1>Modifier la chaîne</h1>
 
-    {{ include('Back/channel/_form.html.twig', {'button_label': 'Mettre a jour'}) }}
+    {{ include('Back/channel/_form.html.twig' , {button_name: 'Mettre à jour' , icon: 'pen', class: 'info'}) }}
 
-    <br>
-
-    <a class="btn btn-secondary" href="{{ path('channel_index') }}">Retourner a la liste</a>
-
-    <br><br>
-
-    {{ include('Back/channel/_delete_form.html.twig') }}
 {% endblock %}

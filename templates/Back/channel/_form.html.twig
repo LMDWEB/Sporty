@@ -1,8 +1,10 @@
 {{ form_start(form) }}
     {{ form_widget(form) }}
-<br>
-    <button class="btn btn-success">
-        <i class="fas fa-fw fa-plus"></i>
-        {{ button_label|default('Ajouter') }}
+    <button class="btn btn-{{ class }}">
+        <i class="fas fa-fw fa-{{ icon }}"></i>
+        {{ button_name }}
     </button>
+    <a style="margin-top: 20px" class="btn btn-secondary" href="{{ path('channel_index') }}">
+        {{ 'cancel'|trans }}
+    </a>
 {{ form_end(form) }}

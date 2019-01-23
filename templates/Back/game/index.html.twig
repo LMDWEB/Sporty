@@ -15,7 +15,6 @@
                 <th>{{ 'game.teamAway'|trans }}</th>
                 <th>{{ 'game.referee'|trans }}</th>
                 <th>{{ 'game.competition'|trans }}</th>
-                <th>{{ 'game.stadium'|trans }}</th>
                 <th>{{ 'game.season'|trans }}</th>
                 <th>{{ 'actions.name'|trans }}</th>
             </tr>
@@ -28,19 +27,18 @@
                 <td>{{ game.teamAway.name }}</td>
                 <td>{{ game.referee.firstname }}</td>
                 <td>{{ game.competition.name }}</td>
-                <td>{{ game.stadium.name }}</td>
                 <td>{{ game.season.seasonYear }}</td>
 
                 <td>
                     <a class="btn btn-success btn-sm" href="{{ path('game_show', {'id': game.id}) }}">
-                        <i class="fas fa-fw fa-eye"></i>
                         {{ 'show'|trans }}
                     </a>
                     <a class="btn btn-info btn-sm" href="{{ path('game_edit', {'id': game.id}) }}">
-                        <i class="fas fa-fw fa-pen"></i>
                         {{ 'edit'|trans }}
                     </a>
-                    {{ include('Back/game/_delete_form.html.twig') }}
+                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-name="{{ game.name }}" data-target="#delete-modal" data-action="{{ path('game_delete' , {id:game.id}) }}" data-crsf="{{ csrf_token('delete' ~ game.id) }}">
+                        Supprimer
+                    </button>
                 </td>
             </tr>
         {% else %}

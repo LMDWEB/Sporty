@@ -82,11 +82,17 @@ class Game
      */
     private $slug;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Player", inversedBy="games")
+     */
+    private $players;
+
 
     public function __construct()
     {
         $this->channel = new ArrayCollection();
         $this->articles = new ArrayCollection();
+        $this->players = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -275,6 +281,32 @@ class Game
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Player[]
+     */
+    public function getPlayers(): Collection
+    {
+        return $this->players;
+    }
+
+    public function addPlayer(Player $player): self
+    {
+        if (!$this->players->contains($player)) {
+            $this->players[] = $player;
+        }
+
+        return $this;
+    }
+
+    public function removePlayer(Player $player): self
+    {
+        if ($this->players->contains($player)) {
+            $this->players->removeElement($player);
+        }
 
         return $this;
     }
