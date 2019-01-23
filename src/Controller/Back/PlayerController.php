@@ -54,6 +54,8 @@ class PlayerController extends AbstractController
             $manager->persist($player);
             $manager->flush();
 
+            $this->addFlash('success' , 'Le joueur a bien été ajouté !');
+
             return $this->redirectToRoute('player_index');
         }
 
@@ -95,6 +97,8 @@ class PlayerController extends AbstractController
 
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash('success' , 'Le joueur a bien été mise à jour !');
+
             return $this->redirectToRoute('player_index', ['id' => $player->getId()]);
         }
 
@@ -113,6 +117,8 @@ class PlayerController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->remove($player);
             $em->flush();
+
+            $this->addFlash('success' , 'Le joueur a bien été supprimé !');
         }
 
         return $this->redirectToRoute('player_index');

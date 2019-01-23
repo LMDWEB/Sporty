@@ -1,18 +1,24 @@
 {% extends 'Back/base.html.twig' %}
 
-{% block title %}{{ 'competition.add'|trans }}{% endblock %}
+{% block title %}{{ 'competition.list'|trans }}{% endblock %}
 
 {% block body %}
 
-    <table class="table">
-        <thead>
+    <a class="btn btn-success" href="{{ path('competition_new') }}">
+        <i class="fas fa-fw fa-plus"></i>
+        {{ 'competition.add'|trans }}
+    </a>
+    <hr>
+
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>CreatedAt</th>
-                <th>UpdatedAt</th>
-                <th>Archived</th>
-                <th>actions</th>
+                <th>#</th>
+                <th>{{ 'competition.name'|trans }}</th>
+                <th>{{ 'competition.created'|trans }}</th>
+                <th>{{ 'competition.updated'|trans }}</th>
+                <th>{{ 'competition.archived'|trans }}</th>
+                <th>{{ 'actions.name'|trans }}</th>
             </tr>
         </thead>
         <tbody>
@@ -24,8 +30,11 @@
                 <td>{{ competition.updatedAt ? competition.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ competition.archived ? 'Yes' : 'No' }}</td>
                 <td>
-                    <a href="{{ path('competition_show', {'id': competition.id}) }}">show</a>
-                    <a href="{{ path('competition_edit', {'id': competition.id}) }}">edit</a>
+                    <a class="btn btn-success btn-sm" href="{{ path('competition_show', {'id': competition.id}) }}">{{ 'actions.show'|trans }}</a>
+                    <a class="btn btn-info btn-sm" href="{{ path('competition_edit', {'id': competition.id}) }}">{{ 'actions.edit'|trans }}</a>
+                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-name="{{ competition.name }}" data-target="#delete-modal" data-action="{{ path('competition_delete' , {id:competition.id}) }}" data-crsf="{{ csrf_token('delete' ~ competition.id) }}">
+                        {{ 'actions.delete'|trans }}
+                    </button>
                 </td>
             </tr>
         {% else %}
@@ -36,5 +45,4 @@
         </tbody>
     </table>
 
-    <a href="{{ path('competition_new') }}">Create new</a>
 {% endblock %}

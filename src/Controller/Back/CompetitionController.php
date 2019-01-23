@@ -37,6 +37,8 @@ class CompetitionController extends AbstractController
             $em->persist($competition);
             $em->flush();
 
+            $this->addFlash('success' , 'La competition a bien été ajouté !');
+
             return $this->redirectToRoute('competition_index');
         }
 
@@ -65,6 +67,8 @@ class CompetitionController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash('success' , 'La competition a bien été mis à jour !');
+
             return $this->redirectToRoute('competition_index', ['id' => $competition->getId()]);
         }
 
@@ -83,6 +87,8 @@ class CompetitionController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->remove($competition);
             $em->flush();
+
+            $this->addFlash('success' , 'La competition a bien été supprimé !');
         }
 
         return $this->redirectToRoute('competition_index');
