@@ -13,7 +13,7 @@
 {% endblock %}
 {% block body %}
 
-    {{ include('Back/game/_form.html.twig') }}
+    {{ include('Back/game/_form.html.twig', {button_name: 'Ajouter' , icon: 'plus', class: 'success'}) }}
 
 {% endblock %}
 {% block javascripts %}
