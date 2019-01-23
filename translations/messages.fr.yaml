@@ -1,4 +1,7 @@
+cancel: Annuler
+
 player:
+  status: Statut
   add: Ajouter un joueur
   edit: Modifier le joueur
   list: Liste des joueurs
@@ -14,6 +17,7 @@ player:
     right: Droitier
     left: Gaucher
     both: Ambidextre
+  nogames: Aucun match joué
 
 season:
   add: Ajouter une saison
@@ -64,6 +68,13 @@ club:
   edit: Modifier un club
   list: Liste des clubs
   name: Clubs
+
+channel:
+  add: Ajouter une chaîne
+  edit: Modifier la chaîne
+  list: Liste des chaîne
+  name: Chaînes
+  nogames: Aucun match diffusés
 
 clubteam:
   add: Ajouter une équipe

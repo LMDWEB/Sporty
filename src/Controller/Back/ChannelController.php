@@ -37,6 +37,8 @@ class ChannelController extends AbstractController
             $em->persist($channel);
             $em->flush();
 
+            $this->addFlash('success' , 'La chaine a bien été ajouté !');
+
             return $this->redirectToRoute('channel_index');
         }
 
@@ -65,6 +67,8 @@ class ChannelController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash('success' , 'La chaine a bien été mise à jour !');
+
             return $this->redirectToRoute('channel_index', ['id' => $channel->getId()]);
         }
 
@@ -83,6 +87,8 @@ class ChannelController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->remove($channel);
             $em->flush();
+
+            $this->addFlash('success' , 'La chaine a bien été supprimé !');
         }
 
         return $this->redirectToRoute('channel_index');

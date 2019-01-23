@@ -13,6 +13,7 @@
             <thead>
                 <tr>
                     <th>{{ 'player.name'|trans }}</th>
+                    <th>{{ 'player.status'|trans }}</th>
                     <th>{{ 'player.date'|trans }}</th>
                     <th>{{ 'player.foot.name'|trans }}</th>
                     <th>{{ 'player.nationality'|trans }}</th>
@@ -23,6 +24,7 @@
             {% for player in players %}
                 <tr>
                     <td>{{ player.firstname }} {{ player.lastname }}</td>
+                    <td>{{ player.getStatusName() }} </td>
                     <td>{{ player.dateBirth ? player.dateBirth|date('Y-m-d') : '' }} à {{ player.cityBirth }}</td>
                     <td>{% if player.foot == 0 %}
                             {{ 'player.foot.right'|trans }}
@@ -34,8 +36,8 @@
                     </td>
                     <td><img src="https://www.countryflags.io/{{ player.nationality }}/flat/32.png"></td>
                     <td>
-                        <a href="{{ path('player_show', {'id': player.id}) }}">{{ 'actions.show'|trans }}</a>
-                        <a href="{{ path('player_edit', {'id': player.id}) }}">{{ 'actions.edit'|trans }}</a>
+                        <a class="btn btn-success btn-sm" href="{{ path('player_show', {'id': player.id}) }}">{{ 'actions.show'|trans }}</a>
+                        <a class="btn btn-info btn-sm" href="{{ path('player_edit', {'id': player.id}) }}">{{ 'actions.edit'|trans }}</a>
                     </td>
                 </tr>
             {% else %}

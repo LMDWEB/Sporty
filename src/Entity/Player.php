@@ -24,6 +24,12 @@ class Player
     use PublishedTraits;
     use ArchivedTraits;
 
+    const STATUS = [
+        0 => 'Joueur',
+        1 => 'Arbitre'
+    ];
+
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -208,6 +214,12 @@ class Player
 
         return $this;
     }
+
+    public function getStatusName(): ?string
+    {
+        return self::STATUS[$this->status];
+    }
+
 
     public function getSurname(): ?string
     {
