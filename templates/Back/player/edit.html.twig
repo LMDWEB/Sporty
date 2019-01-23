@@ -10,6 +10,10 @@
 
 {% block body %}
 
+    {% if player.imageName %}
+        <img src="{{ vich_uploader_asset(player, 'imageFile') }}" alt="image" width="200">
+    {% endif %}
+
     {{ include('Back/player/_form.html.twig', {'button_label': 'Update'}) }}
 
     <a href="{{ path('player_index') }}">{{ 'back_list'|trans }}</a>
