@@ -1,8 +1,8 @@
 {{ form_start(form) }}
     {{ form_widget(form) }}
-    <button class="btn btn-success">
-        <i class="fas fa-fw fa-check"></i>
-        {{ 'save'|trans }}
+    <button class="btn btn-{{ class }}">
+        <i class="fas fa-fw fa-{{ icon }}"></i>
+        {{ button_name }}
     </button>
     <a style="margin-top: 20px" class="btn btn-secondary" href="{{ path('game_index') }}">
         {{ 'cancel'|trans }}

@@ -46,6 +46,7 @@ game:
   channel: Chaine(s)
   add_players: Ajouter des joueurs
   noplayers: Aucun joueur
+  nochannel: Aucune chaîne
 
 
 config:
