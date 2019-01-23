@@ -74,7 +74,7 @@
                                 {% for player in article.player %}
                                     <li class="col-md-4">
                                         <a href="#" class="related-thumb th-bordercolor">
-                                            <img src="extra-images/recentblog-1.jpg" alt=""></a>
+                                            <img src="{{ asset('images/players/'~player.imageName) }}" alt=""></a>
                                         <div class="related-text">
                                             <h3><a href="{{ path('player', { 'slug': player.slug }) }}">{{ player.firstname }} {{ player.lastname }}</a></h3>
                                         </div>
@@ -83,7 +83,7 @@
                                 {% for team in article.club %}
                                     <li class="col-md-4">
                                         <a href="#" class="related-thumb th-bordercolor">
-                                            <img src="extra-images/recentblog-1.jpg" alt=""></a>
+                                            <img src="" alt=""></a>
                                         <div class="related-text">
                                             <h3><a href="{{ path('team', { 'slug': team.slug }) }}">{{ team.name }}</a></h3>
                                         </div>
@@ -92,7 +92,7 @@
                                 {% for games in article.game %}
                                     <li class="col-md-4">
                                         <a href="#" class="related-thumb th-bordercolor">
-                                            <img src="extra-images/recentblog-1.jpg" alt=""></a>
+                                            <img src="" alt=""></a>
                                         <div class="related-text">
                                             <h3><a href="{{ path('game', { 'slug': games.slug }) }}">{{ games.name }}</a></h3>
                                         </div>
@@ -103,67 +103,67 @@
 
                         <div class="kode-postsection">
                             {% for prev in prevArticle %}
-                            <h4 class="kode-prev">
-                                <a href="{{ path('article', { 'slug': prev.slug }) }}" class="thcolorhover">{{ prev.title }}</a>
-                            </h4>
+                                <h4 class="kode-prev">
+                                    <a href="{{ path('article', { 'slug': prev.slug }) }}" class="thcolorhover">{{ prev.title }}</a>
+                                </h4>
                             {% endfor %}
                             {% for next in nextArticle %}
-                            <h4 class="kode-next">
-                                <a href="{{ path('article', { 'slug': next.slug }) }}" class="thcolorhover">{{ next.title }}</a>
-                            </h4>
+                                <h4 class="kode-next">
+                                    <a href="{{ path('article', { 'slug': next.slug }) }}" class="thcolorhover">{{ next.title }}</a>
+                                </h4>
                             {% endfor %}
                         </div>
 
                         {% if comments|length != 0 %}
-                        <div id="kodecomments">
-                            <div class="kode-section-title">
-                                <h2>{{ comments|length }} {% if comments|length > 1 %}Commentaires {% else %} Commentaire {% endif %}</h2>
-                            </div>
-                            <ul>
-                                {% for comment in comments %}
-                                    <li>
-                                        <div class="thumblist">
-                                            <ul>
-                                                <li>
-                                                    <figure>
-                                                        <a href="#">
-                                                            <img src="extra-images/comment1.jpg" alt=""></a>
-                                                    </figure>
-                                                    <div class="text">
-                                                        <h4>
-                                                            <a href="#">{{ comment.user.username }}</a>
-                                                        </h4>
-                                                        <time datetime="{{ comment.createdat ? comment.createdat|date('Y-m-d H:i:s') : '' }}">| {{ comment.createdat ? comment.createdat|date('d M à h:i') : '' }}</time>
-                                                        <a href="#" class="replay-btn thcolor">Reply</a>
-                                                        <p>{{ comment.content }}</p>
-                                                    </div>
-                                                </li>
+                            <div id="kodecomments">
+                                <div class="kode-section-title">
+                                    <h2>{{ comments|length }} {% if comments|length > 1 %}Commentaires {% else %} Commentaire {% endif %}</h2>
+                                </div>
+                                <ul>
+                                    {% for comment in comments %}
+                                        <li>
+                                            <div class="thumblist">
+                                                <ul>
+                                                    <li>
+                                                        <figure>
+                                                            <a href="#">
+                                                                <img src="extra-images/comment1.jpg" alt=""></a>
+                                                        </figure>
+                                                        <div class="text">
+                                                            <h4>
+                                                                <a href="#">{{ comment.user.username }}</a>
+                                                            </h4>
+                                                            <time datetime="{{ comment.createdat ? comment.createdat|date('Y-m-d H:i:s') : '' }}">| {{ comment.createdat ? comment.createdat|date('d M à h:i') : '' }}</time>
+                                                            <a href="#" class="replay-btn thcolor">Reply</a>
+                                                            <p>{{ comment.content }}</p>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <ul class="children">
+                                                {% for reply in replyComments %}
+                                                    {% if comment.id == reply.idparent %}
+                                                        <li>
+                                                            <figure>
+                                                                <a href="#">
+                                                                    <img src="extra-images/comment1.jpg" alt="">
+                                                                </a>
+                                                            </figure>
+                                                            <div class="text">
+                                                                <h4>
+                                                                    <a href="#">{{ reply.user.username }}</a>
+                                                                </h4>
+                                                                <time datetime="2008-02-14 20:00">| 10 March</time>
+                                                                <p>{{ reply.content }}</p>
+                                                            </div>
+                                                        </li>
+                                                    {% endif %}
+                                                {% endfor %}
                                             </ul>
-                                        </div>
-                                        <ul class="children">
-                                            {% for reply in replyComments %}
-                                                {% if comment.id == reply.idparent %}
-                                            <li>
-                                                <figure>
-                                                    <a href="#">
-                                                        <img src="extra-images/comment1.jpg" alt="">
-                                                    </a>
-                                                </figure>
-                                                <div class="text">
-                                                    <h4>
-                                                        <a href="#">{{ reply.user.username }}</a>
-                                                    </h4>
-                                                    <time datetime="2008-02-14 20:00">| 10 March</time>
-                                                    <p>{{ reply.content }}</p>
-                                                </div>
-                                            </li>
-                                                {% endif %}
-                                            {% endfor %}
-                                        </ul>
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                        </div>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
                         {% endif %}
                         <div id="koderespond">
                             <div class="kode-section-title">

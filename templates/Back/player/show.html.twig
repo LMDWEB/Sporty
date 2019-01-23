@@ -58,7 +58,7 @@
             </tr>
             <tr>
                 <th>Image</th>
-                <td><img src="http://127.0.0.1:8000/images/players/{{ player.imageName }}" alt="image"> </td>
+                <td><img src="{{ asset('images/players/'~player.imageName) }}" alt="image"> </td>
             </tr>
         </tbody>
     </table>
