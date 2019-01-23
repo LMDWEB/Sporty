@@ -108,10 +108,16 @@ class Player
      */
     private $playerMercatos;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Game", mappedBy="players")
+     */
+    private $games;
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
         $this->playerMercatos = new ArrayCollection();
+        $this->games = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -337,6 +343,34 @@ class Player
     public function setImageName(string $imageName)
     {
         $this->imageName = $imageName;
+        return $this;
+    }
+
+    /**
+     * @return Collection|Game[]
+     */
+    public function getGames(): Collection
+    {
+        return $this->games;
+    }
+
+    public function addGame(Game $game): self
+    {
+        if (!$this->games->contains($game)) {
+            $this->games[] = $game;
+            $game->addPlayer($this);
+        }
+
+        return $this;
+    }
+
+    public function removeGame(Game $game): self
+    {
+        if ($this->games->contains($game)) {
+            $this->games->removeElement($game);
+            $game->removePlayer($this);
+        }
+
         return $this;
     }
 }

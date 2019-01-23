@@ -7,7 +7,7 @@
     </li>
 {% endblock %}
 {% block body %}
-    <table class="table">
+    <table class="table table-bordered table-striped">
         <tbody>
             <tr>
                 <th>#</th>
@@ -44,13 +44,44 @@
         </tbody>
     </table>
 
+    <h3 class="text-center">Liste des joueurs</h3>
+
+    <table class="table table-striped table-bordered" id="dataTable">
+        <thead class="thead-dark">
+            <tr>
+                <th>#</th>
+                <th>{{ 'player.name'|trans }}</th>
+                <th>{{ 'player.nationality'|trans }}</th>
+                <th>{{ 'actions.name'|trans }}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for player in game.players %}
+            <tr>
+                <th>{{ player.id }}</th>
+                <td>{{ player.firstname }} {{ player.lastname }}</td>
+                <td><img src="https://www.countryflags.io/{{ player.nationality }}/flat/32.png"></td>
+                <td>
+                    <a class="btn btn-success btn-sm" href="{{ path('player_show', {'id': player.id}) }}">
+                        {{ 'actions.show'|trans }}
+                    </a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">{{ 'game.noplayers'|trans }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
     <a class="btn btn-secondary" href="{{ path('game_index') }}">
+        <i class="fas fa-fw fa-undo"></i>
         {{ 'back_list'|trans }}
     </a>
 
-    <br><br>
-
     <a class="btn btn-info" href="{{ path('game_edit', {'id': game.id}) }}">
+        <i class="fas fa-fw fa-pen"></i>
         {{ 'game.edit'|trans }}
     </a>
 

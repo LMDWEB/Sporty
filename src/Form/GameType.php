@@ -37,7 +37,7 @@ class GameType extends AbstractType
                 'choice_label' => 'name',
                 'multiple' => true,
                 'required'=> false,
-                'attr' => array('id' => 'game_channel')
+                'attr' => array('class' => 'selectize')
             ])
 
             ->add('team_home', EntityType::class , [
@@ -54,6 +54,22 @@ class GameType extends AbstractType
                 'choice_label' => 'name',
                 'required'=> true,
                 'attr' => array('class' => 'form-control')
+            ])
+
+            ->add('players', EntityType::class, [
+                'label'        => 'game.add_players',
+                'class'        => Player::class,
+                'choice_label' => function ($player) {
+                    return $player->getFirstname()." ".$player->getLastname();
+                },
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('u')
+                        ->where('u.status = 0');
+                },
+                'multiple'     => true,
+                'required'     => false,
+                'attr' => array('class' => 'selectize')
+
             ])
 
             ->add('referee' , EntityType::class , [

@@ -1,6 +1,6 @@
 player:
   add: Ajouter un joueur
-  edit: Modifier un joueur
+  edit: Modifier le joueur
   list: Liste des joueurs
   firstname: Prénom
   lastname: Nom
@@ -29,7 +29,7 @@ competition:
 
 game:
   add: Ajouter un match
-  edit: Modifier un match
+  edit: Modifier le match
   list: Liste des matchs
   name: Match
   matchday: Journée
@@ -40,6 +40,9 @@ game:
   stadium: Stade
   season: Saison
   channel: Chaine(s)
+  add_players: Ajouter des joueurs
+  noplayers: Aucun joueur
+
 
 config:
   add: Ajouter une configuration
