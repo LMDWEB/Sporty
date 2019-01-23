@@ -20,7 +20,7 @@
                 </tr>
             </thead>
             <tbody>
-            {% for player in players %}
+            {% for player in pagination.data %}
                 <tr>
                     <td>{{ player.firstname }} {{ player.lastname }}</td>
                     <td>{{ player.dateBirth ? player.dateBirth|date('Y-m-d') : '' }} à {{ player.cityBirth }}</td>
@@ -45,6 +45,7 @@
             {% endfor %}
             </tbody>
         </table>
+        {{ pagination.display }}
     </div>
 
 {% endblock %}

@@ -331,7 +331,7 @@ class Player
     /**
      * @return string
      */
-    public function getImageName(): string
+    public function getImageName()
     {
         return $this->imageName;
     }
