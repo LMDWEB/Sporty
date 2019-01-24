@@ -134,7 +134,6 @@ actions:
 status: Statut
 referee: Arbitre
 owner: Président
-category: Catégorie
 save: Enregistrer
 wip: En cours
 todo: A faire
