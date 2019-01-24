@@ -32,8 +32,12 @@
                 <td>{{ club_team.yearCreation }}</td>
                 <td>{{ club_team.stadium.name }}</td>
                 <td>
-                    <a href="{{ path('club_team_show', {'id': club_team.id}) }}">show</a>
-                    <a href="{{ path('club_team_edit', {'id': club_team.id}) }}">edit</a>
+                    <a class="btn btn-success btn-sm" href="{{ path('club_team_show', {'id': club_team.id}) }}">
+                        {{ 'show'|trans }}
+                    </a>
+                    <a class="btn btn-info btn-sm" href="{{ path('club_team_edit', {'id': club_team.id}) }}">
+                        {{ 'edit'|trans }}
+                    </a>
                 </td>
             </tr>
         {% else %}

@@ -20,8 +20,12 @@
                 <td>{{ confederation.name }}</td>
                 <td>{{ confederation.continent }}</td>
                 <td>
-                    <a href="{{ path('confederation_show', {'id': confederation.id}) }}">show</a>
-                    <a href="{{ path('confederation_edit', {'id': confederation.id}) }}">edit</a>
+                    <a class="btn btn-success btn-sm" href="{{ path('confederation_show', {'id': confederation.id}) }}">
+                        {{ 'show'|trans }}
+                    </a>
+                    <a class="btn btn-info btn-sm" href="{{ path('confederation_edit', {'id': confederation.id}) }}">
+                        {{ 'edit'|trans }}
+                    </a>
                 </td>
             </tr>
         {% else %}

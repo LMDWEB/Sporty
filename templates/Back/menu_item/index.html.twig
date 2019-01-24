@@ -36,8 +36,8 @@
                 <td>{{ menu_item.icon }}</td>
                 <td>{{ menu_item.color }}</td>
                 <td>
-                    <a href="{{ path('menu_item_show', {'id': menu_item.id}) }}">{{ 'show'|trans }}</a>
-                    <a href="{{ path('menu_item_edit', {'id': menu_item.id}) }}">{{ 'edit'|trans }}</a>
+                    <a class="btn btn-success btn-sm" href="{{ path('menu_item_show', {'id': menu_item.id}) }}">{{ 'show'|trans }}</a>
+                    <a class="btn btn-info btn-sm" href="{{ path('menu_item_edit', {'id': menu_item.id}) }}">{{ 'edit'|trans }}</a>
                 </td>
             </tr>
         {% else %}

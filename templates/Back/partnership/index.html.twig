@@ -9,7 +9,7 @@
     </a>
     <hr>
 <div class="table-responsive">
-    <table class="table table-bordered" id="dataTable">
+    <table class="table table-striped table-bordered" id="dataTable">
         <thead class="thead-dark">
             <tr>
                 <th>Id</th>
@@ -29,8 +29,8 @@
                 <td>{{ partnership.image }}</td>
                 <td>{{ partnership.link }}</td>
                 <td>
-                    <a href="{{ path('partnership_show', {'id': partnership.id}) }}">{{ 'show'|trans }}</a>
-                    <a href="{{ path('partnership_edit', {'id': partnership.id}) }}">{{ 'edit'|trans }}</a>
+                    <a class="btn btn-success btn-sm" href="{{ path('partnership_show', {'id': partnership.id}) }}">{{ 'show'|trans }}</a>
+                    <a class="btn btn-info btn-sm" href="{{ path('partnership_edit', {'id': partnership.id}) }}">{{ 'edit'|trans }}</a>
                 </td>
             </tr>
         {% else %}

@@ -33,8 +33,8 @@
                 <td>{{ configuration.createdAt ? configuration.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ configuration.updatedAt ? configuration.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('configuration_show', {'id': configuration.id}) }}">{{ 'show'|trans }}</a>
-                    <a href="{{ path('configuration_edit', {'id': configuration.id}) }}">{{ 'edit'|trans }}</a>
+                    <a class="btn btn-success btn-sm"  href="{{ path('configuration_show', {'id': configuration.id}) }}">{{ 'show'|trans }}</a>
+                    <a class="btn btn-info btn-sm"  href="{{ path('configuration_edit', {'id': configuration.id}) }}">{{ 'edit'|trans }}</a>
                 </td>
             </tr>
         {% else %}

@@ -26,7 +26,7 @@
             <tr>
                 <td><a href="{{ path('season_team', {'season': season.id, 'id': team.id}) }}">{{ team.name }}</a></td>
                 <td>
-                    <a href="{{ path('season_competition_team_index', {'season': season.id, 'competition': seasoncompetition.id, 'id': team.id}) }}">{{ 'show'|trans }}</a>
+                    <a class="btn btn-success btn-sm" href="{{ path('season_competition_team_index', {'season': season.id, 'competition': seasoncompetition.id, 'id': team.id}) }}">{{ 'show'|trans }}</a>
                 </td>
             </tr>
         {% else %}
@@ -37,7 +37,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('season_competition_edit', {'season': season.id, 'id': seasoncompetition.id}) }}">edit compétition</a>
+    <a class="btn btn-info btn-sm" href="{{ path('season_competition_edit', {'season': season.id, 'id': seasoncompetition.id}) }}">{{ 'edit'|trans }}</a>
 {% endblock %}
 {% block javascripts %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.js"></script>

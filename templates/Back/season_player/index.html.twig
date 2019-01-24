@@ -19,12 +19,12 @@
             {% if (player.date <= firstYear and player.endContract >= firstYear) or (player.date >= firstYear and player.date <= lastYear) %}
                 <tr>
                     <td>
-                        <a href="{{ path('player_show', {'id': player.player.id}) }}">{{ player.player.firstname }} {{ player.player.lastname }}
+                        <a class="btn btn-success btn-sm" href="{{ path('player_show', {'id': player.player.id}) }}">{{ player.player.firstname }} {{ player.player.lastname }}
                         </a>
                         {% if player.type == 1 %}(Prêté par {{ player.oldTeam.name }}){% endif %}
                     </td>
                     <td>
-                        <a href="{{ path('player_edit', {'id': player.player.id}) }}">{{ 'edit'|trans }}</a>
+                        <a class="btn btn-info btn-sm" href="{{ path('player_edit', {'id': player.player.id}) }}">{{ 'edit'|trans }}</a>
                     </td>
                 </tr>
             {% endif %}
