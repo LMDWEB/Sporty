@@ -1,0 +1,15 @@
+{% extends 'Back/base.html.twig' %}
+
+{% block title %}Modifier un utilisateur{% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item">
+        <a href="{{ path('user_index') }}">{{ 'user.name'|trans }}</a>
+    </li>
+{% endblock %}
+
+{% block body %}
+
+    {{ include('Back/user/_form.html.twig', {button_name: 'Mettre à jour' , icon: 'pen', class: 'info'}) }}
+
+{% endblock %}

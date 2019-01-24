@@ -28,6 +28,7 @@ class PlayerType extends AbstractType
                     'referee' => 1,
                     'owner'   => 2,
                 ),
+                'attr' => array('class' => 'form-control')
             ))
             ->add('firstname', TextType::class, array(
                 'label' => 'player.firstname',

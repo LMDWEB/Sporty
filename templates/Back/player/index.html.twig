@@ -14,7 +14,7 @@
                 <div class="card mb-3" style="width: 18rem;">
                     <img class="card-img-top" src="{{ vich_uploader_asset(player, 'imageFile') }}" alt="{{ player.firstname }} {{ player.lastname }}">
                     <div class="card-body">
-                        <h5 class="card-title"><a href="{{ path('player_edit', {'id': player.id}) }}">{{ player.firstname }} {{ player.lastname }}</a> <img src="https://www.countryflags.io/{{ player.nationality }}/flat/32.png"></h5>
+                        <h5 class="card-title"><a href="{{ path('player_show', {'id': player.id}) }}">{{ player.firstname }} {{ player.lastname }}</a> <img src="https://www.countryflags.io/{{ player.nationality }}/flat/32.png"></h5>
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Né le {{ player.dateBirth ? player.dateBirth|date('d-m-Y') : '' }} à {{ player.cityBirth }}</li>

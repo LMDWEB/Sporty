@@ -1,0 +1,52 @@
+{% extends 'Back/base.html.twig' %}
+
+{% block title %}{{ user.firstName }} {{ user.lastname }}{% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item">
+        <a href="{{ path('user_index') }}">{{ 'user.name'|trans }}</a>
+    </li>
+{% endblock %}
+
+{% block body %}
+
+    <table class="table table-bordered table-striped">
+        <tbody>
+            <tr>
+                <th>#</th>
+                <td>{{ user.id }}</td>
+            </tr>
+            <tr>
+                <th>FirstName</th>
+                <td>{{ user.firstName }}</td>
+            </tr>
+            <tr>
+                <th>LastName</th>
+                <td>{{ user.lastName }}</td>
+            </tr>
+            <tr>
+                <th>Username</th>
+                <td>{{ user.username }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ user.email }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-secondary" href="{{ path('user_index') }}">
+        <i class="fas fa-fw fa-undo"></i>
+        Retourner a la liste
+    </a>
+
+    <a class="btn btn-info" href="{{ path('user_edit', {'id': user.id}) }}">
+        <i class="fas fa-fw fa-pen"></i>
+        Modifier
+    </a>
+
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-name="{{ user.firstname }} {{ user.lastname }}" data-target="#delete-modal" data-action="{{ path('user_delete' , {id:user.id}) }}" data-crsf="{{ csrf_token('delete' ~ user.id) }}">
+        <i class="fa fa-trash"></i>&nbsp;&nbsp;Supprimer</span>
+    </button>
+
+{% endblock %}

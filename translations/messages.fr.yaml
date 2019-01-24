@@ -150,3 +150,11 @@ article:
   feature:
   src_post:
   src_img:
+
+user:
+  name: Utilisateur
+  firstname: Prénom
+  lastname: Nom
+  username: Login
+  add : Ajouter un utilisateur
+  email: Adresse e-mail
