@@ -3,17 +3,18 @@
 {% block title %}Liste des utilisateurs{% endblock %}
 
 {% block body %}
+    <h1>Liste des utilisateurs</h1>
 
-<div class="table-responsive">
-    <table class="table table-bordered" id="dataTable">
+    <table class="table">
         <thead>
-        <tr>
-            <th>Id</th>
-            <th>Firstname</th>
-            <th>Lastname</th>
-            <th>Email</th>
-            <th>Actions</th>
-        </tr>
+            <tr>
+                <th>Id</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>actions</th>
+            </tr>
         </thead>
         <tbody>
         {% for user in users %}
@@ -21,29 +22,20 @@
                 <td>{{ user.id }}</td>
                 <td>{{ user.firstName }}</td>
                 <td>{{ user.lastName }}</td>
+                <td>{{ user.username }}</td>
                 <td>{{ user.email }}</td>
                 <td>
-                    <a href="#">show</a>
-                    <a href="#">edit</a>
+                    <a href="{{ path('user_show', {'id': user.id}) }}">show</a>
+                    <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="12">no records found</td>
+                <td colspan="7">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-</div>
-{% endblock %}
 
-{% block javascripts %}
-
-    <!-- Page level plugin JavaScript-->
-    <script src="{{ asset('back/vendor/datatables/jquery.dataTables.js') }}"></script>
-    <script src="{{ asset('back/vendor/datatables/dataTables.bootstrap4.js') }}"></script>
-
-    <!-- Demo scripts for this page-->
-    <script src="{{ asset('back/js/demo/datatables-demo.js') }}"></script>
-
+    <a href="{{ path('user_new') }}">Create new</a>
 {% endblock %}
