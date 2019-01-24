@@ -11,8 +11,13 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6 kode_bg_white">
-                            <ul class="top_slider_bxslider">
-                                <li><span class="kode-barinfo"><strong>Latest News : </strong> Lorem ipsum dolor sit amet, cons ecte tuer adipiscing elit,</span></li>
+                            <ul {#class="top_slider_bxslider"#} class="kode-usersocial">
+                                {# <li><span class="kode-barinfo"><strong>Latest News : </strong> Lorem ipsum dolor sit amet, cons ecte tuer adipiscing elit,</span></li>#}
+                                <li><a href="#" data-toggle="modal" data-target="#myModal"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#" data-toggle="modal" data-target="#myModal"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#" data-toggle="modal" data-target="#myModal"><i class="fab fa-linkedin-in"></i></a></li>
+                                <li><a href="#" data-toggle="modal" data-target="#myModal"><i class="fab fa-google-plus-g"></i></a></li>
+                                <li><a href="#" data-toggle="modal" data-target="#myModal"><i class="fab fa-dribbble"></i></a></li>
                             </ul>
                         </div>
                         <div class="col-md-6">
@@ -30,8 +35,8 @@
                                         </div>
                                     </li>
                                 {% else %}
-                                    <li><a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-sign-in"></i> Login</a></li>
-                                    <li><a href="#" data-toggle="modal" data-target="#myModalTwo"><i class="fa fa-user-plus"></i> Register</a></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#myModal">{#<i class="fa fa-sign-in"></i>#} Login</a></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#myModalTwo">{#<i class="fa fa-user-plus"></i>#} Register</a></li>
                                 {% endif %}
                             </ul>
                         </div>
@@ -46,7 +51,7 @@
                 <ul class="slides">
                     {% for feature in featured %}
                     <li>
-                        <img src="http://lmdpsg.diegowaziri.fr/ckfinder/userfiles/files/newdefault.jpg" alt="" />
+                        <img src="http://preprod.lemeilleurdupsg.com/assets/front/images/game.jpg" alt="" />
                         <div class="container">
                             <div class="kode-caption">
                                 <h2>{{ feature.title }}</h2>
@@ -60,6 +65,7 @@
                 </ul>
             </div>
         </div>
+
         <!--// Main Banner //-->
 
         <!--// Main Content //-->
@@ -104,7 +110,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="heading heading-12 margin-top-bottom-30">
-                                <p>Is Your Team Ready For Next Match!</p>
+
                                 <h2 class="color-white"><span class="left"></span>Les dernières news<span class="right"></span></h2>
                             </div>
 
@@ -121,6 +127,11 @@
                                                 </h3>
                                                 <p class="card-text">{{ last.resume }}</p>
                                             </div>
+                                            <div class="card-info">
+                                                <span class="card-date">15 AVRIL, 2018 </span>
+                                                <span class="card-comment"><a href="#" data-toggle="modal" data-target="#myModal"><i class="far fa-comment-alt"></i></a>345</span>
+                                                <span class="card-views"><a href="#" data-toggle="modal" data-target="#myModal"><i class="far fa-eye"></i></a>24</span>
+                                            </div>
                                         </div>
                                     </li>
                                     {% endfor %}
@@ -135,9 +146,9 @@
             <section class="kode-pagesection kode-next-match-section kode-parallax active margin-top-bottom-30">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-12 next-match-box">
                             <div class="heading heading-12 margin-top5-bottom10-flat">
-                                <p>Is Your Team Ready For Next Match!</p>
+
                                 <h2><span class="left"></span>Next Match Started In<span class="right"></span></h2>
                             </div>
                             <div class="kode-fixer-counter">

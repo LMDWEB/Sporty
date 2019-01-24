@@ -106,6 +106,7 @@ Sidebar heading:	'Oswald', sans-serif;
   background-color: #04275F;
   position: relative;
   font-size: 13px;
+  padding-top: 25px;
   .bx-controls.bx-has-controls-direction {
     display: none;
   }
@@ -130,6 +131,32 @@ Sidebar heading:	'Oswald', sans-serif;
   }
 }
 
+.kode-usersocial {
+  float: left;
+  margin: 0;
+
+  li {
+    list-style: none;
+    display: inline-block;
+    //border-left: 1px solid rgba(255, 255, 255, 0.4);
+    position: relative;
+    padding-right: 30px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 25px;
+    padding-bottom: 20px;
+
+    a:hover{
+      color: #ea202e;
+      text-decoration: none;
+    }
+
+    i {
+      margin-right: 4px;
+    }
+  }
+}
+
 .kode-userinfo {
   float: right;
   margin: 0;
@@ -137,8 +164,18 @@ Sidebar heading:	'Oswald', sans-serif;
   li {
     list-style: none;
     display: inline-block;
-    border-left: 1px solid rgba(255, 255, 255, 0.4);
+    //border-left: 1px solid rgba(255, 255, 255, 0.4);
     position: relative;
+    padding-right: 30px;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 700;
+
+    a:hover{
+      color: #ea202e;
+      text-decoration: none;
+    }
+
     i {
       margin-right: 4px;
     }
@@ -155,6 +192,10 @@ Sidebar heading:	'Oswald', sans-serif;
   top: 0px;
   width: 100%;
   z-index: 999;
+  i:hover{
+    color: #ea202e;
+    text-decoration: none;
+  }
 }
 
 .kd-headbar {
@@ -528,6 +569,22 @@ Sidebar heading:	'Oswald', sans-serif;
   }
 }
 
+
+
+.first-bg{
+  float: left;
+  width: 100%;
+  background-image: url(http://preprod.lemeilleurdupsg.com/assets/front/images/game.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  text-align: center;
+  padding: 50px 0px;
+}
+
+
+
 .flexslider .slides .kode-caption img {
   width: auto;
   margin-bottom: 16px;
@@ -541,9 +598,11 @@ Sidebar heading:	'Oswald', sans-serif;
   z-index: 999;
   width: 100%;
   text-align: right;
-  left: 0px;
+  left: 25%;
   margin: auto;
   padding: 0 60px;
+  background-color: #ea202e63;
+  border-radius: 15px;
   h1 {
     font-size: 40px;
     color: #FFF;
@@ -560,6 +619,7 @@ Sidebar heading:	'Oswald', sans-serif;
   h2 {
     text-transform: uppercase;
     font-size: 60px;
+    color: #FFFFFF;
   }
   p {
     font-size: 20px;
@@ -1248,7 +1308,7 @@ Sidebar heading:	'Oswald', sans-serif;
 
 .countdown-period {
   font-size: 20px;
-  color: #505050;
+  color: #FFFFFF;
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -1256,6 +1316,15 @@ Sidebar heading:	'Oswald', sans-serif;
 /* Fixer countdown Css ends */
 
 /* Team Matches css starts */
+
+
+.next-match-box {
+  background-color: #7997c391;
+  border-radius: 15px;
+  color: white;
+  font-weight: bolder;
+}
+
 
 .kode-team-match {
   float: left;
@@ -3018,7 +3087,7 @@ blockquote {
     float: none;
     text-align: center;
     display: inline-block;
-    padding: 5px 0;
+    padding: 15px 0 5px;
   }
 }
 
@@ -4082,6 +4151,22 @@ a.news_une {
     .card-background {
       height: 130px;
     }
+  }
+}
+
+.card-info {
+  background: #ea202e;
+  width: 100%;
+  padding: 6px;
+  font-size: 15px;
+  color: white;
+
+  .card-date, .card-comment, .card-views{
+    padding: 0 20px 0;
+  }
+  i{
+    padding-right: 5px;
+    font-size: 15px;
   }
 }
 
