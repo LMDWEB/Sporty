@@ -11,7 +11,7 @@
     <div class="row">
         {% for player in pagination.data %}
             <div class="col-sm-4">
-                <div class="card" style="width: 18rem;">
+                <div class="card mb-3" style="width: 18rem;">
                     <img class="card-img-top" src="{{ vich_uploader_asset(player, 'imageFile') }}" alt="{{ player.firstname }} {{ player.lastname }}">
                     <div class="card-body">
                         <h5 class="card-title"><a href="{{ path('player_edit', {'id': player.id}) }}">{{ player.firstname }} {{ player.lastname }}</a> <img src="https://www.countryflags.io/{{ player.nationality }}/flat/32.png"></h5>
