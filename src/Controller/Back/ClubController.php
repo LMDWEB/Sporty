@@ -37,6 +37,8 @@ class ClubController extends AbstractController
             $em->persist($club);
             $em->flush();
 
+            $this->addFlash('success' , 'Le club a bien été ajouté !');
+
             return $this->redirectToRoute('club_index');
         }
 
@@ -65,6 +67,8 @@ class ClubController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash('success' , 'Le club a bien été mise à jour !');
+
             return $this->redirectToRoute('club_index', ['id' => $club->getId()]);
         }
 
@@ -83,6 +87,8 @@ class ClubController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->remove($club);
             $em->flush();
+
+            $this->addFlash('success' , 'Le club a bien été supprimé !');
         }
 
         return $this->redirectToRoute('club_index');

@@ -13,11 +13,8 @@
 {% endblock %}
 
 {% block body %}
-    {{ include('Back/club/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('Back/channel/_form.html.twig' , {button_name: 'Mettre à jour' , icon: 'pen', class: 'info'}) }}
 
-    <a href="{{ path('club_index') }}">{{ 'back_list'|trans }}</a>
-
-    {{ include('Back/club/_delete_form.html.twig') }}
 {% endblock %}
 {% block javascripts %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.js"></script>

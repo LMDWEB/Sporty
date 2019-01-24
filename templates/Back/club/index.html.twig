@@ -14,7 +14,7 @@
             <tr>
                 <th>Nom</th>
                 <th>Pays</th>
-                <th>Date de création</th>
+                <th>Abbreviation</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -23,11 +23,13 @@
             <tr>
                 <td>{{ club.name }}</td>
                 <td><img src="https://www.countryflags.io/{{ club.country }}/flat/32.png"></td>
-                <td>{{ club.createdAt ? club.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ club.updatedAt ? club.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ club.abbreviation }}</td>
                 <td>
                     <a class="btn btn-success btn-sm" href="{{ path('club_show', {'id': club.id}) }}">{{ 'show'|trans }}</a>
                     <a class="btn btn-info btn-sm" href="{{ path('club_edit', {'id': club.id}) }}">{{ 'edit'|trans }}</a>
+                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-name="{{ club.name }}" data-target="#delete-modal" data-action="{{ path('club_delete' , {id:club.id}) }}" data-crsf="{{ csrf_token('delete' ~ club.id) }}">
+                        {{ 'delete'|trans }}
+                    </button>
                 </td>
             </tr>
         {% else %}
