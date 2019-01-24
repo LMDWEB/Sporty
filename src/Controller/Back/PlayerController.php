@@ -15,7 +15,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Service\PaginationService;
-
 /**
  * @Route("/player")
  */
@@ -28,6 +27,7 @@ class PlayerController extends AbstractController
     {
         $pagination->setEntityClass(Player::class);
         $pagination->setCurrentPage($page);
+        $pagination->setLimit(50);
 
 
         return $this->render('Back/player/index.html.twig', [

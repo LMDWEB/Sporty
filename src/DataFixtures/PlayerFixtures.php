@@ -10,38 +10,22 @@ class PlayerFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        $joueurs = json_decode(file_get_contents("https://kidoo.ovh/api-foot/ligue1.json"));
+        $joueurs = json_decode(file_get_contents("http://localhost:8000/json/playerl1.json"));
 
         $playerArray = array();
 
-        foreach ($joueurs as $joueur){
+        foreach ($joueurs as $joueur) {
 
-            if (isset($joueur->{'Place of Birth'})){
-                $city = $joueur->{'Place of Birth'};
-            } else {
-                $city = "";
-            }
-
-            if (isset($joueur->Foot)){
-                if ($joueur->Foot == "right"){
-                    $foot = 0;
-                } else {
-                    $foot = 1;
-                }
-            } else {
-                $foot = 0;
-            }
+            $city = (isset($joueur->{'Place of Birth'})) ? $joueur->{'Place of Birth'} : "";
+            $foot = (isset($joueur->Foot)) ? ($joueur->Foot == "right") ? 0 : 1 : 0;
 
             $fullname = explode(' ', $joueur->Name);
             $firstname = $fullname[0];
-            if (isset($fullname[1])){
-                $lastname = $fullname[1];
-            } else {
-                $lastname = "";
-            }
+
+            $lastname = (isset($fullname[1])) ? $fullname[1] : "";
             $nationality = strtoupper(substr($joueur->Nationality[0], 0, 2));
 
-
+            $dateBirth = $joueur->{'Date of Birth'};
 
             $playerArray[] = array(
                 "firstname" => $firstname,
@@ -49,15 +33,13 @@ class PlayerFixtures extends Fixture
                 "surname" => "",
                 "image" => "",
                 "cityBirth" => $city,
-                "dateBirth" => new \DateTime("1978-12-20"),
+                "dateBirth" => new \DateTime($dateBirth),
                 "foot" => $foot,
                 "nationality" => $nationality,
-                "status" => 1
+                "status" => 0
             );
 
         }
-
-
 
         foreach ($playerArray as  $player) {
             $players = new Player();

@@ -13,31 +13,20 @@ class TeamFixtures extends Fixture
     {
         $faker = \Faker\Factory::create();
 
+        $teamArray = json_decode(file_get_contents("http://localhost:8000/json/typeTeams.json"));
+
         $date = $faker->dateTime();
-        $team = (new Team())
-            ->setName('A')
-            ->setSection(0)
-            ->setCreatedAt($date)
-            ->setUpdatedAt($date)
-        ;
 
-        $manager->persist($team);
+        foreach ($teamArray as  $team) {
+            $teams = (new Team())
+                ->setName($team->name)
+                ->setSection($team->section)
+                ->setCreatedAt($date)
+                ->setUpdatedAt($date)
+            ;
 
-        $team = (new Team())
-            ->setName('U19')
-            ->setSection(0)
-            ->setCreatedAt($date)
-            ->setUpdatedAt($date)
-        ;
-
-        $manager->persist($team);
-
-        $team = (new Team())
-            ->setName('A')
-            ->setSection(1)
-            ->setCreatedAt($date)
-            ->setUpdatedAt($date)
-        ;
+            $manager->persist($teams);
+        }
 
         $manager->persist($team);
         $manager->flush();

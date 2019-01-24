@@ -43,18 +43,20 @@ class MenuItem
     private $color;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Menu", inversedBy="menuItems")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Menu", inversedBy="menuItems", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
      */
     private $parent;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\MenuItem", inversedBy="menuItems")
+     * @ORM\ManyToOne(targetEntity="App\Entity\MenuItem", inversedBy="menuItems", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
      */
     private $parentItem;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\MenuItem", mappedBy="parentItem")
+     * @ORM\OneToMany(targetEntity="App\Entity\MenuItem", mappedBy="parentItem", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
      */
     private $menuItems;
 

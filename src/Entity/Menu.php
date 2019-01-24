@@ -27,11 +27,11 @@ class Menu
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\MenuItem", mappedBy="parent_id")
+     * @ORM\OneToMany(targetEntity="App\Entity\MenuItem", mappedBy="parent_id", cascade={"persist"})
      */
     private $menuItems;
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Menu", mappedBy="parent")
+     * @ORM\OneToMany(targetEntity="App\Entity\Menu", mappedBy="parent", cascade={"persist"})
      */
     private $menus;
 

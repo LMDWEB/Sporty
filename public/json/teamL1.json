@@ -1,0 +1,82 @@
+[
+	{
+		"team": "Paris Saint-Germain",
+		"pays": "FR"
+	},
+	{
+		"team": "AS Saint-Étienne",
+		"pays": "FR"
+	},
+	{
+		"team": "LOSC Lille",
+		"pays": "FR"
+	},
+	{
+		"team": "Olympique lyonnais",
+		"pays": "FR"
+	},
+	{
+		"team": "Olympique de Marseille",
+		"pays": "FR"
+	},
+	{
+		"team": "Stade de Reims",
+		"pays": "FR"
+	},
+	{
+		"team": "Montpellier Hérault SC",
+		"pays": "FR"
+	},
+	{
+		"team": "RC Strasbourg Alsace",
+		"pays": "FR"
+	},
+	{
+		"team": "Girondins de Bordeaux",
+		"pays": "FR"
+	},
+	{
+		"team": "FC Nantes",
+		"pays": "FR"
+	},
+	{
+		"team": "Stade rennais FC",
+		"pays": "FR"
+	},
+	{
+		"team": "OGC Nice",
+		"pays": "FR"
+	},
+	{
+		"team": "Nîmes Olympique",
+		"pays": "FR"
+	},
+	{
+		"team": "Angers SCO",
+		"pays": "FR"
+	},
+	{
+		"team": "SM Caen",
+		"pays": "FR"
+	},
+	{
+		"team": "Toulouse FC",
+		"pays": "FR"
+	},
+	{
+		"team": "Amiens SC",
+		"pays": "FR"
+	},
+	{
+		"team": "Dijon FCO",
+		"pays": "FR"
+	},
+	{
+		"team": "EA Guingamp",
+		"pays": "FR"
+	},
+	{
+		"team": "AS Monaco",
+		"pays": "FR"
+	}
+]

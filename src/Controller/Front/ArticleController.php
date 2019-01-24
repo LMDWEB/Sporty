@@ -25,6 +25,7 @@ class ArticleController extends AbstractController
      */
     public function index(Article $article, ObjectManager $manager, Request $request): Response
     {
+
         // type page
         $type = $this->getDoctrine()->getRepository(Article::class)->typeArticle($article->getType());
 

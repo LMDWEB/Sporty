@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Article;
 use App\Entity\Category;
+use App\Entity\Player;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
@@ -17,6 +18,7 @@ class ArticleFixtures extends Fixture implements DependentFixtureInterface
 
         $cat = $manager->getRepository(Category::class)->findAll();
         $user =  $manager->getRepository(User::class)->findAll();
+        $player =  $manager->getRepository(Player::class)->findAll();
 
         for ($i = 0; $i < 20; $i++) {
             $date = $faker->dateTime();
@@ -34,6 +36,9 @@ class ArticleFixtures extends Fixture implements DependentFixtureInterface
                 ->setFeatured($faker->boolean)
                 ->setPublished($faker->boolean)
                 ->setArchived($faker->boolean)
+                ->setSourceArticle("")
+                ->setSourceImage("")
+                ->addPlayer($player[array_rand($player)])
             ;
             $manager->persist($article);
         }
@@ -45,7 +50,8 @@ class ArticleFixtures extends Fixture implements DependentFixtureInterface
     {
         return [
             CategoryFixtures::class,
-            UserFixtures::class
+            UserFixtures::class,
+            PlayerFixtures::class
         ];
     }
 }

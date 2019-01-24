@@ -1,0 +1,34 @@
+[
+	{
+		"name": "A",
+		"section": 0
+	},	
+	{
+		"name": "B",
+		"section": 0
+	},	
+	{
+		"name": "U19",
+		"section": 0
+	},	
+	{
+		"name": "U17",
+		"section": 0
+	},		
+	{
+		"name": "A",
+		"section": 1
+	},	
+	{
+		"name": "B",
+		"section": 1
+	},	
+	{
+		"name": "U19",
+		"section": 1
+	},	
+	{
+		"name": "U17",
+		"section": 1
+	}
+]
