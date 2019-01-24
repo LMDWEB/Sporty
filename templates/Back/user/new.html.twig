@@ -1,11 +1,15 @@
-<!DOCTYPE html>
+{% extends 'Back/base.html.twig' %}
 
-<title>New User</title>
+{% block title %}{{ 'user.add'|trans }}{% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item">
+        <a href="{{ path('user_index') }}">{{ 'user.name'|trans }}</a>
+    </li>
+{% endblock %}
 
 {% block body %}
-    <h1>Create new User</h1>
 
-    {{ include('user/_form.html.twig') }}
+    {{ include('Back/user/_form.html.twig', {button_name: 'Ajouter' , icon: 'plus', class: 'success'}) }}
 
-    <a href="{{ path('user_index') }}">back to list</a>
 {% endblock %}
