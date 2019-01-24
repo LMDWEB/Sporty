@@ -8,52 +8,44 @@
         {{ 'player.add'|trans }}
     </a>
     <hr>
-    <div class="table-responsive table-striped">
-        <table class="table table-bordered" id="dataTable">
-            <thead class="thead-dark">
-                <tr>
-                    <th>{{ 'player.name'|trans }}</th>
-                    <th>{{ 'player.status'|trans }}</th>
-                    <th>{{ 'player.date'|trans }}</th>
-                    <th>{{ 'player.foot.name'|trans }}</th>
-                    <th>{{ 'player.nationality'|trans }}</th>
-                    <th>{{ 'actions.name'|trans }}</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for player in pagination.data %}
-                <tr>
-                    <td>{{ player.firstname }} {{ player.lastname }}</td>
-                    <td>{{ player.getStatusName() }} </td>
-                    <td>{{ player.dateBirth ? player.dateBirth|date('Y-m-d') : '' }} à {{ player.cityBirth }}</td>
-                    <td>{% if player.foot == 0 %}
-                            {{ 'player.foot.right'|trans }}
-                        {% elseif player.foot == 1 %}
-                            {{ 'player.foot.left'|trans }}
-                        {% elseif player.foot == 2 %}
-                            {{ 'player.foot.both'|trans }}
-                        {% endif %}
-                    </td>
-                    <td><img src="https://www.countryflags.io/{{ player.nationality }}/flat/32.png"></td>
-                    <td>
-                        <a class="btn btn-success btn-sm" href="{{ path('player_show', {'id': player.id}) }}">
+    <div class="row">
+        {% for player in pagination.data %}
+            <div class="col-sm-4">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="{{ vich_uploader_asset(player, 'imageFile') }}" alt="{{ player.firstname }} {{ player.lastname }}">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="{{ path('player_edit', {'id': player.id}) }}">{{ player.firstname }} {{ player.lastname }}</a> <img src="https://www.countryflags.io/{{ player.nationality }}/flat/32.png"></h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Né le {{ player.dateBirth ? player.dateBirth|date('d-m-Y') : '' }} à {{ player.cityBirth }}</li>
+                        <li class="list-group-item">
+                            {% if player.foot == 0 %}
+                                {{ 'player.foot.right'|trans }}
+                            {% elseif player.foot == 1 %}
+                                {{ 'player.foot.left'|trans }}
+                            {% elseif player.foot == 2 %}
+                                {{ 'player.foot.both'|trans }}
+                            {% endif %}
+                        </li>
+                    </ul>
+                    <div class="card-body">
+                        <a class="btn btn-success btn-sm" href="{{ path('player', {'slug': player.slug}) }}">
                             {{ 'actions.show'|trans }}
                         </a>
                         <a class="btn btn-info btn-sm" href="{{ path('player_edit', {'id': player.id}) }}">
                             {{ 'actions.edit'|trans }}
                         </a>
                         <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-name="{{ player.firstname }} {{ player.lastname }}" data-target="#delete-modal" data-action="{{ path('player_delete' , {id:player.id}) }}" data-crsf="{{ csrf_token('delete' ~ player.id) }}">
-                            {{ 'actions.delete'|trans }}
+                        {{ 'actions.delete'|trans }}
                         </button>
-                    </td>
-                </tr>
-            {% else %}
-                <tr>
-                    <td colspan="12">{{ 'nothing'|trans }}</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <tr>
+                <td colspan="12">{{ 'nothing'|trans }}</td>
+            </tr>
+        {% endfor %}
         {{ pagination.display }}
     </div>
 
