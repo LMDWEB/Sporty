@@ -7,8 +7,8 @@
 {% endblock %}
 
 {% block body %}
-    <table class="table">
-        <thead>
+    <table class="table table-striped table-bordered" id="dataTable">
+        <thead class="thead-dark">
             <tr>
                 <th>Effectif - {{ club.name }}</th>
                 <th>actions</th>
@@ -24,7 +24,7 @@
                         {% if player.type == 1 %}(Prêté par {{ player.oldTeam.name }}){% endif %}
                     </td>
                     <td>
-                        <a href="{{ path('player_edit', {'id': player.player.id}) }}">edit</a>
+                        <a href="{{ path('player_edit', {'id': player.player.id}) }}">{{ 'edit'|trans }}</a>
                     </td>
                 </tr>
             {% endif %}

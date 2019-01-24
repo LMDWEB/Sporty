@@ -10,7 +10,7 @@
     <hr>
 <div class="table-responsive">
     <table class="table table-bordered" id="dataTable">
-        <thead>
+        <thead class="thead-dark">
             <tr>
                 <th>Id</th>
                 <th>Name</th>
@@ -29,13 +29,13 @@
                 <td>{{ partnership.image }}</td>
                 <td>{{ partnership.link }}</td>
                 <td>
-                    <a href="{{ path('partnership_show', {'id': partnership.id}) }}">show</a>
-                    <a href="{{ path('partnership_edit', {'id': partnership.id}) }}">edit</a>
+                    <a href="{{ path('partnership_show', {'id': partnership.id}) }}">{{ 'show'|trans }}</a>
+                    <a href="{{ path('partnership_edit', {'id': partnership.id}) }}">{{ 'edit'|trans }}</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td colspan="6">{{ 'partnership.nothing'|trans }}</td>
             </tr>
         {% endfor %}
         </tbody>

@@ -14,7 +14,7 @@
 
 {% block body %}
 
-    <table class="table table-bordered table-striped">
+    <table class="table table-striped table-bordered" id="dataTable">
         <thead class="thead-dark">
             <tr>
                 <th>Equipe</th>
@@ -26,12 +26,12 @@
             <tr>
                 <td><a href="{{ path('season_team', {'season': season.id, 'id': team.id}) }}">{{ team.name }}</a></td>
                 <td>
-                    <a href="{{ path('season_competition_team_index', {'season': season.id, 'competition': seasoncompetition.id, 'id': team.id}) }}">show</a>
+                    <a href="{{ path('season_competition_team_index', {'season': season.id, 'competition': seasoncompetition.id, 'id': team.id}) }}">{{ 'show'|trans }}</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td colspan="6">{{ 'season_competition_team.nothing'|trans }}</td>
             </tr>
         {% endfor %}
         </tbody>

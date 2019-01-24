@@ -9,8 +9,8 @@
     </a>
     <hr>
 <div class="table-responsive">
-    <table class="table table-bordered" id="dataTable">
-        <thead>
+    <table class="table table-striped table-bordered" id="dataTable">
+        <thead class="thead-dark">
             <tr>
                 <th>Id</th>
                 <th>Name</th>
@@ -31,13 +31,13 @@
                 <td>{{ thread.published ? 'Yes' : 'No' }}</td>
                 <td>{{ thread.archived ? 'Yes' : 'No' }}</td>
                 <td>
-                    <a href="{{ path('thread_show', {'id': thread.id}) }}">show</a>
-                    <a href="{{ path('thread_edit', {'id': thread.id}) }}">edit</a>
+                    <a href="{{ path('thread_show', {'id': thread.id}) }}">{{ 'show'|trans }}</a>
+                    <a href="{{ path('thread_edit', {'id': thread.id}) }}">{{ 'edit'|trans }}</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">no records found</td>
+                <td colspan="7">{{ 'thread.nothing'|trans }}</td>
             </tr>
         {% endfor %}
         </tbody>

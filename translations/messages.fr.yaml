@@ -18,6 +18,8 @@ player:
     left: Gaucher
     both: Ambidextre
   nogames: Aucun match joué
+  nothing: Aucun joueur trouvé
+
 
 season:
   add: Ajouter une saison
@@ -27,6 +29,8 @@ season:
   year: Annee
   createdAt: Date de creation
   updatedAt: Date de modification
+  nothing: Aucune saison trouvé
+
 
 competition:
   add: Ajouter une competition
@@ -65,6 +69,8 @@ config:
   name: Configuration
   setValue: Label
   value: Valeur
+  nothing: Aucune Configuration
+
 
 todolist:
   add: Ajouter une tâche
@@ -72,6 +78,7 @@ todolist:
   list: Liste des tâches
   name: Tâches
   title: Titre
+  nothing: Aucun tache
 
 club:
   add: Ajouter un club
@@ -103,6 +110,7 @@ team:
   list: Liste des types d'équipe
   name: Equipe
   type: Type d'équipe
+  nothing: Aucune equipe
 
 event:
   add: Ajouter un événement
@@ -110,6 +118,7 @@ event:
   list: Liste des événements
   name: Événement
   type: Type d'événement
+  nothing: Aucun événement
 
 back_list: Revenir en arrière
 delete: Supprimer
@@ -169,6 +178,7 @@ user:
   username: Login
   add : Ajouter un utilisateur
   email: Adresse e-mail
+  nothing: Aucun utilisateur trouvé
 
 category:
   name: Catégorie
@@ -176,5 +186,26 @@ category:
 
 confederation:
   nothing: Aucune Confederation
+
+menu:
+  nothing: Aucun menu
+
+menu_item:
+  nothing: Aucun élément du menu
+
+partnership:
+  nothing: Aucun partenaire
+
+season_competition:
+  nothing: Aucune competitons pour cette saison
+
+season_competition_team:
+  nothing: Aucune competitons pour cette équipe et cette saison
+
+thread:
+  nothing: Aucun Fil
+
+
+
 
 

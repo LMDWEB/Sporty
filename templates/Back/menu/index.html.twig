@@ -14,7 +14,7 @@
     <hr>
 <div class="table-responsive">
     <table class="table table-bordered" id="dataTable">
-        <thead>
+        <thead class="thead-dark">
             <tr>
                 <th>Id</th>
                 <th>Name</th>
@@ -29,13 +29,13 @@
                 <td>{{ menu.name }}</td>
                 <td>{{ menu.published }}</td>
                 <td>
-                    <a href="{{ path('menu_show', {'id': menu.id}) }}">show</a>
-                    <a href="{{ path('menu_edit', {'id': menu.id}) }}">edit</a>
+                    <a href="{{ path('menu_show', {'id': menu.id}) }}">{{ 'show'|trans }}</a>
+                    <a href="{{ path('menu_edit', {'id': menu.id}) }}">{{ 'edit'|trans }}</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">{{ 'menu.nothing'|trans }}</td>
             </tr>
         {% endfor %}
         </tbody>

@@ -29,14 +29,14 @@
                 <td>{{ season.createdAt ? season.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ season.updatedAt ? season.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a class="btn btn-success btn-sm" href="{{ path('season_show', {'id': season.id}) }}">Afficher</a>
-                    <a class="btn btn-info btn-sm" href="{{ path('season_edit', {'id': season.id}) }}">Editer</a>
+                    <a class="btn btn-success btn-sm" href="{{ path('season_show', {'id': season.id}) }}">{{ 'show'|trans }}</a>
+                    <a class="btn btn-info btn-sm" href="{{ path('season_edit', {'id': season.id}) }}">{{ 'edit'|trans }}</a>
 
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">Aucune saison trouvé</td>
+                <td colspan="5">{{ 'season.nothing'|trans }}</td>
             </tr>
         {% endfor %}
         </tbody>
