@@ -43,6 +43,8 @@ class GameController extends AbstractController
             $em->persist($game);
             $em->flush();
 
+            $this->addFlash('success' , 'Le match a bien été ajouté !');
+
             return $this->redirectToRoute('game_index');
         }
 
@@ -76,6 +78,8 @@ class GameController extends AbstractController
 
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash('success' , 'Le match a bien été mise à jour !');
+
             return $this->redirectToRoute('game_index', ['id' => $game->getId()]);
         }
 
@@ -94,6 +98,8 @@ class GameController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->remove($game);
             $em->flush();
+
+            $this->addFlash('success' , 'Le match a bien été supprimé !');
         }
 
         return $this->redirectToRoute('game_index');

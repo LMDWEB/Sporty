@@ -2,37 +2,51 @@
 
 {% block title %}{{ 'competition.show'|trans }}{% endblock %}
 
-{% block body %}
-    <h1>Competition</h1>
+{% block breadcrumb %}
+    <li class="breadcrumb-item">
+        <a href="{{ path('competition_index') }}">{{ 'competition.name'|trans }}</a>
+    </li>
+{% endblock %}
 
-    <table class="table">
+{% block body %}
+
+    <table class="table table-bordered table-striped">
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>#</th>
                 <td>{{ competition.id }}</td>
             </tr>
             <tr>
-                <th>Name</th>
+                <th>{{ 'competition.name'|trans }}</th>
                 <td>{{ competition.name }}</td>
             </tr>
             <tr>
-                <th>CreatedAt</th>
+                <th>{{ 'competition.created'|trans }}</th>
                 <td>{{ competition.createdAt ? competition.createdAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
-                <th>UpdatedAt</th>
+                <th>{{ 'competition.updated'|trans }}</th>
                 <td>{{ competition.updatedAt ? competition.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
-                <th>Archived</th>
+                <th>{{ 'competition.archived'|trans }}</th>
                 <td>{{ competition.archived ? 'Yes' : 'No' }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('competition_index') }}">back to list</a>
+    <a class="btn btn-secondary" href="{{ path('competition_index') }}">
+        <i class="fas fa-fw fa-undo"></i>
+        {{ 'back_list'|trans }}
+    </a>
 
-    <a href="{{ path('competition_edit', {'id': competition.id}) }}">edit</a>
+    <a class="btn btn-info" href="{{ path('competition_edit', {'id': competition.id}) }}">
+        <i class="fas fa-fw fa-pen"></i>
+        {{ 'competition.edit'|trans }}
+    </a>
 
-    {{ include('back/competition/_delete_form.html.twig') }}
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-name="{{ competition.name }}" data-target="#delete-modal" data-action="{{ path('competition_delete' , {id:competition.id}) }}" data-crsf="{{ csrf_token('delete' ~ competition.id) }}">
+        <i class="fas fa-fw fa-trash"></i>
+        {{ 'actions.delete'|trans }}
+    </button>
 {% endblock %}

@@ -117,12 +117,13 @@
         {{ 'back_list'|trans }}
     </a>
 
-    <a href="{{ path('player_index') }}">{{ 'back_list'|trans }}</a>
-
     <a class="btn btn-info" href="{{ path('player_edit', {'id': player.id}) }}">
         <i class="fas fa-fw fa-pen"></i>
         {{ 'player.edit'|trans }}
     </a>
 
-    {{ include('Back/player/_delete_form.html.twig') }}
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-name="{{ player.firstname }} {{ player.lastname }}" data-target="#delete-modal" data-action="{{ path('player_delete' , {id:player.id}) }}" data-crsf="{{ csrf_token('delete' ~ player.id) }}">
+        <i class="fas fa-fw fa-trash"></i>
+        {{ 'actions.delete'|trans }}
+    </button>
 {% endblock %}

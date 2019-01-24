@@ -27,9 +27,12 @@ season:
 
 competition:
   add: Ajouter une competition
-  edit: Modifier une competition
+  edit: Modifier la competition
   list: Liste des compétitions
   name: Compétition
+  created: Date de création
+  updated: Date de modification
+  archived: Archivé
 
 game:
   add: Ajouter un match
@@ -107,6 +110,7 @@ actions:
   name: Actions
   edit: Editer
   show: Afficher
+  delete: Supprimer
   nothing: Tableau vide
 status: Statut
 referee: Arbitre

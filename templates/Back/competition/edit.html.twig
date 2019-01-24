@@ -2,11 +2,14 @@
 
 {% block title %}{{ 'competition.edit'|trans }}{% endblock %}
 
+{% block breadcrumb %}
+    <li class="breadcrumb-item">
+        <a href="{{ path('competition_index') }}">{{ 'competition.name'|trans }}</a>
+    </li>
+{% endblock %}
+
 {% block body %}
 
-    {{ include('back/competition/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('back/competition/_form.html.twig', {button_name: 'Mettre à jour' , icon: 'pen', class: 'info'}) }}
 
-    <a href="{{ path('competition_index') }}">back to list</a>
-
-    {{ include('back/competition/_delete_form.html.twig') }}
 {% endblock %}

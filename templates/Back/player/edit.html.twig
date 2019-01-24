@@ -14,11 +14,8 @@
         <img src="{{ vich_uploader_asset(player, 'imageFile') }}" alt="image" width="200">
     {% endif %}
 
-    {{ include('Back/player/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('Back/player/_form.html.twig', {button_name: 'Mettre à jour' , icon: 'pen', class: 'info'}) }}
 
-    <a href="{{ path('player_index') }}">{{ 'back_list'|trans }}</a>
-
-    {{ include('Back/player/_delete_form.html.twig') }}
 {% endblock %}
 
 {% block javascripts %}
