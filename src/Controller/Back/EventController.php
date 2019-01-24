@@ -39,6 +39,8 @@ class EventController extends AbstractController
             $em->persist($event);
             $em->flush();
 
+            $this->addFlash('success' , 'L\'evenement a bien été ajouté !');
+
             return $this->redirectToRoute('event_index');
         }
 
@@ -69,6 +71,8 @@ class EventController extends AbstractController
 
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash('success' , 'L\'evenement a bien été mise à jour !');
+
             return $this->redirectToRoute('event_index', ['id' => $event->getId()]);
         }
 
@@ -87,6 +91,8 @@ class EventController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->remove($event);
             $em->flush();
+
+            $this->addFlash('success' , 'L\'evenement a bien été supprimé !');
         }
 
         return $this->redirectToRoute('event_index');

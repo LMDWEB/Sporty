@@ -11,9 +11,7 @@
 {% endblock %}
 {% block body %}
 
-    {{ include('Back/event/_form.html.twig') }}
-
-    <a href="{{ path('event_index') }}">{{ 'back_list'|trans }}</a>
+    {{ include('Back/event/_form.html.twig' , {button_name: 'Ajouter' , icon: 'plus', class: 'success'}) }}
 {% endblock %}
 {% block javascripts %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.js"></script>
