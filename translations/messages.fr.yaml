@@ -185,6 +185,11 @@ category:
 
 confederation:
   nothing: Aucune Confederation
+  add: Ajouter une confederation
+  edit: Modifier un confederation
+  list: Liste des confederation
+  name: Confederation
+  type: Type d'confederation
 
 menu:
   nothing: Aucun menu

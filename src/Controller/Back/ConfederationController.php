@@ -37,6 +37,8 @@ class ConfederationController extends AbstractController
             $em->persist($confederation);
             $em->flush();
 
+            $this->addFlash('success' , 'La confederation a bien été ajouté !');
+
             return $this->redirectToRoute('confederation_index');
         }
 
@@ -65,6 +67,8 @@ class ConfederationController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash('success' , 'La confederation a bien été mis à jour !');
+
             return $this->redirectToRoute('confederation_index', ['id' => $confederation->getId()]);
         }
 
@@ -83,6 +87,8 @@ class ConfederationController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->remove($confederation);
             $em->flush();
+
+            $this->addFlash('success' , 'La confederation a bien été supprimé !');
         }
 
         return $this->redirectToRoute('confederation_index');

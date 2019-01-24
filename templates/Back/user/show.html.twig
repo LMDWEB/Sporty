@@ -35,6 +35,45 @@
         </tbody>
     </table>
 
+    <h3 class="text-center">Liste des evenements</h3>
+
+    <hr>
+
+    <table class="table table-striped table-bordered" id="dataTable">
+        <thead class="thead-dark">
+        <tr>
+            <th>#</th>
+            <th>Nom</th>
+            <th>Statut</th>
+            <th>Date de début</th>
+            <th>Date de fin</th>
+            <th>Nombre de participant max</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for event in user.events %}
+            <tr>
+                <td>{{ event.id }}</td>
+                <td>{{ event.title }}</td>
+                <td>{{ event.status }}</td>
+                <td>{{ event.startDate ? event.startDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ event.endDate ? event.endDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ event.maxParticipant }}</td>
+                <td>
+                    <a class="btn btn-success btn-sm" href="{{ path('event_show', {'id': event.id}) }}">
+                        Afficher
+                    </a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">Aucun evenement</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
     <a class="btn btn-secondary" href="{{ path('user_index') }}">
         <i class="fas fa-fw fa-undo"></i>
         Retourner a la liste

@@ -37,6 +37,8 @@ class UserController extends AbstractController
             $em->persist($user);
             $em->flush();
 
+            $this->addFlash('success' , 'L\'utilisateur a bien été ajouté !');
+
             return $this->redirectToRoute('user_index');
         }
 
@@ -69,6 +71,8 @@ class UserController extends AbstractController
 
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash('success' , 'L\'utilisateur a bien été mise à jour !');
+
             return $this->redirectToRoute('user_index', ['id' => $user->getId()]);
         }
 
@@ -87,6 +91,8 @@ class UserController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->remove($user);
             $em->flush();
+
+            $this->addFlash('success' , 'L\'utilisateur a bien été supprimé !');
         }
 
         return $this->redirectToRoute('user_index');
