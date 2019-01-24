@@ -36,6 +36,8 @@ competition:
   created: Date de création
   updated: Date de modification
   archived: Archivé
+  nothing: Aucune Competition
+
 
 game:
   add: Ajouter un match
@@ -76,6 +78,7 @@ club:
   edit: Modifier un club
   list: Liste des clubs
   name: Clubs
+  nothing: Aucun Club
 
 channel:
   add: Ajouter une chaîne
@@ -83,6 +86,7 @@ channel:
   list: Liste des chaîne
   name: Chaînes
   nogames: Aucun match diffusés
+  nothing: Aucune chaîne crée pour l'instant
 
 clubteam:
   add: Ajouter une équipe
@@ -90,6 +94,8 @@ clubteam:
   list: Liste des équipes
   name: Equipe
   year: Année de création
+  nothing: Aucun Club
+
 
 team:
   add: Ajouter une type équipe
@@ -154,6 +160,7 @@ article:
   feature:
   src_post:
   src_img:
+  nothing: Aucun article
 
 user:
   name: Utilisateur
@@ -162,3 +169,12 @@ user:
   username: Login
   add : Ajouter un utilisateur
   email: Adresse e-mail
+
+category:
+  name: Catégorie
+  nothing: Aucune Categorie
+
+confederation:
+  nothing: Aucune Confederation
+
+
