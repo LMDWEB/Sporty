@@ -10,9 +10,7 @@
 
 {% block body %}
 
-    {% if player.imageName %}
-        <img src="{{ vich_uploader_asset(player, 'imageFile') }}" alt="image" width="200">
-    {% endif %}
+    <img src="{{ vich_uploader_asset(player, 'imageFile')|default(asset('images/players/default.jpg')) }}" alt="image" width="200">
 
     {{ include('Back/player/_form.html.twig', {button_name: 'Mettre à jour' , icon: 'pen', class: 'info'}) }}
 

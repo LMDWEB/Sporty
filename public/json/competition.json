@@ -1,0 +1,66 @@
+[
+	{
+		"name": "Amical",
+		"division": 0,
+		"type": 0,
+		"format": 2,
+		"section": "A",
+		"conf": "UEFA"
+	},
+	{
+		"name": "Ligue 1",
+		"division": 1,
+		"type": 0,
+		"format": 0,
+		"section": "A",
+		"conf": "UEFA"
+	},
+	{
+		"name": "Coupe de France",
+		"division": 0,
+		"type": 0,
+		"format": 2,
+		"section": "A",
+		"conf": "UEFA"
+	},
+	{
+		"name": "Coupe de la Ligue",
+		"division": 0,
+		"type": 0,
+		"format": 2,
+		"section": "A",
+		"conf": 1
+	},
+	{
+		"name": "Ligue des Champions",
+		"division": 1,
+		"type": 0,
+		"format": 1,
+		"section": "A",
+		"conf": "UEFA"
+	},
+	{
+		"name": "Coupe des Coupes",
+		"division": 1,
+		"type": 0,
+		"format": 1,
+		"section": "A",
+		"conf": "UEFA"
+	},
+	{
+		"name": "Europa League",
+		"division": 1,
+		"type": 0,
+		"format": 1,
+		"section": "A",
+		"conf": "UEFA"
+	},
+	{
+		"name": "Trophée des Champions",
+		"division": 0,
+		"type": 0,
+		"format": 3,
+		"section": "A",
+		"conf": "UEFA"
+	}
+]

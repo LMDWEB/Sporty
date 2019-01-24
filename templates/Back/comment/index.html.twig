@@ -1,0 +1,45 @@
+{% extends 'Back/base.html.twig' %}
+
+{% block title %}Liste des commentaires{% endblock %}
+
+{% block body %}
+    <h1>Comment index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ip_address</th>
+                <th>Id_post</th>
+                <th>Name_post</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>Archived</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for comment in comments %}
+            <tr>
+                <td>{{ comment.id }}</td>
+                <td>{{ comment.ipAddress }}</td>
+                <td>{{ comment.idPost }}</td>
+                <td>{{ comment.namePost }}</td>
+                <td>{{ comment.createdAt ? comment.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ comment.updatedAt ? comment.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ comment.archived ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('comment_show', {'id': comment.id}) }}">show</a>
+                    <a href="{{ path('comment_edit', {'id': comment.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('comment_new') }}">Create new</a>
+{% endblock %}

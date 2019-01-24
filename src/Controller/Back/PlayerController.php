@@ -29,7 +29,6 @@ class PlayerController extends AbstractController
         $pagination->setCurrentPage($page);
         $pagination->setLimit(50);
 
-
         return $this->render('Back/player/index.html.twig', [
             'pagination' => $pagination,
         ]);

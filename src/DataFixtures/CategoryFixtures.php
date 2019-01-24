@@ -11,14 +11,17 @@ class CategoryFixtures extends Fixture
     {
         $faker = \Faker\Factory::create();
 
-        for ($i = 0; $i < 20; $i++) {
+        $link = "http://localhost:8000/json/category.json";
+        $categories = json_decode(file_get_contents($link));
+
+        foreach ($categories as $category) {
             $date = $faker->dateTime();
-            $article = (new Category())
-                ->setName($faker->text(15))
+            $cat = (new Category())
+                ->setName($category->name)
                 ->setCreatedAt($date)
                 ->setUpdatedAt($date)
             ;
-            $manager->persist($article);
+            $manager->persist($cat);
         }
 
         $manager->flush();

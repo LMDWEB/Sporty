@@ -9,32 +9,34 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class CompetitionFixtures extends Fixture
+class CompetitionFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
         $faker = \Faker\Factory::create();
+        $link = "http://localhost:8000/json/competition.json";
+        $competitions = json_decode(file_get_contents($link));
 
-        $section = $manager->getRepository(Team::class)->findOneBy(['id' => 1]);
-        $conf = $manager->getRepository(Confederation::class)->findOneBy(['id' => 1]);
+        foreach ($competitions as $competition) {
 
-        $date = $faker->dateTime();
-        $team = (new Competition())
-            ->setName('Ligue 1')
-            ->setFormat(1)
-            ->setCreatedAt($date)
-            ->setUpdatedAt($date)
-            ->setSection($section)
-            ->setConfederation($conf)
-            ->setDivision(1)
-            ->setCreatedAt($date)
-            ->setUpdatedAt($date)
-            ->setTypeClub(0)
-        ;
+            $team = $manager->getRepository(Team::class)->findOneBy(['name' => $competition->section]);
+            $conf = $manager->getRepository(Confederation::class)->findOneBy(['name' => $competition->conf]);
 
-        $manager->persist($team);
-
-        $manager->flush();
+            $date = $faker->dateTime();
+            $compet = (new Competition())
+                ->setName($competition->name)
+                ->setFormat($competition->format)
+                ->setCreatedAt($date)
+                ->setUpdatedAt($date)
+                ->setSection($team)
+                ->setConfederation($conf)
+                ->setDivision($competition->division)
+                ->setCreatedAt($date)
+                ->setUpdatedAt($date)
+                ->setTypeClub($competition->type)
+            ;
+            $manager->persist($compet);
+        }
     }
 
     public function getDependencies()

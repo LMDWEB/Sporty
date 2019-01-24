@@ -10,7 +10,8 @@ class PlayerFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        $joueurs = json_decode(file_get_contents("http://localhost:8000/json/playerl1.json"));
+        $link = "http://localhost:8000/json/playerl1.json";
+        $joueurs = json_decode(file_get_contents($link));
 
         $playerArray = array();
 
@@ -30,6 +31,8 @@ class PlayerFixtures extends Fixture
             $playerArray[] = array(
                 "firstname" => $firstname,
                 "lastname" => $lastname,
+                "fullname" => $joueur->Name,
+                "position" => $joueur->Position,
                 "surname" => "",
                 "image" => "",
                 "cityBirth" => $city,
@@ -53,6 +56,9 @@ class PlayerFixtures extends Fixture
                 ->setFoot($player["foot"])
                 ->setNationality($player["nationality"])
                 ->setStatus($player["status"])
+                ->setFullname($player["firstname"])
+                ->setPosition($player["position"])
+                ->setHeight("1,87 m")
             ;
 
             $manager->persist($players);

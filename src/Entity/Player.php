@@ -29,7 +29,6 @@ class Player
         1 => 'Arbitre'
     ];
 
-
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -118,6 +117,21 @@ class Player
      * @ORM\ManyToMany(targetEntity="App\Entity\Game", mappedBy="players")
      */
     private $games;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $fullname;
+
+    /**
+     * @ORM\Column(type="string", length=10)
+     */
+    private $height;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $position;
 
     public function __construct()
     {
@@ -382,6 +396,42 @@ class Player
             $this->games->removeElement($game);
             $game->removePlayer($this);
         }
+
+        return $this;
+    }
+
+    public function getFullname(): ?string
+    {
+        return $this->fullname;
+    }
+
+    public function setFullname(string $fullname): self
+    {
+        $this->fullname = $fullname;
+
+        return $this;
+    }
+
+    public function getHeight(): ?string
+    {
+        return $this->height;
+    }
+
+    public function setHeight(string $height): self
+    {
+        $this->height = $height;
+
+        return $this;
+    }
+
+    public function getPosition(): ?string
+    {
+        return $this->position;
+    }
+
+    public function setPosition(string $position): self
+    {
+        $this->position = $position;
 
         return $this;
     }
