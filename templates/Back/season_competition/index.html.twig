@@ -20,7 +20,7 @@
     </a>
     <hr>
 
-    <table class="table table-striped table-bordered">
+    <table class="table table-striped table-bordered" id="dataTable">
         <thead class="thead-dark">
             <tr>
                 <th>#</th>
@@ -38,13 +38,13 @@
                 </td>
                 <td>{{ season_competition.numberParticipate }}</td>
                 <td>
-                    <a class="btn btn-success btn-sm" href="{{ path('season_competition_show', {'season': season_competition.season.id, 'id': season_competition.id}) }}">Afficher</a>
-                    <a class="btn btn-info btn-sm" href="{{ path('season_competition_edit', {'season': season_competition.season.id, 'id': season_competition.id}) }}">Editer</a>
+                    <a class="btn btn-success btn-sm" href="{{ path('season_competition_show', {'season': season_competition.season.id, 'id': season_competition.id}) }}">{{ 'show'|trans }}</a>
+                    <a class="btn btn-info btn-sm" href="{{ path('season_competition_edit', {'season': season_competition.season.id, 'id': season_competition.id}) }}">{{ 'edit'|trans }}</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">Aucune competitons pour cette saison</td>
+                <td colspan="6">{{ 'season_competition.nothing'|trans }}</td>
             </tr>
         {% endfor %}
         </tbody>

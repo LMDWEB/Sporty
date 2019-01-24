@@ -18,6 +18,8 @@ player:
     left: Gaucher
     both: Ambidextre
   nogames: Aucun match joué
+  nothing: Aucun joueur trouvé
+
 
 season:
   add: Ajouter une saison
@@ -27,6 +29,8 @@ season:
   year: Annee
   createdAt: Date de creation
   updatedAt: Date de modification
+  nothing: Aucune saison trouvé
+
 
 competition:
   add: Ajouter une competition
@@ -36,6 +40,8 @@ competition:
   created: Date de création
   updated: Date de modification
   archived: Archivé
+  nothing: Aucune Competition
+
 
 game:
   add: Ajouter un match
@@ -63,6 +69,8 @@ config:
   name: Configuration
   setValue: Label
   value: Valeur
+  nothing: Aucune Configuration
+
 
 todolist:
   add: Ajouter une tâche
@@ -70,12 +78,14 @@ todolist:
   list: Liste des tâches
   name: Tâches
   title: Titre
+  nothing: Aucun tache
 
 club:
   add: Ajouter un club
   edit: Modifier un club
   list: Liste des clubs
   name: Clubs
+  nothing: Aucun Club
 
 channel:
   add: Ajouter une chaîne
@@ -83,6 +93,7 @@ channel:
   list: Liste des chaîne
   name: Chaînes
   nogames: Aucun match diffusés
+  nothing: Aucune chaîne crée pour l'instant
 
 clubteam:
   add: Ajouter une équipe
@@ -90,6 +101,8 @@ clubteam:
   list: Liste des équipes
   name: Equipe
   year: Année de création
+  nothing: Aucun Club
+
 
 team:
   add: Ajouter une type équipe
@@ -97,6 +110,7 @@ team:
   list: Liste des types d'équipe
   name: Equipe
   type: Type d'équipe
+  nothing: Aucune equipe
 
 event:
   add: Ajouter un événement
@@ -104,6 +118,7 @@ event:
   list: Liste des événements
   name: Événement
   type: Type d'événement
+  nothing: Aucun événement
 
 back_list: Revenir en arrière
 delete: Supprimer
@@ -154,6 +169,7 @@ article:
   feature:
   src_post:
   src_img:
+  nothing: Aucun article
 
 user:
   name: Utilisateur
@@ -162,3 +178,34 @@ user:
   username: Login
   add : Ajouter un utilisateur
   email: Adresse e-mail
+  nothing: Aucun utilisateur trouvé
+
+category:
+  name: Catégorie
+  nothing: Aucune Categorie
+
+confederation:
+  nothing: Aucune Confederation
+
+menu:
+  nothing: Aucun menu
+
+menu_item:
+  nothing: Aucun élément du menu
+
+partnership:
+  nothing: Aucun partenaire
+
+season_competition:
+  nothing: Aucune competitons pour cette saison
+
+season_competition_team:
+  nothing: Aucune competitons pour cette équipe et cette saison
+
+thread:
+  nothing: Aucun Fil
+
+
+
+
+

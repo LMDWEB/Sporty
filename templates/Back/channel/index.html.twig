@@ -7,7 +7,7 @@
     </a>
     <hr>
 <div class="table-responsive">
-    <table class="table table-bordered" id="dataTable">
+    <table class="table table-striped table-bordered" id="dataTable">
         <thead class="thead-dark">
             <tr>
                 <th>#</th>
@@ -22,20 +22,20 @@
                 <td>{{ channel.name }}</td>
                 <td>
                     <a class="btn btn-success btn-sm" href="{{ path('channel_show', {'id': channel.id}) }}">
-                        Afficher
+                        {{ 'show'|trans }}
                     </a>
                     <a class="btn btn-info btn-sm" href="{{ path('channel_edit', {'id': channel.id}) }}">
-                        Modifier
+                        {{ 'edit'|trans }}
                     </a>
                     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-name="{{ channel.name }}" data-target="#delete-modal" data-action="{{ path('channel_delete' , {id:channel.id}) }}" data-crsf="{{ csrf_token('delete' ~ channel.id) }}">
-                        Supprimer
+                        {{ 'delete'|trans }}
                     </button>
 
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3"> Aucune chaîne crée pour l'instant </td>
+                <td colspan="3"> {{ 'channel.nothing'|trans }} </td>
             </tr>
         {% endfor %}
         </tbody>

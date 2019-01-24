@@ -8,8 +8,8 @@
     </a>
     <hr>
 <div class="table-responsive">
-    <table class="table table-bordered" id="dataTable">
-        <thead>
+    <table class="table table-striped table-bordered" id="dataTable">
+        <thead class="thead-dark">
             <tr>
                 <th>{{ 'name'|trans }}</th>
                 <th>{{ 'type'|trans }}</th>
@@ -33,13 +33,13 @@
                 <td>{{ configuration.createdAt ? configuration.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ configuration.updatedAt ? configuration.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('configuration_show', {'id': configuration.id}) }}">show</a>
-                    <a href="{{ path('configuration_edit', {'id': configuration.id}) }}">edit</a>
+                    <a class="btn btn-success btn-sm"  href="{{ path('configuration_show', {'id': configuration.id}) }}">{{ 'show'|trans }}</a>
+                    <a class="btn btn-info btn-sm"  href="{{ path('configuration_edit', {'id': configuration.id}) }}">{{ 'edit'|trans }}</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">{{ 'nothing'|trans }}</td>
+                <td colspan="6">{{ 'config.nothing'|trans }}</td>
             </tr>
         {% endfor %}
         </tbody>

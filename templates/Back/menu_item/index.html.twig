@@ -16,8 +16,8 @@
     </a>
     <hr>
 <div class="table-responsive">
-    <table class="table table-bordered" id="dataTable">
-        <thead>
+    <table class="table table-striped table-bordered" id="dataTable">
+        <thead class="thead-dark">
             <tr>
                 <th>Id</th>
                 <th>Name</th>
@@ -36,13 +36,13 @@
                 <td>{{ menu_item.icon }}</td>
                 <td>{{ menu_item.color }}</td>
                 <td>
-                    <a href="{{ path('menu_item_show', {'id': menu_item.id}) }}">show</a>
-                    <a href="{{ path('menu_item_edit', {'id': menu_item.id}) }}">edit</a>
+                    <a class="btn btn-success btn-sm" href="{{ path('menu_item_show', {'id': menu_item.id}) }}">{{ 'show'|trans }}</a>
+                    <a class="btn btn-info btn-sm" href="{{ path('menu_item_edit', {'id': menu_item.id}) }}">{{ 'edit'|trans }}</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td colspan="6">{{ 'menu_item.nothing'|trans }}</td>
             </tr>
         {% endfor %}
         </tbody>
