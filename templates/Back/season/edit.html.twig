@@ -9,9 +9,5 @@
 {% endblock %}
 
 {% block body %}
-    {{ include('Back/season/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('season_index') }}">{{ 'back_list'|trans }}</a>
-
-    {{ include('Back/season/_delete_form.html.twig') }}
+    {{ include('Back/season/_form.html.twig', {button_name: 'Mettre à jour' , icon: 'pen', class: 'info'}) }}
 {% endblock %}

@@ -1,4 +1,12 @@
 {{ form_start(form) }}
     {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+<button class="btn btn-{{ class }}">
+    <i class="fas fa-fw fa-{{ icon }}"></i>
+    {{ button_name }}
+</button>
+
+<a style="margin-top: 20px" class="btn btn-secondary" href="{{ path('player_index') }}">
+    {{ 'cancel'|trans }}
+</a>
+
 {{ form_end(form) }}

@@ -2,9 +2,13 @@
 
 {% block title %}{{ 'season.add'|trans }}{% endblock %}
 
+{% block breadcrumb %}
+    <li class="breadcrumb-item">
+        <a href="{{ path('season_index') }}">{{ 'season.name'|trans }}</a>
+    </li>
+{% endblock %}
+
 {% block body %}
 
-    {{ include('Back/season/_form.html.twig') }}
-
-    <a href="{{ path('season_index') }}">{{ 'back_list'|trans }}</a>
+    {{ include('Back/season/_form.html.twig', {button_name: 'Ajouter' , icon: 'plus', class: 'success'}) }}
 {% endblock %}

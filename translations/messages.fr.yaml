@@ -24,6 +24,9 @@ season:
   edit: Modifier une saison
   list: Liste des saisons
   name: Saison
+  year: Annee
+  createdAt: Date de creation
+  updatedAt: Date de modification
 
 competition:
   add: Ajouter une competition
