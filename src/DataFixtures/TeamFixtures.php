@@ -28,7 +28,6 @@ class TeamFixtures extends Fixture
             $manager->persist($teams);
         }
 
-        $manager->persist($team);
         $manager->flush();
     }
 }

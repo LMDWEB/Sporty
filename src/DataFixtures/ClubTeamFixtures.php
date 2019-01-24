@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Club;
 use App\Entity\ClubTeam;
+use App\Entity\Stadium;
 use App\Entity\Team;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -16,17 +17,19 @@ class ClubTeamFixtures extends Fixture implements DependentFixtureInterface
 
         $clubs =  $manager->getRepository(Club::class)->findAll();
         $teams =  $manager->getRepository(Team::class)->findAll();
+        $stadium =  $manager->getRepository(Stadium::class)->findAll();
 
         foreach ($clubs as  $club) {
             foreach ($teams as  $team) {
 
                 $clubTeam = new ClubTeam();
                 $clubTeam
-                    ->setName("")
-                    ->setTeam("")
-                    ->setYearCreation('')
+                    ->setName($club->getName() . " " . $team->getName())
+                    ->setTeam($team)
+                    ->setYearCreation('1970')
                     ->setAddress("")
-                    ->setClub("")
+                    ->setClub($club)
+                    ->setStadium($stadium[array_rand($stadium)])
                 ;
 
                 $manager->persist($clubTeam);
@@ -40,7 +43,8 @@ class ClubTeamFixtures extends Fixture implements DependentFixtureInterface
     {
         return [
             ClubFixtures::class,
-            TeamFixtures::class
+            TeamFixtures::class,
+            StadiumFixtures::class
         ];
     }
 }
