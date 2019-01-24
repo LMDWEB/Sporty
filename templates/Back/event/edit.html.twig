@@ -13,11 +13,7 @@
 {% endblock %}
 
 {% block body %}
-    {{ include('Back/event/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('event_index') }}">{{ 'back_list'|trans }}</a>
-
-    {{ include('Back/event/_delete_form.html.twig') }}
+    {{ include('Back/event/_form.html.twig' , {button_name: 'Mettre à jour' , icon: 'pen', class: 'info'}) }}
 {% endblock %}
 {% block javascripts %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.js"></script>

@@ -24,6 +24,9 @@ season:
   edit: Modifier une saison
   list: Liste des saisons
   name: Saison
+  year: Annee
+  createdAt: Date de creation
+  updatedAt: Date de modification
 
 competition:
   add: Ajouter une competition
@@ -50,6 +53,7 @@ game:
   add_players: Ajouter des joueurs
   noplayers: Aucun joueur
   nochannel: Aucune chaîne
+  nothing: Aucun match
 
 
 config:
@@ -142,11 +146,11 @@ date:
   end: Fin de contrat
 
 article:
-  name:
-  resume:
-  content:
-  category:
-  date:
+  name: Articles
+  resume: Resumé
+  content: Contenu
+  category: Categorie
+  date: Date
   feature:
   src_post:
   src_img:

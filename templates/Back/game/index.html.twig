@@ -37,13 +37,13 @@
                         {{ 'edit'|trans }}
                     </a>
                     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-name="{{ game.name }}" data-target="#delete-modal" data-action="{{ path('game_delete' , {id:game.id}) }}" data-crsf="{{ csrf_token('delete' ~ game.id) }}">
-                        Supprimer
+                        {{ 'delete'|trans }}
                     </button>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="8">{{ 'nothing'|trans }}</td>
+                <td colspan="8">{{ 'game.nothing'|trans }}</td>
             </tr>
         {% endfor %}
         </tbody>

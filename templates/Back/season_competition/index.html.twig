@@ -1,6 +1,12 @@
 {% extends 'Back/base.html.twig' %}
 
-{% block title %}{{ 'competition.name'|trans }}{% endblock %}
+{% block title %}{{ 'competition.list'|trans }}{% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item">
+        <a href="{{ path('season_index') }}">{{ 'season.name'|trans }} {{ season.seasonYear }}</a>
+    </li>
+{% endblock %}
 
 {% block style %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.css">
@@ -8,35 +14,42 @@
 
 {% block body %}
 
-    <table class="table">
-        <thead>
+    <a class="btn btn-success" href="{{ path('season_competition_new', {'season': season.id}) }}">
+        <i class="fas fa-fw fa-plus"></i>
+        Ajouter une compétition à la saison
+    </a>
+    <hr>
+
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
             <tr>
+                <th>#</th>
                 <th>Compétition</th>
-                <th>NumberParticipate</th>
-                <th>actions</th>
+                <th>Nombre de participants</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for season_competition in seasonCompetitions %}
             <tr>
+                <td>{{ season_competition.id }}</td>
                 <td>
                     <a href="{{ path('season_competition_team_index', {'season': season.id, 'id': season_competition.id}) }}">{{ season_competition.competition.name }}</a>
                 </td>
                 <td>{{ season_competition.numberParticipate }}</td>
                 <td>
-                    <a href="{{ path('season_competition_show', {'season': season_competition.season.id, 'id': season_competition.id}) }}">show</a>
-                    <a href="{{ path('season_competition_edit', {'season': season_competition.season.id, 'id': season_competition.id}) }}">edit</a>
+                    <a class="btn btn-success btn-sm" href="{{ path('season_competition_show', {'season': season_competition.season.id, 'id': season_competition.id}) }}">Afficher</a>
+                    <a class="btn btn-info btn-sm" href="{{ path('season_competition_edit', {'season': season_competition.season.id, 'id': season_competition.id}) }}">Editer</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td colspan="6">Aucune competitons pour cette saison</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('season_competition_new', {'season': season.id}) }}">Create new</a>
 {% endblock %}
 {% block javascripts %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.js"></script>
