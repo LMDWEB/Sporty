@@ -12,7 +12,7 @@
         {% for player in pagination.data %}
             <div class="col-sm-4">
                 <div class="card" style="width: 18rem;margin-bottom: 20px">
-                    <img class="card-img-top" src="{{ (player.image) ? vich_uploader_asset(player, 'imageFile') : asset('player-default.jpg') }}" alt="{{ player.firstname }} {{ player.lastname }}">
+                    <img class="card-img-top" src="{{ (player.imageName) ? vich_uploader_asset(player, 'imageFile') : asset('player-default.jpg') }}" alt="{{ player.firstname }} {{ player.lastname }}">
                     <div class="card-body">
                         <h5 class="card-title"><a href="{{ path('player_show', {'id': player.id}) }}">{{ player.firstname }} {{ player.lastname }}</a> <img src="https://www.countryflags.io/{{ player.nationality }}/flat/32.png"></h5>
                     </div>
