@@ -146,11 +146,11 @@ date:
   end: Fin de contrat
 
 article:
-  name:
-  resume:
-  content:
-  category:
-  date:
+  name: Articles
+  resume: Resumé
+  content: Contenu
+  category: Categorie
+  date: Date
   feature:
   src_post:
   src_img:

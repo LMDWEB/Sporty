@@ -8,17 +8,15 @@
 </a>
 <hr>
 <div class="table-responsive">
-    <table class="table table-bordered" id="dataTable">
-        <thead>
+    <table class="table table-bordered table-striped" id="dataTable">
+        <thead class="thead-dark">
             <tr>
-                <th>Title</th>
+                <th>Titre</th>
                 <th>Date</th>
                 <th>Featured</th>
                 <th>Views</th>
-                <th>CreatedAt</th>
-                <th>UpdatedAt</th>
-                <th>Published</th>
-                <th>actions</th>
+                <th>Publié</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -28,17 +26,15 @@
                 <td>{{ article.date ? article.date|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ article.featured ? 'Yes' : 'No' }}</td>
                 <td>{{ article.views }}</td>
-                <td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ article.updatedAt ? article.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ article.published ? 'Yes' : 'No' }}</td>
                 <td>
-                    <a href="{{ path('article_show', {'id': article.id}) }}">show</a>
-                    <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
+                    <a class="btn btn-success btn-sm" href="{{ path('article_show', {'id': article.id}) }}">Afficher</a>
+                    <a class="btn btn-info btn-sm" href="{{ path('article_edit', {'id': article.id}) }}">Editer</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="17">no records found</td>
+                <td colspan="17">Aucun article</td>
             </tr>
         {% endfor %}
         </tbody>
