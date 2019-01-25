@@ -28,7 +28,7 @@
                     <div class="kode-pagecontent col-md-9">
                         <div class="kode-blog-list kode-fullwidth-blog">
                             <ul class="row">
-                                {% for post in articles %}
+                                {% for post in articles.data %}
                                 <li class="col-md-12">
                                     <div class="kode-time-zoon">
                                         <time datetime="{{ post.date ? post.date|date('Y-m-d H:i:s') : '' }}">{{ post.date ? post.date|date('d') : '' }} <span>{{ post.date ? post.date|date('M') : '' }}</span></time>
@@ -36,7 +36,11 @@
                                     </div>
                                     <figure>
                                         <a href="{{ path('article', { 'slug': post.slug }) }}">
-                                            <img src="https://psgimages.stadion.io/media/13202/tuchel.jpg?center=0.37113402061855671,0.31782945736434109&mode=crop&width=2000&height=1125&quality=80" alt="">
+                                            {% if post.image %}
+                                                <img src="{{ vich_uploader_asset(post.image, 'imageFile')|default(asset('extra-images/recentblog-1.jpg')) }}" alt="">
+                                            {% else %}
+                                                <img src="{{ asset('extra-images/recentblog-1.jpg') }}" alt="">
+                                            {% endif %}
                                         </a>
                                     </figure>
                                     <div class="kode-blog-info">
@@ -50,16 +54,6 @@
                                 </li>
                                 {% endfor %}
                             </ul>
-                            <!--// Pagination //-->
-                            <div class="pagination">
-                                <a href="#"><i class="fa fa-angle-double-left"></i></a>
-                                <a href="#">1</a>
-                                <a href="#">2</a>
-                                <span>3</span>
-                                <a href="#">4</a>
-                                <a href="#"><i class="fa fa-angle-double-right"></i></a>
-                            </div>
-                            <!--// Pagination //-->
                         </div>
                     </div>
                     <aside class="kode-pagesidebar col-md-3">
