@@ -9,9 +9,7 @@ Fonctionnalitées :
 
 Espace utilisateur
 Gestion des rôles des utilisations
-Modération des commentaires
-Système de messagerie
-Système de notification
+
 
 Système de :
 Article
@@ -27,9 +25,6 @@ Compétition
 Configuration
 Partenariat
 
-Système de recherche
-Système de commentaire avec like et mention.
-Connexion avec gmail, facebook et twitter
 Documentation pour l’installation du CMS
 Espace communautaire (plugin)
 Création de template
@@ -40,8 +35,6 @@ Système de newsletter et flux rss
 Système de composition d’équipe
 Système de mercato (bonus)
 Système de live score (commenter les actions du match)
-
-
 
 
 Front :
@@ -109,6 +102,6 @@ Achat de nom de domaine + hébergement (hors projet symfony)
     php bin/console make:migration    
     php bin/console doctrine:migrations:migrate
     php bin/console doctrine:fixtures:load
-    npm i
-    npm run dev-server
+    yarn install
+    yarn encore dev
     php bin/console server:run
