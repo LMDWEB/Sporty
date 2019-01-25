@@ -28,7 +28,7 @@ class GameFixtures extends Fixture implements DependentFixtureInterface
         $stadium =  $manager->getRepository(Stadium::class)->findAll();
         $season =  $manager->getRepository(Season::class)->findAll();
 
-        for ($i = 0; $i < 50; $i++) {
+        for ($i = 0; $i < 100; $i++) {
 
             $game = (new Game())
                 ->setTeamHome($clubH[array_rand($clubH)])
@@ -39,6 +39,7 @@ class GameFixtures extends Fixture implements DependentFixtureInterface
                 ->setSeason($season[array_rand($season)])
                 ->setMatchday($faker->numberBetween(0, 38))
                 ->setName("game")
+                ->setDate($faker->dateTime)
             ;
             $manager->persist($game);
         }

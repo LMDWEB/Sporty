@@ -6,6 +6,7 @@ use App\Entity\Article;
 use App\Entity\Category;
 use App\Entity\Club;
 use App\Entity\ClubTeam;
+use App\Entity\GalleryImage;
 use App\Entity\Game;
 use App\Entity\Player;
 use App\Entity\Thread;
@@ -33,6 +34,16 @@ class ArticleType extends AbstractType
             ->add('resume', TextType::class, array(
                 'attr' => array('class' => 'form-control')
             ))
+            ->add('image', EntityType::class, [
+                'label'        => 'Image',
+                'class'        => GalleryImage::class,
+                'choice_label' => function ($image) {
+                    return "images/players/".$image->getImageName();
+                },
+                'multiple'     => false,
+                'required'     => false,
+                'attr' => array('id' => 'gallerie_image')
+            ])
             ->add('content', TextareaType::class, array(
                 'attr' => array('class' => 'form-control')
             ))

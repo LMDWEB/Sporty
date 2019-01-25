@@ -126,6 +126,12 @@ class Article
      */
     private $game;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\GalleryImage", inversedBy="articles")
+     */
+
+    private $image;
+
     public function __construct()
     {
         $this->player = new ArrayCollection();
@@ -437,6 +443,18 @@ class Article
         if ($this->game->contains($game)) {
             $this->game->removeElement($game);
         }
+
+        return $this;
+    }
+
+    public function getImage(): ?GalleryImage
+    {
+        return $this->image;
+    }
+
+    public function setImage(?GalleryImage $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }

@@ -14,7 +14,7 @@
                         <img src="http://lmdpsg.diegowaziri.fr/ckfinder/userfiles/files/newdefault.jpg" alt="" />
                         <div class="container">
                             <div class="kode-caption">
-                                <h2>{{ feature.title }}</h2>
+                                <h2><a href="{{ path('article', { 'slug': feature.slug }) }}">{{ feature.title }}</a></h2>
                                 <div class="clearfix"></div>
                                 <p>{{ feature.resume }}</p>
                                 <div class="clearfix"></div>

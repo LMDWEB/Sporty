@@ -35,7 +35,11 @@
                                         <h1>{{ article.category.name }} : {{ article.title }}</h1>
                                     </div>
                                     <figure>
-                                        <img src="https://psgimages.stadion.io/media/18072/0730-psg-atletico-madrid.jpg?anchor=center&mode=crop&width=2000&height=1333&quality=80" alt="">
+                                        {% if article.image %}
+                                            <img src="{{ vich_uploader_asset(article.image, 'imageFile')|default(asset('images/players/default.jpg')) }}" alt="">
+                                        {% else %}
+                                            <img src="{{ asset('extra-images/recentblog-1.jpg') }}" alt="">
+                                        {% endif %}
                                     </figure>
                                     <div class="kode-blog-info">
                                         <ul class="kode-blog-options">
