@@ -272,7 +272,8 @@ Sidebar heading:	'Oswald', sans-serif;
       overflow: hidden;
       &:before {
         content: "\f106";
-        font-family: FontAwesome;
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
         width: 18px;
         height: 9px;
         position: absolute;
@@ -353,7 +354,8 @@ Sidebar heading:	'Oswald', sans-serif;
         border-bottom: 1px solid #3e3e3e;
         &:before {
           content: "\f105";
-          font-family: FontAwesome;
+          font-family: "Font Awesome 5 Free";
+          font-weight: 900;
           display: inline-block;
           padding: 0px 14px 0px 0px;
         }
@@ -657,10 +659,15 @@ Sidebar heading:	'Oswald', sans-serif;
   font-size: 12px;
   text-transform: uppercase;
   padding: 6px 35px;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.3) inset;
+  //box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.3) inset;
   border: 7px solid #04275F;
+
   &:hover {
-    opacity: 0.7;
+    //opacity: 0.7;
+    text-decoration: none;
+    background-color: #ea202e;
+    border: 7px solid #ea202e;
+    transition: all 0.1s cubic-bezier(0.18, 0.89, 0.32, 1.28);
   }
 }
 
@@ -1057,12 +1064,12 @@ Sidebar heading:	'Oswald', sans-serif;
     margin-left: 3px;
     a {
       display: inline-block;
-      border: 1px solid #e6e6e6;
+      //border: 1px solid #e6e6e6;
       color: #999999;
       width: 26px;
       height: 26px;
       text-align: center;
-      padding: 5px 0px 0px 0px;
+      padding: 0px ;
     }
   }
 }
@@ -2046,6 +2053,9 @@ blockquote {
     border: 1px solid #e2e2e2;
     box-shadow: 0px 2px 0px 0px #e2e2e2;
   }
+  li{
+    list-style: none;
+  }
 }
 
 /* Partner css ends */
@@ -2059,6 +2069,7 @@ blockquote {
   height: 150px;
   position: relative;
   margin-bottom: 20px;
+  margin-top: 1%;
 }
 
 .subheader-height {
@@ -2100,8 +2111,9 @@ blockquote {
     padding: 0px 15px;
     position: relative;
     &:before {
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
       content: "\f101";
-      font-family: FontAwesome;
       position: absolute;
       right: -5px;
       top: 0px;
@@ -2400,7 +2412,8 @@ blockquote {
   &:before {
     color: #ddd;
     content: "\f005 \f005 \f005 \f005 \f005";
-    font-family: 'FontAwesome';
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
     font-size: 16px;
     left: 0;
     letter-spacing: 4px;
@@ -2413,7 +2426,8 @@ blockquote {
   &:before {
     color: #ddd;
     content: "\f005 \f005 \f005 \f005 \f005";
-    font-family: 'FontAwesome';
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
     font-size: 16px;
     left: 0;
     letter-spacing: 4px;
@@ -2718,6 +2732,7 @@ blockquote {
   width: 100%;
   text-align: center;
   padding: 25px 0px 80px 0px;
+  margin-top: 15%;
   h2 {
     font-size: 40px;
     text-transform: uppercase;
@@ -2757,7 +2772,8 @@ blockquote {
       margin: 0px;
       &:before {
         content: "\f002";
-        font-family: FontAwesome;
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
         position: absolute;
         right: 15px;
         top: 16px;
@@ -2843,7 +2859,8 @@ blockquote {
       margin: 0px;
       &:before {
         content: "\f1d8";
-        font-family: FontAwesome;
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
         position: absolute;
         right: 20px;
         top: 12px;
@@ -3087,7 +3104,7 @@ blockquote {
     float: none;
     text-align: center;
     display: inline-block;
-    padding: 15px 0 5px;
+    padding: 0px 0 1px;
   }
 }
 
@@ -3465,7 +3482,7 @@ blockquote {
       height: 9px;
       width: 9px;
       border-radius: 100%;
-      background-color: #db2d14;
+      background-color: #ea202e;
       position: absolute;
       left: 27%;
       bottom: -4px;
@@ -3475,7 +3492,7 @@ blockquote {
       height: 9px;
       width: 9px;
       border-radius: 100%;
-      background-color: #db2d14;
+      background-color: #ea202e;
       position: absolute;
       left: 27%;
       bottom: -4px;
@@ -3620,7 +3637,7 @@ blockquote {
 }
 
 .youtube-bg1 {
-  background-color: #ba0204;
+  background-color: #ea202e;
 }
 
 .linkedin-bg1 {
@@ -3742,7 +3759,8 @@ blockquote {
     background-color: #fff;
     padding: 5px;
     font-size: 40px;
-    font-family: FontAwesome;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
     height: 50px;
     width: 50px;
     position: absolute;
@@ -3752,7 +3770,7 @@ blockquote {
     top: -25px;
     z-index: 10;
     text-align: center;
-    color: #7dbd22;
+    color: #ea202e;
   }
   ul {
     float: left;
@@ -3797,7 +3815,7 @@ blockquote {
     h4 {
       font-size: 14px;
       font-weight: bold;
-      color: #7dbd22;
+      color: #ea202e;
       margin-bottom: 10px;
     }
   }
@@ -3812,14 +3830,15 @@ blockquote {
       }
       &:before {
         content: "\f104";
-        font-family: FontAwesome;
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
         font-size: 40px;
         left: 0;
         line-height: 30px;
         position: absolute;
         text-align: center;
         width: 100%;
-        color: #7dbd22;
+        color: #ea202e;
       }
     }
     .bxslider > li {
@@ -4032,7 +4051,7 @@ section {
     list-style: none;
     text-align: center;
     i {
-      color: #ffffff;
+      color: #04275f;
       margin: 0px 0px 18px 0px;
     }
     span {
@@ -4227,4 +4246,8 @@ a.news_une {
 
 .btn-pref .btn {
   -webkit-border-radius: 0 !important;
+}
+
+.project_fact_inline {
+  background: #ea202e;
 }

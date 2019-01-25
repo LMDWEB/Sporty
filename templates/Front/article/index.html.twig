@@ -3,6 +3,8 @@
 {% block title %} {{ article.category.name }} : {{ article.title }}{% endblock %}
 
 {% block body %}
+
+
     <!--// Main Content //-->
     <div class="kode-content">
         <div class="kode-subheader subheader-height">
@@ -14,8 +16,9 @@
                     <div class="col-md-6">
                         <ul class="kode-breadcrumb">
                             <li><a href="#">Accueil</a></li>
-                            <li><a href="#">{{ article.category.name }}</a></li>
-                            <li><a href="#">{{ article.title }}</a></li>
+                            <li><a href="#">Articles</a></li>
+                            {#<li><a href="#">{{ article.category.name }}</a></li>
+                            <li><a href="#">{{ article.title }}</a></li>#}
                         </ul>
                     </div>
                 </div>
@@ -32,7 +35,7 @@
                                 <li class="col-md-12">
                                     <div class="kode-time-zoon">
                                         <time datetime="{{ article.date ? article.date|date('Y-m-d H:i:s') : '' }}">{{ article.date ? article.date|date('d') : '' }} <span>{{ article.date ? article.date|date('M') : '' }}</span></time>
-                                        <h1>{{ article.category.name }} : {{ article.title }}</h1>
+                                        <h5>{{ article.category.name }} : {{ article.title }}</h5>
                                     </div>
                                     <figure>
                                         <img src="https://psgimages.stadion.io/media/18072/0730-psg-atletico-madrid.jpg?anchor=center&mode=crop&width=2000&height=1333&quality=80" alt="">
@@ -44,9 +47,9 @@
                                             <li><a href="#"><i class="fa fa-warning"></i>Signaler une erreur</a></li>
                                         </ul>
                                         <ul class="kode-team-network">
-                                            <li><a class="fab fa-facebook" href="#"></a></li>
-                                            <li><a class="fab fa-twitter" href="#"></a></li>
-                                            <li><a class="fab fa-linkedin" href="#"></a></li>
+                                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
                                         </ul>
                                     </div>
                                 </li>

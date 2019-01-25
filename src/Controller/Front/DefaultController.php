@@ -45,8 +45,8 @@ class DefaultController extends AbstractController
         $partnerRepo = $this->getDoctrine()->getRepository(Partnership::class);
 
         $featured = $articleRepo->findBy(['featured' => 1, 'published' => 1, 'type' => 0], ['date' => 'DESC'], 3, 0);
-        $lastestNews = $articleRepo->findBy(['published' => 1, 'type' => 0], ['date' => 'DESC'], 6, 0);
-        $mercatoNews = $articleRepo->findBy(['published' => 1, 'category' => 1, 'type' => 0], ['date' => 'DESC'], 6, 0);
+        $lastestNews = $articleRepo->findBy(['published' => 1, 'type' => 0], ['date' => 'DESC'], 3, 0);
+        $mercatoNews = $articleRepo->findBy(['published' => 1, 'category' => 1, 'type' => 0], ['date' => 'DESC'], 3, 0);
         $partners = $partnerRepo->findBy([]);
 
         return $this->render('Front/Default/home.html.twig', [

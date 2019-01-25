@@ -1,5 +1,33 @@
-<div class="container">
-    <h1>Oups ! La page que vous recherchez n'existe pas !</h1>
-    <p>On a surement du mal vous renseigner ! Aucun soucis, vous pouvez retourner à l'accueil.</p>
-    <a href="{{ path('homepage') }}" class="btn btn-primary">Retour à l'accueil</a>
-</div>
+{% extends 'Front/base.html.twig' %}
+
+{% block title %}Administration{% endblock %}
+
+{% block body %}
+
+    <!--// Main Content //-->
+    <div class="kode-content">
+
+        <!--// Page Content //-->
+        <section class="kode-pagesection">
+            <div class="container">
+                <div class="row">
+
+                    <div class="kode-pagecontent col-md-12">
+
+                        <div class="kode-404-page">
+                            <img src="images/404.png" alt="">
+                            <h1 class="thcolor">404</h1>
+                            <h2 class="thcolor">ERROR</h2>
+                            <span>You can go back to Home Page and search what you are looking for</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!--// Page Content //-->
+
+    </div>
+{% endblock %}

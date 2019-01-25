@@ -1,7 +1,33 @@
-<div class="container">
-    <h1>L'accès à cette page est interdit !</h1>
-    <div class="alert alert-danger">
-        <p>Vous n'avez pas le droit d'accéder à cette ressource ! Vous pouvez retourner à l'accueil.</p>
-    </div>
-    <a href="{{ path('homepage') }}" class="btn btn-primary">Retour à l'accueil</a>
+{% extends 'Front/base.html.twig' %}
+
+{% block title %}Administration{% endblock %}
+
+{% block body %}
+
+<!--// Main Content //-->
+<div class="kode-content">
+
+    <!--// Page Content //-->
+    <section class="kode-pagesection">
+        <div class="container">
+            <div class="row">
+
+                <div class="kode-pagecontent col-md-12">
+
+                    <div class="kode-404-page">
+                        <img src="images/404.png" alt="">
+                        <h1 class="thcolor">403</h1>
+                        <h2 class="thcolor">FORBIDDEN</h2>
+                        <span>You can go back to Home Page and search what you are looking for</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!--// Page Content //-->
+
 </div>
+{% endblock %}
