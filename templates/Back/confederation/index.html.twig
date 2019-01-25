@@ -1,16 +1,22 @@
 {% extends 'Back/base.html.twig' %}
-{% block title %}Liste des articles{% endblock %}
+{% block title %}{{ 'confederation.list'|trans }}{% endblock %}
+
 
 {% block body %}
-    <h1>Confederation index</h1>
 
-    <table class="table">
-        <thead>
+    <a class="btn btn-success" href="{{ path('confederation_new') }}">
+        <i class="fas fa-fw fa-plus"></i>
+        {{ 'confederation.add'|trans }}
+    </a>
+    <hr>
+
+    <table class="table table-striped table-bordered" id="dataTable">
+        <thead class="thead-dark">
             <tr>
-                <th>Id</th>
+                <th>#</th>
                 <th>Name</th>
                 <th>Continent</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -18,19 +24,22 @@
             <tr>
                 <td>{{ confederation.id }}</td>
                 <td>{{ confederation.name }}</td>
-                <td>{{ confederation.continent }}</td>
+                <td>{{ confederation.getContinentName() }}</td>
                 <td>
-                    <a href="{{ path('confederation_show', {'id': confederation.id}) }}">show</a>
-                    <a href="{{ path('confederation_edit', {'id': confederation.id}) }}">edit</a>
+                    <a class="btn btn-success btn-sm" href="{{ path('confederation_show', {'id': confederation.id}) }}">
+                        {{ 'show'|trans }}
+                    </a>
+                    <a class="btn btn-info btn-sm" href="{{ path('confederation_edit', {'id': confederation.id}) }}">
+                        {{ 'edit'|trans }}
+                    </a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">{{ 'confederation.nothing'|trans }}</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('confederation_new') }}">Create new</a>
 {% endblock %}

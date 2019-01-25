@@ -9,7 +9,7 @@
     </a>
     <hr>
 <div class="table-responsive">
-    <table class="table table-bordered" id="dataTable">
+    <table class="table table-striped table-bordered" id="dataTable">
         <thead class="thead-dark">
             <tr>
                 <th>#</th>
@@ -44,7 +44,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="10">Aucun événement crée</td>
+                <td colspan="10">{{ 'event.nothing'|trans }}</td>
             </tr>
         {% endfor %}
         </tbody>

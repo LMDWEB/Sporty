@@ -9,15 +9,15 @@
     </a>
     <hr>
 <div class="table-responsive">
-    <table class="table table-bordered" id="dataTable">
-        <thead>
+    <table class="table table-striped table-bordered" id="dataTable">
+        <thead class="thead-dark">
             <tr>
-                <th>Id</th>
+                <th>#</th>
                 <th>Name</th>
                 <th>Description</th>
                 <th>Image</th>
-                <th>Link</th>
-                <th>actions</th>
+                <th>Lien</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -29,13 +29,13 @@
                 <td>{{ partnership.image }}</td>
                 <td>{{ partnership.link }}</td>
                 <td>
-                    <a href="{{ path('partnership_show', {'id': partnership.id}) }}">show</a>
-                    <a href="{{ path('partnership_edit', {'id': partnership.id}) }}">edit</a>
+                    <a class="btn btn-success btn-sm" href="{{ path('partnership_show', {'id': partnership.id}) }}">{{ 'show'|trans }}</a>
+                    <a class="btn btn-info btn-sm" href="{{ path('partnership_edit', {'id': partnership.id}) }}">{{ 'edit'|trans }}</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td colspan="6">{{ 'partnership.nothing'|trans }}</td>
             </tr>
         {% endfor %}
         </tbody>

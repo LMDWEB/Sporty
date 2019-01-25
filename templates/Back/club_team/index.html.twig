@@ -9,13 +9,13 @@
 <hr>
 <div class="table-responsive">
     <table class="table table-striped table-bordered" id="dataTable">
-        <thead>
+        <thead class="thead-dark">
             <tr>
                 <th>Club</th>
                 <th>Section</th>
-                <th>Year_creation</th>
-                <th>Stadium</th>
-                <th>actions</th>
+                <th>Date de création</th>
+                <th>Stade</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -32,13 +32,17 @@
                 <td>{{ club_team.yearCreation }}</td>
                 <td>{{ club_team.stadium.name }}</td>
                 <td>
-                    <a href="{{ path('club_team_show', {'id': club_team.id}) }}">show</a>
-                    <a href="{{ path('club_team_edit', {'id': club_team.id}) }}">edit</a>
+                    <a class="btn btn-success btn-sm" href="{{ path('club_team_show', {'id': club_team.id}) }}">
+                        {{ 'show'|trans }}
+                    </a>
+                    <a class="btn btn-info btn-sm" href="{{ path('club_team_edit', {'id': club_team.id}) }}">
+                        {{ 'edit'|trans }}
+                    </a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="8">{{ 'nothing'|trans }}</td>
+                <td colspan="8">{{ 'club_team.nothing'|trans }}</td>
             </tr>
         {% endfor %}
         </tbody>

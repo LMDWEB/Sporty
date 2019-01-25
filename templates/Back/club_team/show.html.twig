@@ -7,10 +7,10 @@
     </li>
 {% endblock %}
 {% block body %}
-    <table class="table">
+    <table class="table table-striped table-bordered">
         <tbody>
             <tr>
-                <th>Id_club</th>
+                <th>#</th>
                 <td>{{ club_team.club.id }}</td>
             </tr>
             <tr>
@@ -27,7 +27,7 @@
             </tr>
             <tr>
                 <th>Stadium</th>
-                <td>{{ club_team.team.stadium }}</td>
+                <td>{{ club_team.stadium.name }}</td>
             </tr>
         </tbody>
     </table>

@@ -1,11 +1,15 @@
 {% extends 'Back/base.html.twig' %}
 
-{% block title %}Liste des articles{% endblock %}
+{% block title %}{{ 'confederation.add'|trans }}{% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item">
+        <a href="{{ path('confederation_index') }}">{{ 'confederation.name'|trans }}</a>
+    </li>
+{% endblock %}
 
 {% block body %}
-    <h1>Create new Confederation</h1>
 
-    {{ include('back/confederation/_form.html.twig') }}
+    {{ include('back/confederation/_form.html.twig', {button_name: 'Ajouter' , icon: 'plus', class: 'success'}) }}
 
-    <a href="{{ path('confederation_index') }}">back to list</a>
 {% endblock %}

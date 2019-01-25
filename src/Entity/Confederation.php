@@ -11,6 +11,18 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Confederation
 {
+
+    const CONTINENT = [
+        0 => 'Europe',
+        1 => 'Afrique',
+        2 => 'Asie',
+        3 => 'Amérique du Nord',
+        4 => 'Amérique du Sud',
+        5 => 'Océanie',
+        6 => 'Monde'
+    ];
+
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -58,6 +70,11 @@ class Confederation
     public function getContinent(): ?int
     {
         return $this->continent;
+    }
+
+    public function getContinentName(): ?string
+    {
+        return self::CONTINENT[$this->continent];
     }
 
     public function setContinent(int $continent): self
