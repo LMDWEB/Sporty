@@ -199,6 +199,11 @@ menu_item:
 
 partnership:
   nothing: Aucun partenaire
+  add: Ajouter une partenaire
+  edit: Modifier un partenaire
+  list: Liste des partenaire
+  name: Partenaire
+  type: Type de partenaire
 
 season_competition:
   nothing: Aucune competitons pour cette saison
