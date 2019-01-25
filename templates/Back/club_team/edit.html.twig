@@ -10,9 +10,6 @@
 
 {% block body %}
 
-    {{ include('back/club_team/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('Back/club_team/_form.html.twig' , {button_name: 'Mettre à jour' , icon: 'pen', class: 'info'}) }}
 
-    <a href="{{ path('club_team_index') }}">{{ 'back_list'|trans }}</a>
-
-    {{ include('back/club_team/_delete_form.html.twig') }}
 {% endblock %}

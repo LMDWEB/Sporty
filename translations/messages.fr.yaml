@@ -102,7 +102,7 @@ clubteam:
   list: Liste des équipes
   name: Equipe
   year: Année de création
-  nothing: Aucun Club
+  nothing: Aucun Equipe
 
 
 team:
@@ -170,6 +170,9 @@ article:
   src_post:
   src_img:
   nothing: Aucun article
+  add: Ajouter un article
+  edit: Modifier un article
+  list: Liste des article
 
 user:
   name: Utilisateur
@@ -182,7 +185,10 @@ user:
 
 category:
   name: Catégorie
-  nothing: Aucune Categorie
+  nothing: Aucune Catégorie
+  add: Ajouter une catégorie
+  edit: Modifier un catégorie
+  list: Liste des catégorie
 
 confederation:
   nothing: Aucune Confederation

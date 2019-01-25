@@ -12,20 +12,20 @@
     <table class="table table-striped table-bordered" id="dataTable">
         <thead class="thead-dark">
             <tr>
-                <th>Id</th>
-                <th>Name</th>
+                <th>#</th>
+                <th>Nom</th>
                 <th>CreatedAt</th>
                 <th>UpdatedAt</th>
                 <th>Published</th>
                 <th>Archived</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for thread in threads %}
             <tr>
                 <td>{{ thread.id }}</td>
-                <td>{{ thread.name }}</td>
+                <td><strong>{{ thread.name }}</strong></td>
                 <td>{{ thread.createdAt ? thread.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ thread.updatedAt ? thread.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ thread.published ? 'Yes' : 'No' }}</td>

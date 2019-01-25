@@ -7,7 +7,7 @@
     </li>
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-fw fa-folder"></i>
+            <i class="fas fa-fw fa-newspaper"></i>
             <span>Article</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
@@ -37,7 +37,7 @@
     </li>
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-fw fa-bolt"></i>
+            <i class="fas fa-fw fa-calendar-alt"></i>
             <span>Saisons</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
@@ -48,13 +48,13 @@
     </li>
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-fw fa-bolt"></i>
+            <i class="fas fa-fw fa-clipboard-list"></i>
             <span>Compétition</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-            <a class="dropdown-item" href="{{ path('channel_index') }}"><i class="fas fa-fw fa-tv"></i> Liste des chaînes</a>
-            <a class="dropdown-item" href="{{ path('competition_index') }}"><i class="fas fa-fw fa-tv"></i> Liste des compétitions</a>
-            <a class="dropdown-item" href="{{ path('confederation_index') }}"><i class="fas fa-fw fa-tv"></i> Liste des confedérations</a>
+            <a class="dropdown-item" href="{{ path('channel_index') }}"> Liste des chaînes</a>
+            <a class="dropdown-item" href="{{ path('competition_index') }}"> Liste des compétitions</a>
+            <a class="dropdown-item" href="{{ path('confederation_index') }}"> Liste des confedérations</a>
         </div>
     </li>
     <li class="nav-item dropdown">
@@ -70,15 +70,8 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="{{ path('user_index') }}">
-            <i class="fas fa-fw fa-user"></i>
-            <span>Liste des utilisateurs</span>
-        </a>
-    </li>
-
-    <li class="nav-item">
         <a class="nav-link" href="{{ path('partnership_index') }}">
-            <i class="fas fa-fw fa-user"></i>
+            <i class="fas fa-fw fa-handshake"></i>
             <span>Liste des partenaires</span>
         </a>
     </li>
@@ -87,6 +80,13 @@
         <a class="nav-link" href="{{ path('event_index') }}">
             <i class="fas fa-fw fa-calendar"></i>
             <span>Liste des événements</span>
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{ path('user_index') }}">
+            <i class="fas fa-fw fa-user"></i>
+            <span>Liste des utilisateurs</span>
         </a>
     </li>
 </ul>

@@ -2,9 +2,14 @@
 
 {% block title %}{{ 'clubteam.add'|trans }}{% endblock %}
 
+{% block breadcrumb %}
+    <li class="breadcrumb-item">
+        <a href="{{ path('club_team_index') }}">{{ 'clubteam.name'|trans }}</a>
+    </li>
+{% endblock %}
+
 {% block body %}
 
-    {{ include('back/club_team/_form.html.twig') }}
+    {{ include('Back/club_team/_form.html.twig' , {button_name: 'Ajouter' , icon: 'plus', class: 'success'}) }}
 
-    <a href="{{ path('club_team_index') }}">{{ 'back_list'|trans }}</a>
 {% endblock %}
