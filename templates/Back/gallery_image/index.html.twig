@@ -1,0 +1,20 @@
+{% extends 'Back/base.html.twig' %}
+{% block title %}{{ 'gallery.list'|trans }}{% endblock %}
+
+{% block body %}
+    <a href="{{ path('gallery_image_new') }}">Create new</a>
+    <div class="row">
+    {% for gallery_image in gallery_images %}
+            <div class="col-md-4 mb-3">
+                <div class="card bg-dark text-white">
+                    <img class="card-img" src="{{ vich_uploader_asset(gallery_image, 'imageFile')|default(asset('images/players/default.jpg')) }}" alt="Card image">
+                </div>
+            </div>
+
+    {% else %}
+        <tr>
+            <td colspan="7">no records found</td>
+        </tr>
+    {% endfor %}
+    </div>
+{% endblock %}
