@@ -27,11 +27,11 @@
             </tr>
             <tr>
                 <th>{{ 'game.referee'|trans }}</th>
-                <td>{{ game.referee.firstname }} {{ game.referee.lastname }}</td>
+                <td><a href="{{ path('player_show', {'id': game.referee.id}) }}">{{ game.referee.firstname }} {{ game.referee.lastname }}</a></td>
             </tr>
             <tr>
                 <th>{{ 'game.competition'|trans }}</th>
-                <td>{{ game.competition.name }}</td>
+                <td><a href="{{ path('competition_show', {'id': game.competition.id}) }}">{{ game.competition.name }}</a></td>
             </tr>
             <tr>
                 <th>{{ 'game.stadium'|trans }}</th>
@@ -40,6 +40,10 @@
             <tr>
                 <th>{{ 'game.season'|trans }}</th>
                 <td>{{ game.season.seasonYear }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'game.date'|trans }}</th>
+                <td>{{ game.date ? game.date|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
         </tbody>
     </table>

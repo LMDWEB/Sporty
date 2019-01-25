@@ -60,6 +60,7 @@ game:
   noplayers: Aucun joueur
   nochannel: Aucune chaîne
   nothing: Aucun match
+  date: Date du match
 
 
 config:

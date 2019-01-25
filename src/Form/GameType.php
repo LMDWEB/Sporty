@@ -11,6 +11,7 @@ use App\Entity\Season;
 use App\Entity\Stadium;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -38,6 +39,12 @@ class GameType extends AbstractType
                 'multiple' => true,
                 'required'=> false,
                 'attr' => array('class' => 'selectize')
+            ])
+
+            ->add('date', DateType::class , [
+                'label' => 'game.date',
+                'required'=> true,
+                'attr' => array('class' => 'form-control')
             ])
 
             ->add('team_home', EntityType::class , [

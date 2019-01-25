@@ -87,6 +87,11 @@ class Game
      */
     private $players;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $date;
+
 
     public function __construct()
     {
@@ -307,6 +312,18 @@ class Game
         if ($this->players->contains($player)) {
             $this->players->removeElement($player);
         }
+
+        return $this;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date): self
+    {
+        $this->date = $date;
 
         return $this;
     }
