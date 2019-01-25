@@ -1,0 +1,43 @@
+{% extends 'Back/base.html.twig' %}
+
+{% block title %}Stadium {% endblock %}
+
+{% block body %}
+    <h1>Stadium index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Capacity</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>Archived</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for stadium in stadia %}
+            <tr>
+                <td>{{ stadium.id }}</td>
+                <td>{{ stadium.name }}</td>
+                <td>{{ stadium.capacity }}</td>
+                <td>{{ stadium.createdAt ? stadium.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ stadium.updatedAt ? stadium.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ stadium.archived ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('stadium_show', {'id': stadium.id}) }}">show</a>
+                    <a href="{{ path('stadium_edit', {'id': stadium.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('stadium_new') }}">Create new</a>
+{% endblock %}

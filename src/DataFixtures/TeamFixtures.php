@@ -12,9 +12,7 @@ class TeamFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $faker = \Faker\Factory::create();
-
         $teamArray = json_decode(file_get_contents("http://localhost:8000/json/typeTeams.json"));
-
         $date = $faker->dateTime();
 
         foreach ($teamArray as  $team) {

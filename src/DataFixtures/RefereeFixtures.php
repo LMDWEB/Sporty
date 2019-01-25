@@ -6,11 +6,11 @@ use App\Entity\Player;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class PlayerFixtures extends Fixture
+class RefereeFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        $link = "http://localhost:8000/json/playerl1.json";
+        $link = "http://localhost:8000/json/referee.json";
         $joueurs = json_decode(file_get_contents($link));
 
         $playerArray = array();
@@ -40,7 +40,7 @@ class PlayerFixtures extends Fixture
                 "dateBirth" => new \DateTime($dateBirth),
                 "foot" => $foot,
                 "nationality" => $nationality,
-                "status" => 0
+                "status" => 1
             );
 
         }
@@ -59,7 +59,7 @@ class PlayerFixtures extends Fixture
                 ->setStatus($player["status"])
                 ->setFullname($player["firstname"])
                 ->setPosition($player["position"])
-                ->setHeight("1,87 m")
+                ->setHeight("1,67 m")
             ;
 
             $manager->persist($players);

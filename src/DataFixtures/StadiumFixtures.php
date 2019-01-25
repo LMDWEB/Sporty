@@ -12,23 +12,19 @@ class StadiumFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $faker = \Faker\Factory::create();
-
+        $stadiums = json_decode(file_get_contents("http://localhost:8000/json/stadium.json"));
         $date = $faker->dateTime();
-        $team = (new Stadium())
-            ->setName('Allianz Arena')
-            ->setCreatedAt($date)
-            ->setUpdatedAt($date)
-        ;
 
-        $manager->persist($team);
+        foreach ($stadiums as  $stadium) {
+            $stad = (new Stadium())
+                ->setName($stadium->name)
+                ->setCapacity($stadium->capacity)
+                ->setCreatedAt($date)
+                ->setUpdatedAt($date)
+            ;
 
-        $team = (new Stadium())
-            ->setName('Parc des Princes')
-            ->setCreatedAt($date)
-            ->setUpdatedAt($date)
-        ;
-
-        $manager->persist($team);
+            $manager->persist($stad);
+        }
 
         $manager->flush();
     }

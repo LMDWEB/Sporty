@@ -5,7 +5,13 @@
             <div class="row">
                 <div class="col-md-6 kode_bg_white">
                     <ul class="top_slider_bxslider">
-                        <li><span class="kode-barinfo"><strong>Latest News : </strong> Lorem ipsum dolor sit amet, cons ecte tuer adipiscing elit,</span></li>
+                        {% for article in news %}
+                        <li>
+                            <span class="kode-barinfo">
+                                <strong>{{ article.category.name }} : </strong> {{ article.title }}
+                            </span>
+                        </li>
+                        {% endfor %}
                     </ul>
                 </div>
                 <div class="col-md-6">
@@ -57,7 +63,7 @@
             <!--LOGO START-->
             <div class="logo">
                 <a href="{{ path('homepage') }}" class="logo">
-                    <img src="{{ asset('images/logo.png') }}" alt="">
+                    <img src="{{ asset(logo) }}" alt="">
                 </a>
             </div>
             <!--LOGO END-->

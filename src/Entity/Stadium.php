@@ -32,6 +32,11 @@ class Stadium
      */
     private $clubTeams;
 
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $capacity;
+
     public function __construct()
     {
         $this->clubTeams = new ArrayCollection();
@@ -81,6 +86,18 @@ class Stadium
                 $clubTeam->setStadium(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCapacity(): ?string
+    {
+        return $this->capacity;
+    }
+
+    public function setCapacity(string $capacity): self
+    {
+        $this->capacity = $capacity;
 
         return $this;
     }

@@ -139,12 +139,16 @@ jQuery(document).ready(function(){
     /* ---------------------------------------------------------------------- */
 	/*	Click to Top 
 	/* ---------------------------------------------------------------------- */
-	if($('#kodeCountdown').length){
-		var austDay = new Date();
-		austDay = new Date(2016,10,1,1,1,0);
-		jQuery('#kodeCountdown').countdown({until: austDay});
-		jQuery('#year').text(austDay.getFullYear());
-	}
+    if($('#kodeCountdown').length) {
+
+        var date = $("#kodeCountdown").attr('data-date');
+        var austDay = new Date(date);
+
+        console.log(austDay);
+
+        jQuery('#kodeCountdown').countdown({until: austDay});
+        jQuery('#year').text(austDay.getFullYear());
+    }
 
     /* ---------------------------------------------------------------------- */
 	/*	Click to Top 

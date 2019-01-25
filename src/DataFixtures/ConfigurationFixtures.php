@@ -19,6 +19,18 @@ class ConfigurationFixtures extends Fixture
 
             ),
             array(
+                "name" => "logo",
+                "value" => "images/logo.png",
+                "type" => 0,
+
+            ),
+            array(
+                "name" => "favicon",
+                "value" => "images/favicon.png",
+                "type" => 0,
+
+            ),
+            array(
                 "name" => "description",
                 "value" => "",
                 "type" => 0,

@@ -1,0 +1,82 @@
+[
+	{
+		"name": "Stade Crédit Agricole de la Licorne",
+		"capacity": "11534"
+	},
+	{
+		"name": "Stade Raymond Kopa",
+		"capacity": "17061"
+	},
+	{
+		"name": "Matmut Atlantique",
+		"capacity": "42115"
+	},
+	{
+		"name": "Stade Michel d'Ornano",
+		"capacity": "21068"
+	},
+	{
+		"name": "Stade Gaston Gérard",
+		"capacity": "15459"
+	},
+	{
+		"name": "Groupama Stadium",
+		"capacity": "59186"
+	},
+	{
+		"name": "Stade Municipal de Roudourou",
+		"capacity": "19033"
+	},
+	{
+		"name": "Orange Vélodrome",
+		"capacity": "65960"
+	},
+	{
+		"name": "Stade Louis II",
+		"capacity": "18174"
+	},
+	{
+		"name": "Stade de la Mosson - Mondial 98",
+		"capacity": "22000"
+	},
+	{
+		"name": "Stade de La Beaujoire - Louis Fonteneau",
+		"capacity": "37555"
+	},
+	{
+		"name": "Allianz Riviera",
+		"capacity": "35624"
+	},
+	{
+		"name": "Stade des Costières",
+		"capacity": "15788"
+	},
+	{
+		"name": "Parc des Princes",
+		"capacity": "47929"
+	},
+	{
+		"name": "Stade Auguste Delaune",
+		"capacity": "20546"
+	},
+	{
+		"name": "Roazhon Park",
+		"capacity": "29269"
+	},
+	{
+		"name": "Stade Geoffroy Guichard",
+		"capacity": "41965"
+	},
+	{
+		"name": "Stade de la Meinau",
+		"capacity": "29371"
+	},
+	{
+		"name": "Stadium",
+		"capacity": "33150"
+	},
+	{
+		"name": "Stade Pierre Mauroy",
+		"capacity": "49834"
+	}
+]

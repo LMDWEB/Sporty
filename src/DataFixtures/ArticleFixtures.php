@@ -20,7 +20,7 @@ class ArticleFixtures extends Fixture implements DependentFixtureInterface
         $user =  $manager->getRepository(User::class)->findAll();
         $player =  $manager->getRepository(Player::class)->findAll();
 
-        for ($i = 0; $i < 20; $i++) {
+        for ($i = 0; $i < 50; $i++) {
             $date = $faker->dateTime();
             $article = (new Article())
                 ->setTitle($faker->text(50))
@@ -34,10 +34,10 @@ class ArticleFixtures extends Fixture implements DependentFixtureInterface
                 ->setUpdatedAt($date)
                 ->setType($faker->boolean)
                 ->setFeatured($faker->boolean)
-                ->setPublished($faker->boolean)
+                ->setPublished(1)
                 ->setArchived($faker->boolean)
-                ->setSourceArticle("")
-                ->setSourceImage("")
+                ->setSourceArticle("L'Equipe")
+                ->setSourceImage("default.png")
                 ->addPlayer($player[array_rand($player)])
             ;
             $manager->persist($article);

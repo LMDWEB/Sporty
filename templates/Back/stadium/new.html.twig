@@ -1,0 +1,11 @@
+{% extends 'Back/base.html.twig' %}
+
+{% block title %}Stadium {% endblock %}
+
+{% block body %}
+    <h1>Create new Stadium</h1>
+
+    {{ include('back/stadium/_form.html.twig') }}
+
+    <a href="{{ path('stadium_index') }}">back to list</a>
+{% endblock %}

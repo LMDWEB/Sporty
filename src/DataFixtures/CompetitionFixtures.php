@@ -26,17 +26,18 @@ class CompetitionFixtures extends Fixture implements DependentFixtureInterface
             $compet = (new Competition())
                 ->setName($competition->name)
                 ->setFormat($competition->format)
-                ->setCreatedAt($date)
-                ->setUpdatedAt($date)
+                ->setDivision($competition->division)
+                ->setTypeClub($competition->type)
                 ->setSection($team)
                 ->setConfederation($conf)
-                ->setDivision($competition->division)
                 ->setCreatedAt($date)
                 ->setUpdatedAt($date)
-                ->setTypeClub($competition->type)
             ;
+
             $manager->persist($compet);
         }
+
+        $manager->flush();
     }
 
     public function getDependencies()

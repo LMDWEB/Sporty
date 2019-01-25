@@ -1,12 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SymFootball | {% block title %}Home!{% endblock %}</title>
-    <!-- Custom fonts for this template-->
-    {{ encore_entry_link_tags('front') }}
+    {{ render(controller('App\\Controller\\Front\\DefaultController::head')) }}
 </head>
 <body>
     <div class="kode-wrapper">
@@ -16,21 +11,20 @@
         <!--// FOOTER //-->
         {{ render(controller('App\\Controller\\Front\\DefaultController::footer')) }}
     </div>
-<!-- Bootstrap core JavaScript-->
-<script src="{{ asset('front/js/jquery.js') }}"></script>
-<script src="{{ asset('front/js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('front/js/jquery.flexslider.js') }}"></script>
-<script src="{{ asset('front/js/owl.carousel.min.js') }}"></script>
-<script src="{{ asset('front/js/jquery.countdown.js') }}"></script>
-<script src="{{ asset('front/js/waypoints-min.js') }}"></script>
-<script src="{{ asset('front/js/jquery.bxslider.min.js') }}"></script>
-<script src="{{ asset('front/js/bootstrap-progressbar.js') }}"></script>
-<script src="{{ asset('front/js/jquery.accordion.js') }}"></script>
-<script src="{{ asset('front/js/jquery.circlechart.js') }}"></script>
-<script src="{{ asset('front/js/jquery.prettyphoto.js') }}"></script>
-<script src="{{ asset('front/js/kode_pp.js') }}"></script>
-<script src="{{ asset('front/js/functions.js') }}"></script>
-{% block javascripts %}
-{% endblock %}
+    <!-- Bootstrap core JavaScript-->
+    <script src="{{ asset('front/js/jquery.js') }}"></script>
+    <script src="{{ asset('front/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('front/js/jquery.flexslider.js') }}"></script>
+    <script src="{{ asset('front/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('front/js/jquery.countdown.js') }}"></script>
+    <script src="{{ asset('front/js/waypoints-min.js') }}"></script>
+    <script src="{{ asset('front/js/jquery.bxslider.min.js') }}"></script>
+    <script src="{{ asset('front/js/bootstrap-progressbar.js') }}"></script>
+    <script src="{{ asset('front/js/jquery.accordion.js') }}"></script>
+    <script src="{{ asset('front/js/jquery.circlechart.js') }}"></script>
+    <script src="{{ asset('front/js/jquery.prettyphoto.js') }}"></script>
+    <script src="{{ asset('front/js/kode_pp.js') }}"></script>
+    <script src="{{ asset('front/js/functions.js') }}"></script>
+    {% block javascripts %}{% endblock %}
 </body>
 </html>

@@ -74,9 +74,9 @@
                                 {% for player in article.player %}
                                     <li class="col-md-4">
                                         <a href="{{ path('player', {'id': player.id, 'slug': player.slug }) }}" class="related-thumb th-bordercolor">
-                                            <img src="{{ vich_uploader_asset(player, 'imageFile') }}" alt=""></a>
+                                            <img src="{{ vich_uploader_asset(player, 'imageFile')|default(asset('images/players/default.jpg')) }}" width="50" alt="{{ player.fullname }}"></a>
                                         <div class="related-text">
-                                            <h3><a href="{{ path('player', { 'slug': player.slug }) }}">{{ player.firstname }} {{ player.lastname }}</a></h3>
+                                            <h3><a href="{{ path('player', {'id': player.id, 'slug': player.slug }) }}">{{ player.fullname }}</a></h3>
                                         </div>
                                     </li>
                                 {% endfor %}

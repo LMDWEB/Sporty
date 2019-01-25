@@ -1,0 +1,41 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="{{ asset(favicon) }}" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ name }} | {% block title %}Home!{% endblock %}</title>
+<meta name="description" content="{% block description %}{{ description }}{% endblock %} ">
+<!-- twitter card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@{{ twitter }}" />
+<meta name="twitter:creator" content="@{{ twitter }}" />
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="">
+
+<meta property="og:url" content="" />
+<meta property="og:title" content="" />
+<meta property="og:description" content="" />
+<meta property="og:image" content="" />
+<meta property="og:url" content="" />
+
+<!--  Open graph -->
+<meta property="og:type" content="article" />
+<meta property="og:title" content="" />
+<meta property="og:description" content="" />
+<meta property="og:image" content="" />
+
+<script type='application/ld+json'>
+    {
+        "@context": "http://www.schema.org",
+        "@type": "WebSite",
+        "name": "Le Meilleur du PSG",
+        "alternateName": "{{ name }}",
+        "url": "{{ app.request.getBaseURL() }}"
+    }
+</script>
+
+<!-- Custom fonts for this template-->
+{{ encore_entry_link_tags('front') }}
