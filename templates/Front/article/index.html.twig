@@ -169,12 +169,15 @@
                                 </ul>
                             </div>
                         {% endif %}
+
+                        {% if app.user %}
                         <div id="koderespond">
                             <div class="kode-section-title">
                                 <h2>Poster un commentaire</h2>
                             </div>
                             {{ include('Front/article/_form.html.twig') }}
                         </div>
+                        {% endif %}
                     </div>
 
                     <aside class="kode-pagesidebar col-md-3">
