@@ -14,7 +14,7 @@ class CompetitionFixtures extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager)
     {
         $faker = \Faker\Factory::create();
-        $baseUrl = "https://raw.githubusercontent.com/LMDWEB/Sporty/master/public/json";
+        $baseUrl = "https://raw.githubusercontent.com/LMDWEB/Sporty/master/public/json/";
         $link = $baseUrl . "competition.json";
         $competitions = json_decode(file_get_contents($link));
 
