@@ -10,8 +10,8 @@ class CategoryFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $faker = \Faker\Factory::create();
-
-        $link = "http://localhost:8000/json/category.json";
+        $baseUrl = "https://raw.githubusercontent.com/LMDWEB/Sporty/master/public/json";
+        $link = $baseUrl . "category.json";
         $categories = json_decode(file_get_contents($link));
 
         foreach ($categories as $category) {
