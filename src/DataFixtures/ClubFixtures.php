@@ -12,7 +12,7 @@ class ClubFixtures extends Fixture
     {
 
         $baseUrl = "https://raw.githubusercontent.com/LMDWEB/Sporty/master/public/json";
-        $clubArray = json_decode(file_get_contents($baseUrl . "/teaml1.json"));
+        $clubArray = json_decode(file_get_contents($baseUrl . "/teamL1.json"));
 
         foreach ($clubArray as  $club) {
             $clubs = new Club();
