@@ -11,7 +11,8 @@ class ClubFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
 
-        $clubArray = json_decode(file_get_contents("http://localhost:8000/json/teaml1.json"));
+        $baseUrl = "https://raw.githubusercontent.com/LMDWEB/Sporty/master/public/json";
+        $clubArray = json_decode(file_get_contents($baseUrl . "/teaml1.json"));
 
         foreach ($clubArray as  $club) {
             $clubs = new Club();

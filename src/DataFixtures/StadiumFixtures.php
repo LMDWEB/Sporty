@@ -12,7 +12,9 @@ class StadiumFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $faker = \Faker\Factory::create();
-        $stadiums = json_decode(file_get_contents("http://localhost:8000/json/stadium.json"));
+
+        $baseUrl = "https://raw.githubusercontent.com/LMDWEB/Sporty/master/public/json";
+        $stadiums = json_decode(file_get_contents($baseUrl . "/stadium.json"));
         $date = $faker->dateTime();
 
         foreach ($stadiums as  $stadium) {

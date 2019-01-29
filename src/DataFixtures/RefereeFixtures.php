@@ -10,7 +10,8 @@ class RefereeFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        $link = "http://localhost:8000/json/referee.json";
+        $baseUrl = "https://raw.githubusercontent.com/LMDWEB/Sporty/master/public/json";
+        $link = $baseUrl . "/referee.json";
         $joueurs = json_decode(file_get_contents($link));
 
         $playerArray = array();

@@ -12,7 +12,8 @@ class TeamFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $faker = \Faker\Factory::create();
-        $teamArray = json_decode(file_get_contents("http://localhost:8000/json/typeTeams.json"));
+        $baseUrl = "https://raw.githubusercontent.com/LMDWEB/Sporty/master/public/json";
+        $teamArray = json_decode(file_get_contents($baseUrl . "/typeTeams.json"));
         $date = $faker->dateTime();
 
         foreach ($teamArray as  $team) {
